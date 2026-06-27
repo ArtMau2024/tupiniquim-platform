@@ -2,8 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-// ✅ gera os slugs corretamente
-export async function generateStaticParams() {
+export function generateStaticParams() {
   const postsDirectory = path.join(process.cwd(), "content", "posts");
   const files = fs.readdirSync(postsDirectory);
 
@@ -12,41 +11,20 @@ export async function generateStaticParams() {
   }));
 }
 
-// ✅ COMPORTAMENTO CORRETO para Next moderno
-export default async function PostPage({
+export default function PostPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }) {
-  // ✅ AGORA SIM: resolve corretamente
-  const { slug } = await params;
-
-  if (!slug) {
-    return (
-      <article>
-        <h2>Post não encontrado</h2>
-        <p>Slug indefinido</p>
-      </article>
-    );
-  }
-
   const filePath = path.join(
     process.cwd(),
     "content",
     "posts",
-    `${slug}.mdx`
+    `${params.slug}.mdx`
   );
 
-  if (!fs.existsSync(filePath)) {
-    return (
-      <article>
-        <h2>Post não encontrado</h2>
-        <p>Arquivo não encontrado</p>
-      </article>
-    );
-  }
-
   const fileContents = fs.readFileSync(filePath, "utf8");
+
   const { data, content } = matter(fileContents);
 
   return (
