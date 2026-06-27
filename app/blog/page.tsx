@@ -1,52 +1,65 @@
 import { getAllPosts } from "@/lib/posts";
 import Link from "next/link";
 
-export default function Home() {
+export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
     <main>
-      <h1 style={{ marginBottom: "20px" }}>Blog</h1>
+      <h1 style={{ marginBottom: "24px" }}>Blog</h1>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
         {posts.map((post: any) => (
-          <Link
-            key={post.slug}
-            href={`/blog/${post.slug}`}
-            style={{
-              textDecoration: "none",
-              color: "inherit",
-            }}
-          >
-            <div
-              style={{
-                padding: "20px",
-                borderRadius: "8px",
-                border: "1px solid #eee",
-                backgroundColor: "#fafafa",
-                transition: "all 0.2s ease",
-                cursor: "pointer",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#f0f0f0";
-                e.currentTarget.style.transform = "translateY(-2px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#fafafa";
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
-            >
-              <h2 style={{ margin: "0 0 8px 0", fontSize: "20px" }}>
-                {post.title}
-              </h2>
-
-              <p style={{ margin: 0, color: "#666", fontSize: "14px" }}>
-                {post.date}
-              </p>
+          <Link key={post.slug} href={`/blog/${post.slug}`} style={{ textDecoration: "none" }}>
+            <div className="post-card">
+              <h2 className="post-title">{post.title}</h2>
+              <p className="post-date">{post.date}</p>
             </div>
           </Link>
         ))}
       </div>
+
+      <style>{`
+        .post-card {
+          padding: 28px;
+          border-radius: 12px;
+          background: #ffffff;
+
+          border: 1px solid #eaeaea;
+
+          box-shadow: 
+            0 2px 6px rgba(0,0,0,0.04),
+            0 8px 20px rgba(0,0,0,0.06);
+
+          transition: all 0.25s ease;
+        }
+
+        .post-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 
+            0 6px 12px rgba(0,0,0,0.08),
+            0 16px 30px rgba(0,0,0,0.12);
+
+          border-color: #ddd;
+        }
+
+        .post-title {
+          margin: 0 0 12px 0;
+          font-size: 22px;
+          font-weight: 600;
+          transition: color 0.2s ease;
+        }
+
+        .post-card:hover .post-title {
+          color: #0070f3;
+        }
+
+        .post-date {
+          margin: 0;
+          color: #888;
+          font-size: 14px;
+        }
+      `}</style>
     </main>
   );
 }
