@@ -45,11 +45,6 @@ export default function Home() {
           margin: 0 0 12px 0;
           font-size: 22px;
           font-weight: 600;
-          transition: color 0.2s ease;
-        }
-
-        .post-card:hover .post-title {
-          color: #0070f3;
         }
 
         .post-date {
