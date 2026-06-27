@@ -2,29 +2,29 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
+// ✅ garantir geração correta das rotas
 export function generateStaticParams() {
   const postsDirectory = path.join(process.cwd(), "content", "posts");
   const files = fs.readdirSync(postsDirectory);
 
   return files.map((file) => ({
-    slug: file.replace(".mdx", "").trim(),
+    slug: file.replace(".mdx", ""),
   }));
 }
 
-export default function PostPage({
+// ✅ resolver problema do params em produção
+export default async function PostPage({
   params,
 }: {
   params: { slug: string };
 }) {
-  if (!params?.slug) {
-    return <div>Post inválido</div>;
-  }
+  const slug = params.slug;
 
   const filePath = path.join(
     process.cwd(),
     "content",
     "posts",
-    `${params.slug}.mdx`
+    `${slug}.mdx`
   );
 
   if (!fs.existsSync(filePath)) {
