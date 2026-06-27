@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-// ✅ garantir geração correta das rotas
 export function generateStaticParams() {
   const postsDirectory = path.join(process.cwd(), "content", "posts");
   const files = fs.readdirSync(postsDirectory);
@@ -12,13 +11,16 @@ export function generateStaticParams() {
   }));
 }
 
-// ✅ resolver problema do params em produção
 export default async function PostPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const slug = params.slug;
+  const { slug } = await params;
+
+  if (!slug) {
+    return <div>Post inválido</div>;
+  }
 
   const filePath = path.join(
     process.cwd(),
@@ -32,21 +34,12 @@ export default async function PostPage({
   }
 
   const fileContents = fs.readFileSync(filePath, "utf8");
-
   const { data, content } = matter(fileContents);
 
   return (
-    <article style={{ lineHeight: 1.6 }}>
-      <h1 style={{ fontSize: "28px", marginBottom: "8px" }}>
-        {data.title}
-      </h1>
-
-      <p style={{ color: "#666", marginBottom: "20px" }}>
-        {data.date}
-      </p>
-
-      <hr style={{ marginBottom: "20px" }} />
-
+    <article>
+      <h1>{data.title}</h1>
+      <p>{data.date}</p>
       <div>{content}</div>
     </article>
   );
