@@ -9,38 +9,82 @@ export default function Home() {
   const business = posts.filter((p: any) => p.category === "negócios");
 
   return (
-    <main>
+  <main>
 
-      {/* HERO */}
-      <section style={{ marginBottom: "40px" }}>
-        <Link href={`/blog/${main.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
-          <h1 style={{ fontSize: "30px" }}>{main.title}</h1>
-          <p>{main.date}</p>
-        </Link>
-      </section>
+    {/* HERO */}
+    <section style={{ marginBottom: "40px" }}>
+      <div className="hero">
+        <h1 className="hero-title">{posts[0].title}</h1>
+        <p className="hero-date">{posts[0].date}</p>
+      </div>
+    </section>
 
+    {/* GRID PRINCIPAL */}
+    <section className="grid">
       {/* TECNOLOGIA */}
-      <section style={{ marginBottom: "32px" }}>
-        <h2>Tecnologia</h2>
+      <div>
+        <h2>🖥 Tecnologia</h2>
         {tech.map((post: any) => (
           <Link key={post.slug} href={`/blog/${post.slug}`}>
-            <p>{post.title}</p>
+            <div className="card">
+              {post.title}
+            </div>
           </Link>
         ))}
-      </section>
+      </div>
 
       {/* NEGÓCIOS */}
-      <section>
-        <h2>Negócios</h2>
+      <div>
+        <h2>💼 Negócios</h2>
         {business.map((post: any) => (
           <Link key={post.slug} href={`/blog/${post.slug}`}>
-            <p>{post.title}</p>
+            <div className="card">
+              {post.title}
+            </div>
           </Link>
         ))}
-      </section>
+      </div>
+    </section>
 
-    </main>
-  );
+    <style>{`
+      .hero {
+        background: #111;
+        color: #fff;
+        padding: 30px;
+        border-radius: 12px;
+      }
+
+      .hero-title {
+        font-size: 28px;
+        margin: 0 0 10px 0;
+      }
+
+      .hero-date {
+        color: #aaa;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .card {
+        padding: 16px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        background: #fafafa;
+        transition: 0.2s;
+      }
+
+      .card:hover {
+        background: #f0f0f0;
+        transform: translateY(-2px);
+      }
+    `}</style>
+  </main>
+);
 }
   const posts = getAllPosts();
 
