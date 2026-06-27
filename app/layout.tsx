@@ -2,7 +2,7 @@ import "./globals.css";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Meu Blog",
+  title: "Tupiniquim",
   description: "Blog criado com Next.js",
 };
 

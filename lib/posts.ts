@@ -24,6 +24,7 @@ export function getAllPosts(): Post[] {
       title: data.title || "Sem título",
       date: data.date || "",
       category: data.category || "geral",
+      image: data.image || null,
     };
   });
 }
