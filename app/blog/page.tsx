@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic";
 import { getAllPosts } from "@/lib/posts";
 import Link from "next/link";
 
