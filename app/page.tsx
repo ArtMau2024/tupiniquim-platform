@@ -16,6 +16,7 @@ export default function Home() {
 
   return (
     <main>
+      <h1>ID BUILD: 001</h1>
 
       {/* HERO */}
       <section style={{ marginBottom: "40px" }}>
