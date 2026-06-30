@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm install && next build && npx opennextjs-cloudflare build",
+    "build": "npm install && next build && ./node_modules/.bin/opennextjs-cloudflare build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "npx opennextjs-cloudflare build && npx opennextjs-cloudflare deploy",
+    "deploy": "./node_modules/.bin/opennextjs-cloudflare deploy",
     "preview": "npx opennextjs-cloudflare preview"
   },
   "dependencies": {
