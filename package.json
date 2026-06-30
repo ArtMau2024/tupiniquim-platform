@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm install && next build",
+    "build": "npm install && next build && ./node_modules/.bin/opennextjs-cloudflare build",
     "start": "next start",
     "lint": "eslint",
     "deploy": "npx -y @cloudflare/next-on-pages",
@@ -19,8 +19,8 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
-  "@types/node": "^20.0.0",
-  "@types/react": "^18.0.0",
-  "typescript": "^5.0.0"
-}
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "typescript": "^5.0.0"
+  }
 }
