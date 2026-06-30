@@ -2,18 +2,16 @@
   "name": "tupiniquim-platform",
   "version": "0.1.0",
   "private": true,
-
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-
     "deploy": "npx opennextjs-cloudflare deploy",
     "preview": "npx opennextjs-cloudflare preview"
   },
-
   "dependencies": {
+    "@tailwindcss/postcss": "^4.3.2",
     "gray-matter": "^4.0.3",
     "next": "16.2.9",
     "react": "^18.0.0",
