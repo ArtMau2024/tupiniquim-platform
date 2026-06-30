@@ -1,61 +1,97 @@
 import { getAllPosts } from "@/lib/posts";
 import Link from "next/link";
+import Image from "next/image";
+
+export const metadata = {
+  title: "Blog | Tupiniquim",
+  description:
+    "Conteúdos sobre tecnologia, negócios e inovação da Tupiniquim.",
+};
 
 export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
     <main>
-      <h1 style={{ marginBottom: "24px", fontSize: "28px" }}>
-        Blog
-      </h1>
+      {/* HERO */}
+      <section className="hero-blog">
+        <h1>Blog Tupiniquim</h1>
+        <p>Conteúdos sobre tecnologia e crescimento digital.</p>
+      </section>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+      {/* LISTA */}
+      <section className="list">
         {posts.map((post: any) => (
-          <Link key={post.slug} href={`/blog/${post.slug}`} style={{ textDecoration: "none" }}>
+          <Link
+            key={post.slug}
+            href={`/blog/${post.slug}`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
             <div className="post-card">
-              <h2 className="post-title">{post.title}</h2>
-              <p className="post-date">{post.date}</p>
+              
+              {post.image && (
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  width={120}
+                  height={80}
+                  className="thumb"
+                />
+              )}
+
+              <div>
+                <h2 className="post-title">{post.title}</h2>
+                <p>{post.date}</p>
+              </div>
+
             </div>
           </Link>
         ))}
-      </div>
+      </section>
 
       <style>{`
+        .hero-blog {
+          background: linear-gradient(120deg,#111,#1B5E20);
+          color: white;
+          padding: 40px;
+          border-radius: 10px;
+          margin-bottom: 30px;
+        }
+
+        .list {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
         .post-card {
-          padding: 28px;
-          border-radius: 12px;
-          background: #ffffff;
-          border: 1px solid #eaeaea;
-          box-shadow: 
-            0 2px 6px rgba(0,0,0,0.04),
-            0 8px 20px rgba(0,0,0,0.06);
-          transition: all 0.25s ease;
+          display: flex;
+          gap: 16px;
+          align-items: center;
+          padding: 16px;
+          border: 1px solid #ddd;
+          border-radius: 10px;
+          background: #fff;
+          transition: 0.2s;
+          cursor: pointer;
         }
 
         .post-card:hover {
-          transform: translateY(-6px);
-          box-shadow: 
-            0 6px 12px rgba(0,0,0,0.08),
-            0 16px 30px rgba(0,0,0,0.12);
-          border-color: #ddd;
+          border-color: #2E7D32;
         }
 
         .post-title {
-          margin: 0 0 12px 0;
-          font-size: 22px;
-          font-weight: 600;
-          transition: color 0.2s ease;
+          margin-bottom: 5px;
+          transition: 0.2s;
         }
 
         .post-card:hover .post-title {
-          color: #0070f3;
+          color: #2E7D32;
         }
 
-        .post-date {
-          margin: 0;
-          color: #888;
-          font-size: 14px;
+        .thumb {
+          border-radius: 8px;
+          object-fit: cover;
         }
       `}</style>
     </main>

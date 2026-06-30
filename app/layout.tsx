@@ -2,8 +2,32 @@ import "./globals.css";
 import Link from "next/link";
 
 export const metadata = {
-  title: "HOME",
-  description: "Portal de notícias",
+  metadataBase: new URL("https://tupiniquim.com"),
+
+  title: {
+    default: "Tupiniquim",
+    template: "%s | Tupiniquim",
+  },
+
+  description:
+    "Tecnologia, inovação e conteúdo digital para impulsionar negócios com identidade brasileira.",
+
+  openGraph: {
+    title: "Tupiniquim",
+    description:
+      "Tecnologia, inovação e conteúdo digital para impulsionar negócios.",
+    url: "https://tupiniquim.com",
+    siteName: "Tupiniquim",
+    locale: "pt_BR",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Tupiniquim",
+    description:
+      "Soluções digitais com identidade brasileira.",
+  },
 };
 
 export default function RootLayout({
@@ -35,16 +59,21 @@ export default function RootLayout({
               margin: "0 auto",
               display: "flex",
               justifyContent: "space-between",
+              alignItems: "center",
               padding: "0 24px",
             }}
           >
-            {/* ✅ LINK CORRIGIDO */}
-            <Link href="/" style={{ color: "#fff" }}>
-              HOME
+            <Link
+              href="/"
+              style={{ color: "#fff", textDecoration: "none" }}
+            >
+              Tupiniquim
             </Link>
 
-            {/* ✅ LINK CORRIGIDO */}
-            <Link href="/blog" style={{ color: "#fff" }}>
+            <Link
+              href="/blog"
+              style={{ color: "#fff", textDecoration: "none" }}
+            >
               Blog
             </Link>
           </nav>
@@ -87,4 +116,3 @@ export default function RootLayout({
     </html>
   );
 }
-``

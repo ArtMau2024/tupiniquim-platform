@@ -1,48 +1,84 @@
-export const dynamic = "force-dynamic";
-
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import Image from "next/image";
 
-export function generateStaticParams() {
-  const postsDirectory = path.join(process.cwd(), "content", "posts");
-  const files = fs.readdirSync(postsDirectory);
-
-  return files.map((file) => ({
-    slug: file.replace(".mdx", ""),
-  }));
-}
-
-export default async function PostPage({
-  params,
-}: {
+type Props = {
   params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
+};
 
-  if (!slug) {
-    return <div>Post inválido</div>;
-  }
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params;
 
   const filePath = path.join(
     process.cwd(),
-    "content",
-    "posts",
+    "content/posts",
     `${slug}.mdx`
   );
 
   if (!fs.existsSync(filePath)) {
-    return <div>Post não encontrado</div>;
+    return {
+      title: "Post não encontrado | Tupiniquim",
+    };
   }
 
-  const fileContents = fs.readFileSync(filePath, "utf8");
-  const { data, content } = matter(fileContents);
+  const fileContent = fs.readFileSync(filePath, "utf-8");
+  const { data } = matter(fileContent);
+
+  return {
+    title: data.title,
+    description: data.description,
+
+    openGraph: {
+      title: data.title,
+      description: data.description,
+      images: [data.image],
+      type: "article",
+    },
+  };
+}
+
+export default async function PostPage({ params }: Props) {
+  const { slug } = await params;
+
+  const filePath = path.join(
+    process.cwd(),
+    "content/posts",
+    `${slug}.mdx`
+  );
+
+  if (!fs.existsSync(filePath)) {
+    return <h1>Post não encontrado</h1>;
+  }
+
+  const fileContent = fs.readFileSync(filePath, "utf-8");
+  const { data, content } = matter(fileContent);
 
   return (
-    <article>
-      <h1>{data.title}</h1>
-      <p>{data.date}</p>
-      <div>{content}</div>
+    <article style={{ padding: "20px" }}>
+      
+      {data.image && (
+        <Image
+          src={data.image}
+          alt={data.title}
+          width={800}
+          height={400}
+          style={{ borderRadius: "10px", marginBottom: "20px" }}
+        />
+      )}
+
+      <h1 style={{ fontSize: "28px", marginBottom: "10px" }}>
+        {data.title}
+      </h1>
+
+      <p style={{ color: "#666", marginBottom: "20px" }}>
+        {data.date}
+      </p>
+
+      <hr />
+
+      <div style={{ marginTop: "20px" }}>{content}</div>
+
     </article>
   );
 }

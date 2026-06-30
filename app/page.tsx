@@ -1,173 +1,190 @@
-import { getAllPosts } from "@/lib/posts";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Tupiniquim",
+  description:
+    "Tecnologia, inovação e conteúdo digital para impulsionar negócios.",
+};
+
 export default function Home() {
-
-  const posts = getAllPosts() || [];
-
-  const main = posts.length > 0 ? posts[0] : null;
-  const tech = posts.filter((p: any) => p.category === "tecnologia");
-  const business = posts.filter((p: any) => p.category === "negócios");
-
   return (
     <main>
 
       {/* HERO */}
-      {main && (
-        <section style={{ marginBottom: "30px" }}>
-          <Link href={`/blog/${main.slug}`}>
-            <div className="hero">
-              <div className="hero-overlay">
-                <h1>{main.title}</h1>
-                <p>{main.date}</p>
-              </div>
-            </div>
-          </Link>
-        </section>
-      )}
+      <section className="hero">
+        <div className="hero-content">
+          <h1>
+            Tecnologia e conteúdo para crescer no digital
+          </h1>
 
-      {/* GRID PRINCIPAL */}
-      <section className="cnn-grid">
+          <p>
+            A Tupiniquim cria soluções digitais com identidade brasileira,
+            combinando tecnologia, estratégia e inovação.
+          </p>
 
-        {/* COLUNA PRINCIPAL */}
-        <div className="main-column">
+          <div className="hero-actions">
+            <button className="btn primary">
+              Conhecer soluções
+            </button>
 
-          <h2>🖥 Tecnologia</h2>
-
-          {tech.length === 0 ? (
-            <p style={{ color: "#999" }}>Sem conteúdo</p>
-          ) : (
-            tech.map((post: any) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`}>
-                <div className="card large">{post.title}</div>
-              </Link>
-            ))
-          )}
-
+            <Link href="/blog">
+              <button className="btn secondary">
+                Acessar blog
+              </button>
+            </Link>
+          </div>
         </div>
+      </section>
 
-        {/* SIDEBAR */}
-        <div className="sidebar">
+      {/* SERVIÇOS */}
+      <section className="section">
+        <h2>Nossas soluções</h2>
 
-          <h2>💼 Negócios</h2>
-
-          {business.length === 0 ? (
-            <p style={{ color: "#999" }}>Sem conteúdo</p>
-          ) : (
-            business.map((post: any) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`}>
-                <div className="card small">{post.title}</div>
-              </Link>
-            ))
-          )}
-
-          <div className="widget">
-            <h3>🔥 Mais lidas</h3>
-            {posts.slice(0, 3).map((post: any) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`}>
-                <p className="mini-link">{post.title}</p>
-              </Link>
-            ))}
+        <div className="grid-3">
+          <div className="card">
+            <h3>Desenvolvimento Web</h3>
+            <p>Criação de aplicações modernas e escaláveis.</p>
           </div>
 
-        </div>
+          <div className="card">
+            <h3>Conteúdo Estratégico</h3>
+            <p>Produção voltada para tráfego e autoridade digital.</p>
+          </div>
 
-      </section>
-
-      {/* 🔥 NOVA SEÇÃO (remove o vazio) */}
-      <section style={{ marginTop: "40px" }}>
-        <h2>🆕 Últimas notícias</h2>
-
-        <div className="news-grid">
-          {posts.map((post: any) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`}>
-              <div className="card news">
-                <strong>{post.title}</strong>
-                <span>{post.date}</span>
-              </div>
-            </Link>
-          ))}
+          <div className="card">
+            <h3>Inovação Digital</h3>
+            <p>Soluções criativas com foco em resultado e crescimento.</p>
+          </div>
         </div>
       </section>
 
-      {/* ESTILOS */}
+      {/* DIFERENCIAIS */}
+      <section className="section light">
+        <h2>Por que escolher a Tupiniquim?</h2>
+
+        <div className="grid-3">
+          <div>
+            <h4>🇧🇷 Identidade brasileira</h4>
+            <p>Soluções conectadas com nossa cultura e realidade.</p>
+          </div>
+
+          <div>
+            <h4>⚙️ Tecnologia moderna</h4>
+            <p>Utilizamos ferramentas atuais e escaláveis.</p>
+          </div>
+
+          <div>
+            <h4>📈 Foco em resultado</h4>
+            <p>Crescimento sustentável e geração de valor.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="cta">
+        <h2>Vamos construir algo juntos?</h2>
+        <button className="btn primary">Fale conosco</button>
+      </section>
+
+      {/* BLOG */}
+      <section className="section">
+        <h2>Conteúdo e insights</h2>
+
+        <p>
+          Acompanhe nosso blog com conteúdos sobre tecnologia,
+          negócios e inovação.
+        </p>
+
+        <Link href="/blog">
+          <button className="btn secondary">
+            Ver artigos
+          </button>
+        </Link>
+      </section>
+
+      {/* ESTILO */}
       <style>{`
         .hero {
-          height: 320px;
-          border-radius: 12px;
-          background: linear-gradient(120deg,#111,#333);
+          background: linear-gradient(120deg,#111,#1B5E20);
+          color: #fff;
+          padding: 80px 40px;
+          border-radius: 10px;
+          text-align: center;
+        }
+
+        .hero h1 {
+          font-size: 36px;
+          margin-bottom: 16px;
+        }
+
+        .hero p {
+          max-width: 600px;
+          margin: 0 auto 20px;
+          color: #ddd;
+        }
+
+        .hero-actions {
           display: flex;
-          align-items: flex-end;
-          padding: 20px;
+          gap: 16px;
+          justify-content: center;
+        }
+
+        .btn {
+          padding: 12px 20px;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          font-weight: bold;
+        }
+
+        .btn.primary {
+          background: #2E7D32;
           color: #fff;
         }
 
-        .cnn-grid {
-          display: grid;
-          grid-template-columns: 2fr 1fr;
-          gap: 30px;
+        .btn.primary:hover {
+          background: #1B5E20;
         }
 
-        .news-grid {
+        .btn.secondary {
+          background: #FFB300;
+          color: #000;
+        }
+
+        .section {
+          margin-top: 50px;
+          text-align: center;
+        }
+
+        .section.light {
+          background: #f3f3f3;
+          padding: 30px;
+          border-radius: 10px;
+        }
+
+        .grid-3 {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 16px;
+          gap: 20px;
           margin-top: 20px;
         }
 
-        .main-column {
-          display: flex;
-          flex-direction: column;
-        }
-
-        .sidebar {
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-        }
-
-        .card.large {
+        .card {
           padding: 20px;
+          border: 1px solid #eee;
           border-radius: 10px;
-          border: 1px solid #ddd;
-          margin-bottom: 16px;
-          font-size: 18px;
           background: #fff;
         }
 
-        .card.small {
-          padding: 12px;
-          border-radius: 8px;
-          border: 1px solid #eee;
-          background: #fafafa;
-        }
-
-        .card.news {
-          padding: 12px;
-          border-radius: 8px;
-          border: 1px solid #eee;
-          background: #fff;
-          display: flex;
-          flex-direction: column;
-          gap: 4px;
-        }
-
-        .widget {
+        .cta {
           background: #111;
           color: #fff;
-          padding: 16px;
+          padding: 40px;
           border-radius: 10px;
-        }
-
-        .mini-link {
-          margin: 6px 0;
-          font-size: 14px;
-        }
-
-        .mini-link:hover {
-          text-decoration: underline;
+          margin-top: 40px;
+          text-align: center;
         }
       `}</style>
 
