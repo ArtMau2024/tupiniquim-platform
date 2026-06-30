@@ -4,17 +4,22 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm install && next build",
     "start": "next start",
     "lint": "eslint",
     "deploy": "npx opennextjs-cloudflare deploy",
     "preview": "npx opennextjs-cloudflare preview"
   },
   "dependencies": {
-    "@tailwindcss/postcss": "^4.3.2",
+    "autoprefixer": "^10.5.2",
     "gray-matter": "^4.0.3",
     "next": "16.2.9",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "typescript": "^5.0.0"
   }
 }

@@ -1,0 +1,34 @@
+[33m320aa02[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m fix: install missing tailwind/postcss dependency
+[33m8adb504[m fix: add deploy script
+[33m34f258c[m fix: remove manual entrypoint (opennext handles it)
+[33mf6fa892[m fix: define worker entrypoint and assets
+[33m81e173d[m fix: remove assets config (opennext handles it)
+[33m28bd5bb[m fix: add assets directory for cloudflare
+[33m79a3717[m fix: add wrangler config
+[33mc74d115[m feat: blog com imagens + SEO + novos posts
+[33m47d2a98[m upgrade: Layoutt
+[33m41d6289[m debug: identify active deployment
+[33m4146e44[m update homepage categories
+[33mdff35bc[m feat: structured homepage with hero + categories
+[33m36136d1[m feat: upgrade homepage layout to news style
+[33m978acef[m fix: define business and tech categories
+[33m6819e89[m fix: correct homepage file
+[33mbdb1107[m fix: correct homepage file
+[33m189f86e[m fix: correct homepage file
+[33mbc27e3a[m fix: correct homepage file
+[33m78dc507[m fix: disable static cache on homepage
+[33mf106b06[m fix: disable static cache on homepage
+[33med3d67b[m fix: disable static cache on homepage
+[33meebca42[m fix: resolve dynamic route lambda error
+[33mfc3b222[m test: verify deployment source
+[33m13df511[m test: verify deployment source
+[33m03a69b6[m fix: remove random render from homepage
+[33mc36a5d6[m fix: remove random render bug from homepage
+[33m79c41a0[m fix: remove random render bug from home
+[33m8228386[m fix: slug undefined bug in dynamic routes
+[33m7920dd1[m fix: slug undefined bug in dynamic routes
+[33mf6b2209[m fix: remove event handlers from home page
+[33m7ebe18c[m fix: remove event handlers from home page
+[33m627ad86[m fix: remove event handlers from home page
+[33m124861b[m fix: remove event handlers from blog page
+[33m80faf75[m first version blog

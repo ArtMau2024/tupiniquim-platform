@@ -10,11 +10,12 @@ type Props = {
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
 
-  const filePath = path.join(
-    process.cwd(),
-    "content/posts",
-    `${slug}.mdx`
-  );
+ const filePath = path.join(
+  process.cwd(),
+  "content",
+  "posts",
+  `${slug}.mdx`
+);
 
   if (!fs.existsSync(filePath)) {
     return {
