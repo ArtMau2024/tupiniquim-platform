@@ -1,7 +1,5 @@
 import Link from "next/link";
 
-export const dynamic = "force-dynamic";
-
 export const metadata = {
   title: "Tupiniquim",
   description:
@@ -169,6 +167,22 @@ export default function Home() {
           grid-template-columns: repeat(3, 1fr);
           gap: 20px;
           margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+          .grid-3 {
+            grid-template-columns: 1fr;
+          }
+          .hero {
+            padding: 40px 20px;
+          }
+          .hero h1 {
+            font-size: 26px;
+          }
+          .hero-actions {
+            flex-direction: column;
+            align-items: center;
+          }
         }
 
         .card {
