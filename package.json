@@ -8,7 +8,6 @@
     "opennext": "opennextjs-cloudflare build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "node scripts/deploy.js",
     "preview": "opennextjs-cloudflare preview"
   },
   "dependencies": {
@@ -23,7 +22,6 @@
     "@types/node": "^20.0.0",
     "@types/react": "^18.0.0",
     "typescript": "^5.0.0",
-    "vercel": "^44.0.0",
     "wrangler": "^4.0.0"
   }
 }
