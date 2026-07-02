@@ -1,4 +1,4 @@
-import { getAllPosts } from "@/lib/posts";
+import { generatedPosts } from "@/lib/generated-posts";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 export default function BlogPage() {
-  const posts = getAllPosts();
+  const posts = generatedPosts;
 
   return (
     <main>
@@ -21,14 +21,13 @@ export default function BlogPage() {
 
       {/* LISTA */}
       <section className="list">
-        {posts.map((post: any) => (
+        {posts.map((post) => (
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
             style={{ textDecoration: "none", color: "inherit" }}
           >
             <div className="post-card">
-              
               {post.image && (
                 <Image
                   src={post.image}
@@ -43,7 +42,6 @@ export default function BlogPage() {
                 <h2 className="post-title">{post.title}</h2>
                 <p>{post.date}</p>
               </div>
-
             </div>
           </Link>
         ))}
