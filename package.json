@@ -8,7 +8,7 @@
     "opennext": "npx @opennextjs/cloudflare build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "npx -y @cloudflare/next-on-pages",
+    "deploy": "npm run opennext && wrangler deploy",
     "preview": "npx @opennextjs/cloudflare preview"
   },
   "dependencies": {
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@types/node": "^20.0.0",
     "@types/react": "^18.0.0",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "wrangler": "^4.0.0"
   }
 }
