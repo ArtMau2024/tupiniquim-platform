@@ -5,11 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "opennext": "npx @opennextjs/cloudflare build",
+    "opennext": "opennextjs-cloudflare build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "npm run opennext && wrangler deploy",
-    "preview": "npx @opennextjs/cloudflare preview"
+    "deploy": "opennextjs-cloudflare build && wrangler deploy",
+    "preview": "opennextjs-cloudflare preview"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.20.1",
@@ -23,6 +23,7 @@
     "@types/node": "^20.0.0",
     "@types/react": "^18.0.0",
     "typescript": "^5.0.0",
+    "vercel": "^44.0.0",
     "wrangler": "^4.0.0"
   }
 }
