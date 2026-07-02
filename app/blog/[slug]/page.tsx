@@ -10,7 +10,7 @@ export async function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
 }
 
-// Do not try to render unknown slugs at runtime — return 404 instead
+// Unknown slugs return 404 — never run the component at edge runtime
 export const dynamicParams = false;
 
 type Props = {
@@ -20,26 +20,17 @@ type Props = {
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
 
-  const filePath = path.join(
-    process.cwd(),
-    "content",
-    "posts",
-    `${slug}.mdx`
-  );
+  const filePath = path.join(process.cwd(), "content", "posts", `${slug}.mdx`);
 
   if (!fs.existsSync(filePath)) {
-    return {
-      title: "Post não encontrado | Tupiniquim",
-    };
+    return { title: "Post não encontrado | Tupiniquim" };
   }
 
-  const fileContent = fs.readFileSync(filePath, "utf-8");
-  const { data } = matter(fileContent);
+  const { data } = matter(fs.readFileSync(filePath, "utf-8"));
 
   return {
     title: `${data.title} | Tupiniquim`,
     description: data.description,
-
     openGraph: {
       title: data.title,
       description: data.description,
@@ -49,57 +40,86 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-// Minimal markdown-to-HTML converter (runs at build time, no runtime dependency needed)
-function markdownToHtml(markdown: string): string {
-  return markdown
-    // Headings
-    .replace(/^### (.+)$/gm, "<h3>$1</h3>")
-    .replace(/^## (.+)$/gm, "<h2>$1</h2>")
-    .replace(/^# (.+)$/gm, "<h1>$1</h1>")
-    // Bold + italic
+// ─── Safe markdown renderer ───────────────────────────────────────────────────
+// All user text is HTML-escaped before being placed in the output.
+// Links only allow http/https protocols to prevent javascript: XSS.
+
+function safeHtml(text: string): string {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function inlineMd(text: string): string {
+  // HTML-escape first so user text can't inject tags, then apply markdown styling
+  const e = safeHtml(text);
+  return e
     .replace(/\*\*\*(.+?)\*\*\*/g, "<strong><em>$1</em></strong>")
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
     .replace(/_(.+?)_/g, "<em>$1</em>")
-    // Blockquotes
-    .replace(/^> (.+)$/gm, "<blockquote>$1</blockquote>")
-    // Horizontal rules
-    .replace(/^---$/gm, "<hr />")
-    // Unordered lists
-    .replace(/^- (.+)$/gm, "<li>$1</li>")
-    // Wrap consecutive <li> blocks in <ul>
-    .replace(/(<li>[\s\S]*?<\/li>)(\n(?!<li>)|$)/g, (m) =>
-      `<ul>${m}</ul>`
-    )
-    // Links
-    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')
-    // Paragraphs: wrap non-tag lines
-    .split("\n\n")
-    .map((block) => {
-      const trimmed = block.trim();
-      if (!trimmed) return "";
-      if (/^<(h[1-6]|ul|ol|li|blockquote|hr|pre|div)/.test(trimmed))
-        return trimmed;
-      return `<p>${trimmed.replace(/\n/g, "<br />")}</p>`;
-    })
-    .join("\n");
+    // Only allow http:// and https:// to prevent javascript: links
+    .replace(
+      /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+      (_, label, url) =>
+        `<a href="${safeHtml(url)}" rel="noopener noreferrer">${label}</a>`
+    );
 }
+
+function markdownToHtml(markdown: string): string {
+  // Split on blank lines to get blocks, then classify each block
+  const blocks = markdown.split(/\n\n+/);
+  const html: string[] = [];
+
+  for (const raw of blocks) {
+    const block = raw.trim();
+    if (!block) continue;
+
+    if (block === "---") {
+      html.push("<hr />");
+    } else if (block.startsWith("### ")) {
+      html.push(`<h3>${inlineMd(block.slice(4))}</h3>`);
+    } else if (block.startsWith("## ")) {
+      html.push(`<h2>${inlineMd(block.slice(3))}</h2>`);
+    } else if (block.startsWith("# ")) {
+      html.push(`<h1>${inlineMd(block.slice(2))}</h1>`);
+    } else if (block.startsWith("> ")) {
+      // Blockquote — may span multiple lines
+      const inner = block
+        .split("\n")
+        .map((l) => inlineMd(l.replace(/^> ?/, "")))
+        .join("<br />");
+      html.push(`<blockquote>${inner}</blockquote>`);
+    } else if (/^[-*] /m.test(block)) {
+      // Unordered list
+      const items = block
+        .split("\n")
+        .filter((l) => /^[-*] /.test(l))
+        .map((l) => `<li>${inlineMd(l.replace(/^[-*] /, ""))}</li>`);
+      html.push(`<ul>${items.join("")}</ul>`);
+    } else {
+      // Paragraph — process each line, join with <br />
+      const lines = block.split("\n").map((l) => inlineMd(l));
+      html.push(`<p>${lines.join("<br />")}</p>`);
+    }
+  }
+
+  return html.join("\n");
+}
+// ─────────────────────────────────────────────────────────────────────────────
 
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
 
-  const filePath = path.join(
-    process.cwd(),
-    "content/posts",
-    `${slug}.mdx`
-  );
+  const filePath = path.join(process.cwd(), "content/posts", `${slug}.mdx`);
 
   if (!fs.existsSync(filePath)) {
     return <h1>Post não encontrado</h1>;
   }
 
-  const fileContent = fs.readFileSync(filePath, "utf-8");
-  const { data, content } = matter(fileContent);
+  const { data, content } = matter(fs.readFileSync(filePath, "utf-8"));
   const htmlContent = markdownToHtml(content);
 
   return (
@@ -120,9 +140,7 @@ export default async function PostPage({ params }: Props) {
         />
       )}
 
-      <h1 style={{ fontSize: "28px", marginBottom: "10px" }}>
-        {data.title}
-      </h1>
+      <h1 style={{ fontSize: "28px", marginBottom: "10px" }}>{data.title}</h1>
 
       {data.author && (
         <p style={{ color: "#444", marginBottom: "4px", fontWeight: "bold" }}>
@@ -130,12 +148,11 @@ export default async function PostPage({ params }: Props) {
         </p>
       )}
 
-      <p style={{ color: "#666", marginBottom: "20px" }}>
-        {data.date}
-      </p>
+      <p style={{ color: "#666", marginBottom: "20px" }}>{data.date}</p>
 
       <hr />
 
+      {/* htmlContent is built entirely by our safe renderer above — no raw user HTML */}
       <div
         className="post-content"
         dangerouslySetInnerHTML={{ __html: htmlContent }}
@@ -183,7 +200,6 @@ export default async function PostPage({ params }: Props) {
           text-decoration: underline;
         }
       `}</style>
-
     </article>
   );
 }
