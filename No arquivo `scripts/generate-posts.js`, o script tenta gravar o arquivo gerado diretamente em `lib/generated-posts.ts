@@ -1,0 +1,3 @@
+const outputFile = path.join(process.cwd(), "lib", "generated-posts.ts");
+...
+fs.writeFileSync(outputFile, fileContent, "utf8");
