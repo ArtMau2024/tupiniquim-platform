@@ -1,0 +1,423 @@
+{
+  "generatedAt": "2026-07-21T22:10:23.797Z",
+  "project": {
+    "name": "tupiniquim-platform",
+    "version": "0.1.0"
+  },
+  "architecture": {
+    "framework": "Next.js",
+    "renderer": "React",
+    "adapter": "OpenNext",
+    "hosting": "Cloudflare",
+    "contentSource": "MDX Filesystem"
+  },
+  "filesystem": [
+    {
+      "path": ".aider.chat.history.md",
+      "type": "file"
+    },
+    {
+      "path": ".aider.input.history",
+      "type": "file"
+    },
+    {
+      "path": ".gitignore",
+      "type": "file"
+    },
+    {
+      "path": "AGENTS.md",
+      "type": "file"
+    },
+    {
+      "path": "app",
+      "type": "directory"
+    },
+    {
+      "path": "app/blog",
+      "type": "directory"
+    },
+    {
+      "path": "app/blog/[slug]",
+      "type": "directory"
+    },
+    {
+      "path": "app/blog/[slug]/page.tsx",
+      "type": "file"
+    },
+    {
+      "path": "app/blog/page.tsx",
+      "type": "file"
+    },
+    {
+      "path": "app/favicon.ico",
+      "type": "file"
+    },
+    {
+      "path": "app/globals.css",
+      "type": "file"
+    },
+    {
+      "path": "app/layout.tsx",
+      "type": "file"
+    },
+    {
+      "path": "app/page.tsx",
+      "type": "file"
+    },
+    {
+      "path": "ARCHITECTURE_ASSESSMENT.md",
+      "type": "file"
+    },
+    {
+      "path": "CLAUDE.md",
+      "type": "file"
+    },
+    {
+      "path": "content",
+      "type": "directory"
+    },
+    {
+      "path": "content/posts",
+      "type": "directory"
+    },
+    {
+      "path": "content/posts/construindo-um-blog.mdx",
+      "type": "file"
+    },
+    {
+      "path": "content/posts/github-copilot-gratis.mdx",
+      "type": "file"
+    },
+    {
+      "path": "content/posts/massagem-facial.mdx",
+      "type": "file"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "type": "file"
+    },
+    {
+      "path": "lib",
+      "type": "directory"
+    },
+    {
+      "path": "lib/generated-posts.ts",
+      "type": "file"
+    },
+    {
+      "path": "lib/posts.ts",
+      "type": "file"
+    },
+    {
+      "path": "next-env.d.ts",
+      "type": "file"
+    },
+    {
+      "path": "next.config.ts",
+      "type": "file"
+    },
+    {
+      "path": "open-next.config.ts",
+      "type": "file"
+    },
+    {
+      "path": "package-lock.json",
+      "type": "file"
+    },
+    {
+      "path": "package.json",
+      "type": "file"
+    },
+    {
+      "path": "public",
+      "type": "directory"
+    },
+    {
+      "path": "public/file.svg",
+      "type": "file"
+    },
+    {
+      "path": "public/globe.svg",
+      "type": "file"
+    },
+    {
+      "path": "public/images",
+      "type": "directory"
+    },
+    {
+      "path": "public/images/github-copilot-student.jpg",
+      "type": "file"
+    },
+    {
+      "path": "public/images/massagem-facial.jpg",
+      "type": "file"
+    },
+    {
+      "path": "public/images/post1.jpg",
+      "type": "file"
+    },
+    {
+      "path": "public/next.svg",
+      "type": "file"
+    },
+    {
+      "path": "public/vercel.svg",
+      "type": "file"
+    },
+    {
+      "path": "public/window.svg",
+      "type": "file"
+    },
+    {
+      "path": "README.md",
+      "type": "file"
+    },
+    {
+      "path": "ROADMAP_2026.md",
+      "type": "file"
+    },
+    {
+      "path": "scripts",
+      "type": "directory"
+    },
+    {
+      "path": "scripts/deploy.js",
+      "type": "file"
+    },
+    {
+      "path": "scripts/generate-posts.js",
+      "type": "file"
+    },
+    {
+      "path": "scripts/generate-project-map.js",
+      "type": "file"
+    },
+    {
+      "path": "site-context",
+      "type": "directory"
+    },
+    {
+      "path": "site-context/project-map.json",
+      "type": "file"
+    },
+    {
+      "path": "tsconfig.json",
+      "type": "file"
+    },
+    {
+      "path": "wrangler.jsonc",
+      "type": "file"
+    }
+  ],
+  "routes": [
+    {
+      "route": "/",
+      "source": "app/page.tsx"
+    },
+    {
+      "route": "/blog",
+      "source": "app/blog/page.tsx"
+    },
+    {
+      "route": "/blog/[slug]",
+      "source": "app/blog/[slug]/page.tsx"
+    }
+  ],
+  "dependencies": {
+    "@opennextjs/cloudflare": "^1.20.1",
+    "autoprefixer": "^10.5.2",
+    "gray-matter": "^4.0.3",
+    "next": "16.2.9",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "typescript": "^5.0.0",
+    "wrangler": "^4.0.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "node scripts/generate-posts.js && next build --webpack",
+    "opennext": "opennextjs-cloudflare build",
+    "start": "next start",
+    "lint": "eslint",
+    "deploy": "node scripts/deploy.js",
+    "preview": "opennextjs-cloudflare preview",
+    "context:scan": "node scripts/generate-project-map.js"
+  },
+  "components": [
+    "app/blog/[slug]/page.tsx",
+    "app/blog/page.tsx",
+    "app/layout.tsx",
+    "app/page.tsx"
+  ],
+  "posts": [
+    {
+      "slug": "construindo-um-blog",
+      "file": "content/posts/construindo-um-blog.mdx"
+    },
+    {
+      "slug": "github-copilot-gratis",
+      "file": "content/posts/github-copilot-gratis.mdx"
+    },
+    {
+      "slug": "massagem-facial",
+      "file": "content/posts/massagem-facial.mdx"
+    }
+  ],
+  "importGraph": [
+    {
+      "file": "app/blog/[slug]/page.tsx",
+      "imports": []
+    },
+    {
+      "file": "app/blog/page.tsx",
+      "imports": []
+    },
+    {
+      "file": "app/layout.tsx",
+      "imports": []
+    },
+    {
+      "file": "app/page.tsx",
+      "imports": []
+    },
+    {
+      "file": "lib/generated-posts.ts",
+      "imports": []
+    },
+    {
+      "file": "lib/posts.ts",
+      "imports": []
+    },
+    {
+      "file": "next-env.d.ts",
+      "imports": []
+    },
+    {
+      "file": "next.config.ts",
+      "imports": []
+    },
+    {
+      "file": "open-next.config.ts",
+      "imports": []
+    },
+    {
+      "file": "scripts/deploy.js",
+      "imports": []
+    },
+    {
+      "file": "scripts/generate-posts.js",
+      "imports": []
+    },
+    {
+      "file": "scripts/generate-project-map.js",
+      "imports": []
+    }
+  ],
+  "integrations": {
+    "cloudflare": true,
+    "wrangler": "wrangler.jsonc"
+  },
+  "runtime": {
+    "framework": "Next.js",
+    "node": "v24.18.0",
+    "cloudflare": true
+  },
+  "executionFlow": {
+    "content": [
+      "content/posts/*.mdx",
+      "scripts/generate-posts.js",
+      "lib/generated-posts.ts",
+      "app/blog/page.tsx",
+      "app/blog/[slug]/page.tsx"
+    ],
+    "build": [
+      "scripts/generate-posts.js",
+      "next build",
+      "OpenNext",
+      "Cloudflare Deploy"
+    ],
+    "contextEngine": [
+      "npm run context:scan",
+      "scripts/generate-project-map.js",
+      "site-context/project-map.json",
+      "BizChat / IA"
+    ]
+  },
+  "contextEngine": {
+    "productVision": {
+      "name": "Tupiniquim Platform",
+      "mission": "Plataforma SaaS brasileira para conteúdo, mídia, gestão e aplicações multi-tenant."
+    },
+    "businessGoals": [
+      "Reduzir dependência de contexto em conversas com IA",
+      "Preparar a fundação para CMS",
+      "Preparar a fundação para Media Center",
+      "Preparar a fundação para Multi-Tenant",
+      "Preparar a fundação para IA Generativa",
+      "Evoluir para modelo SaaS"
+    ],
+    "projectStatus": {
+      "currentEpic": "EPIC-001",
+      "name": "Context Engine",
+      "status": "in_progress"
+    },
+    "roadmap": [
+      {
+        "name": "Blog",
+        "status": "completed"
+      },
+      {
+        "name": "Context Engine",
+        "status": "in_progress"
+      },
+      {
+        "name": "CMS",
+        "status": "planned"
+      },
+      {
+        "name": "Área Administrativa",
+        "status": "planned"
+      },
+      {
+        "name": "Gestão de Usuários",
+        "status": "planned"
+      },
+      {
+        "name": "Media Center",
+        "status": "planned"
+      },
+      {
+        "name": "Construtor de Páginas",
+        "status": "planned"
+      },
+      {
+        "name": "Multi-Tenant",
+        "status": "planned"
+      },
+      {
+        "name": "IA Generativa",
+        "status": "planned"
+      },
+      {
+        "name": "SaaS Tupiniquim",
+        "status": "planned"
+      }
+    ],
+    "architectureDecisions": [
+      {
+        "id": "ADR-001",
+        "title": "Project Map como Fonte Única da Verdade",
+        "status": "approved",
+        "description": "O project-map.json é a principal fonte de contexto técnico da plataforma."
+      },
+      {
+        "id": "ADR-002",
+        "title": "Context Engine Monolítico",
+        "status": "approved",
+        "description": "O Context Engine evolui sobre project-map.json evitando múltiplos arquivos redundantes."
+      }
+    ]
+  }
+}

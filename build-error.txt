@@ -1,0 +1,21 @@
+
+> tupiniquim-platform@0.1.0 build
+> node scripts/generate-posts.js && next build --webpack
+
+✅ 3 posts gerados em lib/generated-posts.ts
+▲ Next.js 16.2.9 (webpack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 10.9s
+  Running TypeScript ...
+Failed to type check.
+
+./No arquivo `scripts/generate-posts.js`, o script tenta gravar o arquivo gerado diretamente em `lib/generated-posts.ts:1:20
+Type error: Cannot find name 'path'.
+
+[31m[1m>[0m [90m1 |[0m [36mconst[0m outputFile = path.join(process.cwd(), [32m"lib"[0m, [32m"generated-posts.ts"[0m);
+  [90m  |[0m                    [31m[1m^[0m
+  [90m2 |[0m ...
+  [90m3 |[0m fs.writeFileSync(outputFile, fileContent, [32m"utf8"[0m);
+  [90m4 |[0m
+Next.js build worker exited with code: 1 and signal: null
