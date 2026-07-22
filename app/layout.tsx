@@ -25,8 +25,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Tupiniquim",
-    description:
-      "Soluções digitais com identidade brasileira.",
+    description: "Soluções digitais com identidade brasileira.",
   },
 };
 
@@ -87,16 +86,7 @@ export default function RootLayout({
             padding: "0 24px",
           }}
         >
-          <main
-            style={{
-              backgroundColor: "#fff",
-              padding: "32px",
-              borderRadius: "10px",
-              boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
-            }}
-          >
-            {children}
-          </main>
+          <main>{children}</main>
         </div>
 
         {/* FOOTER */}
