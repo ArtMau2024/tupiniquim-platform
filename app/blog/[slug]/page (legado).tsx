@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-// Safe markdown renderer.
+// ─── Safe markdown renderer ───────────────────────────────────────────────────
 // All user text is HTML-escaped before being placed in the output.
 // Links only allow http/https protocols to prevent javascript: XSS.
 
@@ -63,8 +63,7 @@ function inlineMd(text: string): string {
 }
 
 function markdownToHtml(markdown: string): string {
-  const normalizedMarkdown = markdown.replace(/\r\n?/g, "\n");
-  const blocks = normalizedMarkdown.split(/\n\n+/);
+  const blocks = markdown.split(/\n\n+/);
   const html: string[] = [];
 
   for (const raw of blocks) {
@@ -103,6 +102,8 @@ function markdownToHtml(markdown: string): string {
 
   return html.join("\n");
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
 
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
