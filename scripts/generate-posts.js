@@ -86,6 +86,11 @@ export type GeneratedPost = {
 export const generatedPosts: GeneratedPost[] = ${JSON.stringify(posts, null, 2)};
 `;
 
+  const outputDir = path.dirname(outputFile);
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
+
   fs.writeFileSync(outputFile, fileContent, "utf8");
 }
 

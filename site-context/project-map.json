@@ -1,0 +1,796 @@
+{
+  "generatedAt": "2026-07-22T00:02:06.843Z",
+  "project": {
+    "name": "tupiniquim-platform",
+    "version": "0.1.0"
+  },
+  "architecture": {
+    "framework": "Next.js",
+    "renderer": "React",
+    "adapter": "OpenNext",
+    "hosting": "Cloudflare",
+    "contentSource": "MDX Filesystem"
+  },
+  "filesystem": [
+    {
+      "path": ".aider.chat.history.md",
+      "type": "file"
+    },
+    {
+      "path": ".aider.input.history",
+      "type": "file"
+    },
+    {
+      "path": ".gitignore",
+      "type": "file"
+    },
+    {
+      "path": "AGENTS.md",
+      "type": "file"
+    },
+    {
+      "path": "app",
+      "type": "directory"
+    },
+    {
+      "path": "app/blog",
+      "type": "directory"
+    },
+    {
+      "path": "app/blog/[slug]",
+      "type": "directory"
+    },
+    {
+      "path": "app/blog/[slug]/page.tsx",
+      "type": "file"
+    },
+    {
+      "path": "app/blog/page.tsx",
+      "type": "file"
+    },
+    {
+      "path": "app/favicon.ico",
+      "type": "file"
+    },
+    {
+      "path": "app/globals.css",
+      "type": "file"
+    },
+    {
+      "path": "app/layout.tsx",
+      "type": "file"
+    },
+    {
+      "path": "app/page.tsx",
+      "type": "file"
+    },
+    {
+      "path": "ARCHITECTURE_ASSESSMENT.md",
+      "type": "file"
+    },
+    {
+      "path": "build-error.txt",
+      "type": "file"
+    },
+    {
+      "path": "CLAUDE.md",
+      "type": "file"
+    },
+    {
+      "path": "content",
+      "type": "directory"
+    },
+    {
+      "path": "content/posts",
+      "type": "directory"
+    },
+    {
+      "path": "content/posts/construindo-um-blog.mdx",
+      "type": "file"
+    },
+    {
+      "path": "content/posts/github-copilot-gratis.mdx",
+      "type": "file"
+    },
+    {
+      "path": "content/posts/massagem-facial.mdx",
+      "type": "file"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "type": "file"
+    },
+    {
+      "path": "lib",
+      "type": "directory"
+    },
+    {
+      "path": "lib/generated-posts.ts",
+      "type": "file"
+    },
+    {
+      "path": "lib/posts.ts",
+      "type": "file"
+    },
+    {
+      "path": "next-env.d.ts",
+      "type": "file"
+    },
+    {
+      "path": "next.config.ts",
+      "type": "file"
+    },
+    {
+      "path": "open-next.config.ts",
+      "type": "file"
+    },
+    {
+      "path": "package-lock.json",
+      "type": "file"
+    },
+    {
+      "path": "package.json",
+      "type": "file"
+    },
+    {
+      "path": "public",
+      "type": "directory"
+    },
+    {
+      "path": "public/file.svg",
+      "type": "file"
+    },
+    {
+      "path": "public/globe.svg",
+      "type": "file"
+    },
+    {
+      "path": "public/images",
+      "type": "directory"
+    },
+    {
+      "path": "public/images/github-copilot-student.jpg",
+      "type": "file"
+    },
+    {
+      "path": "public/images/massagem-facial.jpg",
+      "type": "file"
+    },
+    {
+      "path": "public/images/post1.jpg",
+      "type": "file"
+    },
+    {
+      "path": "public/next.svg",
+      "type": "file"
+    },
+    {
+      "path": "public/vercel.svg",
+      "type": "file"
+    },
+    {
+      "path": "public/window.svg",
+      "type": "file"
+    },
+    {
+      "path": "README.md",
+      "type": "file"
+    },
+    {
+      "path": "ROADMAP_2026.md",
+      "type": "file"
+    },
+    {
+      "path": "scripts",
+      "type": "directory"
+    },
+    {
+      "path": "scripts/deploy.js",
+      "type": "file"
+    },
+    {
+      "path": "scripts/generate-posts.js",
+      "type": "file"
+    },
+    {
+      "path": "scripts/generate-project-map.js",
+      "type": "file"
+    },
+    {
+      "path": "site-context",
+      "type": "directory"
+    },
+    {
+      "path": "site-context/project-map.json",
+      "type": "file"
+    },
+    {
+      "path": "tsconfig.json",
+      "type": "file"
+    },
+    {
+      "path": "wrangler.jsonc",
+      "type": "file"
+    }
+  ],
+  "routes": [
+    {
+      "route": "/",
+      "source": "app/page.tsx"
+    },
+    {
+      "route": "/blog",
+      "source": "app/blog/page.tsx"
+    },
+    {
+      "route": "/blog/[slug]",
+      "source": "app/blog/[slug]/page.tsx"
+    }
+  ],
+  "dependencies": {
+    "@opennextjs/cloudflare": "^1.20.1",
+    "autoprefixer": "^10.5.2",
+    "gray-matter": "^4.0.3",
+    "next": "16.2.9",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "typescript": "^5.0.0",
+    "wrangler": "^4.0.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "node scripts/generate-posts.js && next build --webpack",
+    "opennext": "opennextjs-cloudflare build",
+    "start": "next start",
+    "lint": "eslint",
+    "deploy": "node scripts/deploy.js",
+    "preview": "opennextjs-cloudflare preview",
+    "context:scan": "node scripts/generate-project-map.js"
+  },
+  "components": [
+    "app/blog/[slug]/page.tsx",
+    "app/blog/page.tsx",
+    "app/layout.tsx",
+    "app/page.tsx"
+  ],
+  "posts": [
+    {
+      "slug": "construindo-um-blog",
+      "file": "content/posts/construindo-um-blog.mdx"
+    },
+    {
+      "slug": "github-copilot-gratis",
+      "file": "content/posts/github-copilot-gratis.mdx"
+    },
+    {
+      "slug": "massagem-facial",
+      "file": "content/posts/massagem-facial.mdx"
+    }
+  ],
+  "importGraph": [
+    {
+      "file": "app/blog/[slug]/page.tsx",
+      "imports": []
+    },
+    {
+      "file": "app/blog/page.tsx",
+      "imports": []
+    },
+    {
+      "file": "app/layout.tsx",
+      "imports": []
+    },
+    {
+      "file": "app/page.tsx",
+      "imports": []
+    },
+    {
+      "file": "lib/generated-posts.ts",
+      "imports": []
+    },
+    {
+      "file": "lib/posts.ts",
+      "imports": []
+    },
+    {
+      "file": "next-env.d.ts",
+      "imports": []
+    },
+    {
+      "file": "next.config.ts",
+      "imports": []
+    },
+    {
+      "file": "open-next.config.ts",
+      "imports": []
+    },
+    {
+      "file": "scripts/deploy.js",
+      "imports": []
+    },
+    {
+      "file": "scripts/generate-posts.js",
+      "imports": []
+    },
+    {
+      "file": "scripts/generate-project-map.js",
+      "imports": []
+    }
+  ],
+  "integrations": {
+    "cloudflare": true,
+    "wrangler": "wrangler.jsonc"
+  },
+  "runtime": {
+    "framework": "Next.js",
+    "node": "v24.18.0",
+    "cloudflare": true
+  },
+  "executionFlow": {
+    "content": [
+      "content/posts/*.mdx",
+      "scripts/generate-posts.js",
+      "lib/generated-posts.ts",
+      "app/blog/page.tsx",
+      "app/blog/[slug]/page.tsx"
+    ],
+    "build": [
+      "scripts/generate-posts.js",
+      "next build",
+      "OpenNext",
+      "Cloudflare Deploy"
+    ],
+    "contextEngine": [
+      "npm run context:scan",
+      "scripts/generate-project-map.js",
+      "site-context/project-map.json",
+      "BizChat / IA"
+    ]
+  },
+  "contextEngine": {
+    "productVision": {
+      "name": "Tupiniquim Platform",
+      "mission": "Plataforma SaaS brasileira para conteúdo, mídia, gestão e aplicações multi-tenant."
+    },
+    "businessGoals": [
+      "Reduzir dependência de contexto em conversas com IA",
+      "Preparar a fundação para CMS",
+      "Preparar a fundação para Media Center",
+      "Preparar a fundação para Multi-Tenant",
+      "Preparar a fundação para IA Generativa",
+      "Evoluir para modelo SaaS"
+    ],
+    "projectStatus": {
+      "currentEpic": "EPIC-001",
+      "name": "Context Engine",
+      "status": "in_progress"
+    },
+    "roadmap": [
+      {
+        "name": "Blog",
+        "status": "completed"
+      },
+      {
+        "name": "Context Engine",
+        "status": "in_progress"
+      },
+      {
+        "name": "CMS",
+        "status": "planned"
+      },
+      {
+        "name": "Área Administrativa",
+        "status": "planned"
+      },
+      {
+        "name": "Gestão de Usuários",
+        "status": "planned"
+      },
+      {
+        "name": "Media Center",
+        "status": "planned"
+      },
+      {
+        "name": "Construtor de Páginas",
+        "status": "planned"
+      },
+      {
+        "name": "Multi-Tenant",
+        "status": "planned"
+      },
+      {
+        "name": "IA Generativa",
+        "status": "planned"
+      },
+      {
+        "name": "SaaS Tupiniquim",
+        "status": "planned"
+      }
+    ],
+    "architectureDecisions": [
+      {
+        "id": "ADR-001",
+        "title": "Project Map como Fonte Única da Verdade",
+        "status": "approved",
+        "description": "O project-map.json é a principal fonte de contexto técnico da plataforma."
+      },
+      {
+        "id": "ADR-002",
+        "title": "Context Engine Monolítico",
+        "status": "approved",
+        "description": "O Context Engine evolui sobre project-map.json evitando múltiplos arquivos redundantes."
+      }
+    ]
+  },
+  "sourceMapStatus": {
+    "enabled": true,
+    "complete": true,
+    "redactionApplied": true,
+    "maxFileSizeBytes": 512000,
+    "maxTotalSizeBytes": 5242880,
+    "includedFiles": 24,
+    "excludedFiles": 16,
+    "expectedExclusions": 16,
+    "incompleteExclusions": 0,
+    "redactedFiles": 0,
+    "includedSizeBytes": 77670
+  },
+  "sourceFiles": [
+    {
+      "path": "AGENTS.md",
+      "category": "operational-documentation",
+      "extension": ".md",
+      "language": "markdown",
+      "sizeBytes": 332,
+      "lineCount": 6,
+      "sha256": "ceaa13d29db2c2ce408ba5d00fb6c5cccc0eadeb336cf076cfea699f985b9fd8",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "<!-- BEGIN:nextjs-agent-rules -->\r\n# This is NOT the Next.js you know\r\n\r\nThis version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.\r\n<!-- END:nextjs-agent-rules -->\r\n"
+    },
+    {
+      "path": "app/blog/[slug]/page.tsx",
+      "category": "source-code",
+      "extension": ".tsx",
+      "language": "typescript-react",
+      "sizeBytes": 5719,
+      "lineCount": 212,
+      "sha256": "886b48d9135b1c6d412b32f099de08d02dd2c48a334c333f56e4fd2f96a0aec1",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "import Image from \"next/image\";\r\nimport { notFound } from \"next/navigation\";\r\nimport { generatedPosts } from \"@/lib/generated-posts\";\r\n\r\ntype Props = {\r\n  params: Promise<{ slug: string }>;\r\n};\r\n\r\nexport async function generateStaticParams() {\r\n  return generatedPosts.map((post) => ({\r\n    slug: post.slug,\r\n  }));\r\n}\r\n\r\nexport async function generateMetadata({ params }: Props) {\r\n  const { slug } = await params;\r\n\r\n  const post = generatedPosts.find((item) => item.slug === slug);\r\n\r\n  if (!post) {\r\n    return {\r\n      title: \"Post não encontrado | Tupiniquim\",\r\n    };\r\n  }\r\n\r\n  return {\r\n    title: `${post.title} | Tupiniquim`,\r\n    description: post.description,\r\n    openGraph: {\r\n      title: post.title,\r\n      description: post.description,\r\n      images: post.image ? [post.image] : [],\r\n      type: \"article\",\r\n    },\r\n  };\r\n}\r\n\r\n// ─── Safe markdown renderer ───────────────────────────────────────────────────\r\n// All user text is HTML-escaped before being placed in the output.\r\n// Links only allow http/https protocols to prevent javascript: XSS.\r\n\r\nfunction safeHtml(text: string): string {\r\n  return text\r\n    .replace(/&/g, \"&amp;\")\r\n    .replace(/</g, \"&lt;\")\r\n    .replace(/>/g, \"&gt;\")\r\n    .replace(/\"/g, \"&quot;\");\r\n}\r\n\r\nfunction inlineMd(text: string): string {\r\n  const e = safeHtml(text);\r\n\r\n  return e\r\n    .replace(/\\*\\*\\*(.+?)\\*\\*\\*/g, \"<strong><em>$1</em></strong>\")\r\n    .replace(/\\*\\*(.+?)\\*\\*/g, \"<strong>$1</strong>\")\r\n    .replace(/\\*(.+?)\\*/g, \"<em>$1</em>\")\r\n    .replace(/_(.+?)_/g, \"<em>$1</em>\")\r\n    .replace(\r\n      /\\[([^\\]]+)\\]\\((https?:\\/\\/[^\\s)]+)\\)/g,\r\n      (_, label, url) =>\r\n        `<a href=\"${safeHtml(url)}\" rel=\"noopener noreferrer\">${label}</a>`\r\n    );\r\n}\r\n\r\nfunction markdownToHtml(markdown: string): string {\r\n  const blocks = markdown.split(/\\n\\n+/);\r\n  const html: string[] = [];\r\n\r\n  for (const raw of blocks) {\r\n    const block = raw.trim();\r\n\r\n    if (!block) continue;\r\n\r\n    if (block === \"---\") {\r\n      html.push(\"<hr />\");\r\n    } else if (block.startsWith(\"### \")) {\r\n      html.push(`<h3>${inlineMd(block.slice(4))}</h3>`);\r\n    } else if (block.startsWith(\"## \")) {\r\n      html.push(`<h2>${inlineMd(block.slice(3))}</h2>`);\r\n    } else if (block.startsWith(\"# \")) {\r\n      html.push(`<h1>${inlineMd(block.slice(2))}</h1>`);\r\n    } else if (block.startsWith(\"> \")) {\r\n      const inner = block\r\n        .split(\"\\n\")\r\n        .map((line) => inlineMd(line.replace(/^> ?/, \"\")))\r\n        .join(\"<br />\");\r\n\r\n      html.push(`<blockquote>${inner}</blockquote>`);\r\n    } else if (/^[-*] /m.test(block)) {\r\n      const items = block\r\n        .split(\"\\n\")\r\n        .filter((line) => /^[-*] /.test(line))\r\n        .map((line) => `<li>${inlineMd(line.replace(/^[-*] /, \"\"))}</li>`);\r\n\r\n      html.push(`<ul>${items.join(\"\")}</ul>`);\r\n    } else {\r\n      const lines = block.split(\"\\n\").map((line) => inlineMd(line));\r\n\r\n      html.push(`<p>${lines.join(\"<br />\")}</p>`);\r\n    }\r\n  }\r\n\r\n  return html.join(\"\\n\");\r\n}\r\n\r\n// ─────────────────────────────────────────────────────────────────────────────\r\n\r\nexport default async function PostPage({ params }: Props) {\r\n  const { slug } = await params;\r\n\r\n  const post = generatedPosts.find((item) => item.slug === slug);\r\n\r\n  if (!post) {\r\n    notFound();\r\n  }\r\n\r\n  const htmlContent = markdownToHtml(post.content);\r\n\r\n  return (\r\n    <article style={{ padding: \"20px\", maxWidth: \"800px\", margin: \"0 auto\" }}>\r\n      {post.image && (\r\n        <Image\r\n          src={post.image}\r\n          alt={post.title}\r\n          width={800}\r\n          height={400}\r\n          style={{\r\n            borderRadius: \"10px\",\r\n            marginBottom: \"20px\",\r\n            width: \"100%\",\r\n            height: \"auto\",\r\n          }}\r\n        />\r\n      )}\r\n\r\n      <h1 style={{ fontSize: \"28px\", marginBottom: \"10px\" }}>{post.title}</h1>\r\n\r\n      {post.author && (\r\n        <p style={{ color: \"#444\", marginBottom: \"4px\", fontWeight: \"bold\" }}>\r\n          Por {post.author}\r\n        </p>\r\n      )}\r\n\r\n      <p style={{ color: \"#666\", marginBottom: \"20px\" }}>{post.date}</p>\r\n\r\n      <hr />\r\n\r\n      <div\r\n        className=\"post-content\"\r\n        dangerouslySetInnerHTML={{ __html: htmlContent }}\r\n      />\r\n\r\n      <style>{`\r\n        .post-content p {\r\n          line-height: 1.8;\r\n          margin-bottom: 16px;\r\n          color: #333;\r\n        }\r\n\r\n        .post-content h1,\r\n        .post-content h2,\r\n        .post-content h3 {\r\n          margin: 28px 0 12px;\r\n          color: #111;\r\n        }\r\n\r\n        .post-content h2 {\r\n          font-size: 22px;\r\n        }\r\n\r\n        .post-content h3 {\r\n          font-size: 18px;\r\n        }\r\n\r\n        .post-content ul {\r\n          padding-left: 24px;\r\n          margin-bottom: 16px;\r\n        }\r\n\r\n        .post-content li {\r\n          margin-bottom: 6px;\r\n          line-height: 1.7;\r\n        }\r\n\r\n        .post-content blockquote {\r\n          border-left: 4px solid #2E7D32;\r\n          padding: 8px 16px;\r\n          margin: 16px 0;\r\n          background: #f9f9f9;\r\n          color: #444;\r\n          font-style: italic;\r\n          border-radius: 0 6px 6px 0;\r\n        }\r\n\r\n        .post-content hr {\r\n          border: none;\r\n          border-top: 1px solid #eee;\r\n          margin: 24px 0;\r\n        }\r\n\r\n        .post-content strong {\r\n          color: #111;\r\n        }\r\n\r\n        .post-content a {\r\n          color: #2E7D32;\r\n          text-decoration: underline;\r\n        }\r\n      `}</style>\r\n    </article>\r\n  );\r\n}"
+    },
+    {
+      "path": "app/blog/page.tsx",
+      "category": "source-code",
+      "extension": ".tsx",
+      "language": "typescript-react",
+      "sizeBytes": 2343,
+      "lineCount": 97,
+      "sha256": "18016108d706a9cdfcde1ee13c153c0471202deb47ab5051a6ed43ff212ad3bd",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "import { generatedPosts } from \"@/lib/generated-posts\";\r\nimport Link from \"next/link\";\r\nimport Image from \"next/image\";\r\n\r\nexport const metadata = {\r\n  title: \"Blog | Tupiniquim\",\r\n  description:\r\n    \"Conteúdos sobre tecnologia, negócios e inovação da Tupiniquim.\",\r\n};\r\n\r\nexport default function BlogPage() {\r\n  const posts = generatedPosts;\r\n\r\n  return (\r\n    <main>\r\n      {/* HERO */}\r\n      <section className=\"hero-blog\">\r\n        <h1>Blog Tupiniquim</h1>\r\n        <p>Conteúdos sobre tecnologia e crescimento digital.</p>\r\n      </section>\r\n\r\n      {/* LISTA */}\r\n      <section className=\"list\">\r\n        {posts.map((post) => (\r\n          <Link\r\n            key={post.slug}\r\n            href={`/blog/${post.slug}`}\r\n            style={{ textDecoration: \"none\", color: \"inherit\" }}\r\n          >\r\n            <div className=\"post-card\">\r\n              {post.image && (\r\n                <Image\r\n                  src={post.image}\r\n                  alt={post.title}\r\n                  width={120}\r\n                  height={80}\r\n                  className=\"thumb\"\r\n                />\r\n              )}\r\n\r\n              <div>\r\n                <h2 className=\"post-title\">{post.title}</h2>\r\n                <p>{post.date}</p>\r\n              </div>\r\n            </div>\r\n          </Link>\r\n        ))}\r\n      </section>\r\n\r\n      <style>{`\r\n        .hero-blog {\r\n          background: linear-gradient(120deg,#111,#1B5E20);\r\n          color: white;\r\n          padding: 40px;\r\n          border-radius: 10px;\r\n          margin-bottom: 30px;\r\n        }\r\n\r\n        .list {\r\n          display: flex;\r\n          flex-direction: column;\r\n          gap: 16px;\r\n        }\r\n\r\n        .post-card {\r\n          display: flex;\r\n          gap: 16px;\r\n          align-items: center;\r\n          padding: 16px;\r\n          border: 1px solid #ddd;\r\n          border-radius: 10px;\r\n          background: #fff;\r\n          transition: 0.2s;\r\n          cursor: pointer;\r\n        }\r\n\r\n        .post-card:hover {\r\n          border-color: #2E7D32;\r\n        }\r\n\r\n        .post-title {\r\n          margin-bottom: 5px;\r\n          transition: 0.2s;\r\n        }\r\n\r\n        .post-card:hover .post-title {\r\n          color: #2E7D32;\r\n        }\r\n\r\n        .thumb {\r\n          border-radius: 8px;\r\n          object-fit: cover;\r\n        }\r\n      `}</style>\r\n    </main>\r\n  );\r\n}"
+    },
+    {
+      "path": "app/globals.css",
+      "category": "style",
+      "extension": ".css",
+      "language": "css",
+      "sizeBytes": 186,
+      "lineCount": 11,
+      "sha256": "0fab56c9df7be42a1b8945f215c17518c1d31aad69c8ab5eb3f306d6e3e51dcb",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": ":root {\r\n  --background: #ffffff;\r\n  --foreground: #171717;\r\n}\r\n\r\nbody {\r\n  background: var(--background);\r\n  color: var(--foreground);\r\n  font-family: Arial, Helvetica, sans-serif;\r\n}\r\n"
+    },
+    {
+      "path": "app/layout.tsx",
+      "category": "source-code",
+      "extension": ".tsx",
+      "language": "typescript-react",
+      "sizeBytes": 2795,
+      "lineCount": 118,
+      "sha256": "d039bce9f09c27a5f8d58729e96e2a21a836961db0f0ce815d8c8989beac9d74",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "import \"./globals.css\";\r\nimport Link from \"next/link\";\r\n\r\nexport const metadata = {\r\n  metadataBase: new URL(\"https://tupiniquim.com\"),\r\n\r\n  title: {\r\n    default: \"Tupiniquim\",\r\n    template: \"%s | Tupiniquim\",\r\n  },\r\n\r\n  description:\r\n    \"Tecnologia, inovação e conteúdo digital para impulsionar negócios com identidade brasileira.\",\r\n\r\n  openGraph: {\r\n    title: \"Tupiniquim\",\r\n    description:\r\n      \"Tecnologia, inovação e conteúdo digital para impulsionar negócios.\",\r\n    url: \"https://tupiniquim.com\",\r\n    siteName: \"Tupiniquim\",\r\n    locale: \"pt_BR\",\r\n    type: \"website\",\r\n  },\r\n\r\n  twitter: {\r\n    card: \"summary_large_image\",\r\n    title: \"Tupiniquim\",\r\n    description:\r\n      \"Soluções digitais com identidade brasileira.\",\r\n  },\r\n};\r\n\r\nexport default function RootLayout({\r\n  children,\r\n}: {\r\n  children: React.ReactNode;\r\n}) {\r\n  return (\r\n    <html lang=\"pt-br\">\r\n      <body\r\n        style={{\r\n          margin: 0,\r\n          fontFamily: \"Arial, sans-serif\",\r\n          backgroundColor: \"#f5f5f5\",\r\n        }}\r\n      >\r\n        {/* HEADER */}\r\n        <header\r\n          style={{\r\n            backgroundColor: \"#111\",\r\n            color: \"#fff\",\r\n            padding: \"16px 0\",\r\n            width: \"100%\",\r\n          }}\r\n        >\r\n          <nav\r\n            style={{\r\n              maxWidth: \"1400px\",\r\n              margin: \"0 auto\",\r\n              display: \"flex\",\r\n              justifyContent: \"space-between\",\r\n              alignItems: \"center\",\r\n              padding: \"0 24px\",\r\n            }}\r\n          >\r\n            <Link\r\n              href=\"/\"\r\n              style={{ color: \"#fff\", textDecoration: \"none\" }}\r\n            >\r\n              Tupiniquim\r\n            </Link>\r\n\r\n            <Link\r\n              href=\"/blog\"\r\n              style={{ color: \"#fff\", textDecoration: \"none\" }}\r\n            >\r\n              Blog\r\n            </Link>\r\n          </nav>\r\n        </header>\r\n\r\n        {/* CONTAINER PRINCIPAL */}\r\n        <div\r\n          style={{\r\n            maxWidth: \"1400px\",\r\n            margin: \"20px auto\",\r\n            padding: \"0 24px\",\r\n          }}\r\n        >\r\n          <main\r\n            style={{\r\n              backgroundColor: \"#fff\",\r\n              padding: \"32px\",\r\n              borderRadius: \"10px\",\r\n              boxShadow: \"0 2px 10px rgba(0,0,0,0.1)\",\r\n            }}\r\n          >\r\n            {children}\r\n          </main>\r\n        </div>\r\n\r\n        {/* FOOTER */}\r\n        <footer\r\n          style={{\r\n            textAlign: \"center\",\r\n            padding: \"20px\",\r\n            fontSize: \"14px\",\r\n            color: \"#555\",\r\n            maxWidth: \"1400px\",\r\n            margin: \"0 auto\",\r\n          }}\r\n        >\r\n          © {new Date().getFullYear()} Tupiniquim\r\n        </footer>\r\n      </body>\r\n    </html>\r\n  );\r\n}"
+    },
+    {
+      "path": "app/page.tsx",
+      "category": "source-code",
+      "extension": ".tsx",
+      "language": "typescript-react",
+      "sizeBytes": 5024,
+      "lineCount": 208,
+      "sha256": "ed7b53dd29007353881919910fc1d78a581a3701660d759a12c4130180eb13ee",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "import Link from \"next/link\";\r\n\r\nexport const metadata = {\r\n  title: \"Tupiniquim\",\r\n  description:\r\n    \"Tecnologia, inovação e conteúdo digital para impulsionar negócios.\",\r\n};\r\n\r\nexport default function Home() {\r\n  return (\r\n    <main>\r\n\r\n      {/* HERO */}\r\n      <section className=\"hero\">\r\n        <div className=\"hero-content\">\r\n          <h1>\r\n            Tecnologia e conteúdo para crescer no digital\r\n          </h1>\r\n\r\n          <p>\r\n            A Tupiniquim cria soluções digitais com identidade brasileira,\r\n            combinando tecnologia, estratégia e inovação.\r\n          </p>\r\n\r\n          <div className=\"hero-actions\">\r\n            <button className=\"btn primary\">\r\n              Conhecer soluções\r\n            </button>\r\n\r\n            <Link href=\"/blog\">\r\n              <button className=\"btn secondary\">\r\n                Acessar blog\r\n              </button>\r\n            </Link>\r\n          </div>\r\n        </div>\r\n      </section>\r\n\r\n      {/* SERVIÇOS */}\r\n      <section className=\"section\">\r\n        <h2>Nossas soluções</h2>\r\n\r\n        <div className=\"grid-3\">\r\n          <div className=\"card\">\r\n            <h3>Desenvolvimento Web</h3>\r\n            <p>Criação de aplicações modernas e escaláveis.</p>\r\n          </div>\r\n\r\n          <div className=\"card\">\r\n            <h3>Conteúdo Estratégico</h3>\r\n            <p>Produção voltada para tráfego e autoridade digital.</p>\r\n          </div>\r\n\r\n          <div className=\"card\">\r\n            <h3>Inovação Digital</h3>\r\n            <p>Soluções criativas com foco em resultado e crescimento.</p>\r\n          </div>\r\n        </div>\r\n      </section>\r\n\r\n      {/* DIFERENCIAIS */}\r\n      <section className=\"section light\">\r\n        <h2>Por que escolher a Tupiniquim?</h2>\r\n\r\n        <div className=\"grid-3\">\r\n          <div>\r\n            <h4>🇧🇷 Identidade brasileira</h4>\r\n            <p>Soluções conectadas com nossa cultura e realidade.</p>\r\n          </div>\r\n\r\n          <div>\r\n            <h4>⚙️ Tecnologia moderna</h4>\r\n            <p>Utilizamos ferramentas atuais e escaláveis.</p>\r\n          </div>\r\n\r\n          <div>\r\n            <h4>📈 Foco em resultado</h4>\r\n            <p>Crescimento sustentável e geração de valor.</p>\r\n          </div>\r\n        </div>\r\n      </section>\r\n\r\n      {/* CTA */}\r\n      <section className=\"cta\">\r\n        <h2>Vamos construir algo juntos?</h2>\r\n        <button className=\"btn primary\">Fale conosco</button>\r\n      </section>\r\n\r\n      {/* BLOG */}\r\n      <section className=\"section\">\r\n        <h2>Conteúdo e insights</h2>\r\n\r\n        <p>\r\n          Acompanhe nosso blog com conteúdos sobre tecnologia,\r\n          negócios e inovação.\r\n        </p>\r\n\r\n        <Link href=\"/blog\">\r\n          <button className=\"btn secondary\">\r\n            Ver artigos\r\n          </button>\r\n        </Link>\r\n      </section>\r\n\r\n      {/* ESTILO */}\r\n      <style>{`\r\n        .hero {\r\n          background: linear-gradient(120deg,#111,#1B5E20);\r\n          color: #fff;\r\n          padding: 80px 40px;\r\n          border-radius: 10px;\r\n          text-align: center;\r\n        }\r\n\r\n        .hero h1 {\r\n          font-size: 36px;\r\n          margin-bottom: 16px;\r\n        }\r\n\r\n        .hero p {\r\n          max-width: 600px;\r\n          margin: 0 auto 20px;\r\n          color: #ddd;\r\n        }\r\n\r\n        .hero-actions {\r\n          display: flex;\r\n          gap: 16px;\r\n          justify-content: center;\r\n        }\r\n\r\n        .btn {\r\n          padding: 12px 20px;\r\n          border: none;\r\n          border-radius: 6px;\r\n          cursor: pointer;\r\n          font-weight: bold;\r\n        }\r\n\r\n        .btn.primary {\r\n          background: #2E7D32;\r\n          color: #fff;\r\n        }\r\n\r\n        .btn.primary:hover {\r\n          background: #1B5E20;\r\n        }\r\n\r\n        .btn.secondary {\r\n          background: #FFB300;\r\n          color: #000;\r\n        }\r\n\r\n        .section {\r\n          margin-top: 50px;\r\n          text-align: center;\r\n        }\r\n\r\n        .section.light {\r\n          background: #f3f3f3;\r\n          padding: 30px;\r\n          border-radius: 10px;\r\n        }\r\n\r\n        .grid-3 {\r\n          display: grid;\r\n          grid-template-columns: repeat(3, 1fr);\r\n          gap: 20px;\r\n          margin-top: 20px;\r\n        }\r\n\r\n        @media (max-width: 768px) {\r\n          .grid-3 {\r\n            grid-template-columns: 1fr;\r\n          }\r\n          .hero {\r\n            padding: 40px 20px;\r\n          }\r\n          .hero h1 {\r\n            font-size: 26px;\r\n          }\r\n          .hero-actions {\r\n            flex-direction: column;\r\n            align-items: center;\r\n          }\r\n        }\r\n\r\n        .card {\r\n          padding: 20px;\r\n          border: 1px solid #eee;\r\n          border-radius: 10px;\r\n          background: #fff;\r\n        }\r\n\r\n        .cta {\r\n          background: #111;\r\n          color: #fff;\r\n          padding: 40px;\r\n          border-radius: 10px;\r\n          margin-top: 40px;\r\n          text-align: center;\r\n        }\r\n      `}</style>\r\n\r\n    </main>\r\n  );\r\n}\r\n"
+    },
+    {
+      "path": "ARCHITECTURE_ASSESSMENT.md",
+      "category": "documentation",
+      "extension": ".md",
+      "language": "markdown",
+      "sizeBytes": 9778,
+      "lineCount": 135,
+      "sha256": "ecb3db5a320cfe760e346d39f7ae4de852015776676207e3b59af4bcfbc043c5",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "# Relatório Executivo: Avaliação de Arquitetura e Produto (Tupiniquim)\r\n\r\nEste documento serve como registro oficial da análise multidisciplinar realizada no repositório da plataforma Tupiniquim sob as perspectivas de Gerência de Produto (Product Manager), Arquitetura de Software, Liderança Técnica (Tech Lead) e Garantia de Qualidade (QA Analyst).\r\n\r\n---\r\n\r\n## 1. Visão Geral do Produto (Product Manager)\r\n\r\nA **Tupiniquim** é uma plataforma digital que combina um site institucional com um blog de conteúdo estratégico.\r\n\r\n*   **Proposta de Valor:** Atrair potenciais clientes corporativos demonstrando autoridade técnica e metodológica em desenvolvimento web, inovação e marketing de conteúdo.\r\n*   **Público-Alvo:** Decisores de negócios (B2B) em busca de soluções digitais e profissionais/estudantes de tecnologia interessados em conteúdo educativo de alta qualidade.\r\n*   **Objetivo de Negócio:** Converter tráfego orgânico do blog em leads qualificados para a área de serviços de tecnologia da empresa.\r\n\r\n---\r\n\r\n## 2. Arquitetura Atual (Software Architect)\r\n\r\nO sistema utiliza o framework **Next.js 16 (App Router)** com **TypeScript**, configurado para deploy na rede de borda (*Edge*) da **Cloudflare** via **OpenNext** e **Wrangler**.\r\n\r\n### Estratégia de Conteúdo Estático (Static Site Generation - SSG)\r\nPara contornar a limitação de sistemas Serverless/Edge (que não possuem acesso nativo e performático ao sistema de arquivos `fs` em tempo de execução), o projeto adota uma arquitetura de compilação prévia:\r\n\r\n1.  Os posts são escritos em arquivos locais `.mdx` em `content/posts/`.\r\n2.  Durante o processo de build (`npm run build`), o script `scripts/generate-posts.js` lê esses arquivos e gera um arquivo TypeScript estático em `lib/generated-posts.ts`.\r\n3.  As páginas do Next.js importam este arquivo gerado, garantindo que todo o conteúdo do blog esteja disponível em memória em tempo de execução, sem chamadas de I/O de disco ou rede.\r\n\r\n---\r\n\r\n## 3. Responsabilidades dos Módulos Identificados (Architect / Tech Lead)\r\n\r\n*   **`app/` (Camada de Apresentação e Roteamento):**\r\n    *   `layout.tsx`: Define a casca global da aplicação, cabeçalho, rodapé e metadados globais de SEO.\r\n    *   `page.tsx`: Landing page institucional com foco em conversão e apresentação de serviços.\r\n    *   `blog/page.tsx`: Feed de notícias e listagem de artigos disponíveis.\r\n    *   `blog/[slug]/page.tsx`: Renderizador dinâmico de artigos individuais.\r\n*   **`content/posts/` (Camada de Dados Brutos):**\r\n    *   Armazena os arquivos de conteúdo em formato Markdown (MDX) com metadados estruturados (Frontmatter).\r\n*   **`scripts/` (Camada de Automação de Build e Infraestrutura):**\r\n    *   `generate-posts.js`: Compilador de Markdown que transforma arquivos físicos em constantes TypeScript.\r\n    *   `deploy.js`: Utilitário de orquestração de deploy compatível com ambientes Windows e Unix.\r\n*   **`lib/` (Camada de Acesso a Dados):**\r\n    *   `generated-posts.ts`: Banco de dados estático em memória gerado automaticamente.\r\n    *   `posts.ts`: Código legado/redundante para leitura dinâmica de arquivos em runtime (incompatível com a arquitetura Edge).\r\n\r\n---\r\n\r\n## 4. Fluxo de Dados (Software Architect)\r\n\r\nO fluxo de dados de publicação e renderização ocorre em duas fases distintas:\r\n\r\n### Fase 1: Tempo de Compilação (Build Time)\r\n```\r\n[Arquivos .mdx] ──► (scripts/generate-posts.js) ──► [lib/generated-posts.ts]\r\n```\r\n\r\n### Fase 2: Tempo de Execução (Runtime / Edge)\r\n```\r\n[lib/generated-posts.ts] ──► [app/blog/page.tsx] ──► (Renderização HTML Estática)\r\n                                   │\r\n                                   └──► [app/blog/[slug]/page.tsx] ──► (Parser Regex) ──► (HTML Seguro)\r\n```\r\n\r\n---\r\n\r\n## 5. Débitos Técnicos (Tech Lead)\r\n\r\n1.  **Redundância de Código de Acesso a Dados:** O arquivo `lib/posts.ts` realiza leitura dinâmica de arquivos usando `fs` em runtime. Este arquivo não é utilizado pelas páginas principais (que consomem `lib/generated-posts.ts`) e causará erros de execução se importado em componentes executados no ambiente Edge da Cloudflare.\r\n2.  **Parser de Markdown Frágil (Regex):** A renderização de Markdown para HTML em `app/blog/[slug]/page.tsx` é feita manualmente usando expressões regulares (`replace`). Isso é altamente propenso a falhas de renderização em posts com formatações mais complexas (tabelas, listas aninhadas, blocos de código com caracteres especiais).\r\n3.  **Estilização Despadronizada:** O projeto possui o Tailwind CSS instalado, mas utiliza estilos inline e blocos `<style>` de CSS puro dentro dos componentes React. Isso quebra a consistência visual e dificulta a manutenção do design system.\r\n4.  **Falta de Validação de Schemas:** Não há validação dos metadados (Frontmatter) dos posts durante o build. Se um autor esquecer um campo obrigatório (como `title` ou `date`), o build pode falhar ou gerar páginas quebradas.\r\n\r\n---\r\n\r\n## 6. Riscos (QA Analyst)\r\n\r\n*   **Risco de Segurança (XSS):** Embora o parser customizado utilize uma função `safeHtml`, parsers baseados em Regex manual são historicamente vulneráveis a desvios de sanitização (*bypass*), permitindo a injeção de scripts maliciosos através de payloads de Markdown maliciosos.\r\n*   **Risco de Quebra de Build:** A ausência de tipagem estrita ou validação em tempo de build para os arquivos MDX significa que erros de sintaxe no Frontmatter só serão detectados quando o build falhar no pipeline de CI/CD.\r\n*   **Incompatibilidade de Runtime:** O uso acidental de APIs do Node.js (como `fs` ou `path`) em componentes do Next.js quebrará o deploy na Cloudflare, que roda sob a API V8 (Cloudflare Workers).\r\n\r\n---\r\n\r\n## 7. Gargalos de Escalabilidade (Software Architect)\r\n\r\n*   **Consumo de Memória no Edge:** Como todos os posts são compilados para um único arquivo TypeScript (`generated-posts.ts`), o tamanho desse arquivo crescerá linearmente com o número de artigos. Em larga escala (centenas de posts com imagens pesadas em Base64 ou textos longos), isso aumentará o tamanho do bundle do Worker da Cloudflare, podendo estourar o limite de tamanho de script permitido pela plataforma.\r\n*   **Tempo de Build:** O processo de build regenera todo o catálogo de posts a cada alteração, o que pode se tornar lento à medida que o volume de conteúdo cresce.\r\n\r\n---\r\n\r\n## 8. Oportunidades de Melhoria (All Perspectives)\r\n\r\n*   **Migração para MDX de Mercado:** Substituir o parser manual por uma biblioteca consolidada e segura, como `next-mdx-remote` ou `contentlayer`, garantindo suporte a componentes React dentro do Markdown e realce de sintaxe (*syntax highlighting*) para códigos.\r\n*   **Validação com Zod:** Implementar validação de Frontmatter usando a biblioteca `zod` no script de geração de posts para garantir integridade dos dados antes de gerar o arquivo final.\r\n*   **Padronização de UI com Tailwind:** Migrar todos os estilos inline e tags `<style>` para classes utilitárias do Tailwind CSS, melhorando a performance de renderização e a manutenibilidade.\r\n\r\n---\r\n\r\n## 9. Backlog Priorizado (Product Manager / Tech Lead)\r\n\r\n| Prioridade | Item de Trabalho | Impacto | Esforço |\r\n| :--- | :--- | :--- | :--- |\r\n| **Crítica** | Remover arquivo redundante `lib/posts.ts` para evitar erros no Edge. | Alto | Baixo |\r\n| **Alta** | Substituir parser Regex por biblioteca MDX robusta e segura. | Alto | Médio |\r\n| **Alta** | Implementar validação de Frontmatter dos posts com `Zod`. | Médio | Baixo |\r\n| **Média** | Refatorar estilos inline e tags `<style>` para Tailwind CSS. | Médio | Médio |\r\n| **Média** | Configurar testes unitários básicos para o parser e utilitários. | Médio | Médio |\r\n| **Baixa** | Implementar paginação na listagem de posts do blog. | Baixo | Baixo |\r\n\r\n---\r\n\r\n## 10. Roadmap de Evolução\r\n\r\n### 30 Dias: Estabilização e Segurança\r\n*   Remoção de código morto (`lib/posts.ts`).\r\n*   Implementação de validação de schema (Zod) no processo de build para garantir que nenhum post sem título, data ou categoria seja publicado.\r\n*   Substituição do parser de Markdown manual por uma solução segura contra XSS e compatível com Edge.\r\n\r\n### 60 Dias: Padronização e Qualidade Visual\r\n*   Refatoração completa da interface visual utilizando Tailwind CSS puro, eliminando CSS inline.\r\n*   Criação de um layout responsivo unificado para o blog e páginas institucionais.\r\n*   Implementação de testes unitários para os scripts de build e componentes de renderização.\r\n\r\n### 90 Dias: Escalabilidade e Performance\r\n*   Implementação de paginação e busca dinâmica no blog.\r\n*   Otimização de imagens em tempo de build para reduzir o tamanho do bundle final enviado para a Cloudflare.\r\n*   Configuração de um pipeline de CI/CD robusto com testes de regressão visual e análise de segurança estática.\r\n\r\n---\r\n\r\n## 11. Recomendações para Robustez da Plataforma\r\n\r\n1.  **Isolamento de Ambiente:** Garantir que o script `generate-posts.js` seja executado estritamente em ambiente de build, adicionando validações de ambiente (`process.env.NODE_ENV`) para evitar execuções acidentais em produção.\r\n2.  **Estratégia de Cache:** Utilizar as capacidades de cache da Cloudflare (via `open-next.config.ts`) para servir as páginas estáticas do blog diretamente da borda com tempo de vida (TTL) otimizado, reduzindo o processamento no Worker.\r\n3.  **Análise Estática de Código:** Adicionar regras estritas no ESLint para proibir o uso de CSS inline e garantir o uso correto de componentes de otimização do Next.js (como `<Image />` e `<Link />`).\r\n"
+    },
+    {
+      "path": "CLAUDE.md",
+      "category": "documentation",
+      "extension": ".md",
+      "language": "markdown",
+      "sizeBytes": 12,
+      "lineCount": 2,
+      "sha256": "d631d88045f74623d568adfb4783b72e3d1b732330d749bc6c72e6648d4581d3",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "@AGENTS.md\r\n"
+    },
+    {
+      "path": "content/posts/construindo-um-blog.mdx",
+      "category": "content",
+      "extension": ".mdx",
+      "language": "mdx",
+      "sizeBytes": 3458,
+      "lineCount": 175,
+      "sha256": "e7df030b77ded249c09434afa3b13cc5c01eddd3adc2363dffd16bebda370b7d",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "---\r\ntitle: \"Como entrar no mundo Virtual\"\r\ndate: \"2026-06-27\"\r\ncategory: \"Empreendedorismo\"\r\nimage: \"/images/post1.jpg\"\r\ndescription: \"Vale a pena começar no mundo digital em meio a tantas opções? Descubra por que a melhor decisão ainda é começar.\"\r\n---\r\n\r\n# Como entrar no mundo Virtual\r\n\r\nSerá que vale a pena começar no digital em 2026?\r\n\r\nCom tantas plataformas, conteúdos massivos e estruturas gigantes já estabelecidas, é normal surgir a dúvida:\r\n\r\n**“Ainda dá tempo?”**\r\n\r\nMas existe uma pergunta ainda mais importante:\r\n\r\n> Existe forma melhor de descobrir do que fazendo?\r\n\r\n---\r\n\r\n## O peso de começar\r\n\r\nComeçar algo novo não é só uma decisão prática.  \r\nÉ uma decisão emocional.\r\n\r\nA dúvida não costuma ser sobre o _como_ —  \r\nmas sim sobre o _se vale a pena_.\r\n\r\nE normalmente ela vem acompanhada de pensamentos como:\r\n\r\n- “Já tem gente fazendo melhor que eu”\r\n- “O mercado está saturado”\r\n- “Talvez eu esteja atrasado”\r\n\r\nO que pouca gente percebe é que todos esses pensamentos surgem antes mesmo da tentativa.\r\n\r\n---\r\n\r\n## O erro mais comum\r\n\r\nA maioria das pessoas tenta resolver tudo antes de começar.\r\n\r\nQuerem:\r\n\r\n- entender tudo\r\n- prever tudo\r\n- garantir resultado\r\n\r\nMas esse caminho tem um problema silencioso:\r\n\r\n> **Ele paralisa.**\r\n\r\nPorque sempre vai existir mais uma dúvida, mais um detalhe, mais uma coisa “faltando”.\r\n\r\n---\r\n\r\n## A virada de chave\r\n\r\nEm algum momento, você percebe algo simples:\r\n\r\n> Você não precisa ter todas as respostas para começar.\r\n\r\nVocê só precisa dar o primeiro passo.\r\n\r\nE esse passo pode ser pequeno:\r\n\r\n- escrever um primeiro conteúdo\r\n- criar algo simples\r\n- testar uma ideia\r\n\r\nSem compromisso de perfeição.\r\n\r\n---\r\n\r\n## Fazer resolve mais do que pensar\r\n\r\nPensar ajuda.  \r\nPlanejar é importante.\r\n\r\nMas executar revela coisas que nenhuma análise entrega.\r\n\r\nQuando você começa:\r\n\r\n- você entende o que faz sentido\r\n- percebe erros reais\r\n- vê o que funciona na prática\r\n\r\nE principalmente:\r\n\r\n> você sai da teoria e entra no movimento.\r\n\r\n---\r\n\r\n## O mundo digital não está saturado\r\n\r\nEle está cheio.\r\n\r\nCheio de conteúdo genérico, repetido e muitas vezes desconectado da realidade.\r\n\r\nIsso abre uma oportunidade enorme.\r\n\r\nPorque o que realmente falta não é mais informação.\r\n\r\nÉ:\r\n\r\n- visão própria\r\n- consistência\r\n- autenticidade\r\n\r\n---\r\n\r\n## Você não precisa competir com o mundo\r\n\r\nEsse é outro erro comum.\r\n\r\nVocê não precisa ser o melhor.\r\n\r\nVocê precisa apenas:\r\n\r\n- ser consistente\r\n- continuar melhorando\r\n- não parar no meio do caminho\r\n\r\nCom o tempo, isso se acumula.\r\n\r\nE esse acúmulo cria algo difícil de copiar:\r\n\r\n**experiência real.**\r\n\r\n---\r\n\r\n## Começar é se dar permissão\r\n\r\nComeçar não significa que vai dar certo imediatamente.\r\n\r\nSignifica que você decidiu:\r\n\r\n- parar de esperar o momento perfeito\r\n- parar de se comparar\r\n- e começar a construir algo próprio\r\n\r\n---\r\n\r\n## Vale a pena?\r\n\r\nSim.\r\n\r\nMas não porque é fácil.  \r\nNão porque é rápido.  \r\nE nem porque existe garantia.\r\n\r\nVale a pena porque:\r\n\r\n> é o único caminho que transforma dúvida em experiência.\r\n\r\n---\r\n\r\n## Conclusão\r\n\r\nSe você está pensando em entrar no mundo digital, talvez a pergunta esteja errada.\r\n\r\nNão é:\r\n\r\n> “Será que vale a pena?”\r\n\r\nÉ:\r\n\r\n> **“Por que eu ainda não comecei?”**\r\n\r\nPorque no final, quase tudo se resolve com um simples movimento:\r\n\r\n**começar.**\r\n"
+    },
+    {
+      "path": "content/posts/github-copilot-gratis.mdx",
+      "category": "content",
+      "extension": ".mdx",
+      "language": "mdx",
+      "sizeBytes": 1058,
+      "lineCount": 27,
+      "sha256": "5dab2e930efb34377855c412005395689aa3a1a2d0bba5978cab639a3382f78b",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "---\r\ntitle: \"GitHub Copilot de Graça para Estudantes: Como Conseguir e Vale a Pena?\"\r\ndate: \"2026-06-29\"\r\nauthor: \"Arthur\"\r\ndescription: \"Descubra como conseguir o GitHub Copilot grátis como estudante e acelerar seu aprendizado em programação.\"\r\ncategory: \"tecnologia\"\r\nimage: \"/images/github-copilot-student.jpg\"\r\n---\r\n\r\n# GitHub Copilot de Graça para Estudantes\r\n\r\nSe você está estudando programação ou quer acelerar seu aprendizado, existe um benefício pouco conhecido que pode fazer muita diferença: o acesso gratuito ao GitHub Copilot através do GitHub Education.\r\n\r\n## O que é o GitHub Education?\r\n\r\nO GitHub Education é um programa criado pelo próprio GitHub para ajudar estudantes a aprenderem com ferramentas profissionais.\r\n\r\n👉 https://education.github.com/pack\r\n\r\n## O que é o GitHub Copilot?\r\n\r\nO GitHub Copilot é uma ferramenta de inteligência artificial que funciona como um assistente de programação.\r\n\r\n## Vale a pena?\r\n\r\nSim — principalmente se você está começando ou quer evoluir mais rápido na programação.\r\n"
+    },
+    {
+      "path": "content/posts/massagem-facial.mdx",
+      "category": "content",
+      "extension": ".mdx",
+      "language": "mdx",
+      "sizeBytes": 2801,
+      "lineCount": 114,
+      "sha256": "112d5b3af3d8f27bc30a3c81fc1eb538198406e378d3f358404282c02dbb8f70",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "---\r\ntitle: \"Massagem Facial: Benefícios, Técnicas e Como Fazer em Casa\"\r\ndate: \"2026-06-29\"\r\nauthor: \"Greyce\"\r\ndescription: \"Descubra os benefícios da massagem facial, técnicas simples e como incorporar esse cuidado na sua rotina diária.\"\r\ncategory: \"saude\"\r\nimage: \"/images/massagem-facial.jpg\"\r\n---\r\n\r\n# Massagem Facial: Benefícios, Técnicas e Como Fazer em Casa\r\n\r\nA massagem facial tem ganhado cada vez mais destaque nas rotinas de cuidados com a pele. Além de promover relaxamento, essa técnica simples pode contribuir para a saúde da pele, melhorar a circulação sanguínea e favorecer a aparência do rosto com o tempo.\r\n\r\nNeste artigo, você vai entender o que é a massagem facial, seus principais benefícios e como praticá-la no dia a dia.\r\n\r\n---\r\n\r\n## O que é massagem facial?\r\n\r\nA massagem facial é um conjunto de movimentos realizados no rosto com o objetivo de estimular a circulação, relaxar os músculos e favorecer a absorção de produtos de skincare.\r\n\r\nEla pode ser feita com as mãos ou com acessórios como:\r\n\r\n- Rolos de jade (jade roller)\r\n- Gua Sha\r\n- Massageadores elétricos\r\n\r\nEssa prática pode ser incorporada tanto em tratamentos profissionais quanto em casa.\r\n\r\n---\r\n\r\n## Benefícios da massagem facial\r\n\r\n✅ **Melhora a circulação sanguínea**  \r\nEstimula o fluxo sanguíneo e deixa a pele com aspecto mais saudável.\r\n\r\n✅ **Reduz inchaços**  \r\nAjuda a diminuir retenção de líquidos, principalmente ao redor dos olhos.\r\n\r\n✅ **Ajuda na firmeza da pele**  \r\nPode contribuir para tonificar os músculos faciais.\r\n\r\n✅ **Promove relaxamento**  \r\nAlivia tensões acumuladas no rosto.\r\n\r\n✅ **Potencializa cosméticos**  \r\nMelhora a absorção de séruns e cremes.\r\n\r\n---\r\n\r\n## Como fazer massagem facial em casa\r\n\r\n🧴 **Passo a passo básico:**\r\n\r\n1. Limpe bem o rosto\r\n2. Aplique um produto (óleo, creme ou sérum)\r\n3. Faça movimentos suaves e ascendentes\r\n\r\n---\r\n\r\n## Técnicas simples\r\n\r\n**Testa**\r\n\r\n- Movimentos do centro para as laterais\r\n\r\n**Olhos**\r\n\r\n- Toques leves\r\n\r\n**Bochechas**\r\n\r\n- Movimentos de baixo para cima\r\n\r\n**Mandíbula**\r\n\r\n- Do queixo até a orelha\r\n\r\n**Pescoço**\r\n\r\n- Movimentos ascendentes\r\n\r\n---\r\n\r\n## Dicas importantes\r\n\r\n- ⏱️ 5 a 10 minutos por dia\r\n- 💧 Use produtos adequados\r\n- 🙌 Não aplique força excessiva\r\n- 🔁 Seja consistente\r\n- 🧼 Higienize mãos e acessórios\r\n\r\n---\r\n\r\n## Contraindicações\r\n\r\nEvite se houver:\r\n\r\n- Acne inflamada\r\n- Infecções na pele\r\n- Procedimentos recentes\r\n\r\n---\r\n\r\n## Vale a pena?\r\n\r\nSim. É uma técnica simples, acessível e eficaz para melhorar a rotina de cuidados.\r\n\r\n---\r\n\r\n## Conclusão\r\n\r\nMais do que estética, a massagem facial é um momento de autocuidado. Incorporar essa prática pode trazer benefícios para a pele e para o bem-estar geral.\r\n"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "category": "configuration",
+      "extension": ".mjs",
+      "language": "javascript-esm",
+      "sizeBytes": 483,
+      "lineCount": 19,
+      "sha256": "275a07c13fc7c83a652efcfa9fb6a207c451a2f5088e6793415ce44281285720",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "import { defineConfig, globalIgnores } from \"eslint/config\";\r\nimport nextVitals from \"eslint-config-next/core-web-vitals\";\r\nimport nextTs from \"eslint-config-next/typescript\";\r\n\r\nconst eslintConfig = defineConfig([\r\n  ...nextVitals,\r\n  ...nextTs,\r\n  // Override default ignores of eslint-config-next.\r\n  globalIgnores([\r\n    // Default ignores of eslint-config-next:\r\n    \".next/**\",\r\n    \"out/**\",\r\n    \"build/**\",\r\n    \"next-env.d.ts\",\r\n  ]),\r\n]);\r\n\r\nexport default eslintConfig;\r\n"
+    },
+    {
+      "path": "lib/generated-posts.ts",
+      "category": "source-code",
+      "extension": ".ts",
+      "language": "typescript",
+      "sizeBytes": 8523,
+      "lineCount": 49,
+      "sha256": "9e8f44d27cc6fcbc8ae5020ae59ee7fcb624eb3ac8c3f219ccdbdc1b6a94263f",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "/**\n * Arquivo gerado automaticamente por scripts/generate-posts.js.\n * Não edite manualmente este arquivo.\n */\n\nexport type GeneratedPost = {\n  slug: string;\n  title: string;\n  date: string;\n  author: string;\n  description: string;\n  category: string;\n  image: string | null;\n  content: string;\n};\n\nexport const generatedPosts: GeneratedPost[] = [\n  {\n    \"slug\": \"construindo-um-blog\",\n    \"title\": \"Como entrar no mundo Virtual\",\n    \"date\": \"2026-06-27\",\n    \"author\": \"\",\n    \"description\": \"Vale a pena começar no mundo digital em meio a tantas opções? Descubra por que a melhor decisão ainda é começar.\",\n    \"category\": \"Empreendedorismo\",\n    \"image\": \"/images/post1.jpg\",\n    \"content\": \"\\r\\n# Como entrar no mundo Virtual\\r\\n\\r\\nSerá que vale a pena começar no digital em 2026?\\r\\n\\r\\nCom tantas plataformas, conteúdos massivos e estruturas gigantes já estabelecidas, é normal surgir a dúvida:\\r\\n\\r\\n**“Ainda dá tempo?”**\\r\\n\\r\\nMas existe uma pergunta ainda mais importante:\\r\\n\\r\\n> Existe forma melhor de descobrir do que fazendo?\\r\\n\\r\\n---\\r\\n\\r\\n## O peso de começar\\r\\n\\r\\nComeçar algo novo não é só uma decisão prática.  \\r\\nÉ uma decisão emocional.\\r\\n\\r\\nA dúvida não costuma ser sobre o _como_ —  \\r\\nmas sim sobre o _se vale a pena_.\\r\\n\\r\\nE normalmente ela vem acompanhada de pensamentos como:\\r\\n\\r\\n- “Já tem gente fazendo melhor que eu”\\r\\n- “O mercado está saturado”\\r\\n- “Talvez eu esteja atrasado”\\r\\n\\r\\nO que pouca gente percebe é que todos esses pensamentos surgem antes mesmo da tentativa.\\r\\n\\r\\n---\\r\\n\\r\\n## O erro mais comum\\r\\n\\r\\nA maioria das pessoas tenta resolver tudo antes de começar.\\r\\n\\r\\nQuerem:\\r\\n\\r\\n- entender tudo\\r\\n- prever tudo\\r\\n- garantir resultado\\r\\n\\r\\nMas esse caminho tem um problema silencioso:\\r\\n\\r\\n> **Ele paralisa.**\\r\\n\\r\\nPorque sempre vai existir mais uma dúvida, mais um detalhe, mais uma coisa “faltando”.\\r\\n\\r\\n---\\r\\n\\r\\n## A virada de chave\\r\\n\\r\\nEm algum momento, você percebe algo simples:\\r\\n\\r\\n> Você não precisa ter todas as respostas para começar.\\r\\n\\r\\nVocê só precisa dar o primeiro passo.\\r\\n\\r\\nE esse passo pode ser pequeno:\\r\\n\\r\\n- escrever um primeiro conteúdo\\r\\n- criar algo simples\\r\\n- testar uma ideia\\r\\n\\r\\nSem compromisso de perfeição.\\r\\n\\r\\n---\\r\\n\\r\\n## Fazer resolve mais do que pensar\\r\\n\\r\\nPensar ajuda.  \\r\\nPlanejar é importante.\\r\\n\\r\\nMas executar revela coisas que nenhuma análise entrega.\\r\\n\\r\\nQuando você começa:\\r\\n\\r\\n- você entende o que faz sentido\\r\\n- percebe erros reais\\r\\n- vê o que funciona na prática\\r\\n\\r\\nE principalmente:\\r\\n\\r\\n> você sai da teoria e entra no movimento.\\r\\n\\r\\n---\\r\\n\\r\\n## O mundo digital não está saturado\\r\\n\\r\\nEle está cheio.\\r\\n\\r\\nCheio de conteúdo genérico, repetido e muitas vezes desconectado da realidade.\\r\\n\\r\\nIsso abre uma oportunidade enorme.\\r\\n\\r\\nPorque o que realmente falta não é mais informação.\\r\\n\\r\\nÉ:\\r\\n\\r\\n- visão própria\\r\\n- consistência\\r\\n- autenticidade\\r\\n\\r\\n---\\r\\n\\r\\n## Você não precisa competir com o mundo\\r\\n\\r\\nEsse é outro erro comum.\\r\\n\\r\\nVocê não precisa ser o melhor.\\r\\n\\r\\nVocê precisa apenas:\\r\\n\\r\\n- ser consistente\\r\\n- continuar melhorando\\r\\n- não parar no meio do caminho\\r\\n\\r\\nCom o tempo, isso se acumula.\\r\\n\\r\\nE esse acúmulo cria algo difícil de copiar:\\r\\n\\r\\n**experiência real.**\\r\\n\\r\\n---\\r\\n\\r\\n## Começar é se dar permissão\\r\\n\\r\\nComeçar não significa que vai dar certo imediatamente.\\r\\n\\r\\nSignifica que você decidiu:\\r\\n\\r\\n- parar de esperar o momento perfeito\\r\\n- parar de se comparar\\r\\n- e começar a construir algo próprio\\r\\n\\r\\n---\\r\\n\\r\\n## Vale a pena?\\r\\n\\r\\nSim.\\r\\n\\r\\nMas não porque é fácil.  \\r\\nNão porque é rápido.  \\r\\nE nem porque existe garantia.\\r\\n\\r\\nVale a pena porque:\\r\\n\\r\\n> é o único caminho que transforma dúvida em experiência.\\r\\n\\r\\n---\\r\\n\\r\\n## Conclusão\\r\\n\\r\\nSe você está pensando em entrar no mundo digital, talvez a pergunta esteja errada.\\r\\n\\r\\nNão é:\\r\\n\\r\\n> “Será que vale a pena?”\\r\\n\\r\\nÉ:\\r\\n\\r\\n> **“Por que eu ainda não comecei?”**\\r\\n\\r\\nPorque no final, quase tudo se resolve com um simples movimento:\\r\\n\\r\\n**começar.**\\r\\n\"\n  },\n  {\n    \"slug\": \"github-copilot-gratis\",\n    \"title\": \"GitHub Copilot de Graça para Estudantes: Como Conseguir e Vale a Pena?\",\n    \"date\": \"2026-06-29\",\n    \"author\": \"Arthur\",\n    \"description\": \"Descubra como conseguir o GitHub Copilot grátis como estudante e acelerar seu aprendizado em programação.\",\n    \"category\": \"tecnologia\",\n    \"image\": \"/images/github-copilot-student.jpg\",\n    \"content\": \"\\r\\n# GitHub Copilot de Graça para Estudantes\\r\\n\\r\\nSe você está estudando programação ou quer acelerar seu aprendizado, existe um benefício pouco conhecido que pode fazer muita diferença: o acesso gratuito ao GitHub Copilot através do GitHub Education.\\r\\n\\r\\n## O que é o GitHub Education?\\r\\n\\r\\nO GitHub Education é um programa criado pelo próprio GitHub para ajudar estudantes a aprenderem com ferramentas profissionais.\\r\\n\\r\\n👉 https://education.github.com/pack\\r\\n\\r\\n## O que é o GitHub Copilot?\\r\\n\\r\\nO GitHub Copilot é uma ferramenta de inteligência artificial que funciona como um assistente de programação.\\r\\n\\r\\n## Vale a pena?\\r\\n\\r\\nSim — principalmente se você está começando ou quer evoluir mais rápido na programação.\\r\\n\"\n  },\n  {\n    \"slug\": \"massagem-facial\",\n    \"title\": \"Massagem Facial: Benefícios, Técnicas e Como Fazer em Casa\",\n    \"date\": \"2026-06-29\",\n    \"author\": \"Greyce\",\n    \"description\": \"Descubra os benefícios da massagem facial, técnicas simples e como incorporar esse cuidado na sua rotina diária.\",\n    \"category\": \"saude\",\n    \"image\": \"/images/massagem-facial.jpg\",\n    \"content\": \"\\r\\n# Massagem Facial: Benefícios, Técnicas e Como Fazer em Casa\\r\\n\\r\\nA massagem facial tem ganhado cada vez mais destaque nas rotinas de cuidados com a pele. Além de promover relaxamento, essa técnica simples pode contribuir para a saúde da pele, melhorar a circulação sanguínea e favorecer a aparência do rosto com o tempo.\\r\\n\\r\\nNeste artigo, você vai entender o que é a massagem facial, seus principais benefícios e como praticá-la no dia a dia.\\r\\n\\r\\n---\\r\\n\\r\\n## O que é massagem facial?\\r\\n\\r\\nA massagem facial é um conjunto de movimentos realizados no rosto com o objetivo de estimular a circulação, relaxar os músculos e favorecer a absorção de produtos de skincare.\\r\\n\\r\\nEla pode ser feita com as mãos ou com acessórios como:\\r\\n\\r\\n- Rolos de jade (jade roller)\\r\\n- Gua Sha\\r\\n- Massageadores elétricos\\r\\n\\r\\nEssa prática pode ser incorporada tanto em tratamentos profissionais quanto em casa.\\r\\n\\r\\n---\\r\\n\\r\\n## Benefícios da massagem facial\\r\\n\\r\\n✅ **Melhora a circulação sanguínea**  \\r\\nEstimula o fluxo sanguíneo e deixa a pele com aspecto mais saudável.\\r\\n\\r\\n✅ **Reduz inchaços**  \\r\\nAjuda a diminuir retenção de líquidos, principalmente ao redor dos olhos.\\r\\n\\r\\n✅ **Ajuda na firmeza da pele**  \\r\\nPode contribuir para tonificar os músculos faciais.\\r\\n\\r\\n✅ **Promove relaxamento**  \\r\\nAlivia tensões acumuladas no rosto.\\r\\n\\r\\n✅ **Potencializa cosméticos**  \\r\\nMelhora a absorção de séruns e cremes.\\r\\n\\r\\n---\\r\\n\\r\\n## Como fazer massagem facial em casa\\r\\n\\r\\n🧴 **Passo a passo básico:**\\r\\n\\r\\n1. Limpe bem o rosto\\r\\n2. Aplique um produto (óleo, creme ou sérum)\\r\\n3. Faça movimentos suaves e ascendentes\\r\\n\\r\\n---\\r\\n\\r\\n## Técnicas simples\\r\\n\\r\\n**Testa**\\r\\n\\r\\n- Movimentos do centro para as laterais\\r\\n\\r\\n**Olhos**\\r\\n\\r\\n- Toques leves\\r\\n\\r\\n**Bochechas**\\r\\n\\r\\n- Movimentos de baixo para cima\\r\\n\\r\\n**Mandíbula**\\r\\n\\r\\n- Do queixo até a orelha\\r\\n\\r\\n**Pescoço**\\r\\n\\r\\n- Movimentos ascendentes\\r\\n\\r\\n---\\r\\n\\r\\n## Dicas importantes\\r\\n\\r\\n- ⏱️ 5 a 10 minutos por dia\\r\\n- 💧 Use produtos adequados\\r\\n- 🙌 Não aplique força excessiva\\r\\n- 🔁 Seja consistente\\r\\n- 🧼 Higienize mãos e acessórios\\r\\n\\r\\n---\\r\\n\\r\\n## Contraindicações\\r\\n\\r\\nEvite se houver:\\r\\n\\r\\n- Acne inflamada\\r\\n- Infecções na pele\\r\\n- Procedimentos recentes\\r\\n\\r\\n---\\r\\n\\r\\n## Vale a pena?\\r\\n\\r\\nSim. É uma técnica simples, acessível e eficaz para melhorar a rotina de cuidados.\\r\\n\\r\\n---\\r\\n\\r\\n## Conclusão\\r\\n\\r\\nMais do que estética, a massagem facial é um momento de autocuidado. Incorporar essa prática pode trazer benefícios para a pele e para o bem-estar geral.\\r\\n\"\n  }\n];\n"
+    },
+    {
+      "path": "lib/posts.ts",
+      "category": "source-code",
+      "extension": ".ts",
+      "language": "typescript",
+      "sizeBytes": 751,
+      "lineCount": 30,
+      "sha256": "158d8f4ea4b888fe3cb47969ab660f708584b08768666bc7415ecb49445336be",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "import fs from \"fs\";\r\nimport path from \"path\";\r\nimport matter from \"gray-matter\";\r\n\r\nexport type Post = {\r\n  slug: string;\r\n  title: string;\r\n  date: string;\r\n};\r\n\r\nconst postsDirectory = path.join(process.cwd(), \"content\", \"posts\");\r\n\r\nexport function getAllPosts(): Post[] {\r\n  const files = fs.readdirSync(postsDirectory);\r\n\r\n  return files.map((file) => {\r\n    const filePath = path.join(postsDirectory, file);\r\n    const fileContents = fs.readFileSync(filePath, \"utf8\");\r\n\r\n    const { data } = matter(fileContents);\r\n\r\n    return {\r\n      slug: file.replace(\".mdx\", \"\").trim(),\r\n      title: data.title || \"Sem título\",\r\n      date: data.date || \"\",\r\n      category: data.category || \"geral\",\r\n      image: data.image || null,\r\n    };\r\n  });\r\n}"
+    },
+    {
+      "path": "next.config.ts",
+      "category": "source-code",
+      "extension": ".ts",
+      "language": "typescript",
+      "sizeBytes": 154,
+      "lineCount": 10,
+      "sha256": "b67e1b91ae8597fbbf081e4156ba48075231a9500780340f9c9c6bb83fb22df7",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "import type { NextConfig } from \"next\";\r\n\r\nconst nextConfig: NextConfig = {\r\n  images: {\r\n    unoptimized: true,\r\n  },\r\n};\r\n\r\nexport default nextConfig;\r\n"
+    },
+    {
+      "path": "open-next.config.ts",
+      "category": "source-code",
+      "extension": ".ts",
+      "language": "typescript",
+      "sizeBytes": 448,
+      "lineCount": 10,
+      "sha256": "2a1a0ff92acb2550eb5b1e2b239bada57314147b26ce2c0da87929e87f3dc001",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "// default open-next.config.ts file created by @opennextjs/cloudflare\nimport { defineCloudflareConfig } from \"@opennextjs/cloudflare\";\n// import r2IncrementalCache from \"@opennextjs/cloudflare/overrides/incremental-cache/r2-incremental-cache\";\n\nexport default defineCloudflareConfig({\n\t// For best results consider enabling R2 caching\n\t// See https://opennext.js.org/cloudflare/caching for more details\n\t// incrementalCache: r2IncrementalCache\n});\n"
+    },
+    {
+      "path": "package.json",
+      "category": "configuration",
+      "extension": ".json",
+      "language": "json",
+      "sizeBytes": 804,
+      "lineCount": 30,
+      "sha256": "14d3b613085a2923b91a7ea14adab164f6668c42b075f147278d7c8ec8c1d0ce",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "{\r\n  \"name\": \"tupiniquim-platform\",\r\n  \"version\": \"0.1.0\",\r\n  \"private\": true,\r\n  \"scripts\": {\r\n    \"dev\": \"next dev\",\r\n    \"build\": \"node scripts/generate-posts.js && next build --webpack\",\r\n    \"opennext\": \"opennextjs-cloudflare build\",\r\n    \"start\": \"next start\",\r\n    \"lint\": \"eslint\",\r\n    \"deploy\": \"node scripts/deploy.js\",\r\n    \"preview\": \"opennextjs-cloudflare preview\",\r\n    \"context:scan\": \"node scripts/generate-project-map.js\"\r\n  },\r\n  \"dependencies\": {\r\n    \"@opennextjs/cloudflare\": \"^1.20.1\",\r\n    \"autoprefixer\": \"^10.5.2\",\r\n    \"gray-matter\": \"^4.0.3\",\r\n    \"next\": \"16.2.9\",\r\n    \"react\": \"18.3.1\",\r\n    \"react-dom\": \"18.3.1\"\r\n  },\r\n  \"devDependencies\": {\r\n    \"@types/node\": \"^20.0.0\",\r\n    \"@types/react\": \"^18.0.0\",\r\n    \"typescript\": \"^5.0.0\",\r\n    \"wrangler\": \"^4.0.0\"\r\n  }\r\n  \r\n}"
+    },
+    {
+      "path": "README.md",
+      "category": "documentation",
+      "extension": ".md",
+      "language": "markdown",
+      "sizeBytes": 1486,
+      "lineCount": 37,
+      "sha256": "3b3ed71ebf50e973209bc634f6849e8ecf235a6c0686c285e1f36af5caa1c2cc",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).\r\n\r\n## Getting Started\r\n\r\nFirst, run the development server:\r\n\r\n```bash\r\nnpm run dev\r\n# or\r\nyarn dev\r\n# or\r\npnpm dev\r\n# or\r\nbun dev\r\n```\r\n\r\nOpen [http://localhost:3000](http://localhost:3000) with your browser to see the result.\r\n\r\nYou can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.\r\n\r\nThis project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.\r\n\r\n## Learn More\r\n\r\nTo learn more about Next.js, take a look at the following resources:\r\n\r\n- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.\r\n- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.\r\n\r\nYou can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!\r\n\r\n## Deploy on Vercel\r\n\r\nThe easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.\r\n\r\nCheck out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.\r\n"
+    },
+    {
+      "path": "ROADMAP_2026.md",
+      "category": "documentation",
+      "extension": ".md",
+      "language": "markdown",
+      "sizeBytes": 8091,
+      "lineCount": 101,
+      "sha256": "95476015530396be09f78d853a58924a433f1c528292c1f51becf756ddc6a620",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "# Roadmap de Evolução Tecnológica e de Produto (2026) — Plataforma Tupiniquim\r\n\r\nEste documento detalha o planejamento estratégico de engenharia e produto para a plataforma Tupiniquim, estruturado em **Objetivos**, **Épicos** e **Tarefas** acionáveis para os horizontes de 30, 60 e 90 dias.\r\n\r\n---\r\n\r\n## Visão Geral dos Objetivos (OKRs)\r\n\r\n### [OBJ-1] Estabilização, Segurança e Robustez (Horizonte: 30 Dias)\r\n*   **Meta:** Eliminar riscos de segurança (XSS), remover redundâncias de código e garantir que 100% dos posts publicados passem por validação automatizada de metadados antes de irem para produção.\r\n\r\n### [OBJ-2] Padronização Visual e Qualidade de Código (Horizonte: 60 Dias)\r\n*   **Meta:** Unificar a linguagem visual do projeto utilizando Tailwind CSS puro, remover estilos inline/tags `<style>` e estabelecer uma suíte de testes automatizados para os fluxos críticos.\r\n\r\n### [OBJ-3] Escalabilidade, Performance e SEO Avançado (Horizonte: 90 Dias)\r\n*   **Meta:** Otimizar o tempo de build e o consumo de memória no Edge da Cloudflare, implementar paginação/busca e garantir pontuação máxima (95+) no Google Lighthouse.\r\n\r\n---\r\n\r\n## Épicos e Tarefas\r\n\r\n### ÉPICO 1: Segurança do Parser de Conteúdo e Limpeza de Código Morto\r\n*   **Objetivo Associado:** [OBJ-1] (0 a 30 dias)\r\n*   **Descrição:** Substituição do parser manual baseado em expressões regulares por uma solução robusta de mercado e eliminação de arquivos legados que causam confusão arquitetural.\r\n\r\n#### Tarefas:\r\n- [ ] **TSK-1.1: Remoção do arquivo legado `lib/posts.ts`**\r\n    *   *Descrição:* Excluir o arquivo `lib/posts.ts` que utiliza a biblioteca `fs` em tempo de execução, garantindo que nenhum componente tente importá-lo acidentalmente no ambiente Edge.\r\n    *   *Critério de Aceitação:* Arquivo deletado e build executado com sucesso sem referências órfãs.\r\n- [ ] **TSK-1.2: Migração do Parser de Markdown para biblioteca consolidada**\r\n    *   *Descrição:* Substituir as funções `safeHtml`, `inlineMd` e `markdownToHtml` em `app/blog/[slug]/page.tsx` por um parser seguro e homologado (ex: `next-mdx-remote` ou `marked` combinado com `dompurify`/`sanitize-html`).\r\n    *   *Critério de Aceitação:* Renderização idêntica dos posts atuais, suporte nativo a tabelas, listas aninhadas e eliminação completa de vulnerabilidades de injeção de scripts (XSS).\r\n- [ ] **TSK-1.3: Implementação de Syntax Highlighting para blocos de código**\r\n    *   *Descrição:* Adicionar suporte a realce de sintaxe nos blocos de código dos artigos do blog (utilizando bibliotecas leves como `prismjs` ou `shiki` integradas ao novo parser).\r\n    *   *Critério de Aceitação:* Blocos de código nos posts renderizados com cores apropriadas para cada linguagem de programação.\r\n\r\n---\r\n\r\n### ÉPICO 2: Validação de Dados e Integridade de Conteúdo (Frontmatter)\r\n*   **Objetivo Associado:** [OBJ-1] (0 a 30 dias)\r\n*   **Descrição:** Criação de uma camada de validação estrita para os metadados dos arquivos MDX para evitar que erros de digitação ou ausência de campos quebrem o build ou a interface.\r\n\r\n#### Tarefas:\r\n- [ ] **TSK-2.1: Integração da biblioteca Zod para validação de Schemas**\r\n    *   *Descrição:* Instalar e configurar o `zod` no projeto para validar a estrutura do Frontmatter de cada post durante a compilação.\r\n    *   *Critério de Aceitação:* Schema definido contendo campos obrigatórios (`title`, `date`, `description`, `category`) e opcionais (`author`, `image`).\r\n- [ ] **TSK-2.2: Refatoração do script `scripts/generate-posts.js`**\r\n    *   *Descrição:* Atualizar o script de geração de posts para aplicar o schema do Zod em cada arquivo MDX lido. O script deve lançar um erro claro e interromper o build caso algum post esteja inválido.\r\n    *   *Critério de Aceitação:* Execução de `npm run build` falha intencionalmente se um arquivo MDX de teste estiver sem o campo `title` ou com formato de data inválido.\r\n\r\n---\r\n\r\n### ÉPICO 3: Refatoração de UI/UX e Padronização com Tailwind CSS\r\n*   **Objetivo Associado:** [OBJ-2] (30 a 60 dias)\r\n*   **Descrição:** Eliminação de estilos inline e tags `<style>` nos arquivos `app/page.tsx`, `app/blog/page.tsx` e `app/blog/[slug]/page.tsx`, migrando toda a estilização para classes utilitárias do Tailwind CSS.\r\n\r\n#### Tarefas:\r\n- [ ] **TSK-3.1: Configuração e Padronização do Tailwind CSS**\r\n    *   *Descrição:* Garantir que o arquivo `tailwind.config.ts` (ou js) esteja configurado com a paleta de cores oficial da Tupiniquim (tons de verde, amarelo e cinza escuro).\r\n    *   *Critério de Aceitação:* Configuração de tema estendida com as cores institucionais.\r\n- [ ] **TSK-3.2: Refatoração da Landing Page (`app/page.tsx`)**\r\n    *   *Descrição:* Substituir a tag `<style>` por classes utilitárias do Tailwind CSS, mantendo a responsividade e o design original.\r\n    *   *Critério de Aceitação:* Página inicial renderizada perfeitamente em dispositivos móveis e desktops sem uso de CSS customizado no componente.\r\n- [ ] **TSK-3.3: Refatoração das Páginas do Blog**\r\n    *   *Descrição:* Migrar a listagem (`app/blog/page.tsx`) e a página do artigo (`app/blog/[slug]/page.tsx`) para Tailwind CSS.\r\n    *   *Critério de Aceitação:* Estilos de parágrafos, títulos, blockquotes e listas do artigo controlados via classes utilitárias (utilizando o plugin `@tailwindcss/typography` se aplicável).\r\n\r\n---\r\n\r\n### ÉPICO 4: Garantia de Qualidade e Testes Automatizados\r\n*   **Objetivo Associado:** [OBJ-2] (30 a 60 dias)\r\n*   **Descrição:** Implementação de testes automatizados para garantir que alterações futuras não quebrem o parser de conteúdo ou o fluxo de geração de posts.\r\n\r\n#### Tarefas:\r\n- [ ] **TSK-4.1: Configuração do Jest ou Vitest**\r\n    *   *Descrição:* Instalar e configurar um framework de testes unitários leve e compatível com TypeScript.\r\n    *   *Critério de Aceitação:* Comando `npm run test` configurado e executando com sucesso.\r\n- [ ] **TSK-4.2: Criação de testes unitários para o Parser de Markdown**\r\n    *   *Descrição:* Escrever testes que validem a conversão correta de títulos, listas, links seguros e a rejeição de payloads maliciosos (XSS).\r\n    *   *Critério de Aceitação:* Cobertura de testes de segurança de pelo menos 95% para as funções de renderização de texto.\r\n- [ ] **TSK-4.3: Integração de testes no pipeline de CI/CD**\r\n    *   *Descrição:* Configurar uma ação do GitHub Actions para rodar o linter e os testes automatizados a cada Pull Request.\r\n    *   *Critério de Aceitação:* PRs bloqueados automaticamente se os testes falharem.\r\n\r\n---\r\n\r\n### ÉPICO 5: Escalabilidade de Conteúdo e Otimização de Performance no Edge\r\n*   **Objetivo Associado:** [OBJ-3] (60 a 90 dias)\r\n*   **Descrição:** Preparação da plataforma para suportar centenas de posts sem estourar os limites de memória do Cloudflare Worker e melhoria da experiência de navegação.\r\n\r\n#### Tarefas:\r\n- [ ] **TSK-5.1: Implementação de Paginação na listagem do Blog**\r\n    *   *Descrição:* Adicionar paginação lógica na página `app/blog/page.tsx` para evitar renderizar todos os posts de uma única vez.\r\n    *   *Critério de Aceitação:* Exibição de no máximo 10 posts por página, com botões de navegação \"Anterior\" e \"Próximo\".\r\n- [ ] **TSK-5.2: Mecanismo de Busca Estática**\r\n    *   *Descrição:* Criar um campo de busca simples por título ou descrição na página do blog, filtrando os posts em tempo real no lado do cliente.\r\n    *   *Critério de Aceitação:* Filtro instantâneo altamente performático sem requisições adicionais ao servidor.\r\n- [ ] **TSK-5.3: Otimização de Imagens e Cache no Edge**\r\n    *   *Descrição:* Configurar políticas estritas de cache para imagens e assets estáticos no arquivo `open-next.config.ts` e `wrangler.jsonc`.\r\n    *   *Critério de Aceitação:* Imagens servidas com cabeçalhos `Cache-Control` de longa duração diretamente da rede de borda da Cloudflare.\r\n"
+    },
+    {
+      "path": "scripts/deploy.js",
+      "category": "source-code",
+      "extension": ".js",
+      "language": "javascript",
+      "sizeBytes": 1094,
+      "lineCount": 38,
+      "sha256": "bb8a835a81c091afbee8950944db66821153297736ec0c91a1c5939f75b744b0",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "#!/usr/bin/env node\r\n/**\r\n * deploy.js — Cloudflare build + deploy\r\n *\r\n * Solução para Windows + Git Bash onde `spawn('npx', ...)` falha com ENOENT\r\n * porque o Node.js não encontra 'npx' sem extensão .cmd.\r\n * Usando { shell: true } o SO resolve npx.cmd automaticamente.\r\n */\r\n\r\nconst { spawnSync } = require(\"child_process\");\r\nconst path = require(\"path\");\r\nconst os = require(\"os\");\r\n\r\nconst isWindows = os.platform() === \"win32\";\r\n\r\nfunction run(cmd, args, opts = {}) {\r\n  console.log(`\\n> ${cmd} ${args.join(\" \")}\\n`);\r\n  const result = spawnSync(cmd, args, {\r\n    stdio: \"inherit\",\r\n    shell: isWindows, // força shell no Windows para resolver .cmd\r\n    cwd: process.cwd(),\r\n    ...opts,\r\n  });\r\n  if (result.status !== 0) {\r\n    process.exit(result.status ?? 1);\r\n  }\r\n}\r\n\r\n// Binários locais (node_modules/.bin)\r\nconst bin = (name) =>\r\n  path.join(__dirname, \"..\", \"node_modules\", \".bin\", name + (isWindows ? \".cmd\" : \"\"));\r\n\r\n// 1. Build OpenNext para Cloudflare\r\nrun(bin(\"opennextjs-cloudflare\"), [\"build\"]);\r\n\r\n// 2. Deploy com Wrangler\r\nrun(bin(\"wrangler\"), [\"deploy\"]);\r\n"
+    },
+    {
+      "path": "scripts/generate-posts.js",
+      "category": "source-code",
+      "extension": ".js",
+      "language": "javascript",
+      "sizeBytes": 2550,
+      "lineCount": 106,
+      "sha256": "bfa954440b62aaf6305721467ddde4d152bb7440e510ea48963978b0cd54dddf",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "#!/usr/bin/env node\r\n\r\n/**\r\n * generate-posts.js\r\n *\r\n * Objetivo:\r\n * Ler os arquivos MDX de content/posts durante o build\r\n * e gerar um módulo TypeScript em lib/generated-posts.ts.\r\n *\r\n * Motivo:\r\n * Cloudflare Workers não deve depender de fs em runtime.\r\n * Assim, os posts são resolvidos antes do deploy.\r\n */\r\n\r\nconst fs = require(\"fs\");\r\nconst path = require(\"path\");\r\nconst matter = require(\"gray-matter\");\r\n\r\nconst postsDirectory = path.join(process.cwd(), \"content\", \"posts\");\r\nconst outputFile = path.join(process.cwd(), \"lib\", \"generated-posts.ts\");\r\n\r\nfunction normalizeImagePath(image) {\r\n  if (!image) {\r\n    return null;\r\n  }\r\n\r\n  const value = String(image).trim();\r\n\r\n  if (!value) {\r\n    return null;\r\n  }\r\n\r\n  if (value.startsWith(\"http://\") || value.startsWith(\"https://\")) {\r\n    return value;\r\n  }\r\n\r\n  return \"/\" + value.replace(/^\\/+/, \"\");\r\n}\r\n\r\nfunction readPosts() {\r\n  if (!fs.existsSync(postsDirectory)) {\r\n    throw new Error(`Pasta de posts não encontrada: ${postsDirectory}`);\r\n  }\r\n\r\n  const files = fs\r\n    .readdirSync(postsDirectory)\r\n    .filter((file) => file.endsWith(\".mdx\"))\r\n    .sort();\r\n\r\n  return files.map((file) => {\r\n    const filePath = path.join(postsDirectory, file);\r\n    const fileContents = fs.readFileSync(filePath, \"utf8\");\r\n\r\n    const { data, content } = matter(fileContents);\r\n\r\n    return {\r\n      slug: file.replace(/\\.mdx$/, \"\").trim(),\r\n      title: data.title || \"Sem título\",\r\n      date: data.date || \"\",\r\n      author: data.author || \"\",\r\n      description: data.description || \"\",\r\n      category: data.category || \"geral\",\r\n      image: normalizeImagePath(data.image || null),\r\n      content: content || \"\",\r\n    };\r\n  });\r\n}\r\n\r\nfunction writeGeneratedPosts(posts) {\r\n  const fileContent = `/**\r\n * Arquivo gerado automaticamente por scripts/generate-posts.js.\r\n * Não edite manualmente este arquivo.\r\n */\r\n\r\nexport type GeneratedPost = {\r\n  slug: string;\r\n  title: string;\r\n  date: string;\r\n  author: string;\r\n  description: string;\r\n  category: string;\r\n  image: string | null;\r\n  content: string;\r\n};\r\n\r\nexport const generatedPosts: GeneratedPost[] = ${JSON.stringify(posts, null, 2)};\r\n`;\r\n\r\n  const outputDir = path.dirname(outputFile);\r\n  if (!fs.existsSync(outputDir)) {\r\n    fs.mkdirSync(outputDir, { recursive: true });\r\n  }\r\n\r\n  fs.writeFileSync(outputFile, fileContent, \"utf8\");\r\n}\r\n\r\nfunction main() {\r\n  const posts = readPosts();\r\n\r\n  writeGeneratedPosts(posts);\r\n\r\n  console.log(`✅ ${posts.length} posts gerados em lib/generated-posts.ts`);\r\n}\r\n\r\nmain();\r\n"
+    },
+    {
+      "path": "scripts/generate-project-map.js",
+      "category": "source-code",
+      "extension": ".js",
+      "language": "javascript",
+      "sizeBytes": 18771,
+      "lineCount": 769,
+      "sha256": "4b8d00173cda5d4a8ee96cde9fd11185f8bf9169f7a938837809ff142d78b13e",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "const fs = require(\"fs\");\nconst path = require(\"path\");\nconst crypto = require(\"crypto\");\n\nconst ROOT = process.cwd();\nconst OUTPUT_DIR = path.join(ROOT, \"site-context\");\nconst OUTPUT_FILE = path.join(OUTPUT_DIR, \"project-map.json\");\nconst TEMP_FILE = path.join(OUTPUT_DIR, \"project-map.tmp.json\");\nconst BACKUP_FILE = path.join(OUTPUT_DIR, \"project-map.backup.json\");\n\nconst MAX_FILE_SIZE_BYTES = 512000;\nconst MAX_TOTAL_SIZE_BYTES = 5242880;\n\nconst IGNORE_DIRECTORIES = new Set([\n  \".git\",\n  \".next\",\n  \"node_modules\",\n  \".open-next\",\n  \".vercel\",\n  \"dist\",\n  \"build\",\n  \"coverage\",\n  \".aider.tags.cache.v4\",\n  \".wrangler\"\n]);\n\nconst TEXT_EXTENSIONS = new Set([\n  \".ts\",\n  \".tsx\",\n  \".js\",\n  \".jsx\",\n  \".mjs\",\n  \".cjs\",\n  \".json\",\n  \".jsonc\",\n  \".css\",\n  \".mdx\",\n  \".md\"\n]);\n\nconst BINARY_EXTENSIONS = new Set([\n  \".ico\",\n  \".png\",\n  \".jpg\",\n  \".jpeg\",\n  \".gif\",\n  \".webp\",\n  \".svg\",\n  \".pdf\",\n  \".doc\",\n  \".docx\",\n  \".xls\",\n  \".xlsx\",\n  \".ppt\",\n  \".pptx\",\n  \".woff\",\n  \".woff2\",\n  \".ttf\",\n  \".otf\",\n  \".eot\",\n  \".sqlite\",\n  \".db\",\n  \".exe\",\n  \".dll\",\n  \".zip\",\n  \".tar\",\n  \".gz\",\n  \".7z\",\n  \".rar\"\n]);\n\nconst EXPECTED_EXCLUSION_REASONS = new Set([\n  \"sensitive_file\",\n  \"binary_file\",\n  \"unsupported_extension\",\n  \"generated_output\",\n  \"local_artifact\"\n]);\n\nconst INCOMPLETE_EXCLUSION_REASONS = new Set([\n  \"file_size_limit\",\n  \"total_size_limit\",\n  \"read_error\"\n]);\n\nconst projectMap = {\n  generatedAt: new Date().toISOString(),\n  project: {},\n  architecture: {},\n  filesystem: [],\n  routes: [],\n  dependencies: {},\n  scripts: {},\n  components: [],\n  posts: [],\n  importGraph: [],\n  integrations: {},\n  runtime: {},\n  executionFlow: {},\n  contextEngine: {\n    productVision: {\n      name: \"Tupiniquim Platform\",\n      mission:\n        \"Plataforma SaaS brasileira para conteúdo, mídia, gestão e aplicações multi-tenant.\"\n    },\n    businessGoals: [\n      \"Reduzir dependência de contexto em conversas com IA\",\n      \"Preparar a fundação para CMS\",\n      \"Preparar a fundação para Media Center\",\n      \"Preparar a fundação para Multi-Tenant\",\n      \"Preparar a fundação para IA Generativa\",\n      \"Evoluir para modelo SaaS\"\n    ],\n    projectStatus: {\n      currentEpic: \"EPIC-001\",\n      name: \"Context Engine\",\n      status: \"in_progress\"\n    },\n    roadmap: [\n      { name: \"Blog\", status: \"completed\" },\n      { name: \"Context Engine\", status: \"in_progress\" },\n      { name: \"CMS\", status: \"planned\" },\n      { name: \"Área Administrativa\", status: \"planned\" },\n      { name: \"Gestão de Usuários\", status: \"planned\" },\n      { name: \"Media Center\", status: \"planned\" },\n      { name: \"Construtor de Páginas\", status: \"planned\" },\n      { name: \"Multi-Tenant\", status: \"planned\" },\n      { name: \"IA Generativa\", status: \"planned\" },\n      { name: \"SaaS Tupiniquim\", status: \"planned\" }\n    ],\n    architectureDecisions: [\n      {\n        id: \"ADR-001\",\n        title: \"Project Map como Fonte Única da Verdade\",\n        status: \"approved\",\n        description:\n          \"O project-map.json é a principal fonte de contexto técnico da plataforma.\"\n      },\n      {\n        id: \"ADR-002\",\n        title: \"Context Engine Monolítico\",\n        status: \"approved\",\n        description:\n          \"O Context Engine evolui sobre project-map.json evitando múltiplos arquivos redundantes.\"\n      }\n    ]\n  },\n  sourceMapStatus: {\n    enabled: true,\n    complete: true,\n    redactionApplied: true,\n    maxFileSizeBytes: MAX_FILE_SIZE_BYTES,\n    maxTotalSizeBytes: MAX_TOTAL_SIZE_BYTES,\n    includedFiles: 0,\n    excludedFiles: 0,\n    expectedExclusions: 0,\n    incompleteExclusions: 0,\n    redactedFiles: 0,\n    includedSizeBytes: 0\n  },\n  sourceFiles: [],\n  excludedSourceFiles: []\n};\n\nfunction normalize(value) {\n  return value.replace(/\\\\/g, \"/\");\n}\n\nfunction safeRead(filePath) {\n  try {\n    return fs.readFileSync(filePath, \"utf8\");\n  } catch {\n    return null;\n  }\n}\n\nfunction shouldIgnore(relativePath) {\n  return (\n    relativePath.startsWith(\"No arquivo `\") ||\n    relativePath.includes(\"o script tenta\")\n  );\n}\n\nfunction isLocalArtifact(relativePath) {\n  const baseName = path.posix.basename(relativePath).toLowerCase();\n  return (\n    baseName.startsWith(\".aider\") ||\n    baseName === \"build-error.txt\" ||\n    baseName.endsWith(\".log\") ||\n    baseName.endsWith(\".tmp\") ||\n    baseName.endsWith(\".bak\") ||\n    baseName.endsWith(\".backup\") ||\n    baseName.endsWith(\".cache\")\n  );\n}\n\nfunction isSensitiveFile(relativePath) {\n  const baseName = path.posix.basename(relativePath).toLowerCase();\n  return (\n    baseName === \".env\" ||\n    baseName.startsWith(\".env.\") ||\n    /\\.(pem|key|p12|pfx)$/i.test(baseName) ||\n    baseName.startsWith(\"credentials\") ||\n    baseName.startsWith(\"secrets\")\n  );\n}\n\nfunction isGeneratedOutput(relativePath) {\n  return (\n    relativePath === \"site-context/project-map.json\" ||\n    relativePath === \"site-context/project-map.tmp.json\" ||\n    relativePath === \"site-context/project-map.backup.json\" ||\n    relativePath === \"next-env.d.ts\" ||\n    relativePath === \"package-lock.json\"\n  );\n}\n\nfunction getExtension(relativePath) {\n  if (relativePath.toLowerCase().endsWith(\".d.ts\")) {\n    return \".d.ts\";\n  }\n  return path.posix.extname(relativePath).toLowerCase();\n}\n\nfunction getLanguage(extension) {\n  const languageByExtension = {\n    \".ts\": \"typescript\",\n    \".tsx\": \"typescript-react\",\n    \".d.ts\": \"typescript-declaration\",\n    \".js\": \"javascript\",\n    \".jsx\": \"javascript-react\",\n    \".mjs\": \"javascript-esm\",\n    \".cjs\": \"javascript-commonjs\",\n    \".json\": \"json\",\n    \".jsonc\": \"json-with-comments\",\n    \".css\": \"css\",\n    \".mdx\": \"mdx\",\n    \".md\": \"markdown\"\n  };\n  return languageByExtension[extension] || \"text\";\n}\n\nfunction getCategory(relativePath, extension) {\n  if (relativePath === \"AGENTS.md\") {\n    return \"operational-documentation\";\n  }\n  if (relativePath.startsWith(\"content/\") && extension === \".mdx\") {\n    return \"content\";\n  }\n  if (extension === \".css\") {\n    return \"style\";\n  }\n  if (\n    relativePath === \"package.json\" ||\n    relativePath === \"tsconfig.json\" ||\n    relativePath === \"wrangler.jsonc\" ||\n    relativePath === \"eslint.config.mjs\"\n  ) {\n    return \"configuration\";\n  }\n  if (extension === \".md\") {\n    return \"documentation\";\n  }\n  return \"source-code\";\n}\n\nfunction countLines(content) {\n  if (content.length === 0) {\n    return 0;\n  }\n  return content.split(/\\r\\n|\\r|\\n/).length;\n}\n\nfunction sha256(content) {\n  return crypto.createHash(\"sha256\").update(content, \"utf8\").digest(\"hex\");\n}\n\nfunction redactSecrets(content) {\n  let redacted = false;\n  let result = content;\n  const sensitiveNames = [\n    \"API_KEY\",\n    \"API_TOKEN\",\n    \"ACCESS_TOKEN\",\n    \"AUTH_TOKEN\",\n    \"SECRET\",\n    \"PASSWORD\",\n    \"PRIVATE_KEY\",\n    \"CLIENT_SECRET\",\n    \"CLOUDFLARE_API_TOKEN\",\n    \"GITHUB_TOKEN\"\n  ];\n\n  for (const name of sensitiveNames) {\n    const escapedName = name.replace(/[.*+?^${}()|[\\]\\\\]/g, \"\\\\$&\");\n    const patterns = [\n      new RegExp(\n        `(${escapedName}\\\\s*=\\\\s*)([\"']?)([^\"'\\\\r\\\\n,;]+)\\\\2`,\n        \"gi\"\n      ),\n      new RegExp(\n        `([\"']${escapedName}[\"']\\\\s*:\\\\s*)([\"'])(.*?)\\\\2`,\n        \"gi\"\n      )\n    ];\n\n    for (const pattern of patterns) {\n      result = result.replace(pattern, (match, prefix, quote) => {\n        redacted = true;\n        return `${prefix}${quote || \"\"}[REDACTED]${quote || \"\"}`;\n      });\n    }\n  }\n\n  return { content: result, redacted };\n}\n\nfunction addExcludedSourceFile(relativePath, reason) {\n  projectMap.excludedSourceFiles.push({ path: relativePath, reason });\n  projectMap.sourceMapStatus.excludedFiles += 1;\n\n  if (EXPECTED_EXCLUSION_REASONS.has(reason)) {\n    projectMap.sourceMapStatus.expectedExclusions += 1;\n  }\n  if (INCOMPLETE_EXCLUSION_REASONS.has(reason)) {\n    projectMap.sourceMapStatus.incompleteExclusions += 1;\n    projectMap.sourceMapStatus.complete = false;\n  }\n}\n\nfunction walk(dir) {\n  const entries = fs\n    .readdirSync(dir, { withFileTypes: true })\n    .sort((a, b) => a.name.localeCompare(b.name));\n\n  for (const entry of entries) {\n    if (IGNORE_DIRECTORIES.has(entry.name)) {\n      continue;\n    }\n\n    const fullPath = path.join(dir, entry.name);\n    const relativePath = normalize(path.relative(ROOT, fullPath));\n\n    if (shouldIgnore(relativePath)) {\n      continue;\n    }\n\n    projectMap.filesystem.push({\n      path: relativePath,\n      type: entry.isDirectory() ? \"directory\" : \"file\"\n    });\n\n    if (entry.isDirectory()) {\n      walk(fullPath);\n    }\n  }\n}\n\nfunction detectRoute(relativePath) {\n  const file = normalize(relativePath);\n  if (!file.startsWith(\"app/\") || !file.endsWith(\"/page.tsx\")) {\n    return null;\n  }\n  const route = file.replace(/^app/, \"\").replace(/\\/page\\.tsx$/, \"\");\n  return route || \"/\";\n}\n\nfunction extractImports() {\n  return [];\n}\n\nfunction scanFiles(dir) {\n  const entries = fs\n    .readdirSync(dir, { withFileTypes: true })\n    .sort((a, b) => a.name.localeCompare(b.name));\n\n  for (const entry of entries) {\n    if (IGNORE_DIRECTORIES.has(entry.name)) {\n      continue;\n    }\n\n    const fullPath = path.join(dir, entry.name);\n    if (entry.isDirectory()) {\n      scanFiles(fullPath);\n      continue;\n    }\n\n    const relativePath = normalize(path.relative(ROOT, fullPath));\n    if (shouldIgnore(relativePath)) {\n      continue;\n    }\n\n    const route = detectRoute(relativePath);\n    if (route) {\n      projectMap.routes.push({ route, source: relativePath });\n    }\n\n    if (relativePath.endsWith(\".tsx\") || relativePath.endsWith(\".jsx\")) {\n      projectMap.components.push(relativePath);\n    }\n\n    if (\n      relativePath.startsWith(\"content/posts/\") &&\n      relativePath.endsWith(\".mdx\")\n    ) {\n      projectMap.posts.push({\n        slug: path.basename(relativePath, \".mdx\"),\n        file: relativePath\n      });\n    }\n\n    if (\n      relativePath.endsWith(\".js\") ||\n      relativePath.endsWith(\".jsx\") ||\n      relativePath.endsWith(\".ts\") ||\n      relativePath.endsWith(\".tsx\")\n    ) {\n      const content = safeRead(fullPath);\n      if (content !== null) {\n        projectMap.importGraph.push({\n          file: relativePath,\n          imports: extractImports(content)\n        });\n      }\n    }\n  }\n}\n\nfunction collectSourceFiles() {\n  const filePaths = projectMap.filesystem\n    .filter((entry) => entry.type === \"file\")\n    .map((entry) => entry.path)\n    .sort((a, b) => a.localeCompare(b));\n\n  for (const relativePath of filePaths) {\n    const extension = getExtension(relativePath);\n\n    if (isGeneratedOutput(relativePath)) {\n      addExcludedSourceFile(relativePath, \"generated_output\");\n      continue;\n    }\n    if (isLocalArtifact(relativePath)) {\n      addExcludedSourceFile(relativePath, \"local_artifact\");\n      continue;\n    }\n    if (isSensitiveFile(relativePath)) {\n      addExcludedSourceFile(relativePath, \"sensitive_file\");\n      continue;\n    }\n    if (BINARY_EXTENSIONS.has(extension)) {\n      addExcludedSourceFile(relativePath, \"binary_file\");\n      continue;\n    }\n    if (!TEXT_EXTENSIONS.has(extension)) {\n      addExcludedSourceFile(relativePath, \"unsupported_extension\");\n      continue;\n    }\n\n    const fullPath = path.join(ROOT, relativePath);\n    let stats;\n    try {\n      stats = fs.statSync(fullPath);\n    } catch {\n      addExcludedSourceFile(relativePath, \"read_error\");\n      continue;\n    }\n\n    if (stats.size > MAX_FILE_SIZE_BYTES) {\n      addExcludedSourceFile(relativePath, \"file_size_limit\");\n      continue;\n    }\n\n    const originalContent = safeRead(fullPath);\n    if (originalContent === null) {\n      addExcludedSourceFile(relativePath, \"read_error\");\n      continue;\n    }\n\n    const originalSizeBytes = Buffer.byteLength(originalContent, \"utf8\");\n    if (\n      projectMap.sourceMapStatus.includedSizeBytes + originalSizeBytes >\n      MAX_TOTAL_SIZE_BYTES\n    ) {\n      addExcludedSourceFile(relativePath, \"total_size_limit\");\n      continue;\n    }\n\n    const redactionResult = redactSecrets(originalContent);\n    if (redactionResult.redacted) {\n      projectMap.sourceMapStatus.redactedFiles += 1;\n    }\n\n    projectMap.sourceFiles.push({\n      path: relativePath,\n      category: getCategory(relativePath, extension),\n      extension,\n      language: getLanguage(extension),\n      sizeBytes: originalSizeBytes,\n      lineCount: countLines(originalContent),\n      sha256: sha256(originalContent),\n      sha256Source: \"original-content\",\n      redacted: redactionResult.redacted,\n      content: redactionResult.content\n    });\n\n    projectMap.sourceMapStatus.includedFiles += 1;\n    projectMap.sourceMapStatus.includedSizeBytes += originalSizeBytes;\n  }\n\n  projectMap.sourceFiles.sort((a, b) => a.path.localeCompare(b.path));\n  projectMap.excludedSourceFiles.sort((a, b) =>\n    a.path.localeCompare(b.path)\n  );\n  projectMap.sourceMapStatus.complete =\n    projectMap.sourceMapStatus.incompleteExclusions === 0;\n}\n\nfunction loadPackageJson() {\n  const packageFile = path.join(ROOT, \"package.json\");\n  if (!fs.existsSync(packageFile)) {\n    return;\n  }\n  const packageContent = safeRead(packageFile);\n  if (!packageContent) {\n    return;\n  }\n  const pkg = JSON.parse(packageContent);\n  projectMap.project = {\n    name: pkg.name || null,\n    version: pkg.version || null\n  };\n  projectMap.dependencies = {\n    ...(pkg.dependencies || {}),\n    ...(pkg.devDependencies || {})\n  };\n  projectMap.scripts = pkg.scripts || {};\n}\n\nfunction loadWrangler() {\n  const wranglerFile = path.join(ROOT, \"wrangler.jsonc\");\n  if (!fs.existsSync(wranglerFile)) {\n    projectMap.integrations.cloudflare = false;\n    return;\n  }\n  projectMap.integrations.cloudflare = true;\n  projectMap.integrations.wrangler = \"wrangler.jsonc\";\n}\n\nfunction buildArchitecture() {\n  projectMap.architecture = {\n    framework: \"Next.js\",\n    renderer: \"React\",\n    adapter: \"OpenNext\",\n    hosting: \"Cloudflare\",\n    contentSource: \"MDX Filesystem\"\n  };\n}\n\nfunction buildRuntime() {\n  projectMap.runtime = {\n    framework: \"Next.js\",\n    node: process.version,\n    cloudflare: projectMap.integrations.cloudflare === true\n  };\n}\n\nfunction buildExecutionFlow() {\n  projectMap.executionFlow = {\n    content: [\n      \"content/posts/*.mdx\",\n      \"scripts/generate-posts.js\",\n      \"lib/generated-posts.ts\",\n      \"app/blog/page.tsx\",\n      \"app/blog/[slug]/page.tsx\"\n    ],\n    build: [\n      \"scripts/generate-posts.js\",\n      \"next build\",\n      \"OpenNext\",\n      \"Cloudflare Deploy\"\n    ],\n    contextEngine: [\n      \"npm run context:scan\",\n      \"scripts/generate-project-map.js\",\n      \"site-context/project-map.json\",\n      \"BizChat / IA\"\n    ]\n  };\n}\n\nfunction sortProjectMap() {\n  projectMap.filesystem.sort((a, b) => a.path.localeCompare(b.path));\n  projectMap.routes.sort((a, b) => a.route.localeCompare(b.route));\n  projectMap.components.sort((a, b) => a.localeCompare(b));\n  projectMap.posts.sort((a, b) => a.slug.localeCompare(b.slug));\n  projectMap.importGraph.sort((a, b) => a.file.localeCompare(b.file));\n}\n\nfunction validateSourceFile(sourceFile) {\n  const requiredKeys = [\n    \"path\",\n    \"category\",\n    \"extension\",\n    \"language\",\n    \"sizeBytes\",\n    \"lineCount\",\n    \"sha256\",\n    \"sha256Source\",\n    \"redacted\",\n    \"content\"\n  ];\n  for (const key of requiredKeys) {\n    if (!(key in sourceFile)) {\n      throw new Error(`Required source file field is missing: ${key}`);\n    }\n  }\n}\n\nfunction validateProjectMap() {\n  const requiredRootKeys = [\n    \"generatedAt\",\n    \"project\",\n    \"architecture\",\n    \"filesystem\",\n    \"routes\",\n    \"dependencies\",\n    \"scripts\",\n    \"components\",\n    \"posts\",\n    \"importGraph\",\n    \"integrations\",\n    \"runtime\",\n    \"executionFlow\",\n    \"contextEngine\",\n    \"sourceMapStatus\",\n    \"sourceFiles\",\n    \"excludedSourceFiles\"\n  ];\n\n  for (const key of requiredRootKeys) {\n    if (!(key in projectMap)) {\n      throw new Error(`Required project map block is missing: ${key}`);\n    }\n  }\n\n  const requiredContextKeys = [\n    \"productVision\",\n    \"businessGoals\",\n    \"projectStatus\",\n    \"roadmap\",\n    \"architectureDecisions\"\n  ];\n  for (const key of requiredContextKeys) {\n    if (!(key in projectMap.contextEngine)) {\n      throw new Error(`Required Context Engine block is missing: ${key}`);\n    }\n  }\n\n  for (const key of [\n    \"filesystem\",\n    \"routes\",\n    \"posts\",\n    \"importGraph\",\n    \"sourceFiles\",\n    \"excludedSourceFiles\"\n  ]) {\n    if (!Array.isArray(projectMap[key])) {\n      throw new Error(`The ${key} block must be an array.`);\n    }\n  }\n\n  for (const sourceFile of projectMap.sourceFiles) {\n    validateSourceFile(sourceFile);\n  }\n\n  if (\n    projectMap.sourceMapStatus.complete !==\n    (projectMap.sourceMapStatus.incompleteExclusions === 0)\n  ) {\n    throw new Error(\"Source map completeness status is inconsistent.\");\n  }\n}\n\nfunction parseJsonFile(filePath) {\n  return JSON.parse(fs.readFileSync(filePath, \"utf8\"));\n}\n\nfunction cleanupTransientFiles() {\n  for (const filePath of [TEMP_FILE, BACKUP_FILE]) {\n    if (fs.existsSync(filePath)) {\n      fs.rmSync(filePath, { force: true });\n    }\n  }\n}\n\nfunction saveAtomically() {\n  fs.mkdirSync(OUTPUT_DIR, { recursive: true });\n  cleanupTransientFiles();\n\n  const serialized = JSON.stringify(projectMap, null, 2);\n  JSON.parse(serialized);\n  fs.writeFileSync(TEMP_FILE, serialized, \"utf8\");\n  parseJsonFile(TEMP_FILE);\n\n  let backupCreated = false;\n\n  try {\n    if (fs.existsSync(OUTPUT_FILE)) {\n      fs.copyFileSync(OUTPUT_FILE, BACKUP_FILE);\n      parseJsonFile(BACKUP_FILE);\n      backupCreated = true;\n      fs.rmSync(OUTPUT_FILE, { force: true });\n    }\n\n    fs.renameSync(TEMP_FILE, OUTPUT_FILE);\n    parseJsonFile(OUTPUT_FILE);\n\n    if (backupCreated && fs.existsSync(BACKUP_FILE)) {\n      fs.rmSync(BACKUP_FILE, { force: true });\n    }\n\n    cleanupTransientFiles();\n    return OUTPUT_FILE;\n  } catch (error) {\n    if (fs.existsSync(OUTPUT_FILE)) {\n      fs.rmSync(OUTPUT_FILE, { force: true });\n    }\n    if (backupCreated && fs.existsSync(BACKUP_FILE)) {\n      fs.renameSync(BACKUP_FILE, OUTPUT_FILE);\n    }\n    if (fs.existsSync(TEMP_FILE)) {\n      fs.rmSync(TEMP_FILE, { force: true });\n    }\n    throw error;\n  }\n}\n\nfunction main() {\n  try {\n    console.log(\"Generating project map with full source snapshot...\");\n    loadPackageJson();\n    loadWrangler();\n    walk(ROOT);\n    scanFiles(ROOT);\n    collectSourceFiles();\n    buildArchitecture();\n    buildRuntime();\n    buildExecutionFlow();\n    sortProjectMap();\n    validateProjectMap();\n\n    const outputFile = saveAtomically();\n    console.log(\n      `${normalize(path.relative(ROOT, outputFile))} generated successfully.`\n    );\n  } catch (error) {\n    try {\n      cleanupTransientFiles();\n    } catch {\n      // Preserve the original failure as the primary error.\n    }\n    console.error(\"Failed to generate project map.\");\n    console.error(error instanceof Error ? error.message : String(error));\n    process.exitCode = 1;\n  }\n}\n\nmain();\n"
+    },
+    {
+      "path": "tsconfig.json",
+      "category": "configuration",
+      "extension": ".json",
+      "language": "json",
+      "sizeBytes": 700,
+      "lineCount": 35,
+      "sha256": "fbff01604d6cb54694be707f26e7a0eb21a6ef796b888c6a1dab1839fa7c6ccc",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "{\r\n  \"compilerOptions\": {\r\n    \"target\": \"ES2017\",\r\n    \"lib\": [\"dom\", \"dom.iterable\", \"esnext\"],\r\n    \"allowJs\": true,\r\n    \"skipLibCheck\": true,\r\n    \"strict\": true,\r\n    \"noEmit\": true,\r\n    \"esModuleInterop\": true,\r\n    \"module\": \"esnext\",\r\n    \"moduleResolution\": \"bundler\",\r\n    \"resolveJsonModule\": true,\r\n    \"isolatedModules\": true,\r\n    \"jsx\": \"react-jsx\",\r\n    \"incremental\": true,\r\n    \"plugins\": [\r\n      {\r\n        \"name\": \"next\"\r\n      }\r\n    ],\r\n    \"paths\": {\r\n      \"@/*\": [\"./*\"]\r\n    }\r\n  },\r\n  \"include\": [\r\n    \"next-env.d.ts\",\r\n    \"**/*.ts\",\r\n    \"**/*.tsx\",\r\n    \".next/types/**/*.ts\",\r\n    \".next/dev/types/**/*.ts\",\r\n    \"**/*.mts\"\r\n  ],\r\n  \"exclude\": [\"node_modules\"]\r\n}\r\n"
+    },
+    {
+      "path": "wrangler.jsonc",
+      "category": "configuration",
+      "extension": ".jsonc",
+      "language": "json-with-comments",
+      "sizeBytes": 309,
+      "lineCount": 13,
+      "sha256": "7fb56e751c37fc054744996c9311e0e6868e70a12e88677a5a0f0560c185d19e",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "{\r\n  \"$schema\": \"node_modules/wrangler/config-schema.json\",\r\n  \"name\": \"tupiniquim-platform\",\r\n  \"main\": \".open-next/worker.js\",\r\n  \"compatibility_date\": \"2026-06-30\",\r\n  \"compatibility_flags\": [\r\n    \"nodejs_compat\"\r\n  ],\r\n  \"assets\": {\r\n    \"directory\": \".open-next/assets\",\r\n    \"binding\": \"ASSETS\"\r\n  }\r\n}"
+    }
+  ],
+  "excludedSourceFiles": [
+    {
+      "path": ".aider.chat.history.md",
+      "reason": "local_artifact"
+    },
+    {
+      "path": ".aider.input.history",
+      "reason": "local_artifact"
+    },
+    {
+      "path": ".gitignore",
+      "reason": "unsupported_extension"
+    },
+    {
+      "path": "app/favicon.ico",
+      "reason": "binary_file"
+    },
+    {
+      "path": "build-error.txt",
+      "reason": "local_artifact"
+    },
+    {
+      "path": "next-env.d.ts",
+      "reason": "generated_output"
+    },
+    {
+      "path": "package-lock.json",
+      "reason": "generated_output"
+    },
+    {
+      "path": "public/file.svg",
+      "reason": "binary_file"
+    },
+    {
+      "path": "public/globe.svg",
+      "reason": "binary_file"
+    },
+    {
+      "path": "public/images/github-copilot-student.jpg",
+      "reason": "binary_file"
+    },
+    {
+      "path": "public/images/massagem-facial.jpg",
+      "reason": "binary_file"
+    },
+    {
+      "path": "public/images/post1.jpg",
+      "reason": "binary_file"
+    },
+    {
+      "path": "public/next.svg",
+      "reason": "binary_file"
+    },
+    {
+      "path": "public/vercel.svg",
+      "reason": "binary_file"
+    },
+    {
+      "path": "public/window.svg",
+      "reason": "binary_file"
+    },
+    {
+      "path": "site-context/project-map.json",
+      "reason": "generated_output"
+    }
+  ]
+}
