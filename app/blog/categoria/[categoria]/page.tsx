@@ -12,7 +12,6 @@ type Props = {
   params: Promise<{ categoria: string }>;
 };
 
-export const dynamicParams = false;
 
 export function generateStaticParams() {
   return getBlogCategories().map((category) => ({
