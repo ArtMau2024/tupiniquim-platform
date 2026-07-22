@@ -1,4 +1,8 @@
 import { generatedPosts } from "@/lib/generated-posts";
+import {
+  getBlogCategories,
+  getBlogCategoryByValue,
+} from "@/lib/blog-categories";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -7,18 +11,6 @@ export const metadata = {
   description:
     "Conteúdos sobre tecnologia, negócios e inovação da Tupiniquim.",
 };
-
-function formatCategory(category: string) {
-  const normalizedCategory = category.trim().toLocaleLowerCase("pt-BR");
-
-  const categoryNames: Record<string, string> = {
-    empreendedorismo: "Empreendedorismo",
-    tecnologia: "Tecnologia",
-    saude: "Saúde",
-  };
-
-  return categoryNames[normalizedCategory] ?? category;
-}
 
 function formatDate(date: string) {
   const parsedDate = new Date(`${date}T12:00:00`);
@@ -41,9 +33,7 @@ export default function BlogPage() {
   const secondaryPosts = posts
     .filter((post) => post.slug !== featuredPost?.slug)
     .slice(0, 2);
-  const categories = Array.from(
-    new Set(posts.map((post) => formatCategory(post.category)))
-  );
+  const categories = getBlogCategories();
 
   return (
     <main className="blog-page">
@@ -58,10 +48,22 @@ export default function BlogPage() {
       <nav className="category-nav" aria-label="Categorias do blog">
         <span className="category-nav-title">Editorias</span>
         <div className="category-list">
+          <Link
+            href="/blog"
+            className="category-item category-item-active"
+            aria-current="page"
+          >
+            Todos
+          </Link>
+
           {categories.map((category) => (
-            <span className="category-item" key={category}>
-              {category}
-            </span>
+            <Link
+              className="category-item"
+              href={`/blog/categoria/${category.slug}`}
+              key={category.slug}
+            >
+              {category.label}
+            </Link>
           ))}
         </div>
       </nav>
@@ -92,7 +94,8 @@ export default function BlogPage() {
 
               <div className="lead-content">
                 <p className="story-category">
-                  {formatCategory(featuredPost.category)}
+                  {getBlogCategoryByValue(featuredPost.category)?.label ??
+                    featuredPost.category}
                 </p>
                 <h2>{featuredPost.title}</h2>
                 <p className="story-description">
@@ -126,7 +129,8 @@ export default function BlogPage() {
 
                   <div className="secondary-content">
                     <p className="story-category">
-                      {formatCategory(post.category)}
+                      {getBlogCategoryByValue(post.category)?.label ??
+                        post.category}
                     </p>
                     <h3>{post.title}</h3>
                     <p className="secondary-description">
@@ -169,7 +173,8 @@ export default function BlogPage() {
 
                 <div className="latest-content">
                   <p className="story-category">
-                    {formatCategory(post.category)}
+                    {getBlogCategoryByValue(post.category)?.label ??
+                      post.category}
                   </p>
                   <h3>{post.title}</h3>
                   <p>{post.description}</p>
@@ -242,10 +247,19 @@ export default function BlogPage() {
         }
 
         .category-item {
-          padding: 0 18px;
+          padding: 2px 18px 7px;
+          border-bottom: 3px solid transparent;
           border-left: 1px solid #cfcfcf;
           color: #333;
           font-weight: 600;
+          text-decoration: none;
+          transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .category-item:hover,
+        .category-item-active {
+          border-bottom-color: #2e7d32;
+          color: #2e7d32;
         }
 
         .editorial-grid {

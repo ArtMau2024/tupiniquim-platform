@@ -112,13 +112,14 @@ const projectMap = {
       "Evoluir para modelo SaaS"
     ],
     projectStatus: {
-      currentEpic: "EPIC-001",
-      name: "Context Engine",
+      currentEpic: "EPIC-002",
+      name: "Categorias Permanentes do Blog",
       status: "in_progress"
     },
     roadmap: [
       { name: "Blog", status: "completed" },
-      { name: "Context Engine", status: "in_progress" },
+      { name: "Context Engine", status: "completed" },
+      { name: "Categorias Permanentes do Blog", status: "in_progress" },
       { name: "CMS", status: "planned" },
       { name: "Área Administrativa", status: "planned" },
       { name: "Gestão de Usuários", status: "planned" },
@@ -570,7 +571,16 @@ function buildExecutionFlow() {
       "content/posts/*.mdx",
       "scripts/generate-posts.js",
       "lib/generated-posts.ts",
+      "lib/blog-categories.ts",
       "app/blog/page.tsx",
+      "app/blog/[slug]/page.tsx",
+      "app/blog/categoria/[categoria]/page.tsx"
+    ],
+    categories: [
+      "lib/blog-categories.ts",
+      "lib/generated-posts.ts",
+      "app/blog/page.tsx",
+      "app/blog/categoria/[categoria]/page.tsx",
       "app/blog/[slug]/page.tsx"
     ],
     build: [
