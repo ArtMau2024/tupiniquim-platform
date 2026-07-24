@@ -112,14 +112,15 @@ const projectMap = {
       "Evoluir para modelo SaaS"
     ],
     projectStatus: {
-      currentEpic: "EPIC-002",
-      name: "Categorias Permanentes do Blog",
+      currentEpic: "EPIC-003",
+      name: "Site Institucional Profissional",
       status: "in_progress"
     },
     roadmap: [
       { name: "Blog", status: "completed" },
       { name: "Context Engine", status: "completed" },
-      { name: "Categorias Permanentes do Blog", status: "in_progress" },
+      { name: "Categorias Permanentes do Blog", status: "completed" },
+      { name: "Site Institucional Profissional", status: "in_progress" },
       { name: "CMS", status: "planned" },
       { name: "Área Administrativa", status: "planned" },
       { name: "Gestão de Usuários", status: "planned" },
