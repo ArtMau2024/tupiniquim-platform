@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-25T03:04:04.651Z",
+  "generatedAt": "2026-07-25T11:48:42.272Z",
   "project": {
     "name": "tupiniquim-platform",
     "version": "0.1.0"
@@ -107,6 +107,10 @@
     {
       "path": "components/layout",
       "type": "directory"
+    },
+    {
+      "path": "components/layout/Footer.tsx",
+      "type": "file"
     },
     {
       "path": "components/layout/Header.tsx",
@@ -323,6 +327,7 @@
     "app/layout.tsx",
     "app/page.tsx",
     "app/quem-somos/page.tsx",
+    "components/layout/Footer.tsx",
     "components/layout/Header.tsx"
   ],
   "posts": [
@@ -374,6 +379,10 @@
     },
     {
       "file": "app/quem-somos/page.tsx",
+      "imports": []
+    },
+    {
+      "file": "components/layout/Footer.tsx",
       "imports": []
     },
     {
@@ -545,12 +554,12 @@
     "redactionApplied": true,
     "maxFileSizeBytes": 512000,
     "maxTotalSizeBytes": 5242880,
-    "includedFiles": 31,
+    "includedFiles": 32,
     "excludedFiles": 15,
     "expectedExclusions": 15,
     "incompleteExclusions": 0,
     "redactedFiles": 0,
-    "includedSizeBytes": 150077
+    "includedSizeBytes": 155262
   },
   "sourceFiles": [
     {
@@ -654,12 +663,12 @@
       "category": "source-code",
       "extension": ".tsx",
       "language": "typescript-react",
-      "sizeBytes": 1638,
-      "lineCount": 76,
-      "sha256": "a51d9483b0f51948e0280dd792801644c31336c9aeaaea7dd20d587bf3869e5e",
+      "sizeBytes": 1375,
+      "lineCount": 65,
+      "sha256": "473ddba6a03fc2e9d58f881f114291fb923ff25f1166cf01d02020eeadee7f0c",
       "sha256Source": "original-content",
       "redacted": false,
-      "content": "import \"./globals.css\";\nimport Header from \"@/components/layout/Header\";\n\nexport const metadata = {\n  metadataBase: new URL(\"https://tupiniquim.com\"),\n\n  title: {\n    default: \"Tupiniquim\",\n    template: \"%s | Tupiniquim\",\n  },\n\n  description:\n    \"Tecnologia, inovação e conteúdo digital para impulsionar negócios com identidade brasileira.\",\n\n  openGraph: {\n    title: \"Tupiniquim\",\n    description:\n      \"Tecnologia, inovação e conteúdo digital para impulsionar negócios.\",\n    url: \"https://tupiniquim.com\",\n    siteName: \"Tupiniquim\",\n    locale: \"pt_BR\",\n    type: \"website\",\n  },\n\n  twitter: {\n    card: \"summary_large_image\",\n    title: \"Tupiniquim\",\n    description: \"Soluções digitais com identidade brasileira.\",\n  },\n};\n\nexport default function RootLayout({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  return (\n    <html lang=\"pt-br\">\n      <body\n        style={{\n          margin: 0,\n          fontFamily: \"Arial, sans-serif\",\n          backgroundColor: \"#f5f5f5\",\n        }}\n      >\n        <Header />\n\n        {/* CONTAINER PRINCIPAL */}\n        <div\n          style={{\n            maxWidth: \"1400px\",\n            margin: \"20px auto\",\n            padding: \"0 24px\",\n          }}\n        >\n          <main>{children}</main>\n        </div>\n\n        {/* FOOTER */}\n        <footer\n          style={{\n            textAlign: \"center\",\n            padding: \"20px\",\n            fontSize: \"14px\",\n            color: \"#555\",\n            maxWidth: \"1400px\",\n            margin: \"0 auto\",\n          }}\n        >\n          © {new Date().getFullYear()} Tupiniquim\n        </footer>\n      </body>\n    </html>\n  );\n}\n"
+      "content": "import \"./globals.css\";\nimport Footer from \"@/components/layout/Footer\";\nimport Header from \"@/components/layout/Header\";\n\nexport const metadata = {\n  metadataBase: new URL(\"https://tupiniquim.com\"),\n\n  title: {\n    default: \"Tupiniquim\",\n    template: \"%s | Tupiniquim\",\n  },\n\n  description:\n    \"Tecnologia, inovação e conteúdo digital para impulsionar negócios com identidade brasileira.\",\n\n  openGraph: {\n    title: \"Tupiniquim\",\n    description:\n      \"Tecnologia, inovação e conteúdo digital para impulsionar negócios.\",\n    url: \"https://tupiniquim.com\",\n    siteName: \"Tupiniquim\",\n    locale: \"pt_BR\",\n    type: \"website\",\n  },\n\n  twitter: {\n    card: \"summary_large_image\",\n    title: \"Tupiniquim\",\n    description: \"Soluções digitais com identidade brasileira.\",\n  },\n};\n\nexport default function RootLayout({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  return (\n    <html lang=\"pt-br\">\n      <body\n        style={{\n          margin: 0,\n          fontFamily: \"Arial, sans-serif\",\n          backgroundColor: \"#f5f5f5\",\n        }}\n      >\n        <Header />\n\n        {/* CONTAINER PRINCIPAL */}\n        <div\n          style={{\n            maxWidth: \"1400px\",\n            margin: \"20px auto\",\n            padding: \"0 24px\",\n          }}\n        >\n          <main>{children}</main>\n        </div>\n\n        <Footer />\n      </body>\n    </html>\n  );\n}\n"
     },
     {
       "path": "app/page.tsx",
@@ -708,6 +717,18 @@
       "sha256Source": "original-content",
       "redacted": false,
       "content": "@AGENTS.md\r\n"
+    },
+    {
+      "path": "components/layout/Footer.tsx",
+      "category": "source-code",
+      "extension": ".tsx",
+      "language": "typescript-react",
+      "sizeBytes": 5448,
+      "lineCount": 210,
+      "sha256": "7be308d4e67817872e7592970913fe4d361eaab3b3407797c117c402a5955bcc",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "import Link from \"next/link\";\n\nexport default function Footer() {\n  return (\n    <footer className=\"site-footer-root\">\n      <div className=\"site-footer-inner\">\n        <div className=\"site-footer-content\">\n          <div className=\"site-footer-institutional\">\n            <p className=\"site-footer-brand\">Tupiniquim</p>\n            <p className=\"site-footer-description\">\n              Tecnologia, conteúdo e estratégia para construir soluções digitais\n              com identidade brasileira e evolução consistente.\n            </p>\n          </div>\n\n          <nav\n            className=\"site-footer-navigation\"\n            aria-label=\"Navegação do rodapé\"\n          >\n            <p className=\"site-footer-heading\">Navegação</p>\n            <ul className=\"site-footer-list\">\n              <li>\n                <Link className=\"site-footer-link\" href=\"/\">\n                  Início\n                </Link>\n              </li>\n              <li>\n                <Link className=\"site-footer-link\" href=\"/#solucoes\">\n                  Soluções\n                </Link>\n              </li>\n              <li>\n                <Link className=\"site-footer-link\" href=\"/blog\">\n                  Blog\n                </Link>\n              </li>\n              <li>\n                <Link className=\"site-footer-link\" href=\"/quem-somos\">\n                  Quem Somos\n                </Link>\n              </li>\n              <li>\n                <Link className=\"site-footer-link\" href=\"/contato\">\n                  Contato\n                </Link>\n              </li>\n            </ul>\n          </nav>\n\n          <div className=\"site-footer-evolution\">\n            <p className=\"site-footer-heading\">Plataforma em evolução</p>\n            <p>\n              Novas experiências editoriais, serviços e produtos digitais serão\n              incorporados por etapas.\n            </p>\n          </div>\n        </div>\n\n        <div className=\"site-footer-bottom\">\n          <p>© {new Date().getFullYear()} Tupiniquim</p>\n        </div>\n      </div>\n\n      <style>{`\n        .site-footer-root {\n          width: 100%;\n          border-top: 1px solid rgba(255, 255, 255, 0.16);\n          background: #111;\n          color: #ffffff;\n          font-family: Arial, Helvetica, sans-serif;\n        }\n\n        .site-footer-inner {\n          width: 100%;\n          max-width: 1400px;\n          margin: 0 auto;\n          padding: 52px 24px 20px;\n          box-sizing: border-box;\n        }\n\n        .site-footer-content {\n          display: grid;\n          grid-template-columns: minmax(0, 1.5fr) minmax(180px, 0.7fr) minmax(0, 1fr);\n          gap: 48px;\n          padding-bottom: 40px;\n        }\n\n        .site-footer-institutional,\n        .site-footer-navigation,\n        .site-footer-evolution {\n          min-width: 0;\n        }\n\n        .site-footer-brand {\n          margin: 0;\n          color: #ffffff;\n          font-size: 1.5rem;\n          font-weight: 800;\n          letter-spacing: -0.03em;\n          line-height: 1.2;\n          text-decoration: none;\n        }\n\n        .site-footer-description {\n          max-width: 520px;\n          margin: 18px 0 0;\n          color: #d7d7d7;\n          line-height: 1.7;\n        }\n\n        .site-footer-heading {\n          margin: 0 0 16px;\n          color: #ffb300;\n          font-size: 0.78rem;\n          font-weight: 800;\n          letter-spacing: 0.12em;\n          text-transform: uppercase;\n        }\n\n        .site-footer-list {\n          display: grid;\n          gap: 4px;\n          margin: 0;\n          padding: 0;\n          list-style: none;\n        }\n\n        .site-footer-link {\n          display: inline-flex;\n          min-height: 42px;\n          align-items: center;\n          padding: 7px 0;\n          box-sizing: border-box;\n          color: #d7d7d7;\n          font-weight: 700;\n          line-height: 1.3;\n          text-decoration: none;\n          transition: color 0.2s ease;\n        }\n\n        .site-footer-link:hover {\n          color: #ffb300;\n        }\n\n        .site-footer-link:focus-visible {\n          outline: 3px solid #ffb300;\n          outline-offset: 4px;\n        }\n\n        .site-footer-evolution {\n          padding: 24px;\n          border-left: 5px solid #2e7d32;\n          background: rgba(255, 255, 255, 0.05);\n        }\n\n        .site-footer-evolution > p:last-child {\n          margin: 0;\n          color: #d7d7d7;\n          line-height: 1.7;\n        }\n\n        .site-footer-bottom {\n          padding-top: 20px;\n          border-top: 1px solid rgba(255, 255, 255, 0.16);\n          color: #d7d7d7;\n          font-size: 0.875rem;\n        }\n\n        .site-footer-bottom p {\n          margin: 0;\n        }\n\n        @media (max-width: 860px) {\n          .site-footer-content {\n            grid-template-columns: repeat(2, minmax(0, 1fr));\n            gap: 36px;\n          }\n\n          .site-footer-institutional {\n            grid-column: 1 / -1;\n          }\n        }\n\n        @media (max-width: 520px) {\n          .site-footer-inner {\n            padding: 42px 16px 18px;\n          }\n\n          .site-footer-content {\n            grid-template-columns: 1fr;\n            gap: 32px;\n          }\n\n          .site-footer-institutional {\n            grid-column: auto;\n          }\n\n          .site-footer-link {\n            width: 100%;\n          }\n\n          .site-footer-evolution {\n            padding: 20px;\n          }\n        }\n      `}</style>\n    </footer>\n  );\n}\n"
     },
     {
       "path": "components/layout/Header.tsx",

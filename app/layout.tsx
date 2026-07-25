@@ -1,4 +1,5 @@
 import "./globals.css";
+import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 
 export const metadata = {
@@ -56,19 +57,7 @@ export default function RootLayout({
           <main>{children}</main>
         </div>
 
-        {/* FOOTER */}
-        <footer
-          style={{
-            textAlign: "center",
-            padding: "20px",
-            fontSize: "14px",
-            color: "#555",
-            maxWidth: "1400px",
-            margin: "0 auto",
-          }}
-        >
-          © {new Date().getFullYear()} Tupiniquim
-        </footer>
+        <Footer />
       </body>
     </html>
   );
