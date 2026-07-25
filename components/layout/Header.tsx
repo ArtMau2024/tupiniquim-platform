@@ -93,6 +93,7 @@ export default function Header() {
           justify-content: center;
           min-height: 42px;
           border-radius: 6px;
+          box-sizing: border-box;
           font-weight: 700;
           line-height: 1.2;
           text-decoration: none;

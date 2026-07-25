@@ -1,5 +1,5 @@
 import "./globals.css";
-import Link from "next/link";
+import Header from "@/components/layout/Header";
 
 export const metadata = {
   metadataBase: new URL("https://tupiniquim.com"),
@@ -43,40 +43,7 @@ export default function RootLayout({
           backgroundColor: "#f5f5f5",
         }}
       >
-        {/* HEADER */}
-        <header
-          style={{
-            backgroundColor: "#111",
-            color: "#fff",
-            padding: "16px 0",
-            width: "100%",
-          }}
-        >
-          <nav
-            style={{
-              maxWidth: "1400px",
-              margin: "0 auto",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "0 24px",
-            }}
-          >
-            <Link
-              href="/"
-              style={{ color: "#fff", textDecoration: "none" }}
-            >
-              Tupiniquim
-            </Link>
-
-            <Link
-              href="/blog"
-              style={{ color: "#fff", textDecoration: "none" }}
-            >
-              Blog
-            </Link>
-          </nav>
-        </header>
+        <Header />
 
         {/* CONTAINER PRINCIPAL */}
         <div
