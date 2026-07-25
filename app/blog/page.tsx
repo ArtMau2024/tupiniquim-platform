@@ -36,7 +36,7 @@ export default function BlogPage() {
   const categories = getBlogCategories();
 
   return (
-    <main className="blog-page">
+    <div className="blog-page">
       {/* HERO */}
       <section className="hero-blog">
         <p className="hero-eyebrow">Conteúdo e informação</p>
@@ -485,6 +485,6 @@ export default function BlogPage() {
           }
         }
       `}</style>
-    </main>
+    </div>
   );
 }
