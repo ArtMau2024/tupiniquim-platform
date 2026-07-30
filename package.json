@@ -10,7 +10,26 @@
     "lint": "eslint",
     "deploy": "node scripts/deploy.js",
     "preview": "opennextjs-cloudflare preview",
-    "context:scan": "node scripts/generate-project-map.js"
+    "context:scan": "node scripts/generate-project-map.js",
+    "context:prepare": "node scripts/context-engine/prepare-context.js",
+    "context:test": "node scripts/context-engine/run-tests.js",
+    "context:baseline:verify": "node scripts/context-engine/verify-baseline.js",
+    "context:memory:init": "node scripts/context-engine/decision-memory.js init",
+    "context:lote0:verify": "npm run context:prepare && npm run context:test && npm run context:baseline:verify",
+    "context:generate:v3": "node scripts/generate-project-map-v3.js",
+    "context:validate:staged": "node scripts/context-engine/validate-staged.js",
+    "context:compare:staged": "node scripts/context-engine/compare-staged.js",
+    "context:lote1:verify": "node scripts/context-engine/verify-lote1.js",
+    "context:graph:build": "node scripts/context-engine/enhance-staged-graph.js",
+    "context:lote2:verify": "npm run context:lote1:verify && npm run context:graph:build && node scripts/context-engine/verify-lote2.js",
+    "context:enrich:v3": "node scripts/context-engine/enrich-staged-context.js",
+    "context:lote3:verify": "npm run context:lote2:verify && npm run context:enrich:v3 && node scripts/context-engine/verify-lote3.js && npm run context:test",
+    "context:index:v3": "node scripts/context-engine/build-staged-index.js",
+    "context:lote4:verify": "npm run context:lote3:verify && npm run context:index:v3 && node scripts/context-engine/verify-lote4.js && npm run context:test",
+    "context:promote:v3": "node scripts/context-engine/promote-v3.js",
+    "context:validate:official": "node scripts/context-engine/validate-official-v3.js",
+    "context:update": "node scripts/context-engine/run-context-v3.js",
+    "context:lote5:verify": "npm run context:lote4:verify && npm run context:promote:v3 && npm run context:validate:official"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.20.1",
@@ -24,7 +43,8 @@
     "@types/node": "^20.0.0",
     "@types/react": "^18.0.0",
     "typescript": "^5.0.0",
-    "wrangler": "^4.0.0"
+    "wrangler": "^4.0.0",
+    "ajv": "8.17.1",
+    "ajv-formats": "3.0.1"
   }
-  
 }

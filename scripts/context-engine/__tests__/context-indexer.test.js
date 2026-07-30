@@ -1,0 +1,5 @@
+"use strict";
+const test=require("node:test");const assert=require("node:assert/strict");const {normalize,buildChunks,buildContextIndex}=require("../context-indexer");const short={path:"a.ts",sha256:"abc",language:"typescript",category:"source-code",redacted:false,content:"const a = 1;"};
+test("normalizes CRLF and preserves a short file as one chunk",()=>{assert.equal(normalize("a\r\nb\rc"),"a\nb\nc");const c=buildChunks(short);assert.equal(c.length,1);assert.equal(c[0].content,"const a = 1;");assert.equal(c[0].startLine,1);});
+test("creates deterministic bounded chunks with line metadata",()=>{const f={...short,content:Array.from({length:120},(_,i)=>`line ${i+1} ${"x".repeat(20)}`).join("\n")};const a=buildChunks(f);const b=buildChunks(f);assert.deepEqual(a,b);assert.ok(a.length>1);assert.ok(a.every(x=>x.content.length<=1000&&x.startLine<=x.endLine));});
+test("builds a deterministic index sorted by source path",()=>{const index=buildContextIndex([{...short,path:"b.ts"},short],"maphash");assert.equal(index.sourceProjectMapHash,"maphash");assert.equal(index.chunks[0].sourcePath,"a.ts");});

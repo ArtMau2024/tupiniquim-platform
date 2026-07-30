@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "context-engine-v3.schema.json",
+  "title": "Tupiniquim Context Engine V3",
+  "type": "object",
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "generatedAt",
+    "project",
+    "architecture",
+    "filesystem",
+    "routes",
+    "dependencies",
+    "scripts",
+    "components",
+    "posts",
+    "importGraph",
+    "integrations",
+    "runtime",
+    "executionFlow",
+    "contextEngine",
+    "sourceMapStatus",
+    "sourceFiles",
+    "excludedSourceFiles"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "type": "string",
+      "pattern": "^3\\.[0-9]+\\.[0-9]+$"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "project": {
+      "type": "object"
+    },
+    "architecture": {
+      "type": "object"
+    },
+    "filesystem": {
+      "type": "array"
+    },
+    "routes": {
+      "type": "array"
+    },
+    "dependencies": {
+      "type": "object"
+    },
+    "scripts": {
+      "type": "object"
+    },
+    "components": {
+      "type": "array"
+    },
+    "posts": {
+      "type": "array"
+    },
+    "importGraph": {
+      "type": "array"
+    },
+    "integrations": {
+      "type": "object"
+    },
+    "runtime": {
+      "type": "object"
+    },
+    "executionFlow": {
+      "type": "object"
+    },
+    "contextEngine": {
+      "type": "object"
+    },
+    "sourceMapStatus": {
+      "type": "object"
+    },
+    "sourceFiles": {
+      "type": "array"
+    },
+    "excludedSourceFiles": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true
+}

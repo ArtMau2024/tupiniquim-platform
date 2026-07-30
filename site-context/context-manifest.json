@@ -1,0 +1,27 @@
+{
+  "generationId": "755270191e4497d4e197b92fba5afc32b77e54dbbfd41e1d2b4626a986476b7d",
+  "generatedAt": "2026-07-30T01:58:35.731Z",
+  "schemaVersion": "3.1.0",
+  "inputs": {
+    "decisionMemory": {
+      "path": "site-context/decision-memory.json",
+      "sha256": "a2be6188bb8febb808f2c09cd274b065d04b55c60050126032182d5e56e4b517",
+      "status": "valid"
+    }
+  },
+  "artifacts": {
+    "projectMap": {
+      "path": "site-context/project-map.json",
+      "sha256": "c512bb6bf5fd4de50af440400fe57eda3e90a6225780a3ab745b5ae42645a437"
+    },
+    "contextIndex": {
+      "path": "site-context/context-index.json",
+      "sha256": "f5a8aa6fc49672556e8f7eaf72a77778969ac1ccf26130cee394cfad74265040"
+    }
+  },
+  "promotion": {
+    "promotedAt": "2026-07-30T01:58:39.505Z",
+    "sourceGenerationId": "755270191e4497d4e197b92fba5afc32b77e54dbbfd41e1d2b4626a986476b7d",
+    "status": "promoted"
+  }
+}

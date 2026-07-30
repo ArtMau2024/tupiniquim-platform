@@ -1,0 +1,7 @@
+{
+  "schemaVersion": "1.0.0",
+  "source": "scripts/generate-project-map.js",
+  "baseline": "scripts/baseline/generate-project-map.baseline.js",
+  "sha256": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
+  "status": "validated"
+}
