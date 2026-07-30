@@ -213,6 +213,9 @@ function isSensitiveFile(relativePath) {
 
 function isGeneratedOutput(relativePath) {
   return (
+    relativePath.startsWith("scripts/context-engine/__tests__/") ||
+    relativePath.startsWith("scripts/context-engine/fixtures/") ||
+    relativePath.startsWith("scripts/baseline/") ||
     relativePath === "site-context/context-index.json" ||
     relativePath === "site-context/context-manifest.json" ||
     relativePath === "site-context/decision-memory.json" ||

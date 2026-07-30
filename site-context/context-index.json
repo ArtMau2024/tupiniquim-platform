@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "sourceProjectMapHash": "c512bb6bf5fd4de50af440400fe57eda3e90a6225780a3ab745b5ae42645a437",
+  "sourceProjectMapHash": "9649a8f88b7f673cd59a27053fa26c353057baff898a37221224039f18e12d3b",
   "chunkingVersion": "1.0.0",
   "chunks": [
     {
@@ -1478,28 +1478,6 @@
       "content": "o:**\n\n1. Limpe bem o rosto\n2. Aplique um produto (óleo, creme ou sérum)\n3. Faça movimentos suaves e ascendentes\n\n---\n\n## Técnicas simples\n\n**Testa**\n\n- Movimentos do centro para as laterais\n\n**Olhos**\n\n- Toques leves\n\n**Bochechas**\n\n- Movimentos de baixo para cima\n\n**Mandíbula**\n\n- Do queixo até a orelha\n\n**Pescoço**\n\n- Movimentos ascendentes\n\n---\n\n## Dicas importantes\n\n- ⏱️ 5 a 10 minutos por dia\n- 💧 Use produtos adequados\n- 🙌 Não aplique força excessiva\n- 🔁 Seja consistente\n- 🧼 Higienize mãos e acessórios\n\n---\n\n## Contraindicações\n\nEvite se houver:\n\n- Acne inflamada\n- Infecções na pele\n- Procedimentos recentes\n\n---\n\n## Vale a pena?\n\nSim. É uma técnica simples, acessível e eficaz para melhorar a rotina de cuidados.\n\n---\n\n## Conclusão\n\nMais do que estética, a massagem facial é um momento de autocuidado. Incorporar essa prática pode trazer benefícios para a pele e para o bem-estar geral.\n"
     },
     {
-      "id": "7e8b59d00788391fbc0a58dad5cddee307c4c9f7cf18612f2ad036d9ac386e40",
-      "sourcePath": "context-engine-v3.schema.json",
-      "sourceHash": "c0cae71c674fccb20b005f37ff19ee890aca281b38f19e026a1cfd67b0a285db",
-      "startLine": 1,
-      "endLine": 51,
-      "language": "json",
-      "category": "source-code",
-      "redacted": false,
-      "content": "{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n  \"$id\": \"context-engine-v3.schema.json\",\n  \"title\": \"Tupiniquim Context Engine V3\",\n  \"type\": \"object\",\n  \"required\": [\n    \"$schema\",\n    \"schemaVersion\",\n    \"generatedAt\",\n    \"project\",\n    \"architecture\",\n    \"filesystem\",\n    \"routes\",\n    \"dependencies\",\n    \"scripts\",\n    \"components\",\n    \"posts\",\n    \"importGraph\",\n    \"integrations\",\n    \"runtime\",\n    \"executionFlow\",\n    \"contextEngine\",\n    \"sourceMapStatus\",\n    \"sourceFiles\",\n    \"excludedSourceFiles\"\n  ],\n  \"properties\": {\n    \"$schema\": {\n      \"type\": \"string\"\n    },\n    \"schemaVersion\": {\n      \"type\": \"string\",\n      \"pattern\": \"^3\\\\.[0-9]+\\\\.[0-9]+$\"\n    },\n    \"generatedAt\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"project\": {\n      \"type\": \"object\"\n    },\n    \"architecture\": {\n      \"type\": \"object\"\n    },\n    \"filesystem\": {\n      \"type\": \"array\"\n    },\n    \"routes\": {\n      \"type\": \"array\"\n    },\n    \"dependencies\": {\n"
-    },
-    {
-      "id": "ee32e1f910c87c0a049a19a4327412af28a2e3796c12eb65c3ff760c91fccbe5",
-      "sourcePath": "context-engine-v3.schema.json",
-      "sourceHash": "c0cae71c674fccb20b005f37ff19ee890aca281b38f19e026a1cfd67b0a285db",
-      "startLine": 42,
-      "endLine": 89,
-      "language": "json",
-      "category": "source-code",
-      "redacted": false,
-      "content": ": {\n      \"type\": \"object\"\n    },\n    \"filesystem\": {\n      \"type\": \"array\"\n    },\n    \"routes\": {\n      \"type\": \"array\"\n    },\n    \"dependencies\": {\n      \"type\": \"object\"\n    },\n    \"scripts\": {\n      \"type\": \"object\"\n    },\n    \"components\": {\n      \"type\": \"array\"\n    },\n    \"posts\": {\n      \"type\": \"array\"\n    },\n    \"importGraph\": {\n      \"type\": \"array\"\n    },\n    \"integrations\": {\n      \"type\": \"object\"\n    },\n    \"runtime\": {\n      \"type\": \"object\"\n    },\n    \"executionFlow\": {\n      \"type\": \"object\"\n    },\n    \"contextEngine\": {\n      \"type\": \"object\"\n    },\n    \"sourceMapStatus\": {\n      \"type\": \"object\"\n    },\n    \"sourceFiles\": {\n      \"type\": \"array\"\n    },\n    \"excludedSourceFiles\": {\n      \"type\": \"array\"\n    }\n  },\n  \"additionalProperties\": true\n}\n"
-    },
-    {
       "id": "4cc5ecf2c4f55aa840ff6f63c6a20ca233fe79e1e4feef095c30d9f0f95e2bf9",
       "sourcePath": "docs/baseline.md",
       "sourceHash": "0339fbf4a8c916b594e14b32df3964af2a6c9a5d0fcf7ecb815bdce6511a4c48",
@@ -1575,17 +1553,6 @@
       "category": "configuration",
       "redacted": false,
       "content": "import { defineConfig, globalIgnores } from \"eslint/config\";\nimport nextVitals from \"eslint-config-next/core-web-vitals\";\nimport nextTs from \"eslint-config-next/typescript\";\n\nconst eslintConfig = defineConfig([\n  ...nextVitals,\n  ...nextTs,\n  // Override default ignores of eslint-config-next.\n  globalIgnores([\n    // Default ignores of eslint-config-next:\n    \".next/**\",\n    \"out/**\",\n    \"build/**\",\n    \"next-env.d.ts\",\n  ]),\n]);\n\nexport default eslintConfig;\n"
-    },
-    {
-      "id": "5bf8797fdee41e4c2347905913449e527c9a17c9bbc7718ce2d56b75c0aaa69d",
-      "sourcePath": "invalid-decision-memory.json",
-      "sourceHash": "805e40bc95da828c465833734c5c9fc887c8c219858d110da7b9de93c9b4f46a",
-      "startLine": 1,
-      "endLine": 1,
-      "language": "json",
-      "category": "source-code",
-      "redacted": false,
-      "content": "{\"schemaVersion\":\"1.0.0\",\"decisions\":\"invalid\"}\n"
     },
     {
       "id": "1095f14da928bcc3aa56c1bd1f22279f5e481d6477c0fe0b9d4fb1f459a38c46",
@@ -1885,9 +1852,9 @@
       "content": "// default open-next.config.ts file created by @opennextjs/cloudflare\nimport { defineCloudflareConfig } from \"@opennextjs/cloudflare\";\n// import r2IncrementalCache from \"@opennextjs/cloudflare/overrides/incremental-cache/r2-incremental-cache\";\n\nexport default defineCloudflareConfig({\n\t// For best results consider enabling R2 caching\n\t// See https://opennext.js.org/cloudflare/caching for more details\n\t// incrementalCache: r2IncrementalCache\n});\n"
     },
     {
-      "id": "d9336cff35f363d26a4a0aaa062d79c868a357b14bd289bd0f663f040be30eaf",
+      "id": "946d36cc0105bb40679a0a20a9990b2f0bf00d8e258539f937bfe570724e0888",
       "sourcePath": "package.json",
-      "sourceHash": "70491c35dc13c95503877c5eb4291958ea4d11728fd0b1ab527d538d9f4a619e",
+      "sourceHash": "6598cc80ea836810b27b459a094de97ffa3f207706cb6dc8a25818a4044bc959",
       "startLine": 1,
       "endLine": 20,
       "language": "json",
@@ -1896,9 +1863,9 @@
       "content": "{\n  \"name\": \"tupiniquim-platform\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"scripts\": {\n    \"dev\": \"next dev\",\n    \"build\": \"node scripts/generate-posts.js && next build --webpack\",\n    \"opennext\": \"opennextjs-cloudflare build\",\n    \"start\": \"next start\",\n    \"lint\": \"eslint\",\n    \"deploy\": \"node scripts/deploy.js\",\n    \"preview\": \"opennextjs-cloudflare preview\",\n    \"context:scan\": \"node scripts/generate-project-map.js\",\n    \"context:prepare\": \"node scripts/context-engine/prepare-context.js\",\n    \"context:test\": \"node scripts/context-engine/run-tests.js\",\n    \"context:baseline:verify\": \"node scripts/context-engine/verify-baseline.js\",\n    \"context:memory:init\": \"node scripts/context-engine/decision-memory.js init\",\n    \"context:lote0:verify\": \"npm run context:prepare && npm run context:test && npm run context:baseline:verify\",\n    \"context:generate:v3\": \"node scripts/generate-project-map-v3.js\",\n    \"context:validate:staged\": \"node scripts/context-engine/validate-staged.js\",\n"
     },
     {
-      "id": "cfd3e9b70b20db924da36d5f95d9e063bdeb150006f004a8f4d2d88840d4a6b9",
+      "id": "0badee4bec455271f4a05ed8f8aed19057e0c167da7cea1047bf0adc2b814c97",
       "sourcePath": "package.json",
-      "sourceHash": "70491c35dc13c95503877c5eb4291958ea4d11728fd0b1ab527d538d9f4a619e",
+      "sourceHash": "6598cc80ea836810b27b459a094de97ffa3f207706cb6dc8a25818a4044bc959",
       "startLine": 19,
       "endLine": 28,
       "language": "json",
@@ -1907,15 +1874,26 @@
       "content": "   \"context:generate:v3\": \"node scripts/generate-project-map-v3.js\",\n    \"context:validate:staged\": \"node scripts/context-engine/validate-staged.js\",\n    \"context:compare:staged\": \"node scripts/context-engine/compare-staged.js\",\n    \"context:lote1:verify\": \"node scripts/context-engine/verify-lote1.js\",\n    \"context:graph:build\": \"node scripts/context-engine/enhance-staged-graph.js\",\n    \"context:lote2:verify\": \"npm run context:lote1:verify && npm run context:graph:build && node scripts/context-engine/verify-lote2.js\",\n    \"context:enrich:v3\": \"node scripts/context-engine/enrich-staged-context.js\",\n    \"context:lote3:verify\": \"npm run context:lote2:verify && npm run context:enrich:v3 && node scripts/context-engine/verify-lote3.js && npm run context:test\",\n    \"context:index:v3\": \"node scripts/context-engine/build-staged-index.js\",\n    \"context:lote4:verify\": \"npm run context:lote3:verify && npm run context:index:v3 && node scripts/context-engine/verify-lote4.js && npm run context:test\","
     },
     {
-      "id": "ec2d6dfb99fd6055008c6c6bcf1c73063309b9acf4d2e092bd2371e95d767d0b",
+      "id": "aa12c6c1d16549afb204d1109a5fe97f0a75dba2f2098531806dc2d77a3e4ab4",
       "sourcePath": "package.json",
-      "sourceHash": "70491c35dc13c95503877c5eb4291958ea4d11728fd0b1ab527d538d9f4a619e",
+      "sourceHash": "6598cc80ea836810b27b459a094de97ffa3f207706cb6dc8a25818a4044bc959",
       "startLine": 28,
-      "endLine": 50,
+      "endLine": 47,
       "language": "json",
       "category": "configuration",
       "redacted": false,
-      "content": "text:lote4:verify\": \"npm run context:lote3:verify && npm run context:index:v3 && node scripts/context-engine/verify-lote4.js && npm run context:test\",\n    \"context:promote:v3\": \"node scripts/context-engine/promote-v3.js\",\n    \"context:validate:official\": \"node scripts/context-engine/validate-official-v3.js\",\n    \"context:update\": \"node scripts/context-engine/run-context-v3.js\",\n    \"context:lote5:verify\": \"npm run context:lote4:verify && npm run context:promote:v3 && npm run context:validate:official\"\n  },\n  \"dependencies\": {\n    \"@opennextjs/cloudflare\": \"^1.20.1\",\n    \"autoprefixer\": \"^10.5.2\",\n    \"gray-matter\": \"^4.0.3\",\n    \"next\": \"16.2.9\",\n    \"react\": \"18.3.1\",\n    \"react-dom\": \"18.3.1\"\n  },\n  \"devDependencies\": {\n    \"@types/node\": \"^20.0.0\",\n    \"@types/react\": \"^18.0.0\",\n    \"typescript\": \"^5.0.0\",\n    \"wrangler\": \"^4.0.0\",\n    \"ajv\": \"8.17.1\",\n    \"ajv-formats\": \"3.0.1\"\n  }\n}\n"
+      "content": "text:lote4:verify\": \"npm run context:lote3:verify && npm run context:index:v3 && node scripts/context-engine/verify-lote4.js && npm run context:test\",\n    \"context:promote:v3\": \"node scripts/context-engine/promote-v3.js\",\n    \"context:validate:official\": \"node scripts/context-engine/validate-official-v3.js\",\n    \"context:update\": \"node scripts/context-engine/run-context-v3.js\",\n    \"context:lote5:verify\": \"npm run context:lote4:verify && npm run context:promote:v3 && npm run context:validate:official\",\n    \"context:query\": \"node scripts/context-engine/query-context.js\",\n    \"context:lote6:verify\": \"node scripts/context-engine/verify-lote6.js && npm run context:test\"\n  },\n  \"dependencies\": {\n    \"@opennextjs/cloudflare\": \"^1.20.1\",\n    \"autoprefixer\": \"^10.5.2\",\n    \"gray-matter\": \"^4.0.3\",\n    \"next\": \"16.2.9\",\n    \"react\": \"18.3.1\",\n    \"react-dom\": \"18.3.1\"\n  },\n  \"devDependencies\": {\n    \"@types/node\": \"^20.0.0\",\n    \"@types/react\": \"^18.0.0\",\n    \"typescript\": \"^5.0.0\",\n"
+    },
+    {
+      "id": "48c5d8f212a964c2066a4b48665a93789a0490a0b528d72935e429166ca1f28e",
+      "sourcePath": "package.json",
+      "sourceHash": "6598cc80ea836810b27b459a094de97ffa3f207706cb6dc8a25818a4044bc959",
+      "startLine": 41,
+      "endLine": 52,
+      "language": "json",
+      "category": "configuration",
+      "redacted": false,
+      "content": ".3.1\",\n    \"react-dom\": \"18.3.1\"\n  },\n  \"devDependencies\": {\n    \"@types/node\": \"^20.0.0\",\n    \"@types/react\": \"^18.0.0\",\n    \"typescript\": \"^5.0.0\",\n    \"wrangler\": \"^4.0.0\",\n    \"ajv\": \"8.17.1\",\n    \"ajv-formats\": \"3.0.1\"\n  }\n}\n"
     },
     {
       "id": "22066db0d9c429c6a62bae963b9c8ce8147a6e7f5ef25ae40628635e283fe70a",
@@ -2050,391 +2028,6 @@
       "content": "Aceitação:* Exibição de no máximo 10 posts por página, com botões de navegação \"Anterior\" e \"Próximo\".\n- [ ] **TSK-5.2: Mecanismo de Busca Estática**\n    *   *Descrição:* Criar um campo de busca simples por título ou descrição na página do blog, filtrando os posts em tempo real no lado do cliente.\n    *   *Critério de Aceitação:* Filtro instantâneo altamente performático sem requisições adicionais ao servidor.\n- [ ] **TSK-5.3: Otimização de Imagens e Cache no Edge**\n    *   *Descrição:* Configurar políticas estritas de cache para imagens e assets estáticos no arquivo `open-next.config.ts` e `wrangler.jsonc`.\n    *   *Critério de Aceitação:* Imagens servidas com cabeçalhos `Cache-Control` de longa duração diretamente da rede de borda da Cloudflare.\n"
     },
     {
-      "id": "a542809c50e2bf4212997b14ae2797b19529dd9971811ba988ea2b979e2f6d44",
-      "sourcePath": "scripts/baseline/baseline-manifest.json",
-      "sourceHash": "5f4e7e70140d43e3530aa3ab8b21ff21b42648079dd2f0b483b28f04a2c8e3e3",
-      "startLine": 1,
-      "endLine": 7,
-      "language": "json",
-      "category": "source-code",
-      "redacted": false,
-      "content": "{\n  \"schemaVersion\": \"1.0.0\",\n  \"source\": \"scripts/generate-project-map.js\",\n  \"baseline\": \"scripts/baseline/generate-project-map.baseline.js\",\n  \"sha256\": \"2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef\",\n  \"status\": \"validated\"\n}\n"
-    },
-    {
-      "id": "04d69fe4f5607926593d5748e156875d73ac9a1ef5ea75a7ac59d76336cd0423",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 1,
-      "endLine": 58,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "const fs = require(\"fs\");\nconst path = require(\"path\");\nconst crypto = require(\"crypto\");\n\nconst ROOT = process.cwd();\nconst OUTPUT_DIR = path.join(ROOT, \"site-context\");\nconst OUTPUT_FILE = path.join(OUTPUT_DIR, \"project-map.json\");\nconst TEMP_FILE = path.join(OUTPUT_DIR, \"project-map.tmp.json\");\nconst BACKUP_FILE = path.join(OUTPUT_DIR, \"project-map.backup.json\");\n\nconst MAX_FILE_SIZE_BYTES = 512000;\nconst MAX_TOTAL_SIZE_BYTES = 5242880;\n\nconst IGNORE_DIRECTORIES = new Set([\n  \".git\",\n  \".next\",\n  \"node_modules\",\n  \".open-next\",\n  \".vercel\",\n  \"dist\",\n  \"build\",\n  \"coverage\",\n  \".aider.tags.cache.v4\",\n  \".wrangler\"\n]);\n\nconst TEXT_EXTENSIONS = new Set([\n  \".ts\",\n  \".tsx\",\n  \".js\",\n  \".jsx\",\n  \".mjs\",\n  \".cjs\",\n  \".json\",\n  \".jsonc\",\n  \".css\",\n  \".mdx\",\n  \".md\"\n]);\n\nconst BINARY_EXTENSIONS = new Set([\n  \".ico\",\n  \".png\",\n  \".jpg\",\n  \".jpeg\",\n  \".gif\",\n  \".webp\",\n  \".svg\",\n  \".pdf\",\n  \".doc\",\n  \".docx\",\n  \".xls\",\n  \".xlsx\",\n  \".ppt\",\n  \".pptx\",\n  \".woff\",\n  \".woff2\",\n  \".ttf\",\n"
-    },
-    {
-      "id": "ce9a56270613ec7614bcb8fba8b78342d0ff0512a0cfb7d0b8e6cc22201c90dd",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 44,
-      "endLine": 105,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": ",\n  \".jpeg\",\n  \".gif\",\n  \".webp\",\n  \".svg\",\n  \".pdf\",\n  \".doc\",\n  \".docx\",\n  \".xls\",\n  \".xlsx\",\n  \".ppt\",\n  \".pptx\",\n  \".woff\",\n  \".woff2\",\n  \".ttf\",\n  \".otf\",\n  \".eot\",\n  \".sqlite\",\n  \".db\",\n  \".exe\",\n  \".dll\",\n  \".zip\",\n  \".tar\",\n  \".gz\",\n  \".7z\",\n  \".rar\"\n]);\n\nconst EXPECTED_EXCLUSION_REASONS = new Set([\n  \"sensitive_file\",\n  \"binary_file\",\n  \"unsupported_extension\",\n  \"generated_output\",\n  \"local_artifact\"\n]);\n\nconst INCOMPLETE_EXCLUSION_REASONS = new Set([\n  \"file_size_limit\",\n  \"total_size_limit\",\n  \"read_error\"\n]);\n\nconst projectMap = {\n  generatedAt: new Date().toISOString(),\n  project: {},\n  architecture: {},\n  filesystem: [],\n  routes: [],\n  dependencies: {},\n  scripts: {},\n  components: [],\n  posts: [],\n  importGraph: [],\n  integrations: {},\n  runtime: {},\n  executionFlow: {},\n  contextEngine: {\n    productVision: {\n      name: \"Tupiniquim Platform\",\n      mission:\n        \"Plataforma SaaS brasileira para conteúdo, mídia, gestão e aplicações multi-tenant.\"\n    },\n"
-    },
-    {
-      "id": "0d53454a8a49cfe16c1a1e7e65b32f2c0c752b0750efec79a3a283be0923a3f3",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 102,
-      "endLine": 125,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "      name: \"Tupiniquim Platform\",\n      mission:\n        \"Plataforma SaaS brasileira para conteúdo, mídia, gestão e aplicações multi-tenant.\"\n    },\n    businessGoals: [\n      \"Reduzir dependência de contexto em conversas com IA\",\n      \"Preparar a fundação para CMS\",\n      \"Preparar a fundação para Media Center\",\n      \"Preparar a fundação para Multi-Tenant\",\n      \"Preparar a fundação para IA Generativa\",\n      \"Evoluir para modelo SaaS\"\n    ],\n    projectStatus: {\n      currentEpic: \"EPIC-003\",\n      name: \"Site Institucional Profissional\",\n      status: \"in_progress\"\n    },\n    roadmap: [\n      { name: \"Blog\", status: \"completed\" },\n      { name: \"Context Engine\", status: \"completed\" },\n      { name: \"Categorias Permanentes do Blog\", status: \"completed\" },\n      { name: \"Site Institucional Profissional\", status: \"in_progress\" },\n      { name: \"CMS\", status: \"planned\" },\n      { name: \"Área Administrativa\", status: \"planned\" },\n"
-    },
-    {
-      "id": "8e91e5dd1372e2eed15832d81d8b669eab5f03273737436b8e9bceb3ab5908cc",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 123,
-      "endLine": 149,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "itucional Profissional\", status: \"in_progress\" },\n      { name: \"CMS\", status: \"planned\" },\n      { name: \"Área Administrativa\", status: \"planned\" },\n      { name: \"Gestão de Usuários\", status: \"planned\" },\n      { name: \"Media Center\", status: \"planned\" },\n      { name: \"Construtor de Páginas\", status: \"planned\" },\n      { name: \"Multi-Tenant\", status: \"planned\" },\n      { name: \"IA Generativa\", status: \"planned\" },\n      { name: \"SaaS Tupiniquim\", status: \"planned\" }\n    ],\n    architectureDecisions: [\n      {\n        id: \"ADR-001\",\n        title: \"Project Map como Fonte Única da Verdade\",\n        status: \"approved\",\n        description:\n          \"O project-map.json é a principal fonte de contexto técnico da plataforma.\"\n      },\n      {\n        id: \"ADR-002\",\n        title: \"Context Engine Monolítico\",\n        status: \"approved\",\n        description:\n          \"O Context Engine evolui sobre project-map.json evitando múltiplos arquivos redundantes.\"\n      }\n    ]\n  },\n"
-    },
-    {
-      "id": "52e6b2e50179b78e05f51a7ba4ae7f0612f1396a75ff1fd718309806028a3802",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 144,
-      "endLine": 188,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "pproved\",\n        description:\n          \"O Context Engine evolui sobre project-map.json evitando múltiplos arquivos redundantes.\"\n      }\n    ]\n  },\n  sourceMapStatus: {\n    enabled: true,\n    complete: true,\n    redactionApplied: true,\n    maxFileSizeBytes: MAX_FILE_SIZE_BYTES,\n    maxTotalSizeBytes: MAX_TOTAL_SIZE_BYTES,\n    includedFiles: 0,\n    excludedFiles: 0,\n    expectedExclusions: 0,\n    incompleteExclusions: 0,\n    redactedFiles: 0,\n    includedSizeBytes: 0\n  },\n  sourceFiles: [],\n  excludedSourceFiles: []\n};\n\nfunction normalize(value) {\n  return value.replace(/\\\\/g, \"/\");\n}\n\nfunction safeRead(filePath) {\n  try {\n    return fs.readFileSync(filePath, \"utf8\");\n  } catch {\n    return null;\n  }\n}\n\nfunction shouldIgnore(relativePath) {\n  return (\n    relativePath.startsWith(\"No arquivo `\") ||\n    relativePath.includes(\"o script tenta\")\n  );\n}\n\nfunction isLocalArtifact(relativePath) {\n  const baseName = path.posix.basename(relativePath).toLowerCase();\n  return (\n"
-    },
-    {
-      "id": "f45c0b2cdbf4a061337552ab46735012b2c2a13ce95fdaeace9d5b8801e3ae87",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 182,
-      "endLine": 215,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "des(\"o script tenta\")\n  );\n}\n\nfunction isLocalArtifact(relativePath) {\n  const baseName = path.posix.basename(relativePath).toLowerCase();\n  return (\n    baseName.startsWith(\".aider\") ||\n    baseName === \"build-error.txt\" ||\n    baseName.endsWith(\".log\") ||\n    baseName.endsWith(\".tmp\") ||\n    baseName.endsWith(\".bak\") ||\n    baseName.endsWith(\".backup\") ||\n    baseName.endsWith(\".cache\")\n  );\n}\n\nfunction isSensitiveFile(relativePath) {\n  const baseName = path.posix.basename(relativePath).toLowerCase();\n  return (\n    baseName === \".env\" ||\n    baseName.startsWith(\".env.\") ||\n    /\\.(pem|key|p12|pfx)$/i.test(baseName) ||\n    baseName.startsWith(\"credentials\") ||\n    baseName.startsWith(\"secrets\")\n  );\n}\n\nfunction isGeneratedOutput(relativePath) {\n  return (\n    relativePath === \"site-context/project-map.json\" ||\n    relativePath === \"site-context/project-map.tmp.json\" ||\n    relativePath === \"site-context/project-map.backup.json\" ||\n    relativePath === \"next-env.d.ts\" ||\n"
-    },
-    {
-      "id": "429c57d003f3ec871d0222fd6349784486b22aca865ffffd3e27c7db7b6fe6ec",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 213,
-      "endLine": 248,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "ath === \"site-context/project-map.tmp.json\" ||\n    relativePath === \"site-context/project-map.backup.json\" ||\n    relativePath === \"next-env.d.ts\" ||\n    relativePath === \"package-lock.json\"\n  );\n}\n\nfunction getExtension(relativePath) {\n  if (relativePath.toLowerCase().endsWith(\".d.ts\")) {\n    return \".d.ts\";\n  }\n  return path.posix.extname(relativePath).toLowerCase();\n}\n\nfunction getLanguage(extension) {\n  const languageByExtension = {\n    \".ts\": \"typescript\",\n    \".tsx\": \"typescript-react\",\n    \".d.ts\": \"typescript-declaration\",\n    \".js\": \"javascript\",\n    \".jsx\": \"javascript-react\",\n    \".mjs\": \"javascript-esm\",\n    \".cjs\": \"javascript-commonjs\",\n    \".json\": \"json\",\n    \".jsonc\": \"json-with-comments\",\n    \".css\": \"css\",\n    \".mdx\": \"mdx\",\n    \".md\": \"markdown\"\n  };\n  return languageByExtension[extension] || \"text\";\n}\n\nfunction getCategory(relativePath, extension) {\n  if (relativePath === \"AGENTS.md\") {\n    return \"operational-documentation\";\n  }\n"
-    },
-    {
-      "id": "5e2238a98b5b08ff1718cb03364ff4b6552620faf0f458797c6c4d36eaff9d1d",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 242,
-      "endLine": 286,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "sion] || \"text\";\n}\n\nfunction getCategory(relativePath, extension) {\n  if (relativePath === \"AGENTS.md\") {\n    return \"operational-documentation\";\n  }\n  if (relativePath.startsWith(\"content/\") && extension === \".mdx\") {\n    return \"content\";\n  }\n  if (extension === \".css\") {\n    return \"style\";\n  }\n  if (\n    relativePath === \"package.json\" ||\n    relativePath === \"tsconfig.json\" ||\n    relativePath === \"wrangler.jsonc\" ||\n    relativePath === \"eslint.config.mjs\"\n  ) {\n    return \"configuration\";\n  }\n  if (extension === \".md\") {\n    return \"documentation\";\n  }\n  return \"source-code\";\n}\n\nfunction countLines(content) {\n  if (content.length === 0) {\n    return 0;\n  }\n  return content.split(/\\r\\n|\\r|\\n/).length;\n}\n\nfunction sha256(content) {\n  return crypto.createHash(\"sha256\").update(content, \"utf8\").digest(\"hex\");\n}\n\nfunction redactSecrets(content) {\n  let redacted = false;\n  let result = content;\n  const sensitiveNames = [\n    \"API_KEY\",\n    \"API_TOKEN\",\n    \"ACCESS_TOKEN\",\n"
-    },
-    {
-      "id": "ec95f6614d4685c61ed1ae86f2fa5af93e08a5a1eeacc696f1fc2c7b6bbc42ac",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 280,
-      "endLine": 320,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "dactSecrets(content) {\n  let redacted = false;\n  let result = content;\n  const sensitiveNames = [\n    \"API_KEY\",\n    \"API_TOKEN\",\n    \"ACCESS_TOKEN\",\n    \"AUTH_TOKEN\",\n    \"SECRET\",\n    \"PASSWORD\",\n    \"PRIVATE_KEY\",\n    \"CLIENT_SECRET\",\n    \"CLOUDFLARE_API_TOKEN\",\n    \"GITHUB_TOKEN\"\n  ];\n\n  for (const name of sensitiveNames) {\n    const escapedName = name.replace(/[.*+?^${}()|[\\]\\\\]/g, \"\\\\$&\");\n    const patterns = [\n      new RegExp(\n        `(${escapedName}\\\\s*=\\\\s*)([\"']?)([^\"'\\\\r\\\\n,;]+)\\\\2`,\n        \"gi\"\n      ),\n      new RegExp(\n        `([\"']${escapedName}[\"']\\\\s*:\\\\s*)([\"'])(.*?)\\\\2`,\n        \"gi\"\n      )\n    ];\n\n    for (const pattern of patterns) {\n      result = result.replace(pattern, (match, prefix, quote) => {\n        redacted = true;\n        return `${prefix}${quote || \"\"}[REDACTED]${quote || \"\"}`;\n      });\n    }\n  }\n\n  return { content: result, redacted };\n}\n\nfunction addExcludedSourceFile(relativePath, reason) {\n"
-    },
-    {
-      "id": "d4be0cb9747e211bfbe34d125be5d94e962d76eedb8ff0a036e2d5b1e0b5f249",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 312,
-      "endLine": 350,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": " \"\"}[REDACTED]${quote || \"\"}`;\n      });\n    }\n  }\n\n  return { content: result, redacted };\n}\n\nfunction addExcludedSourceFile(relativePath, reason) {\n  projectMap.excludedSourceFiles.push({ path: relativePath, reason });\n  projectMap.sourceMapStatus.excludedFiles += 1;\n\n  if (EXPECTED_EXCLUSION_REASONS.has(reason)) {\n    projectMap.sourceMapStatus.expectedExclusions += 1;\n  }\n  if (INCOMPLETE_EXCLUSION_REASONS.has(reason)) {\n    projectMap.sourceMapStatus.incompleteExclusions += 1;\n    projectMap.sourceMapStatus.complete = false;\n  }\n}\n\nfunction walk(dir) {\n  const entries = fs\n    .readdirSync(dir, { withFileTypes: true })\n    .sort((a, b) => a.name.localeCompare(b.name));\n\n  for (const entry of entries) {\n    if (IGNORE_DIRECTORIES.has(entry.name)) {\n      continue;\n    }\n\n    const fullPath = path.join(dir, entry.name);\n    const relativePath = normalize(path.relative(ROOT, fullPath));\n\n    if (shouldIgnore(relativePath)) {\n      continue;\n    }\n\n    projectMap.filesystem.push({\n"
-    },
-    {
-      "id": "56629c9447ac83c5817a810550147a24cab65ba103f806db55afac6641ec4e17",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 344,
-      "endLine": 389,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "lativePath = normalize(path.relative(ROOT, fullPath));\n\n    if (shouldIgnore(relativePath)) {\n      continue;\n    }\n\n    projectMap.filesystem.push({\n      path: relativePath,\n      type: entry.isDirectory() ? \"directory\" : \"file\"\n    });\n\n    if (entry.isDirectory()) {\n      walk(fullPath);\n    }\n  }\n}\n\nfunction detectRoute(relativePath) {\n  const file = normalize(relativePath);\n  if (!file.startsWith(\"app/\") || !file.endsWith(\"/page.tsx\")) {\n    return null;\n  }\n  const route = file.replace(/^app/, \"\").replace(/\\/page\\.tsx$/, \"\");\n  return route || \"/\";\n}\n\nfunction extractImports() {\n  return [];\n}\n\nfunction scanFiles(dir) {\n  const entries = fs\n    .readdirSync(dir, { withFileTypes: true })\n    .sort((a, b) => a.name.localeCompare(b.name));\n\n  for (const entry of entries) {\n    if (IGNORE_DIRECTORIES.has(entry.name)) {\n      continue;\n    }\n\n    const fullPath = path.join(dir, entry.name);\n    if (entry.isDirectory()) {\n      scanFiles(fullPath);\n      continue;\n    }\n\n"
-    },
-    {
-      "id": "c9fa3b183d54a570cb90c5fff36dc631f0797fb9cf412780278200469ffb5852",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 381,
-      "endLine": 420,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "   continue;\n    }\n\n    const fullPath = path.join(dir, entry.name);\n    if (entry.isDirectory()) {\n      scanFiles(fullPath);\n      continue;\n    }\n\n    const relativePath = normalize(path.relative(ROOT, fullPath));\n    if (shouldIgnore(relativePath)) {\n      continue;\n    }\n\n    const route = detectRoute(relativePath);\n    if (route) {\n      projectMap.routes.push({ route, source: relativePath });\n    }\n\n    if (relativePath.endsWith(\".tsx\") || relativePath.endsWith(\".jsx\")) {\n      projectMap.components.push(relativePath);\n    }\n\n    if (\n      relativePath.startsWith(\"content/posts/\") &&\n      relativePath.endsWith(\".mdx\")\n    ) {\n      projectMap.posts.push({\n        slug: path.basename(relativePath, \".mdx\"),\n        file: relativePath\n      });\n    }\n\n    if (\n      relativePath.endsWith(\".js\") ||\n      relativePath.endsWith(\".jsx\") ||\n      relativePath.endsWith(\".ts\") ||\n      relativePath.endsWith(\".tsx\")\n    ) {\n      const content = safeRead(fullPath);\n"
-    },
-    {
-      "id": "c5f781b925e1095afa22f977b3db08caaf2eb87caf3826bf40f3d9fc947d0f7b",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 416,
-      "endLine": 451,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "ePath.endsWith(\".jsx\") ||\n      relativePath.endsWith(\".ts\") ||\n      relativePath.endsWith(\".tsx\")\n    ) {\n      const content = safeRead(fullPath);\n      if (content !== null) {\n        projectMap.importGraph.push({\n          file: relativePath,\n          imports: extractImports(content)\n        });\n      }\n    }\n  }\n}\n\nfunction collectSourceFiles() {\n  const filePaths = projectMap.filesystem\n    .filter((entry) => entry.type === \"file\")\n    .map((entry) => entry.path)\n    .sort((a, b) => a.localeCompare(b));\n\n  for (const relativePath of filePaths) {\n    const extension = getExtension(relativePath);\n\n    if (isGeneratedOutput(relativePath)) {\n      addExcludedSourceFile(relativePath, \"generated_output\");\n      continue;\n    }\n    if (isLocalArtifact(relativePath)) {\n      addExcludedSourceFile(relativePath, \"local_artifact\");\n      continue;\n    }\n    if (isSensitiveFile(relativePath)) {\n      addExcludedSourceFile(relativePath, \"sensitive_file\");\n      continue;\n    }\n"
-    },
-    {
-      "id": "d5f778f225328b1eb616ccc8237bd068133f8031eb35d8cc889a27e55f0fddc8",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 445,
-      "endLine": 482,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "\");\n      continue;\n    }\n    if (isSensitiveFile(relativePath)) {\n      addExcludedSourceFile(relativePath, \"sensitive_file\");\n      continue;\n    }\n    if (BINARY_EXTENSIONS.has(extension)) {\n      addExcludedSourceFile(relativePath, \"binary_file\");\n      continue;\n    }\n    if (!TEXT_EXTENSIONS.has(extension)) {\n      addExcludedSourceFile(relativePath, \"unsupported_extension\");\n      continue;\n    }\n\n    const fullPath = path.join(ROOT, relativePath);\n    let stats;\n    try {\n      stats = fs.statSync(fullPath);\n    } catch {\n      addExcludedSourceFile(relativePath, \"read_error\");\n      continue;\n    }\n\n    if (stats.size > MAX_FILE_SIZE_BYTES) {\n      addExcludedSourceFile(relativePath, \"file_size_limit\");\n      continue;\n    }\n\n    const originalContent = safeRead(fullPath);\n    if (originalContent === null) {\n      addExcludedSourceFile(relativePath, \"read_error\");\n      continue;\n    }\n\n    const originalSizeBytes = Buffer.byteLength(originalContent, \"utf8\");\n    if (\n"
-    },
-    {
-      "id": "7a6ff3ddc9be2a8d9e6407e23de9d00cbc743daefd1f83553416a9021b97e4c3",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 477,
-      "endLine": 508,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "udedSourceFile(relativePath, \"read_error\");\n      continue;\n    }\n\n    const originalSizeBytes = Buffer.byteLength(originalContent, \"utf8\");\n    if (\n      projectMap.sourceMapStatus.includedSizeBytes + originalSizeBytes >\n      MAX_TOTAL_SIZE_BYTES\n    ) {\n      addExcludedSourceFile(relativePath, \"total_size_limit\");\n      continue;\n    }\n\n    const redactionResult = redactSecrets(originalContent);\n    if (redactionResult.redacted) {\n      projectMap.sourceMapStatus.redactedFiles += 1;\n    }\n\n    projectMap.sourceFiles.push({\n      path: relativePath,\n      category: getCategory(relativePath, extension),\n      extension,\n      language: getLanguage(extension),\n      sizeBytes: originalSizeBytes,\n      lineCount: countLines(originalContent),\n      sha256: sha256(originalContent),\n      sha256Source: \"original-content\",\n      redacted: redactionResult.redacted,\n      content: redactionResult.content\n    });\n\n    projectMap.sourceMapStatus.includedFiles += 1;\n"
-    },
-    {
-      "id": "5bbec656a484f85202e14634f1ba5cf10d52c5585c03a2ad9467c379e7de602e",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 503,
-      "endLine": 540,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "ontent\",\n      redacted: redactionResult.redacted,\n      content: redactionResult.content\n    });\n\n    projectMap.sourceMapStatus.includedFiles += 1;\n    projectMap.sourceMapStatus.includedSizeBytes += originalSizeBytes;\n  }\n\n  projectMap.sourceFiles.sort((a, b) => a.path.localeCompare(b.path));\n  projectMap.excludedSourceFiles.sort((a, b) =>\n    a.path.localeCompare(b.path)\n  );\n  projectMap.sourceMapStatus.complete =\n    projectMap.sourceMapStatus.incompleteExclusions === 0;\n}\n\nfunction loadPackageJson() {\n  const packageFile = path.join(ROOT, \"package.json\");\n  if (!fs.existsSync(packageFile)) {\n    return;\n  }\n  const packageContent = safeRead(packageFile);\n  if (!packageContent) {\n    return;\n  }\n  const pkg = JSON.parse(packageContent);\n  projectMap.project = {\n    name: pkg.name || null,\n    version: pkg.version || null\n  };\n  projectMap.dependencies = {\n    ...(pkg.dependencies || {}),\n    ...(pkg.devDependencies || {})\n  };\n  projectMap.scripts = pkg.scripts || {};\n}\n\n"
-    },
-    {
-      "id": "2df123dcc8c5ae4038204b8b542d9a098e76eaff11a79048fd9822b65096a111",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 533,
-      "endLine": 574,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": ";\n  projectMap.dependencies = {\n    ...(pkg.dependencies || {}),\n    ...(pkg.devDependencies || {})\n  };\n  projectMap.scripts = pkg.scripts || {};\n}\n\nfunction loadWrangler() {\n  const wranglerFile = path.join(ROOT, \"wrangler.jsonc\");\n  if (!fs.existsSync(wranglerFile)) {\n    projectMap.integrations.cloudflare = false;\n    return;\n  }\n  projectMap.integrations.cloudflare = true;\n  projectMap.integrations.wrangler = \"wrangler.jsonc\";\n}\n\nfunction buildArchitecture() {\n  projectMap.architecture = {\n    framework: \"Next.js\",\n    renderer: \"React\",\n    adapter: \"OpenNext\",\n    hosting: \"Cloudflare\",\n    contentSource: \"MDX Filesystem\"\n  };\n}\n\nfunction buildRuntime() {\n  projectMap.runtime = {\n    framework: \"Next.js\",\n    node: process.version,\n    cloudflare: projectMap.integrations.cloudflare === true\n  };\n}\n\nfunction buildExecutionFlow() {\n  projectMap.executionFlow = {\n    content: [\n      \"content/posts/*.mdx\",\n      \"scripts/generate-posts.js\",\n      \"lib/generated-posts.ts\",\n"
-    },
-    {
-      "id": "dd85d8f44d897be67d02603d80a55dfcc701e6de342bd476ade8417ecfb58ed2",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 569,
-      "endLine": 604,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "low() {\n  projectMap.executionFlow = {\n    content: [\n      \"content/posts/*.mdx\",\n      \"scripts/generate-posts.js\",\n      \"lib/generated-posts.ts\",\n      \"lib/blog-categories.ts\",\n      \"app/blog/page.tsx\",\n      \"app/blog/[slug]/page.tsx\",\n      \"app/blog/categoria/[categoria]/page.tsx\"\n    ],\n    categories: [\n      \"lib/blog-categories.ts\",\n      \"lib/generated-posts.ts\",\n      \"app/blog/page.tsx\",\n      \"app/blog/categoria/[categoria]/page.tsx\",\n      \"app/blog/[slug]/page.tsx\"\n    ],\n    build: [\n      \"scripts/generate-posts.js\",\n      \"next build\",\n      \"OpenNext\",\n      \"Cloudflare Deploy\"\n    ],\n    contextEngine: [\n      \"npm run context:scan\",\n      \"scripts/generate-project-map.js\",\n      \"site-context/project-map.json\",\n      \"BizChat / IA\"\n    ]\n  };\n}\n\nfunction sortProjectMap() {\n  projectMap.filesystem.sort((a, b) => a.path.localeCompare(b.path));\n  projectMap.routes.sort((a, b) => a.route.localeCompare(b.route));\n"
-    },
-    {
-      "id": "7d6b24a3cc39dd4118ff96766ba753bb2deb32e105b3630a3b8ae436e10f93c8",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 602,
-      "endLine": 643,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "jectMap() {\n  projectMap.filesystem.sort((a, b) => a.path.localeCompare(b.path));\n  projectMap.routes.sort((a, b) => a.route.localeCompare(b.route));\n  projectMap.components.sort((a, b) => a.localeCompare(b));\n  projectMap.posts.sort((a, b) => a.slug.localeCompare(b.slug));\n  projectMap.importGraph.sort((a, b) => a.file.localeCompare(b.file));\n}\n\nfunction validateSourceFile(sourceFile) {\n  const requiredKeys = [\n    \"path\",\n    \"category\",\n    \"extension\",\n    \"language\",\n    \"sizeBytes\",\n    \"lineCount\",\n    \"sha256\",\n    \"sha256Source\",\n    \"redacted\",\n    \"content\"\n  ];\n  for (const key of requiredKeys) {\n    if (!(key in sourceFile)) {\n      throw new Error(`Required source file field is missing: ${key}`);\n    }\n  }\n}\n\nfunction validateProjectMap() {\n  const requiredRootKeys = [\n    \"generatedAt\",\n    \"project\",\n    \"architecture\",\n    \"filesystem\",\n    \"routes\",\n    \"dependencies\",\n    \"scripts\",\n    \"components\",\n    \"posts\",\n    \"importGraph\",\n    \"integrations\",\n    \"runtime\",\n"
-    },
-    {
-      "id": "022cd5d9ec3b44fb5e9b8c2fae350adeb6323149e1fd94679e63baa2010e613c",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 635,
-      "endLine": 682,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "  \"filesystem\",\n    \"routes\",\n    \"dependencies\",\n    \"scripts\",\n    \"components\",\n    \"posts\",\n    \"importGraph\",\n    \"integrations\",\n    \"runtime\",\n    \"executionFlow\",\n    \"contextEngine\",\n    \"sourceMapStatus\",\n    \"sourceFiles\",\n    \"excludedSourceFiles\"\n  ];\n\n  for (const key of requiredRootKeys) {\n    if (!(key in projectMap)) {\n      throw new Error(`Required project map block is missing: ${key}`);\n    }\n  }\n\n  const requiredContextKeys = [\n    \"productVision\",\n    \"businessGoals\",\n    \"projectStatus\",\n    \"roadmap\",\n    \"architectureDecisions\"\n  ];\n  for (const key of requiredContextKeys) {\n    if (!(key in projectMap.contextEngine)) {\n      throw new Error(`Required Context Engine block is missing: ${key}`);\n    }\n  }\n\n  for (const key of [\n    \"filesystem\",\n    \"routes\",\n    \"posts\",\n    \"importGraph\",\n    \"sourceFiles\",\n    \"excludedSourceFiles\"\n  ]) {\n    if (!Array.isArray(projectMap[key])) {\n      throw new Error(`The ${key} block must be an array.`);\n    }\n  }\n\n"
-    },
-    {
-      "id": "e1a336b7d3e5c08cd101ce01a3f16230987cc56cd3a318c94709e27a237f76ce",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 675,
-      "endLine": 715,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": ",\n    \"excludedSourceFiles\"\n  ]) {\n    if (!Array.isArray(projectMap[key])) {\n      throw new Error(`The ${key} block must be an array.`);\n    }\n  }\n\n  for (const sourceFile of projectMap.sourceFiles) {\n    validateSourceFile(sourceFile);\n  }\n\n  if (\n    projectMap.sourceMapStatus.complete !==\n    (projectMap.sourceMapStatus.incompleteExclusions === 0)\n  ) {\n    throw new Error(\"Source map completeness status is inconsistent.\");\n  }\n}\n\nfunction parseJsonFile(filePath) {\n  return JSON.parse(fs.readFileSync(filePath, \"utf8\"));\n}\n\nfunction cleanupTransientFiles() {\n  for (const filePath of [TEMP_FILE, BACKUP_FILE]) {\n    if (fs.existsSync(filePath)) {\n      fs.rmSync(filePath, { force: true });\n    }\n  }\n}\n\nfunction saveAtomically() {\n  fs.mkdirSync(OUTPUT_DIR, { recursive: true });\n  cleanupTransientFiles();\n\n  const serialized = JSON.stringify(projectMap, null, 2);\n  JSON.parse(serialized);\n  fs.writeFileSync(TEMP_FILE, serialized, \"utf8\");\n  parseJsonFile(TEMP_FILE);\n\n"
-    },
-    {
-      "id": "07f1de1322156550a72fb8bf473c19e1165d86df725ad6bd8c1b6fef7e7e3cd7",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 711,
-      "endLine": 750,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "ized = JSON.stringify(projectMap, null, 2);\n  JSON.parse(serialized);\n  fs.writeFileSync(TEMP_FILE, serialized, \"utf8\");\n  parseJsonFile(TEMP_FILE);\n\n  let backupCreated = false;\n\n  try {\n    if (fs.existsSync(OUTPUT_FILE)) {\n      fs.copyFileSync(OUTPUT_FILE, BACKUP_FILE);\n      parseJsonFile(BACKUP_FILE);\n      backupCreated = true;\n      fs.rmSync(OUTPUT_FILE, { force: true });\n    }\n\n    fs.renameSync(TEMP_FILE, OUTPUT_FILE);\n    parseJsonFile(OUTPUT_FILE);\n\n    if (backupCreated && fs.existsSync(BACKUP_FILE)) {\n      fs.rmSync(BACKUP_FILE, { force: true });\n    }\n\n    cleanupTransientFiles();\n    return OUTPUT_FILE;\n  } catch (error) {\n    if (fs.existsSync(OUTPUT_FILE)) {\n      fs.rmSync(OUTPUT_FILE, { force: true });\n    }\n    if (backupCreated && fs.existsSync(BACKUP_FILE)) {\n      fs.renameSync(BACKUP_FILE, OUTPUT_FILE);\n    }\n    if (fs.existsSync(TEMP_FILE)) {\n      fs.rmSync(TEMP_FILE, { force: true });\n    }\n    throw error;\n  }\n}\n\nfunction main() {\n  try {\n"
-    },
-    {
-      "id": "d83169fd0b0169e6516ba4889ad4fd4c17b0772dd8946ea2e6388512bec448e5",
-      "sourcePath": "scripts/baseline/generate-project-map.baseline.js",
-      "sourceHash": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "startLine": 740,
-      "endLine": 779,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "FILE);\n    }\n    if (fs.existsSync(TEMP_FILE)) {\n      fs.rmSync(TEMP_FILE, { force: true });\n    }\n    throw error;\n  }\n}\n\nfunction main() {\n  try {\n    console.log(\"Generating project map with full source snapshot...\");\n    loadPackageJson();\n    loadWrangler();\n    walk(ROOT);\n    scanFiles(ROOT);\n    collectSourceFiles();\n    buildArchitecture();\n    buildRuntime();\n    buildExecutionFlow();\n    sortProjectMap();\n    validateProjectMap();\n\n    const outputFile = saveAtomically();\n    console.log(\n      `${normalize(path.relative(ROOT, outputFile))} generated successfully.`\n    );\n  } catch (error) {\n    try {\n      cleanupTransientFiles();\n    } catch {\n      // Preserve the original failure as the primary error.\n    }\n    console.error(\"Failed to generate project map.\");\n    console.error(error instanceof Error ? error.message : String(error));\n    process.exitCode = 1;\n  }\n}\n\nmain();\n"
-    },
-    {
-      "id": "9cee3043bcd7e3d12357b628cbee365cc8bf8a736575239fc5f7b6b9454a65d5",
-      "sourcePath": "scripts/context-engine/__tests__/context-enrichment.test.js",
-      "sourceHash": "13e16c5c3973e57cdfe40d50b191f98155deb5d90215ac0559591a73a2201954",
-      "startLine": 1,
-      "endLine": 4,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "\"use strict\";\nconst test=require(\"node:test\");const assert=require(\"node:assert/strict\");const {buildFeatureMap}=require(\"../feature-map\");const {architectureHealth}=require(\"../technical-debt\");const {buildAiContext}=require(\"../ai-context\");\ntest(\"classifies Blog and Context Engine features\",()=>{const r=buildFeatureMap([{path:\"app/blog/page.tsx\"},{path:\"scripts/context-engine/a.js\"},{path:\"app/page.tsx\"}],[{name:\"Blog\",status:\"completed\"},{name:\"Context Engine\",status:\"completed\"}]);assert.equal(r.features.length,2);assert.deepEqual(r.unclassifiedFiles,[\"app/page.tsx\"]);});\ntest(\"calculates bounded architecture health\",()=>{const debts=[{severity:\"critical\",status:\"open\"},{severity:\"high\",status:\"open\"},{severity:\"medium\",status:\"open\"},{severity:\"medium\",status:\"open\"}];assert.deepEqual(architectureHealth(debts),{score:60,status:\"critical\",criticalDebts:1,highDebts:1,mediumDebts:2,lowDebts:0,calculationVersion:\"1.0.0\"});});\n"
-    },
-    {
-      "id": "d554aa868125297178044e4962b4313f823f184c8369e9d96af19813bfbdc5a9",
-      "sourcePath": "scripts/context-engine/__tests__/context-enrichment.test.js",
-      "sourceHash": "13e16c5c3973e57cdfe40d50b191f98155deb5d90215ac0559591a73a2201954",
-      "startLine": 4,
-      "endLine": 5,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "deepEqual(architectureHealth(debts),{score:60,status:\"critical\",criticalDebts:1,highDebts:1,mediumDebts:2,lowDebts:0,calculationVersion:\"1.0.0\"});});\ntest(\"AI Context prioritizes critical debt deterministically\",()=>{const c={productVision:{name:\"X\",mission:\"Y\"},projectStatus:{currentEpic:\"E1\",name:\"Current\",status:\"in_progress\"},roadmap:[{name:\"Current\",status:\"in_progress\"},{name:\"Next\",status:\"planned\"}],architectureDecisions:[]};const debts=[{id:\"DT-002\",severity:\"high\",status:\"open\",reason:\"b\",files:[\"b\"]},{id:\"DT-001\",severity:\"critical\",status:\"open\",reason:\"a\",files:[\"a\"]}];assert.equal(buildAiContext(c,debts,{}).recommendedAction,\"Resolve DT-001: a\");});\n"
-    },
-    {
-      "id": "97c3bb406417376cfa4ee784aec41c269889d33d3145e0c8cc08103b43233444",
-      "sourcePath": "scripts/context-engine/__tests__/context-indexer-boundary.test.js",
-      "sourceHash": "ebe39358d4fc6328edac28551a4c3d609cf372ed1932017502a7efb74a0e8738",
-      "startLine": 1,
-      "endLine": 11,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "\"use strict\";\nconst test=require(\"node:test\");\nconst assert=require(\"node:assert/strict\");\nconst {buildChunks}=require(\"../context-indexer\");\ntest(\"never exceeds maxChars when a double newline crosses the boundary\",()=>{\n  const content=\"x\".repeat(998)+\"\\n\\n\"+\"tail\";\n  const file={path:\"boundary.md\",sha256:\"boundary\",language:\"markdown\",category:\"documentation\",redacted:false,content};\n  const chunks=buildChunks(file,{maxChars:1000,overlapChars:150});\n  assert.ok(chunks.length>=2);\n  assert.ok(chunks.every(chunk=>chunk.content.length<=1000));\n});\n"
-    },
-    {
-      "id": "f36388d244181251975c89cb2b39474b80a775ee373c5f78142bc4db7ea259ab",
-      "sourcePath": "scripts/context-engine/__tests__/context-indexer.test.js",
-      "sourceHash": "7042795467eb193d08d6d0cbca60663ca1d97c8c6becd498211f5def79cce624",
-      "startLine": 1,
-      "endLine": 4,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "\"use strict\";\nconst test=require(\"node:test\");const assert=require(\"node:assert/strict\");const {normalize,buildChunks,buildContextIndex}=require(\"../context-indexer\");const short={path:\"a.ts\",sha256:\"abc\",language:\"typescript\",category:\"source-code\",redacted:false,content:\"const a = 1;\"};\ntest(\"normalizes CRLF and preserves a short file as one chunk\",()=>{assert.equal(normalize(\"a\\r\\nb\\rc\"),\"a\\nb\\nc\");const c=buildChunks(short);assert.equal(c.length,1);assert.equal(c[0].content,\"const a = 1;\");assert.equal(c[0].startLine,1);});\ntest(\"creates deterministic bounded chunks with line metadata\",()=>{const f={...short,content:Array.from({length:120},(_,i)=>`line ${i+1} ${\"x\".repeat(20)}`).join(\"\\n\")};const a=buildChunks(f);const b=buildChunks(f);assert.deepEqual(a,b);assert.ok(a.length>1);assert.ok(a.every(x=>x.content.length<=1000&&x.startLine<=x.endLine));});\n"
-    },
-    {
-      "id": "9eee604bf0fb4d3b11eac8f763578c2cb3afcb66bb1599ab1d5c8dcc305f6f5f",
-      "sourcePath": "scripts/context-engine/__tests__/context-indexer.test.js",
-      "sourceHash": "7042795467eb193d08d6d0cbca60663ca1d97c8c6becd498211f5def79cce624",
-      "startLine": 4,
-      "endLine": 5,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "hunks(f);const b=buildChunks(f);assert.deepEqual(a,b);assert.ok(a.length>1);assert.ok(a.every(x=>x.content.length<=1000&&x.startLine<=x.endLine));});\ntest(\"builds a deterministic index sorted by source path\",()=>{const index=buildContextIndex([{...short,path:\"b.ts\"},short],\"maphash\");assert.equal(index.sourceProjectMapHash,\"maphash\");assert.equal(index.chunks[0].sourcePath,\"a.ts\");});\n"
-    },
-    {
-      "id": "606abd4c10a77a4c876d00d19ec2d2a638c1e60b06f58f07a089b1c145e5ed97",
-      "sourcePath": "scripts/context-engine/__tests__/knowledge-graph.test.js",
-      "sourceHash": "dfd0462eb74c50568f47f6543c7cdef43b0748ce4ede0ac3df0e6a5ff250262b",
-      "startLine": 1,
-      "endLine": 15,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "\"use strict\";\nconst test = require(\"node:test\");\nconst assert = require(\"node:assert/strict\");\nconst path = require(\"path\");\nconst { collectRelations, detectCycles } = require(\"../knowledge-graph\");\nconst ROOT = process.cwd();\ntest(\"extracts imports without false positives from comments and strings\", () => {\n  const code = `// import fake from \"./fake\"\\nconst text = 'require(\"./fake\")';\\nimport Link from \"next/link\";\\nimport type { X } from \"./types\";\\nexport * from \"./public\";\\nconst lazy = import(\"./lazy\");`;\n  const result = collectRelations(ROOT, path.join(\"fixtures\", \"sample.ts\"), code, {});\n  assert.deepEqual(result.relations.map((r)=>r.specifier).sort(), [\"./lazy\",\"./public\",\"./types\",\"next/link\"].sort());\n  assert.equal(result.relations.find((r)=>r.specifier===\"./types\").relationType, \"type_import\");\n});\ntest(\"detects a circular dependency\", () => {\n  const relations = [\n    { id:\"REL-A\", source:\"a.ts\", target:\"b.ts\", targetKind:\"internal\", resolved:true },\n"
-    },
-    {
-      "id": "b3f66d2e580ad64d16f87200c4f2ebed16eb336cbc5be2eed0a68de17e035fc0",
-      "sourcePath": "scripts/context-engine/__tests__/knowledge-graph.test.js",
-      "sourceHash": "dfd0462eb74c50568f47f6543c7cdef43b0748ce4ede0ac3df0e6a5ff250262b",
-      "startLine": 13,
-      "endLine": 19,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "detects a circular dependency\", () => {\n  const relations = [\n    { id:\"REL-A\", source:\"a.ts\", target:\"b.ts\", targetKind:\"internal\", resolved:true },\n    { id:\"REL-B\", source:\"b.ts\", target:\"a.ts\", targetKind:\"internal\", resolved:true }\n  ];\n  assert.equal(detectCycles(relations).length, 1);\n});\n"
-    },
-    {
-      "id": "ba97d38c34bc193d8befbc381d76413bb9ebff2073bffecf37e0f79df6dff363",
-      "sourcePath": "scripts/context-engine/__tests__/lote0.test.js",
-      "sourceHash": "a13fcdd314d60ac4385cea8cb522242b9484cdd1dd5780276b3823d5d6f95892",
-      "startLine": 1,
-      "endLine": 19,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "\"use strict\";\nconst test = require(\"node:test\");\nconst assert = require(\"node:assert/strict\");\nconst fs = require(\"fs\");\nconst path = require(\"path\");\nconst crypto = require(\"crypto\");\nconst { spawnSync } = require(\"child_process\");\nconst Ajv2020 = require(\"ajv/dist/2020\");\nconst addFormats = require(\"ajv-formats\");\nconst ROOT = process.cwd();\nfunction sha256(file) { return crypto.createHash(\"sha256\").update(fs.readFileSync(file)).digest(\"hex\"); }\ntest(\"baseline matches stable generator\", () => {\n  const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, \"scripts/baseline/baseline-manifest.json\"), \"utf8\"));\n  assert.equal(sha256(path.join(ROOT, manifest.source)), manifest.sha256);\n  assert.equal(sha256(path.join(ROOT, manifest.baseline)), manifest.sha256);\n});\ntest(\"decision memory is valid and initialization is idempotent\", () => {\n  const tool = path.join(ROOT, \"scripts/context-engine/decision-memory.js\");\n  const file = path.join(ROOT, \"site-context/decision-memory.json\");\n"
-    },
-    {
-      "id": "e238d51a1d71df31d22a638ddc242b7f2f2b45aafd4783429c10a556cc21d929",
-      "sourcePath": "scripts/context-engine/__tests__/lote0.test.js",
-      "sourceHash": "a13fcdd314d60ac4385cea8cb522242b9484cdd1dd5780276b3823d5d6f95892",
-      "startLine": 17,
-      "endLine": 29,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "> {\n  const tool = path.join(ROOT, \"scripts/context-engine/decision-memory.js\");\n  const file = path.join(ROOT, \"site-context/decision-memory.json\");\n  const before = sha256(file);\n  const result = spawnSync(process.execPath, [tool, \"init\"], { cwd: ROOT, encoding: \"utf8\", shell: false });\n  assert.equal(result.status, 0, result.stderr);\n  assert.equal(sha256(file), before);\n});\ntest(\"Ajv2020 compiles the Context Engine schema\", () => {\n  const schema = JSON.parse(fs.readFileSync(path.join(ROOT, \"site-context/context-engine-v3.schema.json\"), \"utf8\"));\n  const ajv = new Ajv2020({ strict: true, allErrors: true, allowUnionTypes: false });\n  addFormats(ajv);\n  const validate = ajv.compile(schema);\n"
-    },
-    {
-      "id": "6bc598f3d769caabb5e2a5b7b41506d52d0ca4f8c406eb474a7de460517338fb",
-      "sourcePath": "scripts/context-engine/__tests__/lote0.test.js",
-      "sourceHash": "a13fcdd314d60ac4385cea8cb522242b9484cdd1dd5780276b3823d5d6f95892",
-      "startLine": 26,
-      "endLine": 31,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "\"));\n  const ajv = new Ajv2020({ strict: true, allErrors: true, allowUnionTypes: false });\n  addFormats(ajv);\n  const validate = ajv.compile(schema);\n  assert.equal(validate({ $schema: \"./context-engine-v3.schema.json\", schemaVersion: \"3.0.0\", generatedAt: new Date().toISOString(), project: {}, architecture: {}, filesystem: [], routes: [], dependencies: {}, scripts: {}, components: [], posts: [], importGraph: [], integrations: {}, runtime: {}, executionFlow: {}, contextEngine: {}, sourceMapStatus: {}, sourceFiles: [], excludedSourceFiles: [] }), true, JSON.stringify(validate.errors));\n});\n"
-    },
-    {
-      "id": "23c204ba26f245b7cd51cef36dda6b4d428eb823d9dae0837fc45fd555f16984",
-      "sourcePath": "scripts/context-engine/__tests__/recursive-isolation.test.js",
-      "sourceHash": "37d66795ea64ad7c5373f7ea1670130e23c9a3f07040a22c501668b682533e79",
-      "startLine": 1,
-      "endLine": 9,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "\"use strict\";\nconst test=require(\"node:test\");\nconst assert=require(\"node:assert/strict\");\nconst fs=require(\"fs\");\nconst path=require(\"path\");\ntest(\"V3 generator excludes official and transactional site-context artifacts\",()=>{\n const source=fs.readFileSync(path.join(process.cwd(),\"scripts\",\"generate-project-map-v3.js\"),\"utf8\");\n for(const value of [\"site-context/context-index.json\",\"site-context/context-manifest.json\",\"site-context/decision-memory.json\",\"site-context/context-engine-v3.schema.json\",\"site-context/.generation-tmp/\",\"site-context/.promotion-backup/\"]) assert.ok(source.includes(value),value);\n});\n"
-    },
-    {
       "id": "3291af3678e663bed223ce6d441e8cad028124a29e57349f0b85baf5c69e1aef",
       "sourcePath": "scripts/context-engine/ai-context.js",
       "sourceHash": "9622fa804054d4bff83c620db7fa4fee28f98b0d052234428a5d8223a163d617",
@@ -2523,6 +2116,50 @@
       "content": "+1]===\"\\n\"?2:1));}const text=content.slice(start,end);const startLine=offsets.reduce((n,o,i)=>o<=start?i+1:n,1);const endPos=Math.max(start,end-1);const endLine=offsets.reduce((n,o,i)=>o<=endPos?i+1:n,1);const basis=`${file.path}|${file.sha256}|${startLine}|${endLine}|${version}|${text}`;chunks.push({id:sha(basis),sourcePath:file.path,sourceHash:file.sha256,startLine,endLine,language:file.language,category:file.category,redacted:file.redacted===true,content:text});if(end>=content.length)break;const next=Math.max(start+1,end-overlapChars);start=next;}return chunks;}\nfunction buildContextIndex(sourceFiles,projectMapHash){const chunks=[];for(const file of [...sourceFiles].sort((a,b)=>a.path.localeCompare(b.path)))chunks.push(...buildChunks(file));return{schemaVersion:\"1.0.0\",sourceProjectMapHash:projectMapHash,chunkingVersion:\"1.0.0\",chunks};}\nmodule.exports={sha,normalize,buildChunks,buildContextIndex};\n"
     },
     {
+      "id": "725fe00919ca6f4577ab12b28ba797e66388632afd62d038b1dc255a3c619fe6",
+      "sourcePath": "scripts/context-engine/context-query.js",
+      "sourceHash": "912480d55e201ddea98e7518e4fb0b99e8160f85e3441601c62172319d9c5478",
+      "startLine": 1,
+      "endLine": 18,
+      "language": "javascript",
+      "category": "source-code",
+      "redacted": false,
+      "content": "\"use strict\";\nconst STOPWORDS = new Set([\"a\",\"as\",\"o\",\"os\",\"um\",\"uma\",\"de\",\"da\",\"das\",\"do\",\"dos\",\"e\",\"em\",\"no\",\"nos\",\"na\",\"nas\",\"para\",\"por\",\"com\",\"sem\",\"que\",\"qual\",\"quais\",\"como\",\"onde\",\"me\",\"meu\",\"minha\",\"the\",\"and\",\"or\",\"to\",\"of\",\"in\",\"is\",\"esta\",\"estao\",\"estar\",\"fica\",\"ficam\"]);\nfunction normalize(value) {\n  return String(value || \"\").toLocaleLowerCase(\"pt-BR\").normalize(\"NFD\").replace(/[\\u0300-\\u036f]/g, \"\").replace(/[^a-z0-9_/@.-]+/g, \" \").trim();\n}\nfunction tokenize(value) {\n  return [...new Set(normalize(value).split(/\\s+/).filter(token => token.length > 1 && !STOPWORDS.has(token)))];\n}\nfunction termFrequency(text, term) {\n  let count = 0;\n  let index = 0;\n  while ((index = text.indexOf(term, index)) !== -1) { count += 1; index += term.length; }\n  return count;\n}\nfunction searchContext(index, query, options = {}) {\n  const limit = Math.max(1, Math.min(Number(options.limit) || 5, 20));\n  const terms = tokenize(query);\n  if (!terms.length) return [];\n"
+    },
+    {
+      "id": "06bd0d7c2a31441230f6c826595af65154ed2d1f1afcd1b4e1c995ddc2d9846d",
+      "sourcePath": "scripts/context-engine/context-query.js",
+      "sourceHash": "912480d55e201ddea98e7518e4fb0b99e8160f85e3441601c62172319d9c5478",
+      "startLine": 15,
+      "endLine": 34,
+      "language": "javascript",
+      "category": "source-code",
+      "redacted": false,
+      "content": "tions = {}) {\n  const limit = Math.max(1, Math.min(Number(options.limit) || 5, 20));\n  const terms = tokenize(query);\n  if (!terms.length) return [];\n  const chunks = Array.isArray(index.chunks) ? index.chunks : [];\n  const documentFrequency = new Map();\n  for (const term of terms) documentFrequency.set(term, chunks.filter(chunk => normalize(`${chunk.sourcePath} ${chunk.content}`).includes(term)).length);\n  const results = [];\n  for (const chunk of chunks) {\n    const content = normalize(chunk.content);\n    const sourcePath = normalize(chunk.sourcePath);\n    let score = 0;\n    const matchedTerms = [];\n    for (const term of terms) {\n      const frequency = termFrequency(content, term);\n      const pathHit = sourcePath.includes(term) ? 1 : 0;\n      if (!frequency && !pathHit) continue;\n      matchedTerms.push(term);\n      const inverseFrequency = Math.log((chunks.length + 1) / ((documentFrequency.get(term) || 0) + 1)) + 1;\n      score += Math.min(frequency, 6) * inverseFrequency;\n"
+    },
+    {
+      "id": "7528ffb9ae6860c76ac00a8e9f82a1d5251567447530d535f048b668baedd8cd",
+      "sourcePath": "scripts/context-engine/context-query.js",
+      "sourceHash": "912480d55e201ddea98e7518e4fb0b99e8160f85e3441601c62172319d9c5478",
+      "startLine": 33,
+      "endLine": 57,
+      "language": "javascript",
+      "category": "source-code",
+      "redacted": false,
+      "content": "seFrequency = Math.log((chunks.length + 1) / ((documentFrequency.get(term) || 0) + 1)) + 1;\n      score += Math.min(frequency, 6) * inverseFrequency;\n      score += pathHit * 5 * inverseFrequency;\n    }\n    if (!matchedTerms.length) continue;\n    score += (matchedTerms.length / terms.length) * 8;\n    if (matchedTerms.length === terms.length) score += 10;\n    results.push({\n      id: chunk.id,\n      score: Number(score.toFixed(6)),\n      matchedTerms: matchedTerms.sort(),\n      sourcePath: chunk.sourcePath,\n      startLine: chunk.startLine,\n      endLine: chunk.endLine,\n      language: chunk.language,\n      category: chunk.category,\n      content: chunk.content\n    });\n  }\n  const sorted = results.sort((a, b) => b.score - a.score || a.sourcePath.localeCompare(b.sourcePath) || a.startLine - b.startLine);\n  const selected = [];\n  const perFile = new Map();\n  for (const result of sorted) {\n    const count = perFile.get(result.sourcePath) || 0;\n    if (count >= 1) continue;\n"
+    },
+    {
+      "id": "324cbae38198445812ef8714f96b8d5224e19e70c2b9833e3d647b0f4e700b25",
+      "sourcePath": "scripts/context-engine/context-query.js",
+      "sourceHash": "912480d55e201ddea98e7518e4fb0b99e8160f85e3441601c62172319d9c5478",
+      "startLine": 53,
+      "endLine": 71,
+      "language": "javascript",
+      "category": "source-code",
+      "redacted": false,
+      "content": "];\n  const perFile = new Map();\n  for (const result of sorted) {\n    const count = perFile.get(result.sourcePath) || 0;\n    if (count >= 1) continue;\n    selected.push(result);\n    perFile.set(result.sourcePath, count + 1);\n    if (selected.length >= limit) break;\n  }\n  if (selected.length < limit) {\n    for (const result of sorted) {\n      if (selected.some(item => item.id === result.id)) continue;\n      selected.push(result);\n      if (selected.length >= limit) break;\n    }\n  }\n  return selected;\n}\nmodule.exports = { normalize, tokenize, searchContext };\n"
+    },
+    {
       "id": "164f95d1a76bc7cfa5376be22ca26b10106e01c4cb6f6b59bd24aa3e1bd23574",
       "sourcePath": "scripts/context-engine/decision-memory.js",
       "sourceHash": "8fe21fefeb02348f968bcd51342e718a692f150dcaf045c1983844c3b4cb084e",
@@ -2609,17 +2246,6 @@
       "category": "source-code",
       "redacted": false,
       "content": "\nfunction buildFeatureMap(files,roadmap=[]){\n const paths=files.map(x=>typeof x===\"string\"?x:x.path).filter(Boolean).sort(); const claimed=new Set();\n const features=DEFINITIONS.map(def=>{ const selected=paths.filter(p=>def.include.some(r=>r.test(p))&&!def.exclude.some(r=>r.test(p))); selected.forEach(p=>claimed.add(p)); const road=roadmap.find(x=>x.name===def.roadmapName); return {id:def.id,name:def.name,status:road?road.status:\"unknown\",files:selected,sharedFiles:[],unresolvedPatterns:[]}; });\n const owners=new Map(); for(const f of features) for(const p of f.files){if(!owners.has(p))owners.set(p,[]);owners.get(p).push(f.id);} for(const f of features)f.sharedFiles=f.files.filter(p=>(owners.get(p)||[]).length>1);\n return {features,unclassifiedFiles:paths.filter(p=>!claimed.has(p))};\n}\nmodule.exports={buildFeatureMap};\n"
-    },
-    {
-      "id": "493dea67368d63b8332cb945086f9eb1eb640bb0053e7d567a30d33fbd6bd8b0",
-      "sourcePath": "scripts/context-engine/fixtures/invalid-decision-memory.json",
-      "sourceHash": "805e40bc95da828c465833734c5c9fc887c8c219858d110da7b9de93c9b4f46a",
-      "startLine": 1,
-      "endLine": 1,
-      "language": "json",
-      "category": "source-code",
-      "redacted": false,
-      "content": "{\"schemaVersion\":\"1.0.0\",\"decisions\":\"invalid\"}\n"
     },
     {
       "id": "451753c57f2294518609e4324ce0f20762b932b15c39e9fe82cd891b5465e316",
@@ -2774,6 +2400,28 @@
       "category": "source-code",
       "redacted": false,
       "content": ": ${stagedManifest.generationId.slice(0,16)}.`);console.log(\"Previous canonical artifacts remain in site-context/.promotion-backup until post-promotion validation.\");}catch(error){try{restore();}catch(rollbackError){console.error(`Rollback failure: ${rollbackError.message}`);}console.error(error.message);process.exit(1);}\n"
+    },
+    {
+      "id": "56c7e02f711ec7ce86fffefe0770d7852414f629e710754c3db7d4650f17db2b",
+      "sourcePath": "scripts/context-engine/query-context.js",
+      "sourceHash": "3aa76f760ca740a47a2c0b1652a6fb4e6847210e722892c613724f3dc1cb88e4",
+      "startLine": 1,
+      "endLine": 20,
+      "language": "javascript",
+      "category": "source-code",
+      "redacted": false,
+      "content": "\"use strict\";\nconst fs = require(\"fs\");\nconst path = require(\"path\");\nconst { searchContext } = require(\"./context-query\");\nconst ROOT = process.cwd();\nfunction parseArgs(argv) {\n  const args = { query: [], limit: 5, json: false };\n  for (let i = 0; i < argv.length; i += 1) {\n    if (argv[i] === \"--limit\") { args.limit = Number(argv[i + 1]); i += 1; }\n    else if (argv[i] === \"--json\") args.json = true;\n    else args.query.push(argv[i]);\n  }\n  return { query: args.query.join(\" \").trim(), limit: args.limit, json: args.json };\n}\ntry {\n  const args = parseArgs(process.argv.slice(2));\n  if (!args.query) throw new Error('Usage: npm run context:query -- \"your question\" [--limit 5] [--json]');\n  const indexFile = path.join(ROOT, \"site-context\", \"context-index.json\");\n  const index = JSON.parse(fs.readFileSync(indexFile, \"utf8\"));\n  const results = searchContext(index, args.query, { limit: args.limit });\n"
+    },
+    {
+      "id": "2523d99a27f9d93624e77f01d613edb6c38a4ddd1b526787bde35620ec577548",
+      "sourcePath": "scripts/context-engine/query-context.js",
+      "sourceHash": "3aa76f760ca740a47a2c0b1652a6fb4e6847210e722892c613724f3dc1cb88e4",
+      "startLine": 18,
+      "endLine": 36,
+      "language": "javascript",
+      "category": "source-code",
+      "redacted": false,
+      "content": "ex.json\");\n  const index = JSON.parse(fs.readFileSync(indexFile, \"utf8\"));\n  const results = searchContext(index, args.query, { limit: args.limit });\n  if (args.json) console.log(JSON.stringify({ query: args.query, count: results.length, results }, null, 2));\n  else {\n    console.log(`Query: ${args.query}`);\n    console.log(`Results: ${results.length}\\n`);\n    results.forEach((result, indexPosition) => {\n      console.log(`[${indexPosition + 1}] ${result.sourcePath}:${result.startLine}-${result.endLine}`);\n      console.log(`Score: ${result.score} | Terms: ${result.matchedTerms.join(\", \")}`);\n      console.log(result.content.trim());\n      console.log(\"\\n---\\n\");\n    });\n  }\n  if (!results.length) process.exitCode = 2;\n} catch (error) {\n  console.error(error.message);\n  process.exit(1);\n}\n"
     },
     {
       "id": "6d2bb42cc09cb7ce62c5f58cea53a86a7d8a95b24d37c8a1c93b56d7a4336b9f",
@@ -3040,6 +2688,28 @@
       "content": "rce hash mismatch.\");if(manifest.artifacts.projectMap.sha256!==shaRaw(mapRaw)||manifest.artifacts.contextIndex.sha256!==shaRaw(indexRaw))throw new Error(\"Manifest artifact hash mismatch.\");const ids=new Set();for(const c of index.chunks){if(ids.has(c.id))throw new Error(`Duplicate chunk id: ${c.id}`);ids.add(c.id);if(!c.sourcePath||!c.sourceHash||!Number.isInteger(c.startLine)||!Number.isInteger(c.endLine)||!c.content)throw new Error(\"Invalid chunk contract.\");if(c.content.length>1000)throw new Error(`Chunk exceeds 1000 characters: ${c.id}`);}if(shaRaw(fs.readFileSync(canonical,\"utf8\"))!==before)throw new Error(\"Canonical project map changed during Lote 4.\");console.log(`Context Engine V3 Lote 4 verified successfully: ${index.chunks.length} unique chunks.`);console.log(\"Manifest hashes are valid and canonical project-map.json remains unchanged.\");}catch(e){console.error(e.message);process.exit(1);}\n"
     },
     {
+      "id": "9568e72d76967bfb9c74b4c890d044351caa27e703b944813dfdb43b4ac3a8a7",
+      "sourcePath": "scripts/context-engine/verify-lote6.js",
+      "sourceHash": "e647ba3c5bd9e8c9b2f99eef736a42905d1a976f4107b7a31ee8dfd8c796e598",
+      "startLine": 1,
+      "endLine": 15,
+      "language": "javascript",
+      "category": "source-code",
+      "redacted": false,
+      "content": "\"use strict\";\nconst fs = require(\"fs\");\nconst path = require(\"path\");\nconst crypto = require(\"crypto\");\nconst { searchContext } = require(\"./context-query\");\nconst ROOT = process.cwd();\nfunction sha(text) { return crypto.createHash(\"sha256\").update(text, \"utf8\").digest(\"hex\"); }\ntry {\n  const mapRaw = fs.readFileSync(path.join(ROOT, \"site-context\", \"project-map.json\"), \"utf8\");\n  const indexRaw = fs.readFileSync(path.join(ROOT, \"site-context\", \"context-index.json\"), \"utf8\");\n  const index = JSON.parse(indexRaw);\n  const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, \"site-context\", \"context-manifest.json\"), \"utf8\"));\n  if (index.sourceProjectMapHash !== sha(mapRaw)) throw new Error(\"Official Context Index is not synchronized with project-map.json.\");\n  if (manifest.artifacts.contextIndex.sha256 !== sha(indexRaw)) throw new Error(\"Official Context Index hash does not match manifest.\");\n  const imports = searchContext(index, \"knowledge graph imports\", { limit: 5 });\n"
+    },
+    {
+      "id": "e2e7d4e8755eeff9ac7222344ba0d5ae78f1f88b0cf33c39018ae696a1784f9a",
+      "sourcePath": "scripts/context-engine/verify-lote6.js",
+      "sourceHash": "e647ba3c5bd9e8c9b2f99eef736a42905d1a976f4107b7a31ee8dfd8c796e598",
+      "startLine": 14,
+      "endLine": 25,
+      "language": "javascript",
+      "category": "source-code",
+      "redacted": false,
+      "content": "w new Error(\"Official Context Index hash does not match manifest.\");\n  const imports = searchContext(index, \"knowledge graph imports\", { limit: 5 });\n  const blog = searchContext(index, \"categorias blog\", { limit: 5 });\n  if (!imports.length) throw new Error(\"Query engine returned no result for Knowledge Graph.\");\n  if (!blog.length) throw new Error(\"Query engine returned no result for Blog categories.\");\n  if (!imports.some(result => /knowledge-graph|generate-project-map|context-engine/.test(result.sourcePath))) throw new Error(\"Knowledge Graph query did not return an expected technical source.\");\n  console.log(`Context query verified successfully against ${index.chunks.length} official chunks.`);\n  console.log(`Knowledge Graph query results: ${imports.length}. Blog query results: ${blog.length}.`);\n} catch (error) {\n  console.error(error.message);\n  process.exit(1);\n}\n"
+    },
+    {
       "id": "14e905a4fcd23f66d8f81b8f92b9e88c37e7353c689932e3b2c1c4fc8d91ead6",
       "sourcePath": "scripts/context-validations/result.js",
       "sourceHash": "23c77bcf76a113473b0acec5b6ff3ebec029be790909a1f53daeed8fa56a6e89",
@@ -3216,9 +2886,9 @@
       "content": "!hasZod) {\n    debts.push({\n      id: 'DT-003',\n      severity: 'high',\n      status: 'open',\n      reason: 'frontmatter-without-schema'\n    });\n  }\n\n  const inlineCssFiles = projectMap.sourceFiles\n    .filter(f => f.content && f.content.includes('style={{'))\n    .map(f => f.path);\n\n  if (inlineCssFiles.length) {\n    debts.push({\n      id: 'DT-004',\n      severity: 'medium',\n      status: 'open',\n      files: inlineCssFiles,\n      reason: 'inline-css'\n    });\n  }\n\n  projectMap.schemaVersion = '2.0.0';\n  projectMap.technicalDebt = debts;\n}\n\n// Integrate before save:\n// detectTechnicalDebt(projectMap);\n"
     },
     {
-      "id": "d31193d5f22a8a3dfd2f64101515276c54e07f4bc9884a41831549915f738a6b",
+      "id": "8afc9e7dc7076aac054e2186efa3fe3470e310ab29b316fc83d0a5d51a8ac7f3",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
       "startLine": 1,
       "endLine": 51,
       "language": "javascript",
@@ -3227,9 +2897,9 @@
       "content": "/* Context Engine V3 Lote 1: isolated staging generator. */\nconst fs = require(\"fs\");\nconst path = require(\"path\");\nconst crypto = require(\"crypto\");\n\nconst ROOT = process.cwd();\nconst OUTPUT_DIR = path.join(ROOT, \"site-context\", \".generation-tmp\");\nconst OUTPUT_FILE = path.join(OUTPUT_DIR, \"project-map.json\");\nconst TEMP_FILE = path.join(OUTPUT_DIR, \"project-map.tmp.json\");\nconst BACKUP_FILE = path.join(OUTPUT_DIR, \"project-map.backup.json\");\n\nconst MAX_FILE_SIZE_BYTES = 512000;\nconst MAX_TOTAL_SIZE_BYTES = 5242880;\n\nconst IGNORE_DIRECTORIES = new Set([\n  \".git\",\n  \".next\",\n  \"node_modules\",\n  \".open-next\",\n  \".vercel\",\n  \"dist\",\n  \"build\",\n  \"coverage\",\n  \".aider.tags.cache.v4\",\n  \".wrangler\",\n  \".generation-tmp\"\n]);\n\nconst TEXT_EXTENSIONS = new Set([\n  \".ts\",\n  \".tsx\",\n  \".js\",\n  \".jsx\",\n  \".mjs\",\n  \".cjs\",\n  \".json\",\n  \".jsonc\",\n  \".css\",\n  \".mdx\",\n  \".md\"\n]);\n\nconst BINARY_EXTENSIONS = new Set([\n  \".ico\",\n  \".png\",\n  \".jpg\",\n  \".jpeg\",\n  \".gif\",\n  \".webp\",\n  \".svg\",\n  \".pdf\",\n"
     },
     {
-      "id": "5620e0735c20b3a351b8b770cc790ab48931744fdacf0c83d584cac0097efae5",
+      "id": "4626e9406a6459336c59eca998d42c55ea8bb9045f2bf0ad18563fd530357760",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
       "startLine": 38,
       "endLine": 104,
       "language": "javascript",
@@ -3238,9 +2908,9 @@
       "content": " \".css\",\n  \".mdx\",\n  \".md\"\n]);\n\nconst BINARY_EXTENSIONS = new Set([\n  \".ico\",\n  \".png\",\n  \".jpg\",\n  \".jpeg\",\n  \".gif\",\n  \".webp\",\n  \".svg\",\n  \".pdf\",\n  \".doc\",\n  \".docx\",\n  \".xls\",\n  \".xlsx\",\n  \".ppt\",\n  \".pptx\",\n  \".woff\",\n  \".woff2\",\n  \".ttf\",\n  \".otf\",\n  \".eot\",\n  \".sqlite\",\n  \".db\",\n  \".exe\",\n  \".dll\",\n  \".zip\",\n  \".tar\",\n  \".gz\",\n  \".7z\",\n  \".rar\"\n]);\n\nconst EXPECTED_EXCLUSION_REASONS = new Set([\n  \"sensitive_file\",\n  \"binary_file\",\n  \"unsupported_extension\",\n  \"generated_output\",\n  \"local_artifact\"\n]);\n\nconst INCOMPLETE_EXCLUSION_REASONS = new Set([\n  \"file_size_limit\",\n  \"total_size_limit\",\n  \"read_error\"\n]);\n\nconst projectMap = {\n  \"$schema\": \"../context-engine-v3.schema.json\",\n  schemaVersion: \"3.1.0\",\n  generatedAt: new Date().toISOString(),\n  project: {},\n  architecture: {},\n  filesystem: [],\n  routes: [],\n  dependencies: {},\n  scripts: {},\n  components: [],\n  posts: [],\n  importGraph: [],\n  integrations: {},\n  runtime: {},\n  executionFlow: {},\n  contextEngine: {\n"
     },
     {
-      "id": "b4e840dc13dd4a357b329ccd5dc517bcff1404a174bc064091c366e3f8aa5991",
+      "id": "06fa7a6d22e7b6188054892c4889a91c9739cff8ddf536f85bd789a71d65aa6c",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
       "startLine": 96,
       "endLine": 126,
       "language": "javascript",
@@ -3249,9 +2919,9 @@
       "content": "cies: {},\n  scripts: {},\n  components: [],\n  posts: [],\n  importGraph: [],\n  integrations: {},\n  runtime: {},\n  executionFlow: {},\n  contextEngine: {\n    productVision: {\n      name: \"Tupiniquim Platform\",\n      mission:\n        \"Plataforma SaaS brasileira para conteúdo, mídia, gestão e aplicações multi-tenant.\"\n    },\n    businessGoals: [\n      \"Reduzir dependência de contexto em conversas com IA\",\n      \"Preparar a fundação para CMS\",\n      \"Preparar a fundação para Media Center\",\n      \"Preparar a fundação para Multi-Tenant\",\n      \"Preparar a fundação para IA Generativa\",\n      \"Evoluir para modelo SaaS\"\n    ],\n    projectStatus: {\n      currentEpic: \"EPIC-003\",\n      name: \"Site Institucional Profissional\",\n      status: \"in_progress\"\n    },\n    roadmap: [\n      { name: \"Blog\", status: \"completed\" },\n      { name: \"Context Engine\", status: \"completed\" },\n      { name: \"Categorias Permanentes do Blog\", status: \"completed\" },\n"
     },
     {
-      "id": "db62e5c57b6af6684a6d1c8d59506a6500fdfea0f5c3783075e0d92cadbfed1f",
+      "id": "a3bbf60411f85d60ca97a1f77e957b73a67eb46169e2e0c9dabd7c610685e1ff",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
       "startLine": 124,
       "endLine": 147,
       "language": "javascript",
@@ -3260,9 +2930,9 @@
       "content": " status: \"completed\" },\n      { name: \"Context Engine\", status: \"completed\" },\n      { name: \"Categorias Permanentes do Blog\", status: \"completed\" },\n      { name: \"Site Institucional Profissional\", status: \"in_progress\" },\n      { name: \"CMS\", status: \"planned\" },\n      { name: \"Área Administrativa\", status: \"planned\" },\n      { name: \"Gestão de Usuários\", status: \"planned\" },\n      { name: \"Media Center\", status: \"planned\" },\n      { name: \"Construtor de Páginas\", status: \"planned\" },\n      { name: \"Multi-Tenant\", status: \"planned\" },\n      { name: \"IA Generativa\", status: \"planned\" },\n      { name: \"SaaS Tupiniquim\", status: \"planned\" }\n    ],\n    architectureDecisions: [\n      {\n        id: \"ADR-001\",\n        title: \"Project Map como Fonte Única da Verdade\",\n        status: \"approved\",\n        description:\n          \"O project-map.json é a principal fonte de contexto técnico da plataforma.\"\n      },\n      {\n        id: \"ADR-002\",\n        title: \"Context Engine Monolítico\",\n"
     },
     {
-      "id": "2feca3b846792562fd9edbc508b567403556a2930fc026721cf97cfb924363b9",
+      "id": "5396b36c5dd09a9cff289e53b71f28a96afcd52c1c4a7c6ba6775edbb49f9fa6",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
       "startLine": 143,
       "endLine": 185,
       "language": "javascript",
@@ -3271,213 +2941,213 @@
       "content": "-map.json é a principal fonte de contexto técnico da plataforma.\"\n      },\n      {\n        id: \"ADR-002\",\n        title: \"Context Engine Monolítico\",\n        status: \"approved\",\n        description:\n          \"O Context Engine evolui sobre project-map.json evitando múltiplos arquivos redundantes.\"\n      }\n    ]\n  },\n  sourceMapStatus: {\n    enabled: true,\n    complete: true,\n    redactionApplied: true,\n    maxFileSizeBytes: MAX_FILE_SIZE_BYTES,\n    maxTotalSizeBytes: MAX_TOTAL_SIZE_BYTES,\n    includedFiles: 0,\n    excludedFiles: 0,\n    expectedExclusions: 0,\n    incompleteExclusions: 0,\n    redactedFiles: 0,\n    includedSizeBytes: 0\n  },\n  sourceFiles: [],\n  excludedSourceFiles: []\n};\n\nfunction normalize(value) {\n  return value.replace(/\\\\/g, \"/\");\n}\n\nfunction safeRead(filePath) {\n  try {\n    return fs.readFileSync(filePath, \"utf8\");\n  } catch {\n    return null;\n  }\n}\n\nfunction shouldIgnore(relativePath) {\n  return (\n    relativePath.startsWith(\"No arquivo `\") ||\n"
     },
     {
-      "id": "2fc56448233866fe60850854284992d6c81f98e056c88426c81e2004d4d98b12",
+      "id": "947e82b27cd85af206dc297100a906dbf22297252397a4e2eea4a61902366a8c",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
       "startLine": 177,
-      "endLine": 216,
+      "endLine": 215,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": "ilePath, \"utf8\");\n  } catch {\n    return null;\n  }\n}\n\nfunction shouldIgnore(relativePath) {\n  return (\n    relativePath.startsWith(\"No arquivo `\") ||\n    relativePath.includes(\"o script tenta\")\n  );\n}\n\nfunction isLocalArtifact(relativePath) {\n  const baseName = path.posix.basename(relativePath).toLowerCase();\n  return (\n    baseName.startsWith(\".aider\") ||\n    baseName === \"build-error.txt\" ||\n    baseName.endsWith(\".log\") ||\n    baseName.endsWith(\".tmp\") ||\n    baseName.endsWith(\".bak\") ||\n    baseName.endsWith(\".backup\") ||\n    baseName.endsWith(\".cache\")\n  );\n}\n\nfunction isSensitiveFile(relativePath) {\n  const baseName = path.posix.basename(relativePath).toLowerCase();\n  return (\n    baseName === \".env\" ||\n    baseName.startsWith(\".env.\") ||\n    /\\.(pem|key|p12|pfx)$/i.test(baseName) ||\n    baseName.startsWith(\"credentials\") ||\n    baseName.startsWith(\"secrets\")\n  );\n}\n\nfunction isGeneratedOutput(relativePath) {\n  return (\n    relativePath === \"site-context/context-index.json\" ||\n"
+      "content": "ilePath, \"utf8\");\n  } catch {\n    return null;\n  }\n}\n\nfunction shouldIgnore(relativePath) {\n  return (\n    relativePath.startsWith(\"No arquivo `\") ||\n    relativePath.includes(\"o script tenta\")\n  );\n}\n\nfunction isLocalArtifact(relativePath) {\n  const baseName = path.posix.basename(relativePath).toLowerCase();\n  return (\n    baseName.startsWith(\".aider\") ||\n    baseName === \"build-error.txt\" ||\n    baseName.endsWith(\".log\") ||\n    baseName.endsWith(\".tmp\") ||\n    baseName.endsWith(\".bak\") ||\n    baseName.endsWith(\".backup\") ||\n    baseName.endsWith(\".cache\")\n  );\n}\n\nfunction isSensitiveFile(relativePath) {\n  const baseName = path.posix.basename(relativePath).toLowerCase();\n  return (\n    baseName === \".env\" ||\n    baseName.startsWith(\".env.\") ||\n    /\\.(pem|key|p12|pfx)$/i.test(baseName) ||\n    baseName.startsWith(\"credentials\") ||\n    baseName.startsWith(\"secrets\")\n  );\n}\n\nfunction isGeneratedOutput(relativePath) {\n  return (\n"
     },
     {
-      "id": "9f1550f9291e3e8a16af20c44221a27060a27b7335f76fd3d2b7ed30a00aea69",
+      "id": "ef05f7ab712bbe2604c1b7b616bf5f04a3eeaa06240cf26cc7fc34db98d22a2b",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
-      "startLine": 210,
-      "endLine": 238,
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
+      "startLine": 208,
+      "endLine": 232,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": "aseName.startsWith(\"secrets\")\n  );\n}\n\nfunction isGeneratedOutput(relativePath) {\n  return (\n    relativePath === \"site-context/context-index.json\" ||\n    relativePath === \"site-context/context-manifest.json\" ||\n    relativePath === \"site-context/decision-memory.json\" ||\n    relativePath === \"site-context/context-engine-v3.schema.json\" ||\n    relativePath.startsWith(\"site-context/.generation-tmp/\") ||\n    relativePath.startsWith(\"site-context/.promotion-backup/\") ||\n    relativePath === \"site-context/project-map.json\" ||\n    relativePath === \"site-context/project-map.tmp.json\" ||\n    relativePath === \"site-context/project-map.backup.json\" ||\n    relativePath === \"next-env.d.ts\" ||\n    relativePath === \"package-lock.json\"\n  );\n}\n\nfunction getExtension(relativePath) {\n  if (relativePath.toLowerCase().endsWith(\".d.ts\")) {\n    return \".d.ts\";\n  }\n  return path.posix.extname(relativePath).toLowerCase();\n}\n\nfunction getLanguage(extension) {\n  const languageByExtension = {\n"
+      "content": "seName) ||\n    baseName.startsWith(\"credentials\") ||\n    baseName.startsWith(\"secrets\")\n  );\n}\n\nfunction isGeneratedOutput(relativePath) {\n  return (\n    relativePath.startsWith(\"scripts/context-engine/__tests__/\") ||\n    relativePath.startsWith(\"scripts/context-engine/fixtures/\") ||\n    relativePath.startsWith(\"scripts/baseline/\") ||\n    relativePath === \"site-context/context-index.json\" ||\n    relativePath === \"site-context/context-manifest.json\" ||\n    relativePath === \"site-context/decision-memory.json\" ||\n    relativePath === \"site-context/context-engine-v3.schema.json\" ||\n    relativePath.startsWith(\"site-context/.generation-tmp/\") ||\n    relativePath.startsWith(\"site-context/.promotion-backup/\") ||\n    relativePath === \"site-context/project-map.json\" ||\n    relativePath === \"site-context/project-map.tmp.json\" ||\n    relativePath === \"site-context/project-map.backup.json\" ||\n    relativePath === \"next-env.d.ts\" ||\n    relativePath === \"package-lock.json\"\n  );\n}\n\n"
     },
     {
-      "id": "8c73f1a28813b68af7e9a9c6aa0d16d6a3711a7b9499ea0e4bd423a13e57e376",
+      "id": "831f0405ea4f1ccf5258bd00f43c978d5aeb2647b031695a906d3f51b9f37e56",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
-      "startLine": 232,
-      "endLine": 270,
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
+      "startLine": 227,
+      "endLine": 262,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": "    return \".d.ts\";\n  }\n  return path.posix.extname(relativePath).toLowerCase();\n}\n\nfunction getLanguage(extension) {\n  const languageByExtension = {\n    \".ts\": \"typescript\",\n    \".tsx\": \"typescript-react\",\n    \".d.ts\": \"typescript-declaration\",\n    \".js\": \"javascript\",\n    \".jsx\": \"javascript-react\",\n    \".mjs\": \"javascript-esm\",\n    \".cjs\": \"javascript-commonjs\",\n    \".json\": \"json\",\n    \".jsonc\": \"json-with-comments\",\n    \".css\": \"css\",\n    \".mdx\": \"mdx\",\n    \".md\": \"markdown\"\n  };\n  return languageByExtension[extension] || \"text\";\n}\n\nfunction getCategory(relativePath, extension) {\n  if (relativePath === \"AGENTS.md\") {\n    return \"operational-documentation\";\n  }\n  if (relativePath.startsWith(\"content/\") && extension === \".mdx\") {\n    return \"content\";\n  }\n  if (extension === \".css\") {\n    return \"style\";\n  }\n  if (\n    relativePath === \"package.json\" ||\n    relativePath === \"tsconfig.json\" ||\n    relativePath === \"wrangler.jsonc\" ||\n    relativePath === \"eslint.config.mjs\"\n  ) {\n"
+      "content": "  relativePath === \"site-context/project-map.backup.json\" ||\n    relativePath === \"next-env.d.ts\" ||\n    relativePath === \"package-lock.json\"\n  );\n}\n\nfunction getExtension(relativePath) {\n  if (relativePath.toLowerCase().endsWith(\".d.ts\")) {\n    return \".d.ts\";\n  }\n  return path.posix.extname(relativePath).toLowerCase();\n}\n\nfunction getLanguage(extension) {\n  const languageByExtension = {\n    \".ts\": \"typescript\",\n    \".tsx\": \"typescript-react\",\n    \".d.ts\": \"typescript-declaration\",\n    \".js\": \"javascript\",\n    \".jsx\": \"javascript-react\",\n    \".mjs\": \"javascript-esm\",\n    \".cjs\": \"javascript-commonjs\",\n    \".json\": \"json\",\n    \".jsonc\": \"json-with-comments\",\n    \".css\": \"css\",\n    \".mdx\": \"mdx\",\n    \".md\": \"markdown\"\n  };\n  return languageByExtension[extension] || \"text\";\n}\n\nfunction getCategory(relativePath, extension) {\n  if (relativePath === \"AGENTS.md\") {\n    return \"operational-documentation\";\n  }\n  if (relativePath.startsWith(\"content/\") && extension === \".mdx\") {\n"
     },
     {
-      "id": "0dd413a612c62d169206a21445195f982efbcf4d0304cd9391969ebb744fd51e",
+      "id": "b7d415ccd45a93fdbda88906954af2c7542a495b60adb51b685ebcb96c32fe02",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
-      "startLine": 266,
-      "endLine": 309,
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
+      "startLine": 259,
+      "endLine": 303,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": "=== \"package.json\" ||\n    relativePath === \"tsconfig.json\" ||\n    relativePath === \"wrangler.jsonc\" ||\n    relativePath === \"eslint.config.mjs\"\n  ) {\n    return \"configuration\";\n  }\n  if (extension === \".md\") {\n    return \"documentation\";\n  }\n  return \"source-code\";\n}\n\nfunction countLines(content) {\n  if (content.length === 0) {\n    return 0;\n  }\n  return content.split(/\\r\\n|\\r|\\n/).length;\n}\n\nfunction sha256(content) {\n  return crypto.createHash(\"sha256\").update(content, \"utf8\").digest(\"hex\");\n}\n\nfunction redactSecrets(content) {\n  let redacted = false;\n  let result = content;\n  const sensitiveNames = [\n    \"API_KEY\",\n    \"API_TOKEN\",\n    \"ACCESS_TOKEN\",\n    \"AUTH_TOKEN\",\n    \"SECRET\",\n    \"PASSWORD\",\n    \"PRIVATE_KEY\",\n    \"CLIENT_SECRET\",\n    \"CLOUDFLARE_API_TOKEN\",\n    \"GITHUB_TOKEN\"\n  ];\n\n  for (const name of sensitiveNames) {\n    const escapedName = name.replace(/[.*+?^${}()|[\\]\\\\]/g, \"\\\\$&\");\n    const patterns = [\n      new RegExp(\n"
+      "content": " if (relativePath === \"AGENTS.md\") {\n    return \"operational-documentation\";\n  }\n  if (relativePath.startsWith(\"content/\") && extension === \".mdx\") {\n    return \"content\";\n  }\n  if (extension === \".css\") {\n    return \"style\";\n  }\n  if (\n    relativePath === \"package.json\" ||\n    relativePath === \"tsconfig.json\" ||\n    relativePath === \"wrangler.jsonc\" ||\n    relativePath === \"eslint.config.mjs\"\n  ) {\n    return \"configuration\";\n  }\n  if (extension === \".md\") {\n    return \"documentation\";\n  }\n  return \"source-code\";\n}\n\nfunction countLines(content) {\n  if (content.length === 0) {\n    return 0;\n  }\n  return content.split(/\\r\\n|\\r|\\n/).length;\n}\n\nfunction sha256(content) {\n  return crypto.createHash(\"sha256\").update(content, \"utf8\").digest(\"hex\");\n}\n\nfunction redactSecrets(content) {\n  let redacted = false;\n  let result = content;\n  const sensitiveNames = [\n    \"API_KEY\",\n    \"API_TOKEN\",\n    \"ACCESS_TOKEN\",\n    \"AUTH_TOKEN\",\n    \"SECRET\",\n    \"PASSWORD\",\n    \"PRIVATE_KEY\",\n"
     },
     {
-      "id": "be38778ca5744df66eebb142aa9fe62af45aea9e2756378e6a7b3352cd0012f3",
+      "id": "cbb7fd552132153a6f3174a799acc019c76ad62f23122d9c4d81894037a7dbd5",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
-      "startLine": 305,
-      "endLine": 338,
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
+      "startLine": 295,
+      "endLine": 336,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": "\n  for (const name of sensitiveNames) {\n    const escapedName = name.replace(/[.*+?^${}()|[\\]\\\\]/g, \"\\\\$&\");\n    const patterns = [\n      new RegExp(\n        `(${escapedName}\\\\s*=\\\\s*)([\"']?)([^\"'\\\\r\\\\n,;]+)\\\\2`,\n        \"gi\"\n      ),\n      new RegExp(\n        `([\"']${escapedName}[\"']\\\\s*:\\\\s*)([\"'])(.*?)\\\\2`,\n        \"gi\"\n      )\n    ];\n\n    for (const pattern of patterns) {\n      result = result.replace(pattern, (match, prefix, quote) => {\n        redacted = true;\n        return `${prefix}${quote || \"\"}[REDACTED]${quote || \"\"}`;\n      });\n    }\n  }\n\n  return { content: result, redacted };\n}\n\nfunction addExcludedSourceFile(relativePath, reason) {\n  projectMap.excludedSourceFiles.push({ path: relativePath, reason });\n  projectMap.sourceMapStatus.excludedFiles += 1;\n\n  if (EXPECTED_EXCLUSION_REASONS.has(reason)) {\n    projectMap.sourceMapStatus.expectedExclusions += 1;\n  }\n  if (INCOMPLETE_EXCLUSION_REASONS.has(reason)) {\n    projectMap.sourceMapStatus.incompleteExclusions += 1;\n"
+      "content": "nt;\n  const sensitiveNames = [\n    \"API_KEY\",\n    \"API_TOKEN\",\n    \"ACCESS_TOKEN\",\n    \"AUTH_TOKEN\",\n    \"SECRET\",\n    \"PASSWORD\",\n    \"PRIVATE_KEY\",\n    \"CLIENT_SECRET\",\n    \"CLOUDFLARE_API_TOKEN\",\n    \"GITHUB_TOKEN\"\n  ];\n\n  for (const name of sensitiveNames) {\n    const escapedName = name.replace(/[.*+?^${}()|[\\]\\\\]/g, \"\\\\$&\");\n    const patterns = [\n      new RegExp(\n        `(${escapedName}\\\\s*=\\\\s*)([\"']?)([^\"'\\\\r\\\\n,;]+)\\\\2`,\n        \"gi\"\n      ),\n      new RegExp(\n        `([\"']${escapedName}[\"']\\\\s*:\\\\s*)([\"'])(.*?)\\\\2`,\n        \"gi\"\n      )\n    ];\n\n    for (const pattern of patterns) {\n      result = result.replace(pattern, (match, prefix, quote) => {\n        redacted = true;\n        return `${prefix}${quote || \"\"}[REDACTED]${quote || \"\"}`;\n      });\n    }\n  }\n\n  return { content: result, redacted };\n}\n\nfunction addExcludedSourceFile(relativePath, reason) {\n  projectMap.excludedSourceFiles.push({ path: relativePath, reason });\n  projectMap.sourceMapStatus.excludedFiles += 1;\n\n"
     },
     {
-      "id": "96b5c38102bc766ac12f08d3f3508ba7c27784f71ae7bc3fe5d31cac89bf6518",
+      "id": "b39c25fb39502f2a1d1a4f17933b6943f7e205dc2cfb4cd08906b07f61f6e740",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
-      "startLine": 335,
-      "endLine": 375,
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
+      "startLine": 333,
+      "endLine": 368,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": "rceMapStatus.expectedExclusions += 1;\n  }\n  if (INCOMPLETE_EXCLUSION_REASONS.has(reason)) {\n    projectMap.sourceMapStatus.incompleteExclusions += 1;\n    projectMap.sourceMapStatus.complete = false;\n  }\n}\n\nfunction walk(dir) {\n  const entries = fs\n    .readdirSync(dir, { withFileTypes: true })\n    .sort((a, b) => a.name.localeCompare(b.name));\n\n  for (const entry of entries) {\n    if (IGNORE_DIRECTORIES.has(entry.name)) {\n      continue;\n    }\n\n    const fullPath = path.join(dir, entry.name);\n    const relativePath = normalize(path.relative(ROOT, fullPath));\n\n    if (shouldIgnore(relativePath)) {\n      continue;\n    }\n\n    projectMap.filesystem.push({\n      path: relativePath,\n      type: entry.isDirectory() ? \"directory\" : \"file\"\n    });\n\n    if (entry.isDirectory()) {\n      walk(fullPath);\n    }\n  }\n}\n\nfunction detectRoute(relativePath) {\n  const file = normalize(relativePath);\n  if (!file.startsWith(\"app/\") || !file.endsWith(\"/page.tsx\")) {\n    return null;\n  }\n"
+      "content": "File(relativePath, reason) {\n  projectMap.excludedSourceFiles.push({ path: relativePath, reason });\n  projectMap.sourceMapStatus.excludedFiles += 1;\n\n  if (EXPECTED_EXCLUSION_REASONS.has(reason)) {\n    projectMap.sourceMapStatus.expectedExclusions += 1;\n  }\n  if (INCOMPLETE_EXCLUSION_REASONS.has(reason)) {\n    projectMap.sourceMapStatus.incompleteExclusions += 1;\n    projectMap.sourceMapStatus.complete = false;\n  }\n}\n\nfunction walk(dir) {\n  const entries = fs\n    .readdirSync(dir, { withFileTypes: true })\n    .sort((a, b) => a.name.localeCompare(b.name));\n\n  for (const entry of entries) {\n    if (IGNORE_DIRECTORIES.has(entry.name)) {\n      continue;\n    }\n\n    const fullPath = path.join(dir, entry.name);\n    const relativePath = normalize(path.relative(ROOT, fullPath));\n\n    if (shouldIgnore(relativePath)) {\n      continue;\n    }\n\n    projectMap.filesystem.push({\n      path: relativePath,\n      type: entry.isDirectory() ? \"directory\" : \"file\"\n    });\n\n    if (entry.isDirectory()) {\n"
     },
     {
-      "id": "095f0320ee5b31b3d562c133162fb21714ddb3c1ab6c4f8cda4b159dba5cbc6d",
+      "id": "f2a0c6110159741d27c0d6f600e9d7d682319a031ea6fe41ce5cfe09334d02d7",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
-      "startLine": 371,
-      "endLine": 409,
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
+      "startLine": 363,
+      "endLine": 407,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": "ctRoute(relativePath) {\n  const file = normalize(relativePath);\n  if (!file.startsWith(\"app/\") || !file.endsWith(\"/page.tsx\")) {\n    return null;\n  }\n  const route = file.replace(/^app/, \"\").replace(/\\/page\\.tsx$/, \"\");\n  return route || \"/\";\n}\n\nfunction extractImports() {\n  return [];\n}\n\nfunction scanFiles(dir) {\n  const entries = fs\n    .readdirSync(dir, { withFileTypes: true })\n    .sort((a, b) => a.name.localeCompare(b.name));\n\n  for (const entry of entries) {\n    if (IGNORE_DIRECTORIES.has(entry.name)) {\n      continue;\n    }\n\n    const fullPath = path.join(dir, entry.name);\n    if (entry.isDirectory()) {\n      scanFiles(fullPath);\n      continue;\n    }\n\n    const relativePath = normalize(path.relative(ROOT, fullPath));\n    if (shouldIgnore(relativePath)) {\n      continue;\n    }\n\n    const route = detectRoute(relativePath);\n    if (route) {\n      projectMap.routes.push({ route, source: relativePath });\n    }\n\n"
+      "content": "projectMap.filesystem.push({\n      path: relativePath,\n      type: entry.isDirectory() ? \"directory\" : \"file\"\n    });\n\n    if (entry.isDirectory()) {\n      walk(fullPath);\n    }\n  }\n}\n\nfunction detectRoute(relativePath) {\n  const file = normalize(relativePath);\n  if (!file.startsWith(\"app/\") || !file.endsWith(\"/page.tsx\")) {\n    return null;\n  }\n  const route = file.replace(/^app/, \"\").replace(/\\/page\\.tsx$/, \"\");\n  return route || \"/\";\n}\n\nfunction extractImports() {\n  return [];\n}\n\nfunction scanFiles(dir) {\n  const entries = fs\n    .readdirSync(dir, { withFileTypes: true })\n    .sort((a, b) => a.name.localeCompare(b.name));\n\n  for (const entry of entries) {\n    if (IGNORE_DIRECTORIES.has(entry.name)) {\n      continue;\n    }\n\n    const fullPath = path.join(dir, entry.name);\n    if (entry.isDirectory()) {\n      scanFiles(fullPath);\n      continue;\n    }\n\n    const relativePath = normalize(path.relative(ROOT, fullPath));\n    if (shouldIgnore(relativePath)) {\n      continue;\n    }\n\n"
     },
     {
-      "id": "6049833892a2434aec76f4d5c4c33a979b6fa2dfe0dc109cea2b97a20e825be2",
+      "id": "5abd8bc64867b49fc303c3345e77a2bc96dbece32bfce0f91d112b029fe6126e",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
-      "startLine": 402,
-      "endLine": 442,
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
+      "startLine": 400,
+      "endLine": 437,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": " continue;\n    }\n\n    const route = detectRoute(relativePath);\n    if (route) {\n      projectMap.routes.push({ route, source: relativePath });\n    }\n\n    if (relativePath.endsWith(\".tsx\") || relativePath.endsWith(\".jsx\")) {\n      projectMap.components.push(relativePath);\n    }\n\n    if (\n      relativePath.startsWith(\"content/posts/\") &&\n      relativePath.endsWith(\".mdx\")\n    ) {\n      projectMap.posts.push({\n        slug: path.basename(relativePath, \".mdx\"),\n        file: relativePath\n      });\n    }\n\n    if (\n      relativePath.endsWith(\".js\") ||\n      relativePath.endsWith(\".jsx\") ||\n      relativePath.endsWith(\".ts\") ||\n      relativePath.endsWith(\".tsx\")\n    ) {\n      const content = safeRead(fullPath);\n      if (content !== null) {\n        projectMap.importGraph.push({\n          file: relativePath,\n          imports: extractImports(content)\n        });\n      }\n    }\n  }\n}\n\nfunction collectSourceFiles() {\n  const filePaths = projectMap.filesystem\n"
+      "content": "     continue;\n    }\n\n    const relativePath = normalize(path.relative(ROOT, fullPath));\n    if (shouldIgnore(relativePath)) {\n      continue;\n    }\n\n    const route = detectRoute(relativePath);\n    if (route) {\n      projectMap.routes.push({ route, source: relativePath });\n    }\n\n    if (relativePath.endsWith(\".tsx\") || relativePath.endsWith(\".jsx\")) {\n      projectMap.components.push(relativePath);\n    }\n\n    if (\n      relativePath.startsWith(\"content/posts/\") &&\n      relativePath.endsWith(\".mdx\")\n    ) {\n      projectMap.posts.push({\n        slug: path.basename(relativePath, \".mdx\"),\n        file: relativePath\n      });\n    }\n\n    if (\n      relativePath.endsWith(\".js\") ||\n      relativePath.endsWith(\".jsx\") ||\n      relativePath.endsWith(\".ts\") ||\n      relativePath.endsWith(\".tsx\")\n    ) {\n      const content = safeRead(fullPath);\n      if (content !== null) {\n        projectMap.importGraph.push({\n          file: relativePath,\n          imports: extractImports(content)\n"
     },
     {
-      "id": "f150ae443585db9ed99281f97aab850a137ac982aac23a3942e5b9347fe1eb7f",
+      "id": "755a800263191d31be3d719ed1310d79b6da49cea7d0c4adf16763716706d1a2",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
-      "startLine": 434,
-      "endLine": 470,
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
+      "startLine": 433,
+      "endLine": 468,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": "          imports: extractImports(content)\n        });\n      }\n    }\n  }\n}\n\nfunction collectSourceFiles() {\n  const filePaths = projectMap.filesystem\n    .filter((entry) => entry.type === \"file\")\n    .map((entry) => entry.path)\n    .sort((a, b) => a.localeCompare(b));\n\n  for (const relativePath of filePaths) {\n    const extension = getExtension(relativePath);\n\n    if (isGeneratedOutput(relativePath)) {\n      addExcludedSourceFile(relativePath, \"generated_output\");\n      continue;\n    }\n    if (isLocalArtifact(relativePath)) {\n      addExcludedSourceFile(relativePath, \"local_artifact\");\n      continue;\n    }\n    if (isSensitiveFile(relativePath)) {\n      addExcludedSourceFile(relativePath, \"sensitive_file\");\n      continue;\n    }\n    if (BINARY_EXTENSIONS.has(extension)) {\n      addExcludedSourceFile(relativePath, \"binary_file\");\n      continue;\n    }\n    if (!TEXT_EXTENSIONS.has(extension)) {\n      addExcludedSourceFile(relativePath, \"unsupported_extension\");\n      continue;\n    }\n\n"
+      "content": "llPath);\n      if (content !== null) {\n        projectMap.importGraph.push({\n          file: relativePath,\n          imports: extractImports(content)\n        });\n      }\n    }\n  }\n}\n\nfunction collectSourceFiles() {\n  const filePaths = projectMap.filesystem\n    .filter((entry) => entry.type === \"file\")\n    .map((entry) => entry.path)\n    .sort((a, b) => a.localeCompare(b));\n\n  for (const relativePath of filePaths) {\n    const extension = getExtension(relativePath);\n\n    if (isGeneratedOutput(relativePath)) {\n      addExcludedSourceFile(relativePath, \"generated_output\");\n      continue;\n    }\n    if (isLocalArtifact(relativePath)) {\n      addExcludedSourceFile(relativePath, \"local_artifact\");\n      continue;\n    }\n    if (isSensitiveFile(relativePath)) {\n      addExcludedSourceFile(relativePath, \"sensitive_file\");\n      continue;\n    }\n    if (BINARY_EXTENSIONS.has(extension)) {\n      addExcludedSourceFile(relativePath, \"binary_file\");\n      continue;\n    }\n"
     },
     {
-      "id": "c484d8eee66f86633a08df870db83d4f8b5a01e9e934e67cf91d0362335f13a4",
+      "id": "d58302359bd0bb50c001affcce81e60d5b333f3273754025e54bee76d6e25f6b",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
-      "startLine": 464,
-      "endLine": 500,
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
+      "startLine": 462,
+      "endLine": 498,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": "continue;\n    }\n    if (!TEXT_EXTENSIONS.has(extension)) {\n      addExcludedSourceFile(relativePath, \"unsupported_extension\");\n      continue;\n    }\n\n    const fullPath = path.join(ROOT, relativePath);\n    let stats;\n    try {\n      stats = fs.statSync(fullPath);\n    } catch {\n      addExcludedSourceFile(relativePath, \"read_error\");\n      continue;\n    }\n\n    if (stats.size > MAX_FILE_SIZE_BYTES) {\n      addExcludedSourceFile(relativePath, \"file_size_limit\");\n      continue;\n    }\n\n    const originalContent = safeRead(fullPath);\n    if (originalContent === null) {\n      addExcludedSourceFile(relativePath, \"read_error\");\n      continue;\n    }\n\n    const originalSizeBytes = Buffer.byteLength(originalContent, \"utf8\");\n    if (\n      projectMap.sourceMapStatus.includedSizeBytes + originalSizeBytes >\n      MAX_TOTAL_SIZE_BYTES\n    ) {\n      addExcludedSourceFile(relativePath, \"total_size_limit\");\n      continue;\n    }\n\n    const redactionResult = redactSecrets(originalContent);\n"
+      "content": "\");\n      continue;\n    }\n    if (BINARY_EXTENSIONS.has(extension)) {\n      addExcludedSourceFile(relativePath, \"binary_file\");\n      continue;\n    }\n    if (!TEXT_EXTENSIONS.has(extension)) {\n      addExcludedSourceFile(relativePath, \"unsupported_extension\");\n      continue;\n    }\n\n    const fullPath = path.join(ROOT, relativePath);\n    let stats;\n    try {\n      stats = fs.statSync(fullPath);\n    } catch {\n      addExcludedSourceFile(relativePath, \"read_error\");\n      continue;\n    }\n\n    if (stats.size > MAX_FILE_SIZE_BYTES) {\n      addExcludedSourceFile(relativePath, \"file_size_limit\");\n      continue;\n    }\n\n    const originalContent = safeRead(fullPath);\n    if (originalContent === null) {\n      addExcludedSourceFile(relativePath, \"read_error\");\n      continue;\n    }\n\n    const originalSizeBytes = Buffer.byteLength(originalContent, \"utf8\");\n    if (\n      projectMap.sourceMapStatus.includedSizeBytes + originalSizeBytes >\n      MAX_TOTAL_SIZE_BYTES\n    ) {\n"
     },
     {
-      "id": "8877db722d0ffc395ae4211da43f0981fa581165e00f28f271922c461d153b82",
+      "id": "6a7d0e11ba842b8db197c2fa862e43117f7a352b839a9ed97c8950a854592d65",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
-      "startLine": 495,
-      "endLine": 526,
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
+      "startLine": 494,
+      "endLine": 524,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": ") {\n      addExcludedSourceFile(relativePath, \"total_size_limit\");\n      continue;\n    }\n\n    const redactionResult = redactSecrets(originalContent);\n    if (redactionResult.redacted) {\n      projectMap.sourceMapStatus.redactedFiles += 1;\n    }\n\n    projectMap.sourceFiles.push({\n      path: relativePath,\n      category: getCategory(relativePath, extension),\n      extension,\n      language: getLanguage(extension),\n      sizeBytes: originalSizeBytes,\n      lineCount: countLines(originalContent),\n      sha256: sha256(originalContent),\n      sha256Source: \"original-content\",\n      redacted: redactionResult.redacted,\n      content: redactionResult.content\n    });\n\n    projectMap.sourceMapStatus.includedFiles += 1;\n    projectMap.sourceMapStatus.includedSizeBytes += originalSizeBytes;\n  }\n\n  projectMap.sourceFiles.sort((a, b) => a.path.localeCompare(b.path));\n  projectMap.excludedSourceFiles.sort((a, b) =>\n    a.path.localeCompare(b.path)\n  );\n  projectMap.sourceMapStatus.complete =\n"
+      "content": "Length(originalContent, \"utf8\");\n    if (\n      projectMap.sourceMapStatus.includedSizeBytes + originalSizeBytes >\n      MAX_TOTAL_SIZE_BYTES\n    ) {\n      addExcludedSourceFile(relativePath, \"total_size_limit\");\n      continue;\n    }\n\n    const redactionResult = redactSecrets(originalContent);\n    if (redactionResult.redacted) {\n      projectMap.sourceMapStatus.redactedFiles += 1;\n    }\n\n    projectMap.sourceFiles.push({\n      path: relativePath,\n      category: getCategory(relativePath, extension),\n      extension,\n      language: getLanguage(extension),\n      sizeBytes: originalSizeBytes,\n      lineCount: countLines(originalContent),\n      sha256: sha256(originalContent),\n      sha256Source: \"original-content\",\n      redacted: redactionResult.redacted,\n      content: redactionResult.content\n    });\n\n    projectMap.sourceMapStatus.includedFiles += 1;\n    projectMap.sourceMapStatus.includedSizeBytes += originalSizeBytes;\n  }\n\n"
     },
     {
-      "id": "3924b7a74e7f98371d345644e67116c6d1f408031ab4d16ca6f925d67370987e",
+      "id": "098ebf3610f622dbee5cffb7e03121e9c44dc4e5a745ee95026f12a135eacfee",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
-      "startLine": 522,
-      "endLine": 557,
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
+      "startLine": 518,
+      "endLine": 555,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": "localeCompare(b.path));\n  projectMap.excludedSourceFiles.sort((a, b) =>\n    a.path.localeCompare(b.path)\n  );\n  projectMap.sourceMapStatus.complete =\n    projectMap.sourceMapStatus.incompleteExclusions === 0;\n}\n\nfunction loadPackageJson() {\n  const packageFile = path.join(ROOT, \"package.json\");\n  if (!fs.existsSync(packageFile)) {\n    return;\n  }\n  const packageContent = safeRead(packageFile);\n  if (!packageContent) {\n    return;\n  }\n  const pkg = JSON.parse(packageContent);\n  projectMap.project = {\n    name: pkg.name || null,\n    version: pkg.version || null\n  };\n  projectMap.dependencies = {\n    ...(pkg.dependencies || {}),\n    ...(pkg.devDependencies || {})\n  };\n  projectMap.scripts = pkg.scripts || {};\n}\n\nfunction loadWrangler() {\n  const wranglerFile = path.join(ROOT, \"wrangler.jsonc\");\n  if (!fs.existsSync(wranglerFile)) {\n    projectMap.integrations.cloudflare = false;\n    return;\n  }\n  projectMap.integrations.cloudflare = true;\n"
+      "content": "esult.content\n    });\n\n    projectMap.sourceMapStatus.includedFiles += 1;\n    projectMap.sourceMapStatus.includedSizeBytes += originalSizeBytes;\n  }\n\n  projectMap.sourceFiles.sort((a, b) => a.path.localeCompare(b.path));\n  projectMap.excludedSourceFiles.sort((a, b) =>\n    a.path.localeCompare(b.path)\n  );\n  projectMap.sourceMapStatus.complete =\n    projectMap.sourceMapStatus.incompleteExclusions === 0;\n}\n\nfunction loadPackageJson() {\n  const packageFile = path.join(ROOT, \"package.json\");\n  if (!fs.existsSync(packageFile)) {\n    return;\n  }\n  const packageContent = safeRead(packageFile);\n  if (!packageContent) {\n    return;\n  }\n  const pkg = JSON.parse(packageContent);\n  projectMap.project = {\n    name: pkg.name || null,\n    version: pkg.version || null\n  };\n  projectMap.dependencies = {\n    ...(pkg.dependencies || {}),\n    ...(pkg.devDependencies || {})\n  };\n  projectMap.scripts = pkg.scripts || {};\n}\n\nfunction loadWrangler() {\n  const wranglerFile = path.join(ROOT, \"wrangler.jsonc\");\n"
     },
     {
-      "id": "18696e4c1e2e30d35e12556b8434e2fab8ec7eb3afa2b5631637587ece8b0d6a",
+      "id": "3a82bb7c5a80d2d278a137aafe19ad9349f3ba89253e0814cdcec1ce58de0844",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
-      "startLine": 552,
-      "endLine": 592,
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
+      "startLine": 549,
+      "endLine": 590,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": ");\n  if (!fs.existsSync(wranglerFile)) {\n    projectMap.integrations.cloudflare = false;\n    return;\n  }\n  projectMap.integrations.cloudflare = true;\n  projectMap.integrations.wrangler = \"wrangler.jsonc\";\n}\n\nfunction buildArchitecture() {\n  projectMap.architecture = {\n    framework: \"Next.js\",\n    renderer: \"React\",\n    adapter: \"OpenNext\",\n    hosting: \"Cloudflare\",\n    contentSource: \"MDX Filesystem\"\n  };\n}\n\nfunction buildRuntime() {\n  projectMap.runtime = {\n    framework: \"Next.js\",\n    node: process.version,\n    cloudflare: projectMap.integrations.cloudflare === true\n  };\n}\n\nfunction buildExecutionFlow() {\n  projectMap.executionFlow = {\n    content: [\n      \"content/posts/*.mdx\",\n      \"scripts/generate-posts.js\",\n      \"lib/generated-posts.ts\",\n      \"lib/blog-categories.ts\",\n      \"app/blog/page.tsx\",\n      \"app/blog/[slug]/page.tsx\",\n      \"app/blog/categoria/[categoria]/page.tsx\"\n    ],\n    categories: [\n      \"lib/blog-categories.ts\",\n      \"lib/generated-posts.ts\",\n"
+      "content": "ndencies || {})\n  };\n  projectMap.scripts = pkg.scripts || {};\n}\n\nfunction loadWrangler() {\n  const wranglerFile = path.join(ROOT, \"wrangler.jsonc\");\n  if (!fs.existsSync(wranglerFile)) {\n    projectMap.integrations.cloudflare = false;\n    return;\n  }\n  projectMap.integrations.cloudflare = true;\n  projectMap.integrations.wrangler = \"wrangler.jsonc\";\n}\n\nfunction buildArchitecture() {\n  projectMap.architecture = {\n    framework: \"Next.js\",\n    renderer: \"React\",\n    adapter: \"OpenNext\",\n    hosting: \"Cloudflare\",\n    contentSource: \"MDX Filesystem\"\n  };\n}\n\nfunction buildRuntime() {\n  projectMap.runtime = {\n    framework: \"Next.js\",\n    node: process.version,\n    cloudflare: projectMap.integrations.cloudflare === true\n  };\n}\n\nfunction buildExecutionFlow() {\n  projectMap.executionFlow = {\n    content: [\n      \"content/posts/*.mdx\",\n      \"scripts/generate-posts.js\",\n      \"lib/generated-posts.ts\",\n      \"lib/blog-categories.ts\",\n      \"app/blog/page.tsx\",\n      \"app/blog/[slug]/page.tsx\",\n"
     },
     {
-      "id": "53d7f3b76e8aa5c644a88544f541fb35eaa3c3651d6903f8b5f2bdc5642a080d",
+      "id": "b0d58b29405da3a1712efc93ba8b8257226e38f01fcb398dc9242ba5e1fc0a9e",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
-      "startLine": 587,
-      "endLine": 622,
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
+      "startLine": 586,
+      "endLine": 619,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": "]/page.tsx\",\n      \"app/blog/categoria/[categoria]/page.tsx\"\n    ],\n    categories: [\n      \"lib/blog-categories.ts\",\n      \"lib/generated-posts.ts\",\n      \"app/blog/page.tsx\",\n      \"app/blog/categoria/[categoria]/page.tsx\",\n      \"app/blog/[slug]/page.tsx\"\n    ],\n    build: [\n      \"scripts/generate-posts.js\",\n      \"next build\",\n      \"OpenNext\",\n      \"Cloudflare Deploy\"\n    ],\n    contextEngine: [\n      \"npm run context:scan\",\n      \"scripts/generate-project-map.js\",\n      \"site-context/project-map.json\",\n      \"BizChat / IA\"\n    ]\n  };\n}\n\nfunction sortProjectMap() {\n  projectMap.filesystem.sort((a, b) => a.path.localeCompare(b.path));\n  projectMap.routes.sort((a, b) => a.route.localeCompare(b.route));\n  projectMap.components.sort((a, b) => a.localeCompare(b));\n  projectMap.posts.sort((a, b) => a.slug.localeCompare(b.slug));\n  projectMap.importGraph.sort((a, b) => a.file.localeCompare(b.file));\n}\n\nfunction validateSourceFile(sourceFile) {\n  const requiredKeys = [\n    \"path\",\n"
+      "content": "ipts/generate-posts.js\",\n      \"lib/generated-posts.ts\",\n      \"lib/blog-categories.ts\",\n      \"app/blog/page.tsx\",\n      \"app/blog/[slug]/page.tsx\",\n      \"app/blog/categoria/[categoria]/page.tsx\"\n    ],\n    categories: [\n      \"lib/blog-categories.ts\",\n      \"lib/generated-posts.ts\",\n      \"app/blog/page.tsx\",\n      \"app/blog/categoria/[categoria]/page.tsx\",\n      \"app/blog/[slug]/page.tsx\"\n    ],\n    build: [\n      \"scripts/generate-posts.js\",\n      \"next build\",\n      \"OpenNext\",\n      \"Cloudflare Deploy\"\n    ],\n    contextEngine: [\n      \"npm run context:scan\",\n      \"scripts/generate-project-map.js\",\n      \"site-context/project-map.json\",\n      \"BizChat / IA\"\n    ]\n  };\n}\n\nfunction sortProjectMap() {\n  projectMap.filesystem.sort((a, b) => a.path.localeCompare(b.path));\n  projectMap.routes.sort((a, b) => a.route.localeCompare(b.route));\n  projectMap.components.sort((a, b) => a.localeCompare(b));\n  projectMap.posts.sort((a, b) => a.slug.localeCompare(b.slug));\n"
     },
     {
-      "id": "0bb2cb6a07d0c963e1cf9d7f42a273da5572ce74cde65f3e1b96f98433368554",
+      "id": "3aa2292d9de8cc952805970569d9cf90316d0105d1c8453e61c23649caeb2463",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
       "startLine": 617,
-      "endLine": 664,
+      "endLine": 662,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": "rojectMap.importGraph.sort((a, b) => a.file.localeCompare(b.file));\n}\n\nfunction validateSourceFile(sourceFile) {\n  const requiredKeys = [\n    \"path\",\n    \"category\",\n    \"extension\",\n    \"language\",\n    \"sizeBytes\",\n    \"lineCount\",\n    \"sha256\",\n    \"sha256Source\",\n    \"redacted\",\n    \"content\"\n  ];\n  for (const key of requiredKeys) {\n    if (!(key in sourceFile)) {\n      throw new Error(`Required source file field is missing: ${key}`);\n    }\n  }\n}\n\nfunction validateProjectMap() {\n  const requiredRootKeys = [\n    \"$schema\",\n    \"schemaVersion\",\n    \"generatedAt\",\n    \"project\",\n    \"architecture\",\n    \"filesystem\",\n    \"routes\",\n    \"dependencies\",\n    \"scripts\",\n    \"components\",\n    \"posts\",\n    \"importGraph\",\n    \"integrations\",\n    \"runtime\",\n    \"executionFlow\",\n    \"contextEngine\",\n    \"sourceMapStatus\",\n    \"sourceFiles\",\n    \"excludedSourceFiles\"\n  ];\n\n  for (const key of requiredRootKeys) {\n    if (!(key in projectMap)) {\n"
+      "content": "localeCompare(b.route));\n  projectMap.components.sort((a, b) => a.localeCompare(b));\n  projectMap.posts.sort((a, b) => a.slug.localeCompare(b.slug));\n  projectMap.importGraph.sort((a, b) => a.file.localeCompare(b.file));\n}\n\nfunction validateSourceFile(sourceFile) {\n  const requiredKeys = [\n    \"path\",\n    \"category\",\n    \"extension\",\n    \"language\",\n    \"sizeBytes\",\n    \"lineCount\",\n    \"sha256\",\n    \"sha256Source\",\n    \"redacted\",\n    \"content\"\n  ];\n  for (const key of requiredKeys) {\n    if (!(key in sourceFile)) {\n      throw new Error(`Required source file field is missing: ${key}`);\n    }\n  }\n}\n\nfunction validateProjectMap() {\n  const requiredRootKeys = [\n    \"$schema\",\n    \"schemaVersion\",\n    \"generatedAt\",\n    \"project\",\n    \"architecture\",\n    \"filesystem\",\n    \"routes\",\n    \"dependencies\",\n    \"scripts\",\n    \"components\",\n    \"posts\",\n    \"importGraph\",\n    \"integrations\",\n    \"runtime\",\n    \"executionFlow\",\n    \"contextEngine\",\n    \"sourceMapStatus\",\n    \"sourceFiles\",\n"
     },
     {
-      "id": "43667c9b879d42112996de73157bbe25c3ecf94ddbe2aa3c2f40f78dca87721c",
+      "id": "ff5e1cef40630781158cc6492131e6f627010c61700df00c99ec8a573e7cbdb7",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
-      "startLine": 657,
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
+      "startLine": 655,
       "endLine": 700,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": "e\",\n    \"sourceMapStatus\",\n    \"sourceFiles\",\n    \"excludedSourceFiles\"\n  ];\n\n  for (const key of requiredRootKeys) {\n    if (!(key in projectMap)) {\n      throw new Error(`Required project map block is missing: ${key}`);\n    }\n  }\n\n  const requiredContextKeys = [\n    \"productVision\",\n    \"businessGoals\",\n    \"projectStatus\",\n    \"roadmap\",\n    \"architectureDecisions\"\n  ];\n  for (const key of requiredContextKeys) {\n    if (!(key in projectMap.contextEngine)) {\n      throw new Error(`Required Context Engine block is missing: ${key}`);\n    }\n  }\n\n  for (const key of [\n    \"filesystem\",\n    \"routes\",\n    \"posts\",\n    \"importGraph\",\n    \"sourceFiles\",\n    \"excludedSourceFiles\"\n  ]) {\n    if (!Array.isArray(projectMap[key])) {\n      throw new Error(`The ${key} block must be an array.`);\n    }\n  }\n\n  for (const sourceFile of projectMap.sourceFiles) {\n    validateSourceFile(sourceFile);\n  }\n\n  if (\n    projectMap.sourceMapStatus.complete !==\n"
+      "content": "   \"posts\",\n    \"importGraph\",\n    \"integrations\",\n    \"runtime\",\n    \"executionFlow\",\n    \"contextEngine\",\n    \"sourceMapStatus\",\n    \"sourceFiles\",\n    \"excludedSourceFiles\"\n  ];\n\n  for (const key of requiredRootKeys) {\n    if (!(key in projectMap)) {\n      throw new Error(`Required project map block is missing: ${key}`);\n    }\n  }\n\n  const requiredContextKeys = [\n    \"productVision\",\n    \"businessGoals\",\n    \"projectStatus\",\n    \"roadmap\",\n    \"architectureDecisions\"\n  ];\n  for (const key of requiredContextKeys) {\n    if (!(key in projectMap.contextEngine)) {\n      throw new Error(`Required Context Engine block is missing: ${key}`);\n    }\n  }\n\n  for (const key of [\n    \"filesystem\",\n    \"routes\",\n    \"posts\",\n    \"importGraph\",\n    \"sourceFiles\",\n    \"excludedSourceFiles\"\n  ]) {\n    if (!Array.isArray(projectMap[key])) {\n      throw new Error(`The ${key} block must be an array.`);\n    }\n  }\n\n  for (const sourceFile of projectMap.sourceFiles) {\n    validateSourceFile(sourceFile);\n  }"
     },
     {
-      "id": "23c938b4a735c2b6e6f504cf66fbb64c7acbbb480d31bd8960d713b54e6f9af2",
+      "id": "317d9db59709adbfd991b35d3edda423363f014239734fbc53ca5e68718c3c9d",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
-      "startLine": 693,
-      "endLine": 733,
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
+      "startLine": 694,
+      "endLine": 734,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": "  }\n\n  for (const sourceFile of projectMap.sourceFiles) {\n    validateSourceFile(sourceFile);\n  }\n\n  if (\n    projectMap.sourceMapStatus.complete !==\n    (projectMap.sourceMapStatus.incompleteExclusions === 0)\n  ) {\n    throw new Error(\"Source map completeness status is inconsistent.\");\n  }\n}\n\nfunction parseJsonFile(filePath) {\n  return JSON.parse(fs.readFileSync(filePath, \"utf8\"));\n}\n\nfunction cleanupTransientFiles() {\n  for (const filePath of [TEMP_FILE, BACKUP_FILE]) {\n    if (fs.existsSync(filePath)) {\n      fs.rmSync(filePath, { force: true });\n    }\n  }\n}\n\nfunction saveAtomically() {\n  fs.mkdirSync(OUTPUT_DIR, { recursive: true });\n  cleanupTransientFiles();\n\n  const serialized = JSON.stringify(projectMap, null, 2);\n  JSON.parse(serialized);\n  fs.writeFileSync(TEMP_FILE, serialized, \"utf8\");\n  parseJsonFile(TEMP_FILE);\n\n  let backupCreated = false;\n\n  try {\n    if (fs.existsSync(OUTPUT_FILE)) {\n      fs.copyFileSync(OUTPUT_FILE, BACKUP_FILE);\n      parseJsonFile(BACKUP_FILE);\n"
+      "content": "w Error(`The ${key} block must be an array.`);\n    }\n  }\n\n  for (const sourceFile of projectMap.sourceFiles) {\n    validateSourceFile(sourceFile);\n  }\n\n  if (\n    projectMap.sourceMapStatus.complete !==\n    (projectMap.sourceMapStatus.incompleteExclusions === 0)\n  ) {\n    throw new Error(\"Source map completeness status is inconsistent.\");\n  }\n}\n\nfunction parseJsonFile(filePath) {\n  return JSON.parse(fs.readFileSync(filePath, \"utf8\"));\n}\n\nfunction cleanupTransientFiles() {\n  for (const filePath of [TEMP_FILE, BACKUP_FILE]) {\n    if (fs.existsSync(filePath)) {\n      fs.rmSync(filePath, { force: true });\n    }\n  }\n}\n\nfunction saveAtomically() {\n  fs.mkdirSync(OUTPUT_DIR, { recursive: true });\n  cleanupTransientFiles();\n\n  const serialized = JSON.stringify(projectMap, null, 2);\n  JSON.parse(serialized);\n  fs.writeFileSync(TEMP_FILE, serialized, \"utf8\");\n  parseJsonFile(TEMP_FILE);\n\n  let backupCreated = false;\n\n  try {\n    if (fs.existsSync(OUTPUT_FILE)) {\n"
     },
     {
-      "id": "bf7927cd4e573eaeb830a03c5192b62e718e8589789f90d8a06dba13326a87d4",
+      "id": "5c47e969640015977c90c66dc600630afb04a0d97d58ca07d07623ac5315df0c",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
       "startLine": 728,
-      "endLine": 767,
+      "endLine": 766,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": "kupCreated = false;\n\n  try {\n    if (fs.existsSync(OUTPUT_FILE)) {\n      fs.copyFileSync(OUTPUT_FILE, BACKUP_FILE);\n      parseJsonFile(BACKUP_FILE);\n      backupCreated = true;\n      fs.rmSync(OUTPUT_FILE, { force: true });\n    }\n\n    fs.renameSync(TEMP_FILE, OUTPUT_FILE);\n    parseJsonFile(OUTPUT_FILE);\n\n    if (backupCreated && fs.existsSync(BACKUP_FILE)) {\n      fs.rmSync(BACKUP_FILE, { force: true });\n    }\n\n    cleanupTransientFiles();\n    return OUTPUT_FILE;\n  } catch (error) {\n    if (fs.existsSync(OUTPUT_FILE)) {\n      fs.rmSync(OUTPUT_FILE, { force: true });\n    }\n    if (backupCreated && fs.existsSync(BACKUP_FILE)) {\n      fs.renameSync(BACKUP_FILE, OUTPUT_FILE);\n    }\n    if (fs.existsSync(TEMP_FILE)) {\n      fs.rmSync(TEMP_FILE, { force: true });\n    }\n    throw error;\n  }\n}\n\nfunction main() {\n  try {\n    console.log(\"Generating project map with full source snapshot...\");\n    loadPackageJson();\n    loadWrangler();\n    walk(ROOT);\n    scanFiles(ROOT);\n"
+      "content": "riteFileSync(TEMP_FILE, serialized, \"utf8\");\n  parseJsonFile(TEMP_FILE);\n\n  let backupCreated = false;\n\n  try {\n    if (fs.existsSync(OUTPUT_FILE)) {\n      fs.copyFileSync(OUTPUT_FILE, BACKUP_FILE);\n      parseJsonFile(BACKUP_FILE);\n      backupCreated = true;\n      fs.rmSync(OUTPUT_FILE, { force: true });\n    }\n\n    fs.renameSync(TEMP_FILE, OUTPUT_FILE);\n    parseJsonFile(OUTPUT_FILE);\n\n    if (backupCreated && fs.existsSync(BACKUP_FILE)) {\n      fs.rmSync(BACKUP_FILE, { force: true });\n    }\n\n    cleanupTransientFiles();\n    return OUTPUT_FILE;\n  } catch (error) {\n    if (fs.existsSync(OUTPUT_FILE)) {\n      fs.rmSync(OUTPUT_FILE, { force: true });\n    }\n    if (backupCreated && fs.existsSync(BACKUP_FILE)) {\n      fs.renameSync(BACKUP_FILE, OUTPUT_FILE);\n    }\n    if (fs.existsSync(TEMP_FILE)) {\n      fs.rmSync(TEMP_FILE, { force: true });\n    }\n    throw error;\n  }\n}\n\nfunction main() {\n  try {\n    console.log(\"Generating project map with full source snapshot...\");\n"
     },
     {
-      "id": "c1c951d7b0dc8029f63f18d20d6ac44fb3d118211b4d75ebb65541e37a316abb",
+      "id": "d6649c99908462f192e13eab926976b57cf1ecc944bd3144403d573565742484",
       "sourcePath": "scripts/generate-project-map-v3.js",
-      "sourceHash": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
-      "startLine": 763,
-      "endLine": 791,
+      "sourceHash": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
+      "startLine": 758,
+      "endLine": 794,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": "  console.log(\"Generating project map with full source snapshot...\");\n    loadPackageJson();\n    loadWrangler();\n    walk(ROOT);\n    scanFiles(ROOT);\n    collectSourceFiles();\n    buildArchitecture();\n    buildRuntime();\n    buildExecutionFlow();\n    sortProjectMap();\n    validateProjectMap();\n\n    const outputFile = saveAtomically();\n    console.log(\n      `${normalize(path.relative(ROOT, outputFile))} generated successfully.`\n    );\n  } catch (error) {\n    try {\n      cleanupTransientFiles();\n    } catch {\n      // Preserve the original failure as the primary error.\n    }\n    console.error(\"Failed to generate project map.\");\n    console.error(error instanceof Error ? error.message : String(error));\n    process.exitCode = 1;\n  }\n}\n\nmain();\n"
+      "content": "LE, { force: true });\n    }\n    throw error;\n  }\n}\n\nfunction main() {\n  try {\n    console.log(\"Generating project map with full source snapshot...\");\n    loadPackageJson();\n    loadWrangler();\n    walk(ROOT);\n    scanFiles(ROOT);\n    collectSourceFiles();\n    buildArchitecture();\n    buildRuntime();\n    buildExecutionFlow();\n    sortProjectMap();\n    validateProjectMap();\n\n    const outputFile = saveAtomically();\n    console.log(\n      `${normalize(path.relative(ROOT, outputFile))} generated successfully.`\n    );\n  } catch (error) {\n    try {\n      cleanupTransientFiles();\n    } catch {\n      // Preserve the original failure as the primary error.\n    }\n    console.error(\"Failed to generate project map.\");\n    console.error(error instanceof Error ? error.message : String(error));\n    process.exitCode = 1;\n  }\n}\n\nmain();\n"
     },
     {
       "id": "8ce7e11461aa5ca6a648953a44c8935e3ff49285aac9e7d23057523486221387",

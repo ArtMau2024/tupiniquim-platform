@@ -29,7 +29,9 @@
     "context:promote:v3": "node scripts/context-engine/promote-v3.js",
     "context:validate:official": "node scripts/context-engine/validate-official-v3.js",
     "context:update": "node scripts/context-engine/run-context-v3.js",
-    "context:lote5:verify": "npm run context:lote4:verify && npm run context:promote:v3 && npm run context:validate:official"
+    "context:lote5:verify": "npm run context:lote4:verify && npm run context:promote:v3 && npm run context:validate:official",
+    "context:query": "node scripts/context-engine/query-context.js",
+    "context:lote6:verify": "node scripts/context-engine/verify-lote6.js && npm run context:test"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.20.1",

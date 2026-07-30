@@ -1,7 +1,7 @@
 {
   "$schema": "../context-engine-v3.schema.json",
   "schemaVersion": "3.1.0",
-  "generatedAt": "2026-07-30T01:58:23.084Z",
+  "generatedAt": "2026-07-30T02:32:03.474Z",
   "project": {
     "name": "tupiniquim-platform",
     "version": "0.1.0"
@@ -147,10 +147,6 @@
       "type": "file"
     },
     {
-      "path": "context-engine-v3.schema.json",
-      "type": "file"
-    },
-    {
       "path": "diff-project-map.txt",
       "type": "file"
     },
@@ -172,10 +168,6 @@
     },
     {
       "path": "eslint.config.mjs",
-      "type": "file"
-    },
-    {
-      "path": "invalid-decision-memory.json",
       "type": "file"
     },
     {
@@ -307,6 +299,14 @@
       "type": "file"
     },
     {
+      "path": "scripts/context-engine/__tests__/context-query-quality.test.js",
+      "type": "file"
+    },
+    {
+      "path": "scripts/context-engine/__tests__/context-query.test.js",
+      "type": "file"
+    },
+    {
       "path": "scripts/context-engine/__tests__/knowledge-graph.test.js",
       "type": "file"
     },
@@ -332,6 +332,10 @@
     },
     {
       "path": "scripts/context-engine/context-indexer.js",
+      "type": "file"
+    },
+    {
+      "path": "scripts/context-engine/context-query.js",
       "type": "file"
     },
     {
@@ -368,6 +372,10 @@
     },
     {
       "path": "scripts/context-engine/promote-v3.js",
+      "type": "file"
+    },
+    {
+      "path": "scripts/context-engine/query-context.js",
       "type": "file"
     },
     {
@@ -408,6 +416,10 @@
     },
     {
       "path": "scripts/context-engine/verify-lote4.js",
+      "type": "file"
+    },
+    {
+      "path": "scripts/context-engine/verify-lote6.js",
       "type": "file"
     },
     {
@@ -542,7 +554,9 @@
     "context:promote:v3": "node scripts/context-engine/promote-v3.js",
     "context:validate:official": "node scripts/context-engine/validate-official-v3.js",
     "context:update": "node scripts/context-engine/run-context-v3.js",
-    "context:lote5:verify": "npm run context:lote4:verify && npm run context:promote:v3 && npm run context:validate:official"
+    "context:lote5:verify": "npm run context:lote4:verify && npm run context:promote:v3 && npm run context:validate:official",
+    "context:query": "node scripts/context-engine/query-context.js",
+    "context:lote6:verify": "node scripts/context-engine/verify-lote6.js && npm run context:test"
   },
   "components": [
     "app/blog/[slug]/page (legado).tsx",
@@ -684,68 +698,39 @@
     },
     {
       "file": "scripts/baseline/generate-project-map.baseline.js",
-      "imports": [
-        "fs",
-        "path",
-        "crypto"
-      ]
+      "imports": []
     },
     {
       "file": "scripts/context-engine/__tests__/context-enrichment.test.js",
-      "imports": [
-        "node:assert/strict",
-        "node:test",
-        "../feature-map",
-        "../ai-context",
-        "../technical-debt"
-      ]
+      "imports": []
     },
     {
       "file": "scripts/context-engine/__tests__/context-indexer-boundary.test.js",
-      "imports": [
-        "../context-indexer",
-        "node:test",
-        "node:assert/strict"
-      ]
+      "imports": []
     },
     {
       "file": "scripts/context-engine/__tests__/context-indexer.test.js",
-      "imports": [
-        "node:assert/strict",
-        "node:test",
-        "../context-indexer"
-      ]
+      "imports": []
+    },
+    {
+      "file": "scripts/context-engine/__tests__/context-query-quality.test.js",
+      "imports": []
+    },
+    {
+      "file": "scripts/context-engine/__tests__/context-query.test.js",
+      "imports": []
     },
     {
       "file": "scripts/context-engine/__tests__/knowledge-graph.test.js",
-      "imports": [
-        "node:assert/strict",
-        "node:test",
-        "../knowledge-graph",
-        "path"
-      ]
+      "imports": []
     },
     {
       "file": "scripts/context-engine/__tests__/lote0.test.js",
-      "imports": [
-        "fs",
-        "node:test",
-        "ajv-formats",
-        "path",
-        "child_process",
-        "ajv/dist/2020",
-        "crypto",
-        "node:assert/strict"
-      ]
+      "imports": []
     },
     {
       "file": "scripts/context-engine/__tests__/recursive-isolation.test.js",
-      "imports": [
-        "node:assert/strict",
-        "path",
-        "fs",
-        "node:test"
-      ]
+      "imports": []
     },
     {
       "file": "scripts/context-engine/ai-context.js",
@@ -771,6 +756,10 @@
       "imports": [
         "crypto"
       ]
+    },
+    {
+      "file": "scripts/context-engine/context-query.js",
+      "imports": []
     },
     {
       "file": "scripts/context-engine/decision-memory.js",
@@ -824,6 +813,14 @@
       "imports": [
         "fs",
         "crypto",
+        "path"
+      ]
+    },
+    {
+      "file": "scripts/context-engine/query-context.js",
+      "imports": [
+        "./context-query",
+        "fs",
         "path"
       ]
     },
@@ -907,6 +904,15 @@
       "imports": [
         "path",
         "fs",
+        "crypto"
+      ]
+    },
+    {
+      "file": "scripts/context-engine/verify-lote6.js",
+      "imports": [
+        "./context-query",
+        "fs",
+        "path",
         "crypto"
       ]
     },
@@ -1079,12 +1085,12 @@
     "redactionApplied": true,
     "maxFileSizeBytes": 512000,
     "maxTotalSizeBytes": 5242880,
-    "includedFiles": 68,
-    "excludedFiles": 23,
-    "expectedExclusions": 23,
+    "includedFiles": 60,
+    "excludedFiles": 34,
+    "expectedExclusions": 34,
     "incompleteExclusions": 0,
     "redactedFiles": 0,
-    "includedSizeBytes": 262754
+    "includedSizeBytes": 241415
   },
   "sourceFiles": [
     {
@@ -1304,18 +1310,6 @@
       "content": "---\r\ntitle: \"Massagem Facial: Benefícios, Técnicas e Como Fazer em Casa\"\r\ndate: \"2026-06-29\"\r\nauthor: \"Greyce\"\r\ndescription: \"Descubra os benefícios da massagem facial, técnicas simples e como incorporar esse cuidado na sua rotina diária.\"\r\ncategory: \"saude\"\r\nimage: \"/images/massagem-facial.jpg\"\r\n---\r\n\r\n# Massagem Facial: Benefícios, Técnicas e Como Fazer em Casa\r\n\r\nA massagem facial tem ganhado cada vez mais destaque nas rotinas de cuidados com a pele. Além de promover relaxamento, essa técnica simples pode contribuir para a saúde da pele, melhorar a circulação sanguínea e favorecer a aparência do rosto com o tempo.\r\n\r\nNeste artigo, você vai entender o que é a massagem facial, seus principais benefícios e como praticá-la no dia a dia.\r\n\r\n---\r\n\r\n## O que é massagem facial?\r\n\r\nA massagem facial é um conjunto de movimentos realizados no rosto com o objetivo de estimular a circulação, relaxar os músculos e favorecer a absorção de produtos de skincare.\r\n\r\nEla pode ser feita com as mãos ou com acessórios como:\r\n\r\n- Rolos de jade (jade roller)\r\n- Gua Sha\r\n- Massageadores elétricos\r\n\r\nEssa prática pode ser incorporada tanto em tratamentos profissionais quanto em casa.\r\n\r\n---\r\n\r\n## Benefícios da massagem facial\r\n\r\n✅ **Melhora a circulação sanguínea**  \r\nEstimula o fluxo sanguíneo e deixa a pele com aspecto mais saudável.\r\n\r\n✅ **Reduz inchaços**  \r\nAjuda a diminuir retenção de líquidos, principalmente ao redor dos olhos.\r\n\r\n✅ **Ajuda na firmeza da pele**  \r\nPode contribuir para tonificar os músculos faciais.\r\n\r\n✅ **Promove relaxamento**  \r\nAlivia tensões acumuladas no rosto.\r\n\r\n✅ **Potencializa cosméticos**  \r\nMelhora a absorção de séruns e cremes.\r\n\r\n---\r\n\r\n## Como fazer massagem facial em casa\r\n\r\n🧴 **Passo a passo básico:**\r\n\r\n1. Limpe bem o rosto\r\n2. Aplique um produto (óleo, creme ou sérum)\r\n3. Faça movimentos suaves e ascendentes\r\n\r\n---\r\n\r\n## Técnicas simples\r\n\r\n**Testa**\r\n\r\n- Movimentos do centro para as laterais\r\n\r\n**Olhos**\r\n\r\n- Toques leves\r\n\r\n**Bochechas**\r\n\r\n- Movimentos de baixo para cima\r\n\r\n**Mandíbula**\r\n\r\n- Do queixo até a orelha\r\n\r\n**Pescoço**\r\n\r\n- Movimentos ascendentes\r\n\r\n---\r\n\r\n## Dicas importantes\r\n\r\n- ⏱️ 5 a 10 minutos por dia\r\n- 💧 Use produtos adequados\r\n- 🙌 Não aplique força excessiva\r\n- 🔁 Seja consistente\r\n- 🧼 Higienize mãos e acessórios\r\n\r\n---\r\n\r\n## Contraindicações\r\n\r\nEvite se houver:\r\n\r\n- Acne inflamada\r\n- Infecções na pele\r\n- Procedimentos recentes\r\n\r\n---\r\n\r\n## Vale a pena?\r\n\r\nSim. É uma técnica simples, acessível e eficaz para melhorar a rotina de cuidados.\r\n\r\n---\r\n\r\n## Conclusão\r\n\r\nMais do que estética, a massagem facial é um momento de autocuidado. Incorporar essa prática pode trazer benefícios para a pele e para o bem-estar geral.\r\n"
     },
     {
-      "path": "context-engine-v3.schema.json",
-      "category": "source-code",
-      "extension": ".json",
-      "language": "json",
-      "sizeBytes": 1621,
-      "lineCount": 90,
-      "sha256": "c0cae71c674fccb20b005f37ff19ee890aca281b38f19e026a1cfd67b0a285db",
-      "sha256Source": "original-content",
-      "redacted": false,
-      "content": "{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n  \"$id\": \"context-engine-v3.schema.json\",\n  \"title\": \"Tupiniquim Context Engine V3\",\n  \"type\": \"object\",\n  \"required\": [\n    \"$schema\",\n    \"schemaVersion\",\n    \"generatedAt\",\n    \"project\",\n    \"architecture\",\n    \"filesystem\",\n    \"routes\",\n    \"dependencies\",\n    \"scripts\",\n    \"components\",\n    \"posts\",\n    \"importGraph\",\n    \"integrations\",\n    \"runtime\",\n    \"executionFlow\",\n    \"contextEngine\",\n    \"sourceMapStatus\",\n    \"sourceFiles\",\n    \"excludedSourceFiles\"\n  ],\n  \"properties\": {\n    \"$schema\": {\n      \"type\": \"string\"\n    },\n    \"schemaVersion\": {\n      \"type\": \"string\",\n      \"pattern\": \"^3\\\\.[0-9]+\\\\.[0-9]+$\"\n    },\n    \"generatedAt\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"project\": {\n      \"type\": \"object\"\n    },\n    \"architecture\": {\n      \"type\": \"object\"\n    },\n    \"filesystem\": {\n      \"type\": \"array\"\n    },\n    \"routes\": {\n      \"type\": \"array\"\n    },\n    \"dependencies\": {\n      \"type\": \"object\"\n    },\n    \"scripts\": {\n      \"type\": \"object\"\n    },\n    \"components\": {\n      \"type\": \"array\"\n    },\n    \"posts\": {\n      \"type\": \"array\"\n    },\n    \"importGraph\": {\n      \"type\": \"array\"\n    },\n    \"integrations\": {\n      \"type\": \"object\"\n    },\n    \"runtime\": {\n      \"type\": \"object\"\n    },\n    \"executionFlow\": {\n      \"type\": \"object\"\n    },\n    \"contextEngine\": {\n      \"type\": \"object\"\n    },\n    \"sourceMapStatus\": {\n      \"type\": \"object\"\n    },\n    \"sourceFiles\": {\n      \"type\": \"array\"\n    },\n    \"excludedSourceFiles\": {\n      \"type\": \"array\"\n    }\n  },\n  \"additionalProperties\": true\n}\n"
-    },
-    {
       "path": "docs/baseline.md",
       "category": "documentation",
       "extension": ".md",
@@ -1338,18 +1332,6 @@
       "sha256Source": "original-content",
       "redacted": false,
       "content": "import { defineConfig, globalIgnores } from \"eslint/config\";\r\nimport nextVitals from \"eslint-config-next/core-web-vitals\";\r\nimport nextTs from \"eslint-config-next/typescript\";\r\n\r\nconst eslintConfig = defineConfig([\r\n  ...nextVitals,\r\n  ...nextTs,\r\n  // Override default ignores of eslint-config-next.\r\n  globalIgnores([\r\n    // Default ignores of eslint-config-next:\r\n    \".next/**\",\r\n    \"out/**\",\r\n    \"build/**\",\r\n    \"next-env.d.ts\",\r\n  ]),\r\n]);\r\n\r\nexport default eslintConfig;\r\n"
-    },
-    {
-      "path": "invalid-decision-memory.json",
-      "category": "source-code",
-      "extension": ".json",
-      "language": "json",
-      "sizeBytes": 48,
-      "lineCount": 2,
-      "sha256": "805e40bc95da828c465833734c5c9fc887c8c219858d110da7b9de93c9b4f46a",
-      "sha256Source": "original-content",
-      "redacted": false,
-      "content": "{\"schemaVersion\":\"1.0.0\",\"decisions\":\"invalid\"}\n"
     },
     {
       "path": "lib/blog-categories.ts",
@@ -1416,12 +1398,12 @@
       "category": "configuration",
       "extension": ".json",
       "language": "json",
-      "sizeBytes": 2595,
-      "lineCount": 51,
-      "sha256": "70491c35dc13c95503877c5eb4291958ea4d11728fd0b1ab527d538d9f4a619e",
+      "sizeBytes": 2763,
+      "lineCount": 53,
+      "sha256": "6598cc80ea836810b27b459a094de97ffa3f207706cb6dc8a25818a4044bc959",
       "sha256Source": "original-content",
       "redacted": false,
-      "content": "{\n  \"name\": \"tupiniquim-platform\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"scripts\": {\n    \"dev\": \"next dev\",\n    \"build\": \"node scripts/generate-posts.js && next build --webpack\",\n    \"opennext\": \"opennextjs-cloudflare build\",\n    \"start\": \"next start\",\n    \"lint\": \"eslint\",\n    \"deploy\": \"node scripts/deploy.js\",\n    \"preview\": \"opennextjs-cloudflare preview\",\n    \"context:scan\": \"node scripts/generate-project-map.js\",\n    \"context:prepare\": \"node scripts/context-engine/prepare-context.js\",\n    \"context:test\": \"node scripts/context-engine/run-tests.js\",\n    \"context:baseline:verify\": \"node scripts/context-engine/verify-baseline.js\",\n    \"context:memory:init\": \"node scripts/context-engine/decision-memory.js init\",\n    \"context:lote0:verify\": \"npm run context:prepare && npm run context:test && npm run context:baseline:verify\",\n    \"context:generate:v3\": \"node scripts/generate-project-map-v3.js\",\n    \"context:validate:staged\": \"node scripts/context-engine/validate-staged.js\",\n    \"context:compare:staged\": \"node scripts/context-engine/compare-staged.js\",\n    \"context:lote1:verify\": \"node scripts/context-engine/verify-lote1.js\",\n    \"context:graph:build\": \"node scripts/context-engine/enhance-staged-graph.js\",\n    \"context:lote2:verify\": \"npm run context:lote1:verify && npm run context:graph:build && node scripts/context-engine/verify-lote2.js\",\n    \"context:enrich:v3\": \"node scripts/context-engine/enrich-staged-context.js\",\n    \"context:lote3:verify\": \"npm run context:lote2:verify && npm run context:enrich:v3 && node scripts/context-engine/verify-lote3.js && npm run context:test\",\n    \"context:index:v3\": \"node scripts/context-engine/build-staged-index.js\",\n    \"context:lote4:verify\": \"npm run context:lote3:verify && npm run context:index:v3 && node scripts/context-engine/verify-lote4.js && npm run context:test\",\n    \"context:promote:v3\": \"node scripts/context-engine/promote-v3.js\",\n    \"context:validate:official\": \"node scripts/context-engine/validate-official-v3.js\",\n    \"context:update\": \"node scripts/context-engine/run-context-v3.js\",\n    \"context:lote5:verify\": \"npm run context:lote4:verify && npm run context:promote:v3 && npm run context:validate:official\"\n  },\n  \"dependencies\": {\n    \"@opennextjs/cloudflare\": \"^1.20.1\",\n    \"autoprefixer\": \"^10.5.2\",\n    \"gray-matter\": \"^4.0.3\",\n    \"next\": \"16.2.9\",\n    \"react\": \"18.3.1\",\n    \"react-dom\": \"18.3.1\"\n  },\n  \"devDependencies\": {\n    \"@types/node\": \"^20.0.0\",\n    \"@types/react\": \"^18.0.0\",\n    \"typescript\": \"^5.0.0\",\n    \"wrangler\": \"^4.0.0\",\n    \"ajv\": \"8.17.1\",\n    \"ajv-formats\": \"3.0.1\"\n  }\n}\n"
+      "content": "{\n  \"name\": \"tupiniquim-platform\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"scripts\": {\n    \"dev\": \"next dev\",\n    \"build\": \"node scripts/generate-posts.js && next build --webpack\",\n    \"opennext\": \"opennextjs-cloudflare build\",\n    \"start\": \"next start\",\n    \"lint\": \"eslint\",\n    \"deploy\": \"node scripts/deploy.js\",\n    \"preview\": \"opennextjs-cloudflare preview\",\n    \"context:scan\": \"node scripts/generate-project-map.js\",\n    \"context:prepare\": \"node scripts/context-engine/prepare-context.js\",\n    \"context:test\": \"node scripts/context-engine/run-tests.js\",\n    \"context:baseline:verify\": \"node scripts/context-engine/verify-baseline.js\",\n    \"context:memory:init\": \"node scripts/context-engine/decision-memory.js init\",\n    \"context:lote0:verify\": \"npm run context:prepare && npm run context:test && npm run context:baseline:verify\",\n    \"context:generate:v3\": \"node scripts/generate-project-map-v3.js\",\n    \"context:validate:staged\": \"node scripts/context-engine/validate-staged.js\",\n    \"context:compare:staged\": \"node scripts/context-engine/compare-staged.js\",\n    \"context:lote1:verify\": \"node scripts/context-engine/verify-lote1.js\",\n    \"context:graph:build\": \"node scripts/context-engine/enhance-staged-graph.js\",\n    \"context:lote2:verify\": \"npm run context:lote1:verify && npm run context:graph:build && node scripts/context-engine/verify-lote2.js\",\n    \"context:enrich:v3\": \"node scripts/context-engine/enrich-staged-context.js\",\n    \"context:lote3:verify\": \"npm run context:lote2:verify && npm run context:enrich:v3 && node scripts/context-engine/verify-lote3.js && npm run context:test\",\n    \"context:index:v3\": \"node scripts/context-engine/build-staged-index.js\",\n    \"context:lote4:verify\": \"npm run context:lote3:verify && npm run context:index:v3 && node scripts/context-engine/verify-lote4.js && npm run context:test\",\n    \"context:promote:v3\": \"node scripts/context-engine/promote-v3.js\",\n    \"context:validate:official\": \"node scripts/context-engine/validate-official-v3.js\",\n    \"context:update\": \"node scripts/context-engine/run-context-v3.js\",\n    \"context:lote5:verify\": \"npm run context:lote4:verify && npm run context:promote:v3 && npm run context:validate:official\",\n    \"context:query\": \"node scripts/context-engine/query-context.js\",\n    \"context:lote6:verify\": \"node scripts/context-engine/verify-lote6.js && npm run context:test\"\n  },\n  \"dependencies\": {\n    \"@opennextjs/cloudflare\": \"^1.20.1\",\n    \"autoprefixer\": \"^10.5.2\",\n    \"gray-matter\": \"^4.0.3\",\n    \"next\": \"16.2.9\",\n    \"react\": \"18.3.1\",\n    \"react-dom\": \"18.3.1\"\n  },\n  \"devDependencies\": {\n    \"@types/node\": \"^20.0.0\",\n    \"@types/react\": \"^18.0.0\",\n    \"typescript\": \"^5.0.0\",\n    \"wrangler\": \"^4.0.0\",\n    \"ajv\": \"8.17.1\",\n    \"ajv-formats\": \"3.0.1\"\n  }\n}\n"
     },
     {
       "path": "README.md",
@@ -1446,102 +1428,6 @@
       "sha256Source": "original-content",
       "redacted": false,
       "content": "# Roadmap de Evolução Tecnológica e de Produto (2026) — Plataforma Tupiniquim\r\n\r\nEste documento detalha o planejamento estratégico de engenharia e produto para a plataforma Tupiniquim, estruturado em **Objetivos**, **Épicos** e **Tarefas** acionáveis para os horizontes de 30, 60 e 90 dias.\r\n\r\n---\r\n\r\n## Visão Geral dos Objetivos (OKRs)\r\n\r\n### [OBJ-1] Estabilização, Segurança e Robustez (Horizonte: 30 Dias)\r\n*   **Meta:** Eliminar riscos de segurança (XSS), remover redundâncias de código e garantir que 100% dos posts publicados passem por validação automatizada de metadados antes de irem para produção.\r\n\r\n### [OBJ-2] Padronização Visual e Qualidade de Código (Horizonte: 60 Dias)\r\n*   **Meta:** Unificar a linguagem visual do projeto utilizando Tailwind CSS puro, remover estilos inline/tags `<style>` e estabelecer uma suíte de testes automatizados para os fluxos críticos.\r\n\r\n### [OBJ-3] Escalabilidade, Performance e SEO Avançado (Horizonte: 90 Dias)\r\n*   **Meta:** Otimizar o tempo de build e o consumo de memória no Edge da Cloudflare, implementar paginação/busca e garantir pontuação máxima (95+) no Google Lighthouse.\r\n\r\n---\r\n\r\n## Épicos e Tarefas\r\n\r\n### ÉPICO 1: Segurança do Parser de Conteúdo e Limpeza de Código Morto\r\n*   **Objetivo Associado:** [OBJ-1] (0 a 30 dias)\r\n*   **Descrição:** Substituição do parser manual baseado em expressões regulares por uma solução robusta de mercado e eliminação de arquivos legados que causam confusão arquitetural.\r\n\r\n#### Tarefas:\r\n- [ ] **TSK-1.1: Remoção do arquivo legado `lib/posts.ts`**\r\n    *   *Descrição:* Excluir o arquivo `lib/posts.ts` que utiliza a biblioteca `fs` em tempo de execução, garantindo que nenhum componente tente importá-lo acidentalmente no ambiente Edge.\r\n    *   *Critério de Aceitação:* Arquivo deletado e build executado com sucesso sem referências órfãs.\r\n- [ ] **TSK-1.2: Migração do Parser de Markdown para biblioteca consolidada**\r\n    *   *Descrição:* Substituir as funções `safeHtml`, `inlineMd` e `markdownToHtml` em `app/blog/[slug]/page.tsx` por um parser seguro e homologado (ex: `next-mdx-remote` ou `marked` combinado com `dompurify`/`sanitize-html`).\r\n    *   *Critério de Aceitação:* Renderização idêntica dos posts atuais, suporte nativo a tabelas, listas aninhadas e eliminação completa de vulnerabilidades de injeção de scripts (XSS).\r\n- [ ] **TSK-1.3: Implementação de Syntax Highlighting para blocos de código**\r\n    *   *Descrição:* Adicionar suporte a realce de sintaxe nos blocos de código dos artigos do blog (utilizando bibliotecas leves como `prismjs` ou `shiki` integradas ao novo parser).\r\n    *   *Critério de Aceitação:* Blocos de código nos posts renderizados com cores apropriadas para cada linguagem de programação.\r\n\r\n---\r\n\r\n### ÉPICO 2: Validação de Dados e Integridade de Conteúdo (Frontmatter)\r\n*   **Objetivo Associado:** [OBJ-1] (0 a 30 dias)\r\n*   **Descrição:** Criação de uma camada de validação estrita para os metadados dos arquivos MDX para evitar que erros de digitação ou ausência de campos quebrem o build ou a interface.\r\n\r\n#### Tarefas:\r\n- [ ] **TSK-2.1: Integração da biblioteca Zod para validação de Schemas**\r\n    *   *Descrição:* Instalar e configurar o `zod` no projeto para validar a estrutura do Frontmatter de cada post durante a compilação.\r\n    *   *Critério de Aceitação:* Schema definido contendo campos obrigatórios (`title`, `date`, `description`, `category`) e opcionais (`author`, `image`).\r\n- [ ] **TSK-2.2: Refatoração do script `scripts/generate-posts.js`**\r\n    *   *Descrição:* Atualizar o script de geração de posts para aplicar o schema do Zod em cada arquivo MDX lido. O script deve lançar um erro claro e interromper o build caso algum post esteja inválido.\r\n    *   *Critério de Aceitação:* Execução de `npm run build` falha intencionalmente se um arquivo MDX de teste estiver sem o campo `title` ou com formato de data inválido.\r\n\r\n---\r\n\r\n### ÉPICO 3: Refatoração de UI/UX e Padronização com Tailwind CSS\r\n*   **Objetivo Associado:** [OBJ-2] (30 a 60 dias)\r\n*   **Descrição:** Eliminação de estilos inline e tags `<style>` nos arquivos `app/page.tsx`, `app/blog/page.tsx` e `app/blog/[slug]/page.tsx`, migrando toda a estilização para classes utilitárias do Tailwind CSS.\r\n\r\n#### Tarefas:\r\n- [ ] **TSK-3.1: Configuração e Padronização do Tailwind CSS**\r\n    *   *Descrição:* Garantir que o arquivo `tailwind.config.ts` (ou js) esteja configurado com a paleta de cores oficial da Tupiniquim (tons de verde, amarelo e cinza escuro).\r\n    *   *Critério de Aceitação:* Configuração de tema estendida com as cores institucionais.\r\n- [ ] **TSK-3.2: Refatoração da Landing Page (`app/page.tsx`)**\r\n    *   *Descrição:* Substituir a tag `<style>` por classes utilitárias do Tailwind CSS, mantendo a responsividade e o design original.\r\n    *   *Critério de Aceitação:* Página inicial renderizada perfeitamente em dispositivos móveis e desktops sem uso de CSS customizado no componente.\r\n- [ ] **TSK-3.3: Refatoração das Páginas do Blog**\r\n    *   *Descrição:* Migrar a listagem (`app/blog/page.tsx`) e a página do artigo (`app/blog/[slug]/page.tsx`) para Tailwind CSS.\r\n    *   *Critério de Aceitação:* Estilos de parágrafos, títulos, blockquotes e listas do artigo controlados via classes utilitárias (utilizando o plugin `@tailwindcss/typography` se aplicável).\r\n\r\n---\r\n\r\n### ÉPICO 4: Garantia de Qualidade e Testes Automatizados\r\n*   **Objetivo Associado:** [OBJ-2] (30 a 60 dias)\r\n*   **Descrição:** Implementação de testes automatizados para garantir que alterações futuras não quebrem o parser de conteúdo ou o fluxo de geração de posts.\r\n\r\n#### Tarefas:\r\n- [ ] **TSK-4.1: Configuração do Jest ou Vitest**\r\n    *   *Descrição:* Instalar e configurar um framework de testes unitários leve e compatível com TypeScript.\r\n    *   *Critério de Aceitação:* Comando `npm run test` configurado e executando com sucesso.\r\n- [ ] **TSK-4.2: Criação de testes unitários para o Parser de Markdown**\r\n    *   *Descrição:* Escrever testes que validem a conversão correta de títulos, listas, links seguros e a rejeição de payloads maliciosos (XSS).\r\n    *   *Critério de Aceitação:* Cobertura de testes de segurança de pelo menos 95% para as funções de renderização de texto.\r\n- [ ] **TSK-4.3: Integração de testes no pipeline de CI/CD**\r\n    *   *Descrição:* Configurar uma ação do GitHub Actions para rodar o linter e os testes automatizados a cada Pull Request.\r\n    *   *Critério de Aceitação:* PRs bloqueados automaticamente se os testes falharem.\r\n\r\n---\r\n\r\n### ÉPICO 5: Escalabilidade de Conteúdo e Otimização de Performance no Edge\r\n*   **Objetivo Associado:** [OBJ-3] (60 a 90 dias)\r\n*   **Descrição:** Preparação da plataforma para suportar centenas de posts sem estourar os limites de memória do Cloudflare Worker e melhoria da experiência de navegação.\r\n\r\n#### Tarefas:\r\n- [ ] **TSK-5.1: Implementação de Paginação na listagem do Blog**\r\n    *   *Descrição:* Adicionar paginação lógica na página `app/blog/page.tsx` para evitar renderizar todos os posts de uma única vez.\r\n    *   *Critério de Aceitação:* Exibição de no máximo 10 posts por página, com botões de navegação \"Anterior\" e \"Próximo\".\r\n- [ ] **TSK-5.2: Mecanismo de Busca Estática**\r\n    *   *Descrição:* Criar um campo de busca simples por título ou descrição na página do blog, filtrando os posts em tempo real no lado do cliente.\r\n    *   *Critério de Aceitação:* Filtro instantâneo altamente performático sem requisições adicionais ao servidor.\r\n- [ ] **TSK-5.3: Otimização de Imagens e Cache no Edge**\r\n    *   *Descrição:* Configurar políticas estritas de cache para imagens e assets estáticos no arquivo `open-next.config.ts` e `wrangler.jsonc`.\r\n    *   *Critério de Aceitação:* Imagens servidas com cabeçalhos `Cache-Control` de longa duração diretamente da rede de borda da Cloudflare.\r\n"
-    },
-    {
-      "path": "scripts/baseline/baseline-manifest.json",
-      "category": "source-code",
-      "extension": ".json",
-      "language": "json",
-      "sizeBytes": 250,
-      "lineCount": 8,
-      "sha256": "5f4e7e70140d43e3530aa3ab8b21ff21b42648079dd2f0b483b28f04a2c8e3e3",
-      "sha256Source": "original-content",
-      "redacted": false,
-      "content": "{\n  \"schemaVersion\": \"1.0.0\",\n  \"source\": \"scripts/generate-project-map.js\",\n  \"baseline\": \"scripts/baseline/generate-project-map.baseline.js\",\n  \"sha256\": \"2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef\",\n  \"status\": \"validated\"\n}\n"
-    },
-    {
-      "path": "scripts/baseline/generate-project-map.baseline.js",
-      "category": "source-code",
-      "extension": ".js",
-      "language": "javascript",
-      "sizeBytes": 19210,
-      "lineCount": 780,
-      "sha256": "2fe52a4ab6d66b6f384cdb5734106d9681fde8c6f0f9e99158c1e60e5f5460ef",
-      "sha256Source": "original-content",
-      "redacted": false,
-      "content": "const fs = require(\"fs\");\nconst path = require(\"path\");\nconst crypto = require(\"crypto\");\n\nconst ROOT = process.cwd();\nconst OUTPUT_DIR = path.join(ROOT, \"site-context\");\nconst OUTPUT_FILE = path.join(OUTPUT_DIR, \"project-map.json\");\nconst TEMP_FILE = path.join(OUTPUT_DIR, \"project-map.tmp.json\");\nconst BACKUP_FILE = path.join(OUTPUT_DIR, \"project-map.backup.json\");\n\nconst MAX_FILE_SIZE_BYTES = 512000;\nconst MAX_TOTAL_SIZE_BYTES = 5242880;\n\nconst IGNORE_DIRECTORIES = new Set([\n  \".git\",\n  \".next\",\n  \"node_modules\",\n  \".open-next\",\n  \".vercel\",\n  \"dist\",\n  \"build\",\n  \"coverage\",\n  \".aider.tags.cache.v4\",\n  \".wrangler\"\n]);\n\nconst TEXT_EXTENSIONS = new Set([\n  \".ts\",\n  \".tsx\",\n  \".js\",\n  \".jsx\",\n  \".mjs\",\n  \".cjs\",\n  \".json\",\n  \".jsonc\",\n  \".css\",\n  \".mdx\",\n  \".md\"\n]);\n\nconst BINARY_EXTENSIONS = new Set([\n  \".ico\",\n  \".png\",\n  \".jpg\",\n  \".jpeg\",\n  \".gif\",\n  \".webp\",\n  \".svg\",\n  \".pdf\",\n  \".doc\",\n  \".docx\",\n  \".xls\",\n  \".xlsx\",\n  \".ppt\",\n  \".pptx\",\n  \".woff\",\n  \".woff2\",\n  \".ttf\",\n  \".otf\",\n  \".eot\",\n  \".sqlite\",\n  \".db\",\n  \".exe\",\n  \".dll\",\n  \".zip\",\n  \".tar\",\n  \".gz\",\n  \".7z\",\n  \".rar\"\n]);\n\nconst EXPECTED_EXCLUSION_REASONS = new Set([\n  \"sensitive_file\",\n  \"binary_file\",\n  \"unsupported_extension\",\n  \"generated_output\",\n  \"local_artifact\"\n]);\n\nconst INCOMPLETE_EXCLUSION_REASONS = new Set([\n  \"file_size_limit\",\n  \"total_size_limit\",\n  \"read_error\"\n]);\n\nconst projectMap = {\n  generatedAt: new Date().toISOString(),\n  project: {},\n  architecture: {},\n  filesystem: [],\n  routes: [],\n  dependencies: {},\n  scripts: {},\n  components: [],\n  posts: [],\n  importGraph: [],\n  integrations: {},\n  runtime: {},\n  executionFlow: {},\n  contextEngine: {\n    productVision: {\n      name: \"Tupiniquim Platform\",\n      mission:\n        \"Plataforma SaaS brasileira para conteúdo, mídia, gestão e aplicações multi-tenant.\"\n    },\n    businessGoals: [\n      \"Reduzir dependência de contexto em conversas com IA\",\n      \"Preparar a fundação para CMS\",\n      \"Preparar a fundação para Media Center\",\n      \"Preparar a fundação para Multi-Tenant\",\n      \"Preparar a fundação para IA Generativa\",\n      \"Evoluir para modelo SaaS\"\n    ],\n    projectStatus: {\n      currentEpic: \"EPIC-003\",\n      name: \"Site Institucional Profissional\",\n      status: \"in_progress\"\n    },\n    roadmap: [\n      { name: \"Blog\", status: \"completed\" },\n      { name: \"Context Engine\", status: \"completed\" },\n      { name: \"Categorias Permanentes do Blog\", status: \"completed\" },\n      { name: \"Site Institucional Profissional\", status: \"in_progress\" },\n      { name: \"CMS\", status: \"planned\" },\n      { name: \"Área Administrativa\", status: \"planned\" },\n      { name: \"Gestão de Usuários\", status: \"planned\" },\n      { name: \"Media Center\", status: \"planned\" },\n      { name: \"Construtor de Páginas\", status: \"planned\" },\n      { name: \"Multi-Tenant\", status: \"planned\" },\n      { name: \"IA Generativa\", status: \"planned\" },\n      { name: \"SaaS Tupiniquim\", status: \"planned\" }\n    ],\n    architectureDecisions: [\n      {\n        id: \"ADR-001\",\n        title: \"Project Map como Fonte Única da Verdade\",\n        status: \"approved\",\n        description:\n          \"O project-map.json é a principal fonte de contexto técnico da plataforma.\"\n      },\n      {\n        id: \"ADR-002\",\n        title: \"Context Engine Monolítico\",\n        status: \"approved\",\n        description:\n          \"O Context Engine evolui sobre project-map.json evitando múltiplos arquivos redundantes.\"\n      }\n    ]\n  },\n  sourceMapStatus: {\n    enabled: true,\n    complete: true,\n    redactionApplied: true,\n    maxFileSizeBytes: MAX_FILE_SIZE_BYTES,\n    maxTotalSizeBytes: MAX_TOTAL_SIZE_BYTES,\n    includedFiles: 0,\n    excludedFiles: 0,\n    expectedExclusions: 0,\n    incompleteExclusions: 0,\n    redactedFiles: 0,\n    includedSizeBytes: 0\n  },\n  sourceFiles: [],\n  excludedSourceFiles: []\n};\n\nfunction normalize(value) {\n  return value.replace(/\\\\/g, \"/\");\n}\n\nfunction safeRead(filePath) {\n  try {\n    return fs.readFileSync(filePath, \"utf8\");\n  } catch {\n    return null;\n  }\n}\n\nfunction shouldIgnore(relativePath) {\n  return (\n    relativePath.startsWith(\"No arquivo `\") ||\n    relativePath.includes(\"o script tenta\")\n  );\n}\n\nfunction isLocalArtifact(relativePath) {\n  const baseName = path.posix.basename(relativePath).toLowerCase();\n  return (\n    baseName.startsWith(\".aider\") ||\n    baseName === \"build-error.txt\" ||\n    baseName.endsWith(\".log\") ||\n    baseName.endsWith(\".tmp\") ||\n    baseName.endsWith(\".bak\") ||\n    baseName.endsWith(\".backup\") ||\n    baseName.endsWith(\".cache\")\n  );\n}\n\nfunction isSensitiveFile(relativePath) {\n  const baseName = path.posix.basename(relativePath).toLowerCase();\n  return (\n    baseName === \".env\" ||\n    baseName.startsWith(\".env.\") ||\n    /\\.(pem|key|p12|pfx)$/i.test(baseName) ||\n    baseName.startsWith(\"credentials\") ||\n    baseName.startsWith(\"secrets\")\n  );\n}\n\nfunction isGeneratedOutput(relativePath) {\n  return (\n    relativePath === \"site-context/project-map.json\" ||\n    relativePath === \"site-context/project-map.tmp.json\" ||\n    relativePath === \"site-context/project-map.backup.json\" ||\n    relativePath === \"next-env.d.ts\" ||\n    relativePath === \"package-lock.json\"\n  );\n}\n\nfunction getExtension(relativePath) {\n  if (relativePath.toLowerCase().endsWith(\".d.ts\")) {\n    return \".d.ts\";\n  }\n  return path.posix.extname(relativePath).toLowerCase();\n}\n\nfunction getLanguage(extension) {\n  const languageByExtension = {\n    \".ts\": \"typescript\",\n    \".tsx\": \"typescript-react\",\n    \".d.ts\": \"typescript-declaration\",\n    \".js\": \"javascript\",\n    \".jsx\": \"javascript-react\",\n    \".mjs\": \"javascript-esm\",\n    \".cjs\": \"javascript-commonjs\",\n    \".json\": \"json\",\n    \".jsonc\": \"json-with-comments\",\n    \".css\": \"css\",\n    \".mdx\": \"mdx\",\n    \".md\": \"markdown\"\n  };\n  return languageByExtension[extension] || \"text\";\n}\n\nfunction getCategory(relativePath, extension) {\n  if (relativePath === \"AGENTS.md\") {\n    return \"operational-documentation\";\n  }\n  if (relativePath.startsWith(\"content/\") && extension === \".mdx\") {\n    return \"content\";\n  }\n  if (extension === \".css\") {\n    return \"style\";\n  }\n  if (\n    relativePath === \"package.json\" ||\n    relativePath === \"tsconfig.json\" ||\n    relativePath === \"wrangler.jsonc\" ||\n    relativePath === \"eslint.config.mjs\"\n  ) {\n    return \"configuration\";\n  }\n  if (extension === \".md\") {\n    return \"documentation\";\n  }\n  return \"source-code\";\n}\n\nfunction countLines(content) {\n  if (content.length === 0) {\n    return 0;\n  }\n  return content.split(/\\r\\n|\\r|\\n/).length;\n}\n\nfunction sha256(content) {\n  return crypto.createHash(\"sha256\").update(content, \"utf8\").digest(\"hex\");\n}\n\nfunction redactSecrets(content) {\n  let redacted = false;\n  let result = content;\n  const sensitiveNames = [\n    \"API_KEY\",\n    \"API_TOKEN\",\n    \"ACCESS_TOKEN\",\n    \"AUTH_TOKEN\",\n    \"SECRET\",\n    \"PASSWORD\",\n    \"PRIVATE_KEY\",\n    \"CLIENT_SECRET\",\n    \"CLOUDFLARE_API_TOKEN\",\n    \"GITHUB_TOKEN\"\n  ];\n\n  for (const name of sensitiveNames) {\n    const escapedName = name.replace(/[.*+?^${}()|[\\]\\\\]/g, \"\\\\$&\");\n    const patterns = [\n      new RegExp(\n        `(${escapedName}\\\\s*=\\\\s*)([\"']?)([^\"'\\\\r\\\\n,;]+)\\\\2`,\n        \"gi\"\n      ),\n      new RegExp(\n        `([\"']${escapedName}[\"']\\\\s*:\\\\s*)([\"'])(.*?)\\\\2`,\n        \"gi\"\n      )\n    ];\n\n    for (const pattern of patterns) {\n      result = result.replace(pattern, (match, prefix, quote) => {\n        redacted = true;\n        return `${prefix}${quote || \"\"}[REDACTED]${quote || \"\"}`;\n      });\n    }\n  }\n\n  return { content: result, redacted };\n}\n\nfunction addExcludedSourceFile(relativePath, reason) {\n  projectMap.excludedSourceFiles.push({ path: relativePath, reason });\n  projectMap.sourceMapStatus.excludedFiles += 1;\n\n  if (EXPECTED_EXCLUSION_REASONS.has(reason)) {\n    projectMap.sourceMapStatus.expectedExclusions += 1;\n  }\n  if (INCOMPLETE_EXCLUSION_REASONS.has(reason)) {\n    projectMap.sourceMapStatus.incompleteExclusions += 1;\n    projectMap.sourceMapStatus.complete = false;\n  }\n}\n\nfunction walk(dir) {\n  const entries = fs\n    .readdirSync(dir, { withFileTypes: true })\n    .sort((a, b) => a.name.localeCompare(b.name));\n\n  for (const entry of entries) {\n    if (IGNORE_DIRECTORIES.has(entry.name)) {\n      continue;\n    }\n\n    const fullPath = path.join(dir, entry.name);\n    const relativePath = normalize(path.relative(ROOT, fullPath));\n\n    if (shouldIgnore(relativePath)) {\n      continue;\n    }\n\n    projectMap.filesystem.push({\n      path: relativePath,\n      type: entry.isDirectory() ? \"directory\" : \"file\"\n    });\n\n    if (entry.isDirectory()) {\n      walk(fullPath);\n    }\n  }\n}\n\nfunction detectRoute(relativePath) {\n  const file = normalize(relativePath);\n  if (!file.startsWith(\"app/\") || !file.endsWith(\"/page.tsx\")) {\n    return null;\n  }\n  const route = file.replace(/^app/, \"\").replace(/\\/page\\.tsx$/, \"\");\n  return route || \"/\";\n}\n\nfunction extractImports() {\n  return [];\n}\n\nfunction scanFiles(dir) {\n  const entries = fs\n    .readdirSync(dir, { withFileTypes: true })\n    .sort((a, b) => a.name.localeCompare(b.name));\n\n  for (const entry of entries) {\n    if (IGNORE_DIRECTORIES.has(entry.name)) {\n      continue;\n    }\n\n    const fullPath = path.join(dir, entry.name);\n    if (entry.isDirectory()) {\n      scanFiles(fullPath);\n      continue;\n    }\n\n    const relativePath = normalize(path.relative(ROOT, fullPath));\n    if (shouldIgnore(relativePath)) {\n      continue;\n    }\n\n    const route = detectRoute(relativePath);\n    if (route) {\n      projectMap.routes.push({ route, source: relativePath });\n    }\n\n    if (relativePath.endsWith(\".tsx\") || relativePath.endsWith(\".jsx\")) {\n      projectMap.components.push(relativePath);\n    }\n\n    if (\n      relativePath.startsWith(\"content/posts/\") &&\n      relativePath.endsWith(\".mdx\")\n    ) {\n      projectMap.posts.push({\n        slug: path.basename(relativePath, \".mdx\"),\n        file: relativePath\n      });\n    }\n\n    if (\n      relativePath.endsWith(\".js\") ||\n      relativePath.endsWith(\".jsx\") ||\n      relativePath.endsWith(\".ts\") ||\n      relativePath.endsWith(\".tsx\")\n    ) {\n      const content = safeRead(fullPath);\n      if (content !== null) {\n        projectMap.importGraph.push({\n          file: relativePath,\n          imports: extractImports(content)\n        });\n      }\n    }\n  }\n}\n\nfunction collectSourceFiles() {\n  const filePaths = projectMap.filesystem\n    .filter((entry) => entry.type === \"file\")\n    .map((entry) => entry.path)\n    .sort((a, b) => a.localeCompare(b));\n\n  for (const relativePath of filePaths) {\n    const extension = getExtension(relativePath);\n\n    if (isGeneratedOutput(relativePath)) {\n      addExcludedSourceFile(relativePath, \"generated_output\");\n      continue;\n    }\n    if (isLocalArtifact(relativePath)) {\n      addExcludedSourceFile(relativePath, \"local_artifact\");\n      continue;\n    }\n    if (isSensitiveFile(relativePath)) {\n      addExcludedSourceFile(relativePath, \"sensitive_file\");\n      continue;\n    }\n    if (BINARY_EXTENSIONS.has(extension)) {\n      addExcludedSourceFile(relativePath, \"binary_file\");\n      continue;\n    }\n    if (!TEXT_EXTENSIONS.has(extension)) {\n      addExcludedSourceFile(relativePath, \"unsupported_extension\");\n      continue;\n    }\n\n    const fullPath = path.join(ROOT, relativePath);\n    let stats;\n    try {\n      stats = fs.statSync(fullPath);\n    } catch {\n      addExcludedSourceFile(relativePath, \"read_error\");\n      continue;\n    }\n\n    if (stats.size > MAX_FILE_SIZE_BYTES) {\n      addExcludedSourceFile(relativePath, \"file_size_limit\");\n      continue;\n    }\n\n    const originalContent = safeRead(fullPath);\n    if (originalContent === null) {\n      addExcludedSourceFile(relativePath, \"read_error\");\n      continue;\n    }\n\n    const originalSizeBytes = Buffer.byteLength(originalContent, \"utf8\");\n    if (\n      projectMap.sourceMapStatus.includedSizeBytes + originalSizeBytes >\n      MAX_TOTAL_SIZE_BYTES\n    ) {\n      addExcludedSourceFile(relativePath, \"total_size_limit\");\n      continue;\n    }\n\n    const redactionResult = redactSecrets(originalContent);\n    if (redactionResult.redacted) {\n      projectMap.sourceMapStatus.redactedFiles += 1;\n    }\n\n    projectMap.sourceFiles.push({\n      path: relativePath,\n      category: getCategory(relativePath, extension),\n      extension,\n      language: getLanguage(extension),\n      sizeBytes: originalSizeBytes,\n      lineCount: countLines(originalContent),\n      sha256: sha256(originalContent),\n      sha256Source: \"original-content\",\n      redacted: redactionResult.redacted,\n      content: redactionResult.content\n    });\n\n    projectMap.sourceMapStatus.includedFiles += 1;\n    projectMap.sourceMapStatus.includedSizeBytes += originalSizeBytes;\n  }\n\n  projectMap.sourceFiles.sort((a, b) => a.path.localeCompare(b.path));\n  projectMap.excludedSourceFiles.sort((a, b) =>\n    a.path.localeCompare(b.path)\n  );\n  projectMap.sourceMapStatus.complete =\n    projectMap.sourceMapStatus.incompleteExclusions === 0;\n}\n\nfunction loadPackageJson() {\n  const packageFile = path.join(ROOT, \"package.json\");\n  if (!fs.existsSync(packageFile)) {\n    return;\n  }\n  const packageContent = safeRead(packageFile);\n  if (!packageContent) {\n    return;\n  }\n  const pkg = JSON.parse(packageContent);\n  projectMap.project = {\n    name: pkg.name || null,\n    version: pkg.version || null\n  };\n  projectMap.dependencies = {\n    ...(pkg.dependencies || {}),\n    ...(pkg.devDependencies || {})\n  };\n  projectMap.scripts = pkg.scripts || {};\n}\n\nfunction loadWrangler() {\n  const wranglerFile = path.join(ROOT, \"wrangler.jsonc\");\n  if (!fs.existsSync(wranglerFile)) {\n    projectMap.integrations.cloudflare = false;\n    return;\n  }\n  projectMap.integrations.cloudflare = true;\n  projectMap.integrations.wrangler = \"wrangler.jsonc\";\n}\n\nfunction buildArchitecture() {\n  projectMap.architecture = {\n    framework: \"Next.js\",\n    renderer: \"React\",\n    adapter: \"OpenNext\",\n    hosting: \"Cloudflare\",\n    contentSource: \"MDX Filesystem\"\n  };\n}\n\nfunction buildRuntime() {\n  projectMap.runtime = {\n    framework: \"Next.js\",\n    node: process.version,\n    cloudflare: projectMap.integrations.cloudflare === true\n  };\n}\n\nfunction buildExecutionFlow() {\n  projectMap.executionFlow = {\n    content: [\n      \"content/posts/*.mdx\",\n      \"scripts/generate-posts.js\",\n      \"lib/generated-posts.ts\",\n      \"lib/blog-categories.ts\",\n      \"app/blog/page.tsx\",\n      \"app/blog/[slug]/page.tsx\",\n      \"app/blog/categoria/[categoria]/page.tsx\"\n    ],\n    categories: [\n      \"lib/blog-categories.ts\",\n      \"lib/generated-posts.ts\",\n      \"app/blog/page.tsx\",\n      \"app/blog/categoria/[categoria]/page.tsx\",\n      \"app/blog/[slug]/page.tsx\"\n    ],\n    build: [\n      \"scripts/generate-posts.js\",\n      \"next build\",\n      \"OpenNext\",\n      \"Cloudflare Deploy\"\n    ],\n    contextEngine: [\n      \"npm run context:scan\",\n      \"scripts/generate-project-map.js\",\n      \"site-context/project-map.json\",\n      \"BizChat / IA\"\n    ]\n  };\n}\n\nfunction sortProjectMap() {\n  projectMap.filesystem.sort((a, b) => a.path.localeCompare(b.path));\n  projectMap.routes.sort((a, b) => a.route.localeCompare(b.route));\n  projectMap.components.sort((a, b) => a.localeCompare(b));\n  projectMap.posts.sort((a, b) => a.slug.localeCompare(b.slug));\n  projectMap.importGraph.sort((a, b) => a.file.localeCompare(b.file));\n}\n\nfunction validateSourceFile(sourceFile) {\n  const requiredKeys = [\n    \"path\",\n    \"category\",\n    \"extension\",\n    \"language\",\n    \"sizeBytes\",\n    \"lineCount\",\n    \"sha256\",\n    \"sha256Source\",\n    \"redacted\",\n    \"content\"\n  ];\n  for (const key of requiredKeys) {\n    if (!(key in sourceFile)) {\n      throw new Error(`Required source file field is missing: ${key}`);\n    }\n  }\n}\n\nfunction validateProjectMap() {\n  const requiredRootKeys = [\n    \"generatedAt\",\n    \"project\",\n    \"architecture\",\n    \"filesystem\",\n    \"routes\",\n    \"dependencies\",\n    \"scripts\",\n    \"components\",\n    \"posts\",\n    \"importGraph\",\n    \"integrations\",\n    \"runtime\",\n    \"executionFlow\",\n    \"contextEngine\",\n    \"sourceMapStatus\",\n    \"sourceFiles\",\n    \"excludedSourceFiles\"\n  ];\n\n  for (const key of requiredRootKeys) {\n    if (!(key in projectMap)) {\n      throw new Error(`Required project map block is missing: ${key}`);\n    }\n  }\n\n  const requiredContextKeys = [\n    \"productVision\",\n    \"businessGoals\",\n    \"projectStatus\",\n    \"roadmap\",\n    \"architectureDecisions\"\n  ];\n  for (const key of requiredContextKeys) {\n    if (!(key in projectMap.contextEngine)) {\n      throw new Error(`Required Context Engine block is missing: ${key}`);\n    }\n  }\n\n  for (const key of [\n    \"filesystem\",\n    \"routes\",\n    \"posts\",\n    \"importGraph\",\n    \"sourceFiles\",\n    \"excludedSourceFiles\"\n  ]) {\n    if (!Array.isArray(projectMap[key])) {\n      throw new Error(`The ${key} block must be an array.`);\n    }\n  }\n\n  for (const sourceFile of projectMap.sourceFiles) {\n    validateSourceFile(sourceFile);\n  }\n\n  if (\n    projectMap.sourceMapStatus.complete !==\n    (projectMap.sourceMapStatus.incompleteExclusions === 0)\n  ) {\n    throw new Error(\"Source map completeness status is inconsistent.\");\n  }\n}\n\nfunction parseJsonFile(filePath) {\n  return JSON.parse(fs.readFileSync(filePath, \"utf8\"));\n}\n\nfunction cleanupTransientFiles() {\n  for (const filePath of [TEMP_FILE, BACKUP_FILE]) {\n    if (fs.existsSync(filePath)) {\n      fs.rmSync(filePath, { force: true });\n    }\n  }\n}\n\nfunction saveAtomically() {\n  fs.mkdirSync(OUTPUT_DIR, { recursive: true });\n  cleanupTransientFiles();\n\n  const serialized = JSON.stringify(projectMap, null, 2);\n  JSON.parse(serialized);\n  fs.writeFileSync(TEMP_FILE, serialized, \"utf8\");\n  parseJsonFile(TEMP_FILE);\n\n  let backupCreated = false;\n\n  try {\n    if (fs.existsSync(OUTPUT_FILE)) {\n      fs.copyFileSync(OUTPUT_FILE, BACKUP_FILE);\n      parseJsonFile(BACKUP_FILE);\n      backupCreated = true;\n      fs.rmSync(OUTPUT_FILE, { force: true });\n    }\n\n    fs.renameSync(TEMP_FILE, OUTPUT_FILE);\n    parseJsonFile(OUTPUT_FILE);\n\n    if (backupCreated && fs.existsSync(BACKUP_FILE)) {\n      fs.rmSync(BACKUP_FILE, { force: true });\n    }\n\n    cleanupTransientFiles();\n    return OUTPUT_FILE;\n  } catch (error) {\n    if (fs.existsSync(OUTPUT_FILE)) {\n      fs.rmSync(OUTPUT_FILE, { force: true });\n    }\n    if (backupCreated && fs.existsSync(BACKUP_FILE)) {\n      fs.renameSync(BACKUP_FILE, OUTPUT_FILE);\n    }\n    if (fs.existsSync(TEMP_FILE)) {\n      fs.rmSync(TEMP_FILE, { force: true });\n    }\n    throw error;\n  }\n}\n\nfunction main() {\n  try {\n    console.log(\"Generating project map with full source snapshot...\");\n    loadPackageJson();\n    loadWrangler();\n    walk(ROOT);\n    scanFiles(ROOT);\n    collectSourceFiles();\n    buildArchitecture();\n    buildRuntime();\n    buildExecutionFlow();\n    sortProjectMap();\n    validateProjectMap();\n\n    const outputFile = saveAtomically();\n    console.log(\n      `${normalize(path.relative(ROOT, outputFile))} generated successfully.`\n    );\n  } catch (error) {\n    try {\n      cleanupTransientFiles();\n    } catch {\n      // Preserve the original failure as the primary error.\n    }\n    console.error(\"Failed to generate project map.\");\n    console.error(error instanceof Error ? error.message : String(error));\n    process.exitCode = 1;\n  }\n}\n\nmain();\n"
-    },
-    {
-      "path": "scripts/context-engine/__tests__/context-enrichment.test.js",
-      "category": "source-code",
-      "extension": ".js",
-      "language": "javascript",
-      "sizeBytes": 1464,
-      "lineCount": 6,
-      "sha256": "13e16c5c3973e57cdfe40d50b191f98155deb5d90215ac0559591a73a2201954",
-      "sha256Source": "original-content",
-      "redacted": false,
-      "content": "\"use strict\";\nconst test=require(\"node:test\");const assert=require(\"node:assert/strict\");const {buildFeatureMap}=require(\"../feature-map\");const {architectureHealth}=require(\"../technical-debt\");const {buildAiContext}=require(\"../ai-context\");\ntest(\"classifies Blog and Context Engine features\",()=>{const r=buildFeatureMap([{path:\"app/blog/page.tsx\"},{path:\"scripts/context-engine/a.js\"},{path:\"app/page.tsx\"}],[{name:\"Blog\",status:\"completed\"},{name:\"Context Engine\",status:\"completed\"}]);assert.equal(r.features.length,2);assert.deepEqual(r.unclassifiedFiles,[\"app/page.tsx\"]);});\ntest(\"calculates bounded architecture health\",()=>{const debts=[{severity:\"critical\",status:\"open\"},{severity:\"high\",status:\"open\"},{severity:\"medium\",status:\"open\"},{severity:\"medium\",status:\"open\"}];assert.deepEqual(architectureHealth(debts),{score:60,status:\"critical\",criticalDebts:1,highDebts:1,mediumDebts:2,lowDebts:0,calculationVersion:\"1.0.0\"});});\ntest(\"AI Context prioritizes critical debt deterministically\",()=>{const c={productVision:{name:\"X\",mission:\"Y\"},projectStatus:{currentEpic:\"E1\",name:\"Current\",status:\"in_progress\"},roadmap:[{name:\"Current\",status:\"in_progress\"},{name:\"Next\",status:\"planned\"}],architectureDecisions:[]};const debts=[{id:\"DT-002\",severity:\"high\",status:\"open\",reason:\"b\",files:[\"b\"]},{id:\"DT-001\",severity:\"critical\",status:\"open\",reason:\"a\",files:[\"a\"]}];assert.equal(buildAiContext(c,debts,{}).recommendedAction,\"Resolve DT-001: a\");});\n"
-    },
-    {
-      "path": "scripts/context-engine/__tests__/context-indexer-boundary.test.js",
-      "category": "source-code",
-      "extension": ".js",
-      "language": "javascript",
-      "sizeBytes": 553,
-      "lineCount": 12,
-      "sha256": "ebe39358d4fc6328edac28551a4c3d609cf372ed1932017502a7efb74a0e8738",
-      "sha256Source": "original-content",
-      "redacted": false,
-      "content": "\"use strict\";\nconst test=require(\"node:test\");\nconst assert=require(\"node:assert/strict\");\nconst {buildChunks}=require(\"../context-indexer\");\ntest(\"never exceeds maxChars when a double newline crosses the boundary\",()=>{\n  const content=\"x\".repeat(998)+\"\\n\\n\"+\"tail\";\n  const file={path:\"boundary.md\",sha256:\"boundary\",language:\"markdown\",category:\"documentation\",redacted:false,content};\n  const chunks=buildChunks(file,{maxChars:1000,overlapChars:150});\n  assert.ok(chunks.length>=2);\n  assert.ok(chunks.every(chunk=>chunk.content.length<=1000));\n});\n"
-    },
-    {
-      "path": "scripts/context-engine/__tests__/context-indexer.test.js",
-      "category": "source-code",
-      "extension": ".js",
-      "language": "javascript",
-      "sizeBytes": 1106,
-      "lineCount": 6,
-      "sha256": "7042795467eb193d08d6d0cbca60663ca1d97c8c6becd498211f5def79cce624",
-      "sha256Source": "original-content",
-      "redacted": false,
-      "content": "\"use strict\";\nconst test=require(\"node:test\");const assert=require(\"node:assert/strict\");const {normalize,buildChunks,buildContextIndex}=require(\"../context-indexer\");const short={path:\"a.ts\",sha256:\"abc\",language:\"typescript\",category:\"source-code\",redacted:false,content:\"const a = 1;\"};\ntest(\"normalizes CRLF and preserves a short file as one chunk\",()=>{assert.equal(normalize(\"a\\r\\nb\\rc\"),\"a\\nb\\nc\");const c=buildChunks(short);assert.equal(c.length,1);assert.equal(c[0].content,\"const a = 1;\");assert.equal(c[0].startLine,1);});\ntest(\"creates deterministic bounded chunks with line metadata\",()=>{const f={...short,content:Array.from({length:120},(_,i)=>`line ${i+1} ${\"x\".repeat(20)}`).join(\"\\n\")};const a=buildChunks(f);const b=buildChunks(f);assert.deepEqual(a,b);assert.ok(a.length>1);assert.ok(a.every(x=>x.content.length<=1000&&x.startLine<=x.endLine));});\ntest(\"builds a deterministic index sorted by source path\",()=>{const index=buildContextIndex([{...short,path:\"b.ts\"},short],\"maphash\");assert.equal(index.sourceProjectMapHash,\"maphash\");assert.equal(index.chunks[0].sourcePath,\"a.ts\");});\n"
-    },
-    {
-      "path": "scripts/context-engine/__tests__/knowledge-graph.test.js",
-      "category": "source-code",
-      "extension": ".js",
-      "language": "javascript",
-      "sizeBytes": 1127,
-      "lineCount": 20,
-      "sha256": "dfd0462eb74c50568f47f6543c7cdef43b0748ce4ede0ac3df0e6a5ff250262b",
-      "sha256Source": "original-content",
-      "redacted": false,
-      "content": "\"use strict\";\nconst test = require(\"node:test\");\nconst assert = require(\"node:assert/strict\");\nconst path = require(\"path\");\nconst { collectRelations, detectCycles } = require(\"../knowledge-graph\");\nconst ROOT = process.cwd();\ntest(\"extracts imports without false positives from comments and strings\", () => {\n  const code = `// import fake from \"./fake\"\\nconst text = 'require(\"./fake\")';\\nimport Link from \"next/link\";\\nimport type { X } from \"./types\";\\nexport * from \"./public\";\\nconst lazy = import(\"./lazy\");`;\n  const result = collectRelations(ROOT, path.join(\"fixtures\", \"sample.ts\"), code, {});\n  assert.deepEqual(result.relations.map((r)=>r.specifier).sort(), [\"./lazy\",\"./public\",\"./types\",\"next/link\"].sort());\n  assert.equal(result.relations.find((r)=>r.specifier===\"./types\").relationType, \"type_import\");\n});\ntest(\"detects a circular dependency\", () => {\n  const relations = [\n    { id:\"REL-A\", source:\"a.ts\", target:\"b.ts\", targetKind:\"internal\", resolved:true },\n    { id:\"REL-B\", source:\"b.ts\", target:\"a.ts\", targetKind:\"internal\", resolved:true }\n  ];\n  assert.equal(detectCycles(relations).length, 1);\n});\n"
-    },
-    {
-      "path": "scripts/context-engine/__tests__/lote0.test.js",
-      "category": "source-code",
-      "extension": ".js",
-      "language": "javascript",
-      "sizeBytes": 1992,
-      "lineCount": 32,
-      "sha256": "a13fcdd314d60ac4385cea8cb522242b9484cdd1dd5780276b3823d5d6f95892",
-      "sha256Source": "original-content",
-      "redacted": false,
-      "content": "\"use strict\";\nconst test = require(\"node:test\");\nconst assert = require(\"node:assert/strict\");\nconst fs = require(\"fs\");\nconst path = require(\"path\");\nconst crypto = require(\"crypto\");\nconst { spawnSync } = require(\"child_process\");\nconst Ajv2020 = require(\"ajv/dist/2020\");\nconst addFormats = require(\"ajv-formats\");\nconst ROOT = process.cwd();\nfunction sha256(file) { return crypto.createHash(\"sha256\").update(fs.readFileSync(file)).digest(\"hex\"); }\ntest(\"baseline matches stable generator\", () => {\n  const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, \"scripts/baseline/baseline-manifest.json\"), \"utf8\"));\n  assert.equal(sha256(path.join(ROOT, manifest.source)), manifest.sha256);\n  assert.equal(sha256(path.join(ROOT, manifest.baseline)), manifest.sha256);\n});\ntest(\"decision memory is valid and initialization is idempotent\", () => {\n  const tool = path.join(ROOT, \"scripts/context-engine/decision-memory.js\");\n  const file = path.join(ROOT, \"site-context/decision-memory.json\");\n  const before = sha256(file);\n  const result = spawnSync(process.execPath, [tool, \"init\"], { cwd: ROOT, encoding: \"utf8\", shell: false });\n  assert.equal(result.status, 0, result.stderr);\n  assert.equal(sha256(file), before);\n});\ntest(\"Ajv2020 compiles the Context Engine schema\", () => {\n  const schema = JSON.parse(fs.readFileSync(path.join(ROOT, \"site-context/context-engine-v3.schema.json\"), \"utf8\"));\n  const ajv = new Ajv2020({ strict: true, allErrors: true, allowUnionTypes: false });\n  addFormats(ajv);\n  const validate = ajv.compile(schema);\n  assert.equal(validate({ $schema: \"./context-engine-v3.schema.json\", schemaVersion: \"3.0.0\", generatedAt: new Date().toISOString(), project: {}, architecture: {}, filesystem: [], routes: [], dependencies: {}, scripts: {}, components: [], posts: [], importGraph: [], integrations: {}, runtime: {}, executionFlow: {}, contextEngine: {}, sourceMapStatus: {}, sourceFiles: [], excludedSourceFiles: [] }), true, JSON.stringify(validate.errors));\n});\n"
-    },
-    {
-      "path": "scripts/context-engine/__tests__/recursive-isolation.test.js",
-      "category": "source-code",
-      "extension": ".js",
-      "language": "javascript",
-      "sizeBytes": 617,
-      "lineCount": 10,
-      "sha256": "37d66795ea64ad7c5373f7ea1670130e23c9a3f07040a22c501668b682533e79",
-      "sha256Source": "original-content",
-      "redacted": false,
-      "content": "\"use strict\";\nconst test=require(\"node:test\");\nconst assert=require(\"node:assert/strict\");\nconst fs=require(\"fs\");\nconst path=require(\"path\");\ntest(\"V3 generator excludes official and transactional site-context artifacts\",()=>{\n const source=fs.readFileSync(path.join(process.cwd(),\"scripts\",\"generate-project-map-v3.js\"),\"utf8\");\n for(const value of [\"site-context/context-index.json\",\"site-context/context-manifest.json\",\"site-context/decision-memory.json\",\"site-context/context-engine-v3.schema.json\",\"site-context/.generation-tmp/\",\"site-context/.promotion-backup/\"]) assert.ok(source.includes(value),value);\n});\n"
     },
     {
       "path": "scripts/context-engine/ai-context.js",
@@ -1592,6 +1478,18 @@
       "content": "\"use strict\";\nconst crypto=require(\"crypto\");\nfunction sha(v){return crypto.createHash(\"sha256\").update(v,\"utf8\").digest(\"hex\");}\nfunction normalize(v){return String(v||\"\").replace(/\\r\\n?/g,\"\\n\");}\nfunction buildChunks(file,{maxChars=1000,overlapChars=150,version=\"1.0.0\"}={}){const content=normalize(file.content);if(!content.length)return[];const lines=content.split(\"\\n\");const offsets=[];let cursor=0;for(let i=0;i<lines.length;i++){offsets.push(cursor);cursor+=lines[i].length+(i<lines.length-1?1:0);}const chunks=[];let start=0;while(start<content.length){let end=Math.min(content.length,start+maxChars);if(end<content.length){const candidates=[content.lastIndexOf(\"\\n\\n\",end),content.lastIndexOf(\"\\n\",end)];const boundary=Math.max(...candidates);if(boundary>start+Math.floor(maxChars*0.5))end=Math.min(start+maxChars,boundary+(content[boundary+1]===\"\\n\"?2:1));}const text=content.slice(start,end);const startLine=offsets.reduce((n,o,i)=>o<=start?i+1:n,1);const endPos=Math.max(start,end-1);const endLine=offsets.reduce((n,o,i)=>o<=endPos?i+1:n,1);const basis=`${file.path}|${file.sha256}|${startLine}|${endLine}|${version}|${text}`;chunks.push({id:sha(basis),sourcePath:file.path,sourceHash:file.sha256,startLine,endLine,language:file.language,category:file.category,redacted:file.redacted===true,content:text});if(end>=content.length)break;const next=Math.max(start+1,end-overlapChars);start=next;}return chunks;}\nfunction buildContextIndex(sourceFiles,projectMapHash){const chunks=[];for(const file of [...sourceFiles].sort((a,b)=>a.path.localeCompare(b.path)))chunks.push(...buildChunks(file));return{schemaVersion:\"1.0.0\",sourceProjectMapHash:projectMapHash,chunkingVersion:\"1.0.0\",chunks};}\nmodule.exports={sha,normalize,buildChunks,buildContextIndex};\n"
     },
     {
+      "path": "scripts/context-engine/context-query.js",
+      "category": "source-code",
+      "extension": ".js",
+      "language": "javascript",
+      "sizeBytes": 3063,
+      "lineCount": 72,
+      "sha256": "912480d55e201ddea98e7518e4fb0b99e8160f85e3441601c62172319d9c5478",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "\"use strict\";\nconst STOPWORDS = new Set([\"a\",\"as\",\"o\",\"os\",\"um\",\"uma\",\"de\",\"da\",\"das\",\"do\",\"dos\",\"e\",\"em\",\"no\",\"nos\",\"na\",\"nas\",\"para\",\"por\",\"com\",\"sem\",\"que\",\"qual\",\"quais\",\"como\",\"onde\",\"me\",\"meu\",\"minha\",\"the\",\"and\",\"or\",\"to\",\"of\",\"in\",\"is\",\"esta\",\"estao\",\"estar\",\"fica\",\"ficam\"]);\nfunction normalize(value) {\n  return String(value || \"\").toLocaleLowerCase(\"pt-BR\").normalize(\"NFD\").replace(/[\\u0300-\\u036f]/g, \"\").replace(/[^a-z0-9_/@.-]+/g, \" \").trim();\n}\nfunction tokenize(value) {\n  return [...new Set(normalize(value).split(/\\s+/).filter(token => token.length > 1 && !STOPWORDS.has(token)))];\n}\nfunction termFrequency(text, term) {\n  let count = 0;\n  let index = 0;\n  while ((index = text.indexOf(term, index)) !== -1) { count += 1; index += term.length; }\n  return count;\n}\nfunction searchContext(index, query, options = {}) {\n  const limit = Math.max(1, Math.min(Number(options.limit) || 5, 20));\n  const terms = tokenize(query);\n  if (!terms.length) return [];\n  const chunks = Array.isArray(index.chunks) ? index.chunks : [];\n  const documentFrequency = new Map();\n  for (const term of terms) documentFrequency.set(term, chunks.filter(chunk => normalize(`${chunk.sourcePath} ${chunk.content}`).includes(term)).length);\n  const results = [];\n  for (const chunk of chunks) {\n    const content = normalize(chunk.content);\n    const sourcePath = normalize(chunk.sourcePath);\n    let score = 0;\n    const matchedTerms = [];\n    for (const term of terms) {\n      const frequency = termFrequency(content, term);\n      const pathHit = sourcePath.includes(term) ? 1 : 0;\n      if (!frequency && !pathHit) continue;\n      matchedTerms.push(term);\n      const inverseFrequency = Math.log((chunks.length + 1) / ((documentFrequency.get(term) || 0) + 1)) + 1;\n      score += Math.min(frequency, 6) * inverseFrequency;\n      score += pathHit * 5 * inverseFrequency;\n    }\n    if (!matchedTerms.length) continue;\n    score += (matchedTerms.length / terms.length) * 8;\n    if (matchedTerms.length === terms.length) score += 10;\n    results.push({\n      id: chunk.id,\n      score: Number(score.toFixed(6)),\n      matchedTerms: matchedTerms.sort(),\n      sourcePath: chunk.sourcePath,\n      startLine: chunk.startLine,\n      endLine: chunk.endLine,\n      language: chunk.language,\n      category: chunk.category,\n      content: chunk.content\n    });\n  }\n  const sorted = results.sort((a, b) => b.score - a.score || a.sourcePath.localeCompare(b.sourcePath) || a.startLine - b.startLine);\n  const selected = [];\n  const perFile = new Map();\n  for (const result of sorted) {\n    const count = perFile.get(result.sourcePath) || 0;\n    if (count >= 1) continue;\n    selected.push(result);\n    perFile.set(result.sourcePath, count + 1);\n    if (selected.length >= limit) break;\n  }\n  if (selected.length < limit) {\n    for (const result of sorted) {\n      if (selected.some(item => item.id === result.id)) continue;\n      selected.push(result);\n      if (selected.length >= limit) break;\n    }\n  }\n  return selected;\n}\nmodule.exports = { normalize, tokenize, searchContext };\n"
+    },
+    {
       "path": "scripts/context-engine/decision-memory.js",
       "category": "source-code",
       "extension": ".js",
@@ -1640,18 +1538,6 @@
       "content": "\"use strict\";\nconst DEFINITIONS=[\n {id:\"FEATURE-BLOG\",name:\"Blog\",roadmapName:\"Blog\",include:[/^app\\/blog\\//,/^content\\/posts\\//,/^lib\\/generated-posts\\.ts$/,/^lib\\/blog-categories\\.ts$/,/^scripts\\/generate-posts\\.js$/],exclude:[/legado/i],allowSharedFiles:true},\n {id:\"FEATURE-CONTEXT-ENGINE\",name:\"Context Engine\",roadmapName:\"Context Engine\",include:[/^scripts\\/generate-project-map/,/^scripts\\/context-engine\\//,/^scripts\\/baseline\\//,/^site-context\\//],exclude:[/\\.generation-tmp\\//],allowSharedFiles:true}\n];\nfunction buildFeatureMap(files,roadmap=[]){\n const paths=files.map(x=>typeof x===\"string\"?x:x.path).filter(Boolean).sort(); const claimed=new Set();\n const features=DEFINITIONS.map(def=>{ const selected=paths.filter(p=>def.include.some(r=>r.test(p))&&!def.exclude.some(r=>r.test(p))); selected.forEach(p=>claimed.add(p)); const road=roadmap.find(x=>x.name===def.roadmapName); return {id:def.id,name:def.name,status:road?road.status:\"unknown\",files:selected,sharedFiles:[],unresolvedPatterns:[]}; });\n const owners=new Map(); for(const f of features) for(const p of f.files){if(!owners.has(p))owners.set(p,[]);owners.get(p).push(f.id);} for(const f of features)f.sharedFiles=f.files.filter(p=>(owners.get(p)||[]).length>1);\n return {features,unclassifiedFiles:paths.filter(p=>!claimed.has(p))};\n}\nmodule.exports={buildFeatureMap};\n"
     },
     {
-      "path": "scripts/context-engine/fixtures/invalid-decision-memory.json",
-      "category": "source-code",
-      "extension": ".json",
-      "language": "json",
-      "sizeBytes": 48,
-      "lineCount": 2,
-      "sha256": "805e40bc95da828c465833734c5c9fc887c8c219858d110da7b9de93c9b4f46a",
-      "sha256Source": "original-content",
-      "redacted": false,
-      "content": "{\"schemaVersion\":\"1.0.0\",\"decisions\":\"invalid\"}\n"
-    },
-    {
       "path": "scripts/context-engine/knowledge-graph.js",
       "category": "source-code",
       "extension": ".js",
@@ -1686,6 +1572,18 @@
       "sha256Source": "original-content",
       "redacted": false,
       "content": "\"use strict\";\nconst fs=require(\"fs\");const path=require(\"path\");const crypto=require(\"crypto\");const ROOT=process.cwd();const contextDir=path.join(ROOT,\"site-context\");const stage=path.join(contextDir,\".generation-tmp\");const backup=path.join(contextDir,\".promotion-backup\");const proofFile=path.join(stage,\"promotion-proof.json\");\nconst staged={map:path.join(stage,\"project-map.json\"),index:path.join(stage,\"context-index.json\"),manifest:path.join(stage,\"context-manifest.json\")};const official={map:path.join(contextDir,\"project-map.json\"),index:path.join(contextDir,\"context-index.json\"),manifest:path.join(contextDir,\"context-manifest.json\")};\nfunction shaText(text){return crypto.createHash(\"sha256\").update(text,\"utf8\").digest(\"hex\");}function read(file){return fs.readFileSync(file,\"utf8\");}function atomic(file,text){const temp=`${file}.tmp`;fs.writeFileSync(temp,text,\"utf8\");JSON.parse(fs.readFileSync(temp,\"utf8\"));fs.renameSync(temp,file);}function restore(){for(const [key,file] of Object.entries(official)){const old=path.join(backup,`${key}.previous`);if(fs.existsSync(old))fs.copyFileSync(old,file);else if(fs.existsSync(file))fs.rmSync(file,{force:true});}}\ntry{for(const file of Object.values(staged))if(!fs.existsSync(file))throw new Error(`Staged artifact missing: ${file}`);const mapRaw=read(staged.map),indexRaw=read(staged.index),stagedManifest=JSON.parse(read(staged.manifest));const mapHash=shaText(mapRaw),indexHash=shaText(indexRaw);if(stagedManifest.artifacts.projectMap.sha256!==mapHash||stagedManifest.artifacts.contextIndex.sha256!==indexHash)throw new Error(\"Staged manifest hashes are invalid. Promotion blocked.\");const index=JSON.parse(indexRaw);if(index.sourceProjectMapHash!==mapHash)throw new Error(\"Staged Context Index does not match staged project map.\");fs.rmSync(backup,{recursive:true,force:true});fs.mkdirSync(backup,{recursive:true});for(const [key,file] of Object.entries(official))if(fs.existsSync(file))fs.copyFileSync(file,path.join(backup,`${key}.previous`));const officialManifest={...stagedManifest,artifacts:{projectMap:{path:\"site-context/project-map.json\",sha256:mapHash},contextIndex:{path:\"site-context/context-index.json\",sha256:indexHash}},promotion:{promotedAt:new Date().toISOString(),sourceGenerationId:stagedManifest.generationId,status:\"promoted\"}};atomic(official.map,mapRaw);atomic(official.index,indexRaw);atomic(official.manifest,`${JSON.stringify(officialManifest,null,2)}\\n`);const proof={generationId:stagedManifest.generationId,status:\"promoted\",projectMapHash:mapHash,contextIndexHash:indexHash,promotedAt:officialManifest.promotion.promotedAt};atomic(proofFile,`${JSON.stringify(proof,null,2)}\\n`);console.log(`Context Engine V3 promoted successfully: ${stagedManifest.generationId.slice(0,16)}.`);console.log(\"Previous canonical artifacts remain in site-context/.promotion-backup until post-promotion validation.\");}catch(error){try{restore();}catch(rollbackError){console.error(`Rollback failure: ${rollbackError.message}`);}console.error(error.message);process.exit(1);}\n"
+    },
+    {
+      "path": "scripts/context-engine/query-context.js",
+      "category": "source-code",
+      "extension": ".js",
+      "language": "javascript",
+      "sizeBytes": 1560,
+      "lineCount": 37,
+      "sha256": "3aa76f760ca740a47a2c0b1652a6fb4e6847210e722892c613724f3dc1cb88e4",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "\"use strict\";\nconst fs = require(\"fs\");\nconst path = require(\"path\");\nconst { searchContext } = require(\"./context-query\");\nconst ROOT = process.cwd();\nfunction parseArgs(argv) {\n  const args = { query: [], limit: 5, json: false };\n  for (let i = 0; i < argv.length; i += 1) {\n    if (argv[i] === \"--limit\") { args.limit = Number(argv[i + 1]); i += 1; }\n    else if (argv[i] === \"--json\") args.json = true;\n    else args.query.push(argv[i]);\n  }\n  return { query: args.query.join(\" \").trim(), limit: args.limit, json: args.json };\n}\ntry {\n  const args = parseArgs(process.argv.slice(2));\n  if (!args.query) throw new Error('Usage: npm run context:query -- \"your question\" [--limit 5] [--json]');\n  const indexFile = path.join(ROOT, \"site-context\", \"context-index.json\");\n  const index = JSON.parse(fs.readFileSync(indexFile, \"utf8\"));\n  const results = searchContext(index, args.query, { limit: args.limit });\n  if (args.json) console.log(JSON.stringify({ query: args.query, count: results.length, results }, null, 2));\n  else {\n    console.log(`Query: ${args.query}`);\n    console.log(`Results: ${results.length}\\n`);\n    results.forEach((result, indexPosition) => {\n      console.log(`[${indexPosition + 1}] ${result.sourcePath}:${result.startLine}-${result.endLine}`);\n      console.log(`Score: ${result.score} | Terms: ${result.matchedTerms.join(\", \")}`);\n      console.log(result.content.trim());\n      console.log(\"\\n---\\n\");\n    });\n  }\n  if (!results.length) process.exitCode = 2;\n} catch (error) {\n  console.error(error.message);\n  process.exit(1);\n}\n"
     },
     {
       "path": "scripts/context-engine/run-context-v3.js",
@@ -1808,6 +1706,18 @@
       "content": "\"use strict\";\nconst fs=require(\"fs\");const path=require(\"path\");const crypto=require(\"crypto\");const ROOT=process.cwd();const stage=path.join(ROOT,\"site-context\",\".generation-tmp\");const canonical=path.join(ROOT,\"site-context\",\"project-map.json\");function shaRaw(v){return crypto.createHash(\"sha256\").update(v,\"utf8\").digest(\"hex\");}try{const before=shaRaw(fs.readFileSync(canonical,\"utf8\"));const mapRaw=fs.readFileSync(path.join(stage,\"project-map.json\"),\"utf8\");const indexRaw=fs.readFileSync(path.join(stage,\"context-index.json\"),\"utf8\");const manifest=JSON.parse(fs.readFileSync(path.join(stage,\"context-manifest.json\"),\"utf8\"));const index=JSON.parse(indexRaw);if(!Array.isArray(index.chunks)||!index.chunks.length)throw new Error(\"Context Index has no chunks.\");if(index.sourceProjectMapHash!==shaRaw(mapRaw))throw new Error(\"Context Index source hash mismatch.\");if(manifest.artifacts.projectMap.sha256!==shaRaw(mapRaw)||manifest.artifacts.contextIndex.sha256!==shaRaw(indexRaw))throw new Error(\"Manifest artifact hash mismatch.\");const ids=new Set();for(const c of index.chunks){if(ids.has(c.id))throw new Error(`Duplicate chunk id: ${c.id}`);ids.add(c.id);if(!c.sourcePath||!c.sourceHash||!Number.isInteger(c.startLine)||!Number.isInteger(c.endLine)||!c.content)throw new Error(\"Invalid chunk contract.\");if(c.content.length>1000)throw new Error(`Chunk exceeds 1000 characters: ${c.id}`);}if(shaRaw(fs.readFileSync(canonical,\"utf8\"))!==before)throw new Error(\"Canonical project map changed during Lote 4.\");console.log(`Context Engine V3 Lote 4 verified successfully: ${index.chunks.length} unique chunks.`);console.log(\"Manifest hashes are valid and canonical project-map.json remains unchanged.\");}catch(e){console.error(e.message);process.exit(1);}\n"
     },
     {
+      "path": "scripts/context-engine/verify-lote6.js",
+      "category": "source-code",
+      "extension": ".js",
+      "language": "javascript",
+      "sizeBytes": 1719,
+      "lineCount": 26,
+      "sha256": "e647ba3c5bd9e8c9b2f99eef736a42905d1a976f4107b7a31ee8dfd8c796e598",
+      "sha256Source": "original-content",
+      "redacted": false,
+      "content": "\"use strict\";\nconst fs = require(\"fs\");\nconst path = require(\"path\");\nconst crypto = require(\"crypto\");\nconst { searchContext } = require(\"./context-query\");\nconst ROOT = process.cwd();\nfunction sha(text) { return crypto.createHash(\"sha256\").update(text, \"utf8\").digest(\"hex\"); }\ntry {\n  const mapRaw = fs.readFileSync(path.join(ROOT, \"site-context\", \"project-map.json\"), \"utf8\");\n  const indexRaw = fs.readFileSync(path.join(ROOT, \"site-context\", \"context-index.json\"), \"utf8\");\n  const index = JSON.parse(indexRaw);\n  const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, \"site-context\", \"context-manifest.json\"), \"utf8\"));\n  if (index.sourceProjectMapHash !== sha(mapRaw)) throw new Error(\"Official Context Index is not synchronized with project-map.json.\");\n  if (manifest.artifacts.contextIndex.sha256 !== sha(indexRaw)) throw new Error(\"Official Context Index hash does not match manifest.\");\n  const imports = searchContext(index, \"knowledge graph imports\", { limit: 5 });\n  const blog = searchContext(index, \"categorias blog\", { limit: 5 });\n  if (!imports.length) throw new Error(\"Query engine returned no result for Knowledge Graph.\");\n  if (!blog.length) throw new Error(\"Query engine returned no result for Blog categories.\");\n  if (!imports.some(result => /knowledge-graph|generate-project-map|context-engine/.test(result.sourcePath))) throw new Error(\"Knowledge Graph query did not return an expected technical source.\");\n  console.log(`Context query verified successfully against ${index.chunks.length} official chunks.`);\n  console.log(`Knowledge Graph query results: ${imports.length}. Blog query results: ${blog.length}.`);\n} catch (error) {\n  console.error(error.message);\n  process.exit(1);\n}\n"
+    },
+    {
       "path": "scripts/context-validations/result.js",
       "category": "source-code",
       "extension": ".js",
@@ -1860,12 +1770,12 @@
       "category": "source-code",
       "extension": ".js",
       "language": "javascript",
-      "sizeBytes": 19799,
-      "lineCount": 792,
-      "sha256": "20321ef73b2e1a1ffa90c6cfbfd3a1a3d94cdfc83ad4522dd6e8902689feee72",
+      "sizeBytes": 19986,
+      "lineCount": 795,
+      "sha256": "2ff47b58c940d7e00b2e54467c8e4c41d2088055eb404b2b34e163ef698dd6d3",
       "sha256Source": "original-content",
       "redacted": false,
-      "content": "/* Context Engine V3 Lote 1: isolated staging generator. */\nconst fs = require(\"fs\");\nconst path = require(\"path\");\nconst crypto = require(\"crypto\");\n\nconst ROOT = process.cwd();\nconst OUTPUT_DIR = path.join(ROOT, \"site-context\", \".generation-tmp\");\nconst OUTPUT_FILE = path.join(OUTPUT_DIR, \"project-map.json\");\nconst TEMP_FILE = path.join(OUTPUT_DIR, \"project-map.tmp.json\");\nconst BACKUP_FILE = path.join(OUTPUT_DIR, \"project-map.backup.json\");\n\nconst MAX_FILE_SIZE_BYTES = 512000;\nconst MAX_TOTAL_SIZE_BYTES = 5242880;\n\nconst IGNORE_DIRECTORIES = new Set([\n  \".git\",\n  \".next\",\n  \"node_modules\",\n  \".open-next\",\n  \".vercel\",\n  \"dist\",\n  \"build\",\n  \"coverage\",\n  \".aider.tags.cache.v4\",\n  \".wrangler\",\n  \".generation-tmp\"\n]);\n\nconst TEXT_EXTENSIONS = new Set([\n  \".ts\",\n  \".tsx\",\n  \".js\",\n  \".jsx\",\n  \".mjs\",\n  \".cjs\",\n  \".json\",\n  \".jsonc\",\n  \".css\",\n  \".mdx\",\n  \".md\"\n]);\n\nconst BINARY_EXTENSIONS = new Set([\n  \".ico\",\n  \".png\",\n  \".jpg\",\n  \".jpeg\",\n  \".gif\",\n  \".webp\",\n  \".svg\",\n  \".pdf\",\n  \".doc\",\n  \".docx\",\n  \".xls\",\n  \".xlsx\",\n  \".ppt\",\n  \".pptx\",\n  \".woff\",\n  \".woff2\",\n  \".ttf\",\n  \".otf\",\n  \".eot\",\n  \".sqlite\",\n  \".db\",\n  \".exe\",\n  \".dll\",\n  \".zip\",\n  \".tar\",\n  \".gz\",\n  \".7z\",\n  \".rar\"\n]);\n\nconst EXPECTED_EXCLUSION_REASONS = new Set([\n  \"sensitive_file\",\n  \"binary_file\",\n  \"unsupported_extension\",\n  \"generated_output\",\n  \"local_artifact\"\n]);\n\nconst INCOMPLETE_EXCLUSION_REASONS = new Set([\n  \"file_size_limit\",\n  \"total_size_limit\",\n  \"read_error\"\n]);\n\nconst projectMap = {\n  \"$schema\": \"../context-engine-v3.schema.json\",\n  schemaVersion: \"3.1.0\",\n  generatedAt: new Date().toISOString(),\n  project: {},\n  architecture: {},\n  filesystem: [],\n  routes: [],\n  dependencies: {},\n  scripts: {},\n  components: [],\n  posts: [],\n  importGraph: [],\n  integrations: {},\n  runtime: {},\n  executionFlow: {},\n  contextEngine: {\n    productVision: {\n      name: \"Tupiniquim Platform\",\n      mission:\n        \"Plataforma SaaS brasileira para conteúdo, mídia, gestão e aplicações multi-tenant.\"\n    },\n    businessGoals: [\n      \"Reduzir dependência de contexto em conversas com IA\",\n      \"Preparar a fundação para CMS\",\n      \"Preparar a fundação para Media Center\",\n      \"Preparar a fundação para Multi-Tenant\",\n      \"Preparar a fundação para IA Generativa\",\n      \"Evoluir para modelo SaaS\"\n    ],\n    projectStatus: {\n      currentEpic: \"EPIC-003\",\n      name: \"Site Institucional Profissional\",\n      status: \"in_progress\"\n    },\n    roadmap: [\n      { name: \"Blog\", status: \"completed\" },\n      { name: \"Context Engine\", status: \"completed\" },\n      { name: \"Categorias Permanentes do Blog\", status: \"completed\" },\n      { name: \"Site Institucional Profissional\", status: \"in_progress\" },\n      { name: \"CMS\", status: \"planned\" },\n      { name: \"Área Administrativa\", status: \"planned\" },\n      { name: \"Gestão de Usuários\", status: \"planned\" },\n      { name: \"Media Center\", status: \"planned\" },\n      { name: \"Construtor de Páginas\", status: \"planned\" },\n      { name: \"Multi-Tenant\", status: \"planned\" },\n      { name: \"IA Generativa\", status: \"planned\" },\n      { name: \"SaaS Tupiniquim\", status: \"planned\" }\n    ],\n    architectureDecisions: [\n      {\n        id: \"ADR-001\",\n        title: \"Project Map como Fonte Única da Verdade\",\n        status: \"approved\",\n        description:\n          \"O project-map.json é a principal fonte de contexto técnico da plataforma.\"\n      },\n      {\n        id: \"ADR-002\",\n        title: \"Context Engine Monolítico\",\n        status: \"approved\",\n        description:\n          \"O Context Engine evolui sobre project-map.json evitando múltiplos arquivos redundantes.\"\n      }\n    ]\n  },\n  sourceMapStatus: {\n    enabled: true,\n    complete: true,\n    redactionApplied: true,\n    maxFileSizeBytes: MAX_FILE_SIZE_BYTES,\n    maxTotalSizeBytes: MAX_TOTAL_SIZE_BYTES,\n    includedFiles: 0,\n    excludedFiles: 0,\n    expectedExclusions: 0,\n    incompleteExclusions: 0,\n    redactedFiles: 0,\n    includedSizeBytes: 0\n  },\n  sourceFiles: [],\n  excludedSourceFiles: []\n};\n\nfunction normalize(value) {\n  return value.replace(/\\\\/g, \"/\");\n}\n\nfunction safeRead(filePath) {\n  try {\n    return fs.readFileSync(filePath, \"utf8\");\n  } catch {\n    return null;\n  }\n}\n\nfunction shouldIgnore(relativePath) {\n  return (\n    relativePath.startsWith(\"No arquivo `\") ||\n    relativePath.includes(\"o script tenta\")\n  );\n}\n\nfunction isLocalArtifact(relativePath) {\n  const baseName = path.posix.basename(relativePath).toLowerCase();\n  return (\n    baseName.startsWith(\".aider\") ||\n    baseName === \"build-error.txt\" ||\n    baseName.endsWith(\".log\") ||\n    baseName.endsWith(\".tmp\") ||\n    baseName.endsWith(\".bak\") ||\n    baseName.endsWith(\".backup\") ||\n    baseName.endsWith(\".cache\")\n  );\n}\n\nfunction isSensitiveFile(relativePath) {\n  const baseName = path.posix.basename(relativePath).toLowerCase();\n  return (\n    baseName === \".env\" ||\n    baseName.startsWith(\".env.\") ||\n    /\\.(pem|key|p12|pfx)$/i.test(baseName) ||\n    baseName.startsWith(\"credentials\") ||\n    baseName.startsWith(\"secrets\")\n  );\n}\n\nfunction isGeneratedOutput(relativePath) {\n  return (\n    relativePath === \"site-context/context-index.json\" ||\n    relativePath === \"site-context/context-manifest.json\" ||\n    relativePath === \"site-context/decision-memory.json\" ||\n    relativePath === \"site-context/context-engine-v3.schema.json\" ||\n    relativePath.startsWith(\"site-context/.generation-tmp/\") ||\n    relativePath.startsWith(\"site-context/.promotion-backup/\") ||\n    relativePath === \"site-context/project-map.json\" ||\n    relativePath === \"site-context/project-map.tmp.json\" ||\n    relativePath === \"site-context/project-map.backup.json\" ||\n    relativePath === \"next-env.d.ts\" ||\n    relativePath === \"package-lock.json\"\n  );\n}\n\nfunction getExtension(relativePath) {\n  if (relativePath.toLowerCase().endsWith(\".d.ts\")) {\n    return \".d.ts\";\n  }\n  return path.posix.extname(relativePath).toLowerCase();\n}\n\nfunction getLanguage(extension) {\n  const languageByExtension = {\n    \".ts\": \"typescript\",\n    \".tsx\": \"typescript-react\",\n    \".d.ts\": \"typescript-declaration\",\n    \".js\": \"javascript\",\n    \".jsx\": \"javascript-react\",\n    \".mjs\": \"javascript-esm\",\n    \".cjs\": \"javascript-commonjs\",\n    \".json\": \"json\",\n    \".jsonc\": \"json-with-comments\",\n    \".css\": \"css\",\n    \".mdx\": \"mdx\",\n    \".md\": \"markdown\"\n  };\n  return languageByExtension[extension] || \"text\";\n}\n\nfunction getCategory(relativePath, extension) {\n  if (relativePath === \"AGENTS.md\") {\n    return \"operational-documentation\";\n  }\n  if (relativePath.startsWith(\"content/\") && extension === \".mdx\") {\n    return \"content\";\n  }\n  if (extension === \".css\") {\n    return \"style\";\n  }\n  if (\n    relativePath === \"package.json\" ||\n    relativePath === \"tsconfig.json\" ||\n    relativePath === \"wrangler.jsonc\" ||\n    relativePath === \"eslint.config.mjs\"\n  ) {\n    return \"configuration\";\n  }\n  if (extension === \".md\") {\n    return \"documentation\";\n  }\n  return \"source-code\";\n}\n\nfunction countLines(content) {\n  if (content.length === 0) {\n    return 0;\n  }\n  return content.split(/\\r\\n|\\r|\\n/).length;\n}\n\nfunction sha256(content) {\n  return crypto.createHash(\"sha256\").update(content, \"utf8\").digest(\"hex\");\n}\n\nfunction redactSecrets(content) {\n  let redacted = false;\n  let result = content;\n  const sensitiveNames = [\n    \"API_KEY\",\n    \"API_TOKEN\",\n    \"ACCESS_TOKEN\",\n    \"AUTH_TOKEN\",\n    \"SECRET\",\n    \"PASSWORD\",\n    \"PRIVATE_KEY\",\n    \"CLIENT_SECRET\",\n    \"CLOUDFLARE_API_TOKEN\",\n    \"GITHUB_TOKEN\"\n  ];\n\n  for (const name of sensitiveNames) {\n    const escapedName = name.replace(/[.*+?^${}()|[\\]\\\\]/g, \"\\\\$&\");\n    const patterns = [\n      new RegExp(\n        `(${escapedName}\\\\s*=\\\\s*)([\"']?)([^\"'\\\\r\\\\n,;]+)\\\\2`,\n        \"gi\"\n      ),\n      new RegExp(\n        `([\"']${escapedName}[\"']\\\\s*:\\\\s*)([\"'])(.*?)\\\\2`,\n        \"gi\"\n      )\n    ];\n\n    for (const pattern of patterns) {\n      result = result.replace(pattern, (match, prefix, quote) => {\n        redacted = true;\n        return `${prefix}${quote || \"\"}[REDACTED]${quote || \"\"}`;\n      });\n    }\n  }\n\n  return { content: result, redacted };\n}\n\nfunction addExcludedSourceFile(relativePath, reason) {\n  projectMap.excludedSourceFiles.push({ path: relativePath, reason });\n  projectMap.sourceMapStatus.excludedFiles += 1;\n\n  if (EXPECTED_EXCLUSION_REASONS.has(reason)) {\n    projectMap.sourceMapStatus.expectedExclusions += 1;\n  }\n  if (INCOMPLETE_EXCLUSION_REASONS.has(reason)) {\n    projectMap.sourceMapStatus.incompleteExclusions += 1;\n    projectMap.sourceMapStatus.complete = false;\n  }\n}\n\nfunction walk(dir) {\n  const entries = fs\n    .readdirSync(dir, { withFileTypes: true })\n    .sort((a, b) => a.name.localeCompare(b.name));\n\n  for (const entry of entries) {\n    if (IGNORE_DIRECTORIES.has(entry.name)) {\n      continue;\n    }\n\n    const fullPath = path.join(dir, entry.name);\n    const relativePath = normalize(path.relative(ROOT, fullPath));\n\n    if (shouldIgnore(relativePath)) {\n      continue;\n    }\n\n    projectMap.filesystem.push({\n      path: relativePath,\n      type: entry.isDirectory() ? \"directory\" : \"file\"\n    });\n\n    if (entry.isDirectory()) {\n      walk(fullPath);\n    }\n  }\n}\n\nfunction detectRoute(relativePath) {\n  const file = normalize(relativePath);\n  if (!file.startsWith(\"app/\") || !file.endsWith(\"/page.tsx\")) {\n    return null;\n  }\n  const route = file.replace(/^app/, \"\").replace(/\\/page\\.tsx$/, \"\");\n  return route || \"/\";\n}\n\nfunction extractImports() {\n  return [];\n}\n\nfunction scanFiles(dir) {\n  const entries = fs\n    .readdirSync(dir, { withFileTypes: true })\n    .sort((a, b) => a.name.localeCompare(b.name));\n\n  for (const entry of entries) {\n    if (IGNORE_DIRECTORIES.has(entry.name)) {\n      continue;\n    }\n\n    const fullPath = path.join(dir, entry.name);\n    if (entry.isDirectory()) {\n      scanFiles(fullPath);\n      continue;\n    }\n\n    const relativePath = normalize(path.relative(ROOT, fullPath));\n    if (shouldIgnore(relativePath)) {\n      continue;\n    }\n\n    const route = detectRoute(relativePath);\n    if (route) {\n      projectMap.routes.push({ route, source: relativePath });\n    }\n\n    if (relativePath.endsWith(\".tsx\") || relativePath.endsWith(\".jsx\")) {\n      projectMap.components.push(relativePath);\n    }\n\n    if (\n      relativePath.startsWith(\"content/posts/\") &&\n      relativePath.endsWith(\".mdx\")\n    ) {\n      projectMap.posts.push({\n        slug: path.basename(relativePath, \".mdx\"),\n        file: relativePath\n      });\n    }\n\n    if (\n      relativePath.endsWith(\".js\") ||\n      relativePath.endsWith(\".jsx\") ||\n      relativePath.endsWith(\".ts\") ||\n      relativePath.endsWith(\".tsx\")\n    ) {\n      const content = safeRead(fullPath);\n      if (content !== null) {\n        projectMap.importGraph.push({\n          file: relativePath,\n          imports: extractImports(content)\n        });\n      }\n    }\n  }\n}\n\nfunction collectSourceFiles() {\n  const filePaths = projectMap.filesystem\n    .filter((entry) => entry.type === \"file\")\n    .map((entry) => entry.path)\n    .sort((a, b) => a.localeCompare(b));\n\n  for (const relativePath of filePaths) {\n    const extension = getExtension(relativePath);\n\n    if (isGeneratedOutput(relativePath)) {\n      addExcludedSourceFile(relativePath, \"generated_output\");\n      continue;\n    }\n    if (isLocalArtifact(relativePath)) {\n      addExcludedSourceFile(relativePath, \"local_artifact\");\n      continue;\n    }\n    if (isSensitiveFile(relativePath)) {\n      addExcludedSourceFile(relativePath, \"sensitive_file\");\n      continue;\n    }\n    if (BINARY_EXTENSIONS.has(extension)) {\n      addExcludedSourceFile(relativePath, \"binary_file\");\n      continue;\n    }\n    if (!TEXT_EXTENSIONS.has(extension)) {\n      addExcludedSourceFile(relativePath, \"unsupported_extension\");\n      continue;\n    }\n\n    const fullPath = path.join(ROOT, relativePath);\n    let stats;\n    try {\n      stats = fs.statSync(fullPath);\n    } catch {\n      addExcludedSourceFile(relativePath, \"read_error\");\n      continue;\n    }\n\n    if (stats.size > MAX_FILE_SIZE_BYTES) {\n      addExcludedSourceFile(relativePath, \"file_size_limit\");\n      continue;\n    }\n\n    const originalContent = safeRead(fullPath);\n    if (originalContent === null) {\n      addExcludedSourceFile(relativePath, \"read_error\");\n      continue;\n    }\n\n    const originalSizeBytes = Buffer.byteLength(originalContent, \"utf8\");\n    if (\n      projectMap.sourceMapStatus.includedSizeBytes + originalSizeBytes >\n      MAX_TOTAL_SIZE_BYTES\n    ) {\n      addExcludedSourceFile(relativePath, \"total_size_limit\");\n      continue;\n    }\n\n    const redactionResult = redactSecrets(originalContent);\n    if (redactionResult.redacted) {\n      projectMap.sourceMapStatus.redactedFiles += 1;\n    }\n\n    projectMap.sourceFiles.push({\n      path: relativePath,\n      category: getCategory(relativePath, extension),\n      extension,\n      language: getLanguage(extension),\n      sizeBytes: originalSizeBytes,\n      lineCount: countLines(originalContent),\n      sha256: sha256(originalContent),\n      sha256Source: \"original-content\",\n      redacted: redactionResult.redacted,\n      content: redactionResult.content\n    });\n\n    projectMap.sourceMapStatus.includedFiles += 1;\n    projectMap.sourceMapStatus.includedSizeBytes += originalSizeBytes;\n  }\n\n  projectMap.sourceFiles.sort((a, b) => a.path.localeCompare(b.path));\n  projectMap.excludedSourceFiles.sort((a, b) =>\n    a.path.localeCompare(b.path)\n  );\n  projectMap.sourceMapStatus.complete =\n    projectMap.sourceMapStatus.incompleteExclusions === 0;\n}\n\nfunction loadPackageJson() {\n  const packageFile = path.join(ROOT, \"package.json\");\n  if (!fs.existsSync(packageFile)) {\n    return;\n  }\n  const packageContent = safeRead(packageFile);\n  if (!packageContent) {\n    return;\n  }\n  const pkg = JSON.parse(packageContent);\n  projectMap.project = {\n    name: pkg.name || null,\n    version: pkg.version || null\n  };\n  projectMap.dependencies = {\n    ...(pkg.dependencies || {}),\n    ...(pkg.devDependencies || {})\n  };\n  projectMap.scripts = pkg.scripts || {};\n}\n\nfunction loadWrangler() {\n  const wranglerFile = path.join(ROOT, \"wrangler.jsonc\");\n  if (!fs.existsSync(wranglerFile)) {\n    projectMap.integrations.cloudflare = false;\n    return;\n  }\n  projectMap.integrations.cloudflare = true;\n  projectMap.integrations.wrangler = \"wrangler.jsonc\";\n}\n\nfunction buildArchitecture() {\n  projectMap.architecture = {\n    framework: \"Next.js\",\n    renderer: \"React\",\n    adapter: \"OpenNext\",\n    hosting: \"Cloudflare\",\n    contentSource: \"MDX Filesystem\"\n  };\n}\n\nfunction buildRuntime() {\n  projectMap.runtime = {\n    framework: \"Next.js\",\n    node: process.version,\n    cloudflare: projectMap.integrations.cloudflare === true\n  };\n}\n\nfunction buildExecutionFlow() {\n  projectMap.executionFlow = {\n    content: [\n      \"content/posts/*.mdx\",\n      \"scripts/generate-posts.js\",\n      \"lib/generated-posts.ts\",\n      \"lib/blog-categories.ts\",\n      \"app/blog/page.tsx\",\n      \"app/blog/[slug]/page.tsx\",\n      \"app/blog/categoria/[categoria]/page.tsx\"\n    ],\n    categories: [\n      \"lib/blog-categories.ts\",\n      \"lib/generated-posts.ts\",\n      \"app/blog/page.tsx\",\n      \"app/blog/categoria/[categoria]/page.tsx\",\n      \"app/blog/[slug]/page.tsx\"\n    ],\n    build: [\n      \"scripts/generate-posts.js\",\n      \"next build\",\n      \"OpenNext\",\n      \"Cloudflare Deploy\"\n    ],\n    contextEngine: [\n      \"npm run context:scan\",\n      \"scripts/generate-project-map.js\",\n      \"site-context/project-map.json\",\n      \"BizChat / IA\"\n    ]\n  };\n}\n\nfunction sortProjectMap() {\n  projectMap.filesystem.sort((a, b) => a.path.localeCompare(b.path));\n  projectMap.routes.sort((a, b) => a.route.localeCompare(b.route));\n  projectMap.components.sort((a, b) => a.localeCompare(b));\n  projectMap.posts.sort((a, b) => a.slug.localeCompare(b.slug));\n  projectMap.importGraph.sort((a, b) => a.file.localeCompare(b.file));\n}\n\nfunction validateSourceFile(sourceFile) {\n  const requiredKeys = [\n    \"path\",\n    \"category\",\n    \"extension\",\n    \"language\",\n    \"sizeBytes\",\n    \"lineCount\",\n    \"sha256\",\n    \"sha256Source\",\n    \"redacted\",\n    \"content\"\n  ];\n  for (const key of requiredKeys) {\n    if (!(key in sourceFile)) {\n      throw new Error(`Required source file field is missing: ${key}`);\n    }\n  }\n}\n\nfunction validateProjectMap() {\n  const requiredRootKeys = [\n    \"$schema\",\n    \"schemaVersion\",\n    \"generatedAt\",\n    \"project\",\n    \"architecture\",\n    \"filesystem\",\n    \"routes\",\n    \"dependencies\",\n    \"scripts\",\n    \"components\",\n    \"posts\",\n    \"importGraph\",\n    \"integrations\",\n    \"runtime\",\n    \"executionFlow\",\n    \"contextEngine\",\n    \"sourceMapStatus\",\n    \"sourceFiles\",\n    \"excludedSourceFiles\"\n  ];\n\n  for (const key of requiredRootKeys) {\n    if (!(key in projectMap)) {\n      throw new Error(`Required project map block is missing: ${key}`);\n    }\n  }\n\n  const requiredContextKeys = [\n    \"productVision\",\n    \"businessGoals\",\n    \"projectStatus\",\n    \"roadmap\",\n    \"architectureDecisions\"\n  ];\n  for (const key of requiredContextKeys) {\n    if (!(key in projectMap.contextEngine)) {\n      throw new Error(`Required Context Engine block is missing: ${key}`);\n    }\n  }\n\n  for (const key of [\n    \"filesystem\",\n    \"routes\",\n    \"posts\",\n    \"importGraph\",\n    \"sourceFiles\",\n    \"excludedSourceFiles\"\n  ]) {\n    if (!Array.isArray(projectMap[key])) {\n      throw new Error(`The ${key} block must be an array.`);\n    }\n  }\n\n  for (const sourceFile of projectMap.sourceFiles) {\n    validateSourceFile(sourceFile);\n  }\n\n  if (\n    projectMap.sourceMapStatus.complete !==\n    (projectMap.sourceMapStatus.incompleteExclusions === 0)\n  ) {\n    throw new Error(\"Source map completeness status is inconsistent.\");\n  }\n}\n\nfunction parseJsonFile(filePath) {\n  return JSON.parse(fs.readFileSync(filePath, \"utf8\"));\n}\n\nfunction cleanupTransientFiles() {\n  for (const filePath of [TEMP_FILE, BACKUP_FILE]) {\n    if (fs.existsSync(filePath)) {\n      fs.rmSync(filePath, { force: true });\n    }\n  }\n}\n\nfunction saveAtomically() {\n  fs.mkdirSync(OUTPUT_DIR, { recursive: true });\n  cleanupTransientFiles();\n\n  const serialized = JSON.stringify(projectMap, null, 2);\n  JSON.parse(serialized);\n  fs.writeFileSync(TEMP_FILE, serialized, \"utf8\");\n  parseJsonFile(TEMP_FILE);\n\n  let backupCreated = false;\n\n  try {\n    if (fs.existsSync(OUTPUT_FILE)) {\n      fs.copyFileSync(OUTPUT_FILE, BACKUP_FILE);\n      parseJsonFile(BACKUP_FILE);\n      backupCreated = true;\n      fs.rmSync(OUTPUT_FILE, { force: true });\n    }\n\n    fs.renameSync(TEMP_FILE, OUTPUT_FILE);\n    parseJsonFile(OUTPUT_FILE);\n\n    if (backupCreated && fs.existsSync(BACKUP_FILE)) {\n      fs.rmSync(BACKUP_FILE, { force: true });\n    }\n\n    cleanupTransientFiles();\n    return OUTPUT_FILE;\n  } catch (error) {\n    if (fs.existsSync(OUTPUT_FILE)) {\n      fs.rmSync(OUTPUT_FILE, { force: true });\n    }\n    if (backupCreated && fs.existsSync(BACKUP_FILE)) {\n      fs.renameSync(BACKUP_FILE, OUTPUT_FILE);\n    }\n    if (fs.existsSync(TEMP_FILE)) {\n      fs.rmSync(TEMP_FILE, { force: true });\n    }\n    throw error;\n  }\n}\n\nfunction main() {\n  try {\n    console.log(\"Generating project map with full source snapshot...\");\n    loadPackageJson();\n    loadWrangler();\n    walk(ROOT);\n    scanFiles(ROOT);\n    collectSourceFiles();\n    buildArchitecture();\n    buildRuntime();\n    buildExecutionFlow();\n    sortProjectMap();\n    validateProjectMap();\n\n    const outputFile = saveAtomically();\n    console.log(\n      `${normalize(path.relative(ROOT, outputFile))} generated successfully.`\n    );\n  } catch (error) {\n    try {\n      cleanupTransientFiles();\n    } catch {\n      // Preserve the original failure as the primary error.\n    }\n    console.error(\"Failed to generate project map.\");\n    console.error(error instanceof Error ? error.message : String(error));\n    process.exitCode = 1;\n  }\n}\n\nmain();\n"
+      "content": "/* Context Engine V3 Lote 1: isolated staging generator. */\nconst fs = require(\"fs\");\nconst path = require(\"path\");\nconst crypto = require(\"crypto\");\n\nconst ROOT = process.cwd();\nconst OUTPUT_DIR = path.join(ROOT, \"site-context\", \".generation-tmp\");\nconst OUTPUT_FILE = path.join(OUTPUT_DIR, \"project-map.json\");\nconst TEMP_FILE = path.join(OUTPUT_DIR, \"project-map.tmp.json\");\nconst BACKUP_FILE = path.join(OUTPUT_DIR, \"project-map.backup.json\");\n\nconst MAX_FILE_SIZE_BYTES = 512000;\nconst MAX_TOTAL_SIZE_BYTES = 5242880;\n\nconst IGNORE_DIRECTORIES = new Set([\n  \".git\",\n  \".next\",\n  \"node_modules\",\n  \".open-next\",\n  \".vercel\",\n  \"dist\",\n  \"build\",\n  \"coverage\",\n  \".aider.tags.cache.v4\",\n  \".wrangler\",\n  \".generation-tmp\"\n]);\n\nconst TEXT_EXTENSIONS = new Set([\n  \".ts\",\n  \".tsx\",\n  \".js\",\n  \".jsx\",\n  \".mjs\",\n  \".cjs\",\n  \".json\",\n  \".jsonc\",\n  \".css\",\n  \".mdx\",\n  \".md\"\n]);\n\nconst BINARY_EXTENSIONS = new Set([\n  \".ico\",\n  \".png\",\n  \".jpg\",\n  \".jpeg\",\n  \".gif\",\n  \".webp\",\n  \".svg\",\n  \".pdf\",\n  \".doc\",\n  \".docx\",\n  \".xls\",\n  \".xlsx\",\n  \".ppt\",\n  \".pptx\",\n  \".woff\",\n  \".woff2\",\n  \".ttf\",\n  \".otf\",\n  \".eot\",\n  \".sqlite\",\n  \".db\",\n  \".exe\",\n  \".dll\",\n  \".zip\",\n  \".tar\",\n  \".gz\",\n  \".7z\",\n  \".rar\"\n]);\n\nconst EXPECTED_EXCLUSION_REASONS = new Set([\n  \"sensitive_file\",\n  \"binary_file\",\n  \"unsupported_extension\",\n  \"generated_output\",\n  \"local_artifact\"\n]);\n\nconst INCOMPLETE_EXCLUSION_REASONS = new Set([\n  \"file_size_limit\",\n  \"total_size_limit\",\n  \"read_error\"\n]);\n\nconst projectMap = {\n  \"$schema\": \"../context-engine-v3.schema.json\",\n  schemaVersion: \"3.1.0\",\n  generatedAt: new Date().toISOString(),\n  project: {},\n  architecture: {},\n  filesystem: [],\n  routes: [],\n  dependencies: {},\n  scripts: {},\n  components: [],\n  posts: [],\n  importGraph: [],\n  integrations: {},\n  runtime: {},\n  executionFlow: {},\n  contextEngine: {\n    productVision: {\n      name: \"Tupiniquim Platform\",\n      mission:\n        \"Plataforma SaaS brasileira para conteúdo, mídia, gestão e aplicações multi-tenant.\"\n    },\n    businessGoals: [\n      \"Reduzir dependência de contexto em conversas com IA\",\n      \"Preparar a fundação para CMS\",\n      \"Preparar a fundação para Media Center\",\n      \"Preparar a fundação para Multi-Tenant\",\n      \"Preparar a fundação para IA Generativa\",\n      \"Evoluir para modelo SaaS\"\n    ],\n    projectStatus: {\n      currentEpic: \"EPIC-003\",\n      name: \"Site Institucional Profissional\",\n      status: \"in_progress\"\n    },\n    roadmap: [\n      { name: \"Blog\", status: \"completed\" },\n      { name: \"Context Engine\", status: \"completed\" },\n      { name: \"Categorias Permanentes do Blog\", status: \"completed\" },\n      { name: \"Site Institucional Profissional\", status: \"in_progress\" },\n      { name: \"CMS\", status: \"planned\" },\n      { name: \"Área Administrativa\", status: \"planned\" },\n      { name: \"Gestão de Usuários\", status: \"planned\" },\n      { name: \"Media Center\", status: \"planned\" },\n      { name: \"Construtor de Páginas\", status: \"planned\" },\n      { name: \"Multi-Tenant\", status: \"planned\" },\n      { name: \"IA Generativa\", status: \"planned\" },\n      { name: \"SaaS Tupiniquim\", status: \"planned\" }\n    ],\n    architectureDecisions: [\n      {\n        id: \"ADR-001\",\n        title: \"Project Map como Fonte Única da Verdade\",\n        status: \"approved\",\n        description:\n          \"O project-map.json é a principal fonte de contexto técnico da plataforma.\"\n      },\n      {\n        id: \"ADR-002\",\n        title: \"Context Engine Monolítico\",\n        status: \"approved\",\n        description:\n          \"O Context Engine evolui sobre project-map.json evitando múltiplos arquivos redundantes.\"\n      }\n    ]\n  },\n  sourceMapStatus: {\n    enabled: true,\n    complete: true,\n    redactionApplied: true,\n    maxFileSizeBytes: MAX_FILE_SIZE_BYTES,\n    maxTotalSizeBytes: MAX_TOTAL_SIZE_BYTES,\n    includedFiles: 0,\n    excludedFiles: 0,\n    expectedExclusions: 0,\n    incompleteExclusions: 0,\n    redactedFiles: 0,\n    includedSizeBytes: 0\n  },\n  sourceFiles: [],\n  excludedSourceFiles: []\n};\n\nfunction normalize(value) {\n  return value.replace(/\\\\/g, \"/\");\n}\n\nfunction safeRead(filePath) {\n  try {\n    return fs.readFileSync(filePath, \"utf8\");\n  } catch {\n    return null;\n  }\n}\n\nfunction shouldIgnore(relativePath) {\n  return (\n    relativePath.startsWith(\"No arquivo `\") ||\n    relativePath.includes(\"o script tenta\")\n  );\n}\n\nfunction isLocalArtifact(relativePath) {\n  const baseName = path.posix.basename(relativePath).toLowerCase();\n  return (\n    baseName.startsWith(\".aider\") ||\n    baseName === \"build-error.txt\" ||\n    baseName.endsWith(\".log\") ||\n    baseName.endsWith(\".tmp\") ||\n    baseName.endsWith(\".bak\") ||\n    baseName.endsWith(\".backup\") ||\n    baseName.endsWith(\".cache\")\n  );\n}\n\nfunction isSensitiveFile(relativePath) {\n  const baseName = path.posix.basename(relativePath).toLowerCase();\n  return (\n    baseName === \".env\" ||\n    baseName.startsWith(\".env.\") ||\n    /\\.(pem|key|p12|pfx)$/i.test(baseName) ||\n    baseName.startsWith(\"credentials\") ||\n    baseName.startsWith(\"secrets\")\n  );\n}\n\nfunction isGeneratedOutput(relativePath) {\n  return (\n    relativePath.startsWith(\"scripts/context-engine/__tests__/\") ||\n    relativePath.startsWith(\"scripts/context-engine/fixtures/\") ||\n    relativePath.startsWith(\"scripts/baseline/\") ||\n    relativePath === \"site-context/context-index.json\" ||\n    relativePath === \"site-context/context-manifest.json\" ||\n    relativePath === \"site-context/decision-memory.json\" ||\n    relativePath === \"site-context/context-engine-v3.schema.json\" ||\n    relativePath.startsWith(\"site-context/.generation-tmp/\") ||\n    relativePath.startsWith(\"site-context/.promotion-backup/\") ||\n    relativePath === \"site-context/project-map.json\" ||\n    relativePath === \"site-context/project-map.tmp.json\" ||\n    relativePath === \"site-context/project-map.backup.json\" ||\n    relativePath === \"next-env.d.ts\" ||\n    relativePath === \"package-lock.json\"\n  );\n}\n\nfunction getExtension(relativePath) {\n  if (relativePath.toLowerCase().endsWith(\".d.ts\")) {\n    return \".d.ts\";\n  }\n  return path.posix.extname(relativePath).toLowerCase();\n}\n\nfunction getLanguage(extension) {\n  const languageByExtension = {\n    \".ts\": \"typescript\",\n    \".tsx\": \"typescript-react\",\n    \".d.ts\": \"typescript-declaration\",\n    \".js\": \"javascript\",\n    \".jsx\": \"javascript-react\",\n    \".mjs\": \"javascript-esm\",\n    \".cjs\": \"javascript-commonjs\",\n    \".json\": \"json\",\n    \".jsonc\": \"json-with-comments\",\n    \".css\": \"css\",\n    \".mdx\": \"mdx\",\n    \".md\": \"markdown\"\n  };\n  return languageByExtension[extension] || \"text\";\n}\n\nfunction getCategory(relativePath, extension) {\n  if (relativePath === \"AGENTS.md\") {\n    return \"operational-documentation\";\n  }\n  if (relativePath.startsWith(\"content/\") && extension === \".mdx\") {\n    return \"content\";\n  }\n  if (extension === \".css\") {\n    return \"style\";\n  }\n  if (\n    relativePath === \"package.json\" ||\n    relativePath === \"tsconfig.json\" ||\n    relativePath === \"wrangler.jsonc\" ||\n    relativePath === \"eslint.config.mjs\"\n  ) {\n    return \"configuration\";\n  }\n  if (extension === \".md\") {\n    return \"documentation\";\n  }\n  return \"source-code\";\n}\n\nfunction countLines(content) {\n  if (content.length === 0) {\n    return 0;\n  }\n  return content.split(/\\r\\n|\\r|\\n/).length;\n}\n\nfunction sha256(content) {\n  return crypto.createHash(\"sha256\").update(content, \"utf8\").digest(\"hex\");\n}\n\nfunction redactSecrets(content) {\n  let redacted = false;\n  let result = content;\n  const sensitiveNames = [\n    \"API_KEY\",\n    \"API_TOKEN\",\n    \"ACCESS_TOKEN\",\n    \"AUTH_TOKEN\",\n    \"SECRET\",\n    \"PASSWORD\",\n    \"PRIVATE_KEY\",\n    \"CLIENT_SECRET\",\n    \"CLOUDFLARE_API_TOKEN\",\n    \"GITHUB_TOKEN\"\n  ];\n\n  for (const name of sensitiveNames) {\n    const escapedName = name.replace(/[.*+?^${}()|[\\]\\\\]/g, \"\\\\$&\");\n    const patterns = [\n      new RegExp(\n        `(${escapedName}\\\\s*=\\\\s*)([\"']?)([^\"'\\\\r\\\\n,;]+)\\\\2`,\n        \"gi\"\n      ),\n      new RegExp(\n        `([\"']${escapedName}[\"']\\\\s*:\\\\s*)([\"'])(.*?)\\\\2`,\n        \"gi\"\n      )\n    ];\n\n    for (const pattern of patterns) {\n      result = result.replace(pattern, (match, prefix, quote) => {\n        redacted = true;\n        return `${prefix}${quote || \"\"}[REDACTED]${quote || \"\"}`;\n      });\n    }\n  }\n\n  return { content: result, redacted };\n}\n\nfunction addExcludedSourceFile(relativePath, reason) {\n  projectMap.excludedSourceFiles.push({ path: relativePath, reason });\n  projectMap.sourceMapStatus.excludedFiles += 1;\n\n  if (EXPECTED_EXCLUSION_REASONS.has(reason)) {\n    projectMap.sourceMapStatus.expectedExclusions += 1;\n  }\n  if (INCOMPLETE_EXCLUSION_REASONS.has(reason)) {\n    projectMap.sourceMapStatus.incompleteExclusions += 1;\n    projectMap.sourceMapStatus.complete = false;\n  }\n}\n\nfunction walk(dir) {\n  const entries = fs\n    .readdirSync(dir, { withFileTypes: true })\n    .sort((a, b) => a.name.localeCompare(b.name));\n\n  for (const entry of entries) {\n    if (IGNORE_DIRECTORIES.has(entry.name)) {\n      continue;\n    }\n\n    const fullPath = path.join(dir, entry.name);\n    const relativePath = normalize(path.relative(ROOT, fullPath));\n\n    if (shouldIgnore(relativePath)) {\n      continue;\n    }\n\n    projectMap.filesystem.push({\n      path: relativePath,\n      type: entry.isDirectory() ? \"directory\" : \"file\"\n    });\n\n    if (entry.isDirectory()) {\n      walk(fullPath);\n    }\n  }\n}\n\nfunction detectRoute(relativePath) {\n  const file = normalize(relativePath);\n  if (!file.startsWith(\"app/\") || !file.endsWith(\"/page.tsx\")) {\n    return null;\n  }\n  const route = file.replace(/^app/, \"\").replace(/\\/page\\.tsx$/, \"\");\n  return route || \"/\";\n}\n\nfunction extractImports() {\n  return [];\n}\n\nfunction scanFiles(dir) {\n  const entries = fs\n    .readdirSync(dir, { withFileTypes: true })\n    .sort((a, b) => a.name.localeCompare(b.name));\n\n  for (const entry of entries) {\n    if (IGNORE_DIRECTORIES.has(entry.name)) {\n      continue;\n    }\n\n    const fullPath = path.join(dir, entry.name);\n    if (entry.isDirectory()) {\n      scanFiles(fullPath);\n      continue;\n    }\n\n    const relativePath = normalize(path.relative(ROOT, fullPath));\n    if (shouldIgnore(relativePath)) {\n      continue;\n    }\n\n    const route = detectRoute(relativePath);\n    if (route) {\n      projectMap.routes.push({ route, source: relativePath });\n    }\n\n    if (relativePath.endsWith(\".tsx\") || relativePath.endsWith(\".jsx\")) {\n      projectMap.components.push(relativePath);\n    }\n\n    if (\n      relativePath.startsWith(\"content/posts/\") &&\n      relativePath.endsWith(\".mdx\")\n    ) {\n      projectMap.posts.push({\n        slug: path.basename(relativePath, \".mdx\"),\n        file: relativePath\n      });\n    }\n\n    if (\n      relativePath.endsWith(\".js\") ||\n      relativePath.endsWith(\".jsx\") ||\n      relativePath.endsWith(\".ts\") ||\n      relativePath.endsWith(\".tsx\")\n    ) {\n      const content = safeRead(fullPath);\n      if (content !== null) {\n        projectMap.importGraph.push({\n          file: relativePath,\n          imports: extractImports(content)\n        });\n      }\n    }\n  }\n}\n\nfunction collectSourceFiles() {\n  const filePaths = projectMap.filesystem\n    .filter((entry) => entry.type === \"file\")\n    .map((entry) => entry.path)\n    .sort((a, b) => a.localeCompare(b));\n\n  for (const relativePath of filePaths) {\n    const extension = getExtension(relativePath);\n\n    if (isGeneratedOutput(relativePath)) {\n      addExcludedSourceFile(relativePath, \"generated_output\");\n      continue;\n    }\n    if (isLocalArtifact(relativePath)) {\n      addExcludedSourceFile(relativePath, \"local_artifact\");\n      continue;\n    }\n    if (isSensitiveFile(relativePath)) {\n      addExcludedSourceFile(relativePath, \"sensitive_file\");\n      continue;\n    }\n    if (BINARY_EXTENSIONS.has(extension)) {\n      addExcludedSourceFile(relativePath, \"binary_file\");\n      continue;\n    }\n    if (!TEXT_EXTENSIONS.has(extension)) {\n      addExcludedSourceFile(relativePath, \"unsupported_extension\");\n      continue;\n    }\n\n    const fullPath = path.join(ROOT, relativePath);\n    let stats;\n    try {\n      stats = fs.statSync(fullPath);\n    } catch {\n      addExcludedSourceFile(relativePath, \"read_error\");\n      continue;\n    }\n\n    if (stats.size > MAX_FILE_SIZE_BYTES) {\n      addExcludedSourceFile(relativePath, \"file_size_limit\");\n      continue;\n    }\n\n    const originalContent = safeRead(fullPath);\n    if (originalContent === null) {\n      addExcludedSourceFile(relativePath, \"read_error\");\n      continue;\n    }\n\n    const originalSizeBytes = Buffer.byteLength(originalContent, \"utf8\");\n    if (\n      projectMap.sourceMapStatus.includedSizeBytes + originalSizeBytes >\n      MAX_TOTAL_SIZE_BYTES\n    ) {\n      addExcludedSourceFile(relativePath, \"total_size_limit\");\n      continue;\n    }\n\n    const redactionResult = redactSecrets(originalContent);\n    if (redactionResult.redacted) {\n      projectMap.sourceMapStatus.redactedFiles += 1;\n    }\n\n    projectMap.sourceFiles.push({\n      path: relativePath,\n      category: getCategory(relativePath, extension),\n      extension,\n      language: getLanguage(extension),\n      sizeBytes: originalSizeBytes,\n      lineCount: countLines(originalContent),\n      sha256: sha256(originalContent),\n      sha256Source: \"original-content\",\n      redacted: redactionResult.redacted,\n      content: redactionResult.content\n    });\n\n    projectMap.sourceMapStatus.includedFiles += 1;\n    projectMap.sourceMapStatus.includedSizeBytes += originalSizeBytes;\n  }\n\n  projectMap.sourceFiles.sort((a, b) => a.path.localeCompare(b.path));\n  projectMap.excludedSourceFiles.sort((a, b) =>\n    a.path.localeCompare(b.path)\n  );\n  projectMap.sourceMapStatus.complete =\n    projectMap.sourceMapStatus.incompleteExclusions === 0;\n}\n\nfunction loadPackageJson() {\n  const packageFile = path.join(ROOT, \"package.json\");\n  if (!fs.existsSync(packageFile)) {\n    return;\n  }\n  const packageContent = safeRead(packageFile);\n  if (!packageContent) {\n    return;\n  }\n  const pkg = JSON.parse(packageContent);\n  projectMap.project = {\n    name: pkg.name || null,\n    version: pkg.version || null\n  };\n  projectMap.dependencies = {\n    ...(pkg.dependencies || {}),\n    ...(pkg.devDependencies || {})\n  };\n  projectMap.scripts = pkg.scripts || {};\n}\n\nfunction loadWrangler() {\n  const wranglerFile = path.join(ROOT, \"wrangler.jsonc\");\n  if (!fs.existsSync(wranglerFile)) {\n    projectMap.integrations.cloudflare = false;\n    return;\n  }\n  projectMap.integrations.cloudflare = true;\n  projectMap.integrations.wrangler = \"wrangler.jsonc\";\n}\n\nfunction buildArchitecture() {\n  projectMap.architecture = {\n    framework: \"Next.js\",\n    renderer: \"React\",\n    adapter: \"OpenNext\",\n    hosting: \"Cloudflare\",\n    contentSource: \"MDX Filesystem\"\n  };\n}\n\nfunction buildRuntime() {\n  projectMap.runtime = {\n    framework: \"Next.js\",\n    node: process.version,\n    cloudflare: projectMap.integrations.cloudflare === true\n  };\n}\n\nfunction buildExecutionFlow() {\n  projectMap.executionFlow = {\n    content: [\n      \"content/posts/*.mdx\",\n      \"scripts/generate-posts.js\",\n      \"lib/generated-posts.ts\",\n      \"lib/blog-categories.ts\",\n      \"app/blog/page.tsx\",\n      \"app/blog/[slug]/page.tsx\",\n      \"app/blog/categoria/[categoria]/page.tsx\"\n    ],\n    categories: [\n      \"lib/blog-categories.ts\",\n      \"lib/generated-posts.ts\",\n      \"app/blog/page.tsx\",\n      \"app/blog/categoria/[categoria]/page.tsx\",\n      \"app/blog/[slug]/page.tsx\"\n    ],\n    build: [\n      \"scripts/generate-posts.js\",\n      \"next build\",\n      \"OpenNext\",\n      \"Cloudflare Deploy\"\n    ],\n    contextEngine: [\n      \"npm run context:scan\",\n      \"scripts/generate-project-map.js\",\n      \"site-context/project-map.json\",\n      \"BizChat / IA\"\n    ]\n  };\n}\n\nfunction sortProjectMap() {\n  projectMap.filesystem.sort((a, b) => a.path.localeCompare(b.path));\n  projectMap.routes.sort((a, b) => a.route.localeCompare(b.route));\n  projectMap.components.sort((a, b) => a.localeCompare(b));\n  projectMap.posts.sort((a, b) => a.slug.localeCompare(b.slug));\n  projectMap.importGraph.sort((a, b) => a.file.localeCompare(b.file));\n}\n\nfunction validateSourceFile(sourceFile) {\n  const requiredKeys = [\n    \"path\",\n    \"category\",\n    \"extension\",\n    \"language\",\n    \"sizeBytes\",\n    \"lineCount\",\n    \"sha256\",\n    \"sha256Source\",\n    \"redacted\",\n    \"content\"\n  ];\n  for (const key of requiredKeys) {\n    if (!(key in sourceFile)) {\n      throw new Error(`Required source file field is missing: ${key}`);\n    }\n  }\n}\n\nfunction validateProjectMap() {\n  const requiredRootKeys = [\n    \"$schema\",\n    \"schemaVersion\",\n    \"generatedAt\",\n    \"project\",\n    \"architecture\",\n    \"filesystem\",\n    \"routes\",\n    \"dependencies\",\n    \"scripts\",\n    \"components\",\n    \"posts\",\n    \"importGraph\",\n    \"integrations\",\n    \"runtime\",\n    \"executionFlow\",\n    \"contextEngine\",\n    \"sourceMapStatus\",\n    \"sourceFiles\",\n    \"excludedSourceFiles\"\n  ];\n\n  for (const key of requiredRootKeys) {\n    if (!(key in projectMap)) {\n      throw new Error(`Required project map block is missing: ${key}`);\n    }\n  }\n\n  const requiredContextKeys = [\n    \"productVision\",\n    \"businessGoals\",\n    \"projectStatus\",\n    \"roadmap\",\n    \"architectureDecisions\"\n  ];\n  for (const key of requiredContextKeys) {\n    if (!(key in projectMap.contextEngine)) {\n      throw new Error(`Required Context Engine block is missing: ${key}`);\n    }\n  }\n\n  for (const key of [\n    \"filesystem\",\n    \"routes\",\n    \"posts\",\n    \"importGraph\",\n    \"sourceFiles\",\n    \"excludedSourceFiles\"\n  ]) {\n    if (!Array.isArray(projectMap[key])) {\n      throw new Error(`The ${key} block must be an array.`);\n    }\n  }\n\n  for (const sourceFile of projectMap.sourceFiles) {\n    validateSourceFile(sourceFile);\n  }\n\n  if (\n    projectMap.sourceMapStatus.complete !==\n    (projectMap.sourceMapStatus.incompleteExclusions === 0)\n  ) {\n    throw new Error(\"Source map completeness status is inconsistent.\");\n  }\n}\n\nfunction parseJsonFile(filePath) {\n  return JSON.parse(fs.readFileSync(filePath, \"utf8\"));\n}\n\nfunction cleanupTransientFiles() {\n  for (const filePath of [TEMP_FILE, BACKUP_FILE]) {\n    if (fs.existsSync(filePath)) {\n      fs.rmSync(filePath, { force: true });\n    }\n  }\n}\n\nfunction saveAtomically() {\n  fs.mkdirSync(OUTPUT_DIR, { recursive: true });\n  cleanupTransientFiles();\n\n  const serialized = JSON.stringify(projectMap, null, 2);\n  JSON.parse(serialized);\n  fs.writeFileSync(TEMP_FILE, serialized, \"utf8\");\n  parseJsonFile(TEMP_FILE);\n\n  let backupCreated = false;\n\n  try {\n    if (fs.existsSync(OUTPUT_FILE)) {\n      fs.copyFileSync(OUTPUT_FILE, BACKUP_FILE);\n      parseJsonFile(BACKUP_FILE);\n      backupCreated = true;\n      fs.rmSync(OUTPUT_FILE, { force: true });\n    }\n\n    fs.renameSync(TEMP_FILE, OUTPUT_FILE);\n    parseJsonFile(OUTPUT_FILE);\n\n    if (backupCreated && fs.existsSync(BACKUP_FILE)) {\n      fs.rmSync(BACKUP_FILE, { force: true });\n    }\n\n    cleanupTransientFiles();\n    return OUTPUT_FILE;\n  } catch (error) {\n    if (fs.existsSync(OUTPUT_FILE)) {\n      fs.rmSync(OUTPUT_FILE, { force: true });\n    }\n    if (backupCreated && fs.existsSync(BACKUP_FILE)) {\n      fs.renameSync(BACKUP_FILE, OUTPUT_FILE);\n    }\n    if (fs.existsSync(TEMP_FILE)) {\n      fs.rmSync(TEMP_FILE, { force: true });\n    }\n    throw error;\n  }\n}\n\nfunction main() {\n  try {\n    console.log(\"Generating project map with full source snapshot...\");\n    loadPackageJson();\n    loadWrangler();\n    walk(ROOT);\n    scanFiles(ROOT);\n    collectSourceFiles();\n    buildArchitecture();\n    buildRuntime();\n    buildExecutionFlow();\n    sortProjectMap();\n    validateProjectMap();\n\n    const outputFile = saveAtomically();\n    console.log(\n      `${normalize(path.relative(ROOT, outputFile))} generated successfully.`\n    );\n  } catch (error) {\n    try {\n      cleanupTransientFiles();\n    } catch {\n      // Preserve the original failure as the primary error.\n    }\n    console.error(\"Failed to generate project map.\");\n    console.error(error instanceof Error ? error.message : String(error));\n    process.exitCode = 1;\n  }\n}\n\nmain();\n"
     },
     {
       "path": "scripts/generate-project-map.js",
@@ -1974,6 +1884,50 @@
       "reason": "binary_file"
     },
     {
+      "path": "scripts/baseline/baseline-manifest.json",
+      "reason": "generated_output"
+    },
+    {
+      "path": "scripts/baseline/generate-project-map.baseline.js",
+      "reason": "generated_output"
+    },
+    {
+      "path": "scripts/context-engine/__tests__/context-enrichment.test.js",
+      "reason": "generated_output"
+    },
+    {
+      "path": "scripts/context-engine/__tests__/context-indexer-boundary.test.js",
+      "reason": "generated_output"
+    },
+    {
+      "path": "scripts/context-engine/__tests__/context-indexer.test.js",
+      "reason": "generated_output"
+    },
+    {
+      "path": "scripts/context-engine/__tests__/context-query-quality.test.js",
+      "reason": "generated_output"
+    },
+    {
+      "path": "scripts/context-engine/__tests__/context-query.test.js",
+      "reason": "generated_output"
+    },
+    {
+      "path": "scripts/context-engine/__tests__/knowledge-graph.test.js",
+      "reason": "generated_output"
+    },
+    {
+      "path": "scripts/context-engine/__tests__/lote0.test.js",
+      "reason": "generated_output"
+    },
+    {
+      "path": "scripts/context-engine/__tests__/recursive-isolation.test.js",
+      "reason": "generated_output"
+    },
+    {
+      "path": "scripts/context-engine/fixtures/invalid-decision-memory.json",
+      "reason": "generated_output"
+    },
+    {
       "path": "site-context/context-engine-v3.schema.json",
       "reason": "generated_output"
     },
@@ -2001,6 +1955,16 @@
   "knowledgeGraph": {
     "relations": [
       {
+        "id": "REL-0335aa752313850f",
+        "source": "scripts/context-engine/query-context.js",
+        "specifier": "./context-query",
+        "target": "scripts/context-engine/context-query.js",
+        "targetKind": "internal",
+        "relationType": "require",
+        "resolved": true,
+        "resolutionReason": null
+      },
+      {
         "id": "REL-08d2db04c8574b28",
         "source": "scripts/context-engine/run-tests.js",
         "specifier": "child_process",
@@ -2017,6 +1981,16 @@
         "target": "lib/generated-posts.ts",
         "targetKind": "internal",
         "relationType": "static_import",
+        "resolved": true,
+        "resolutionReason": null
+      },
+      {
+        "id": "REL-0c540bbbb4b24d5c",
+        "source": "scripts/context-engine/verify-lote6.js",
+        "specifier": "./context-query",
+        "target": "scripts/context-engine/context-query.js",
+        "targetKind": "internal",
+        "relationType": "require",
         "resolved": true,
         "resolutionReason": null
       },
@@ -2051,41 +2025,11 @@
         "resolutionReason": null
       },
       {
-        "id": "REL-14824c970c13e83b",
-        "source": "scripts/context-engine/__tests__/lote0.test.js",
-        "specifier": "fs",
-        "target": "fs",
-        "targetKind": "external_package",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
-        "id": "REL-16103c3537cffbe3",
-        "source": "scripts/context-engine/__tests__/context-indexer-boundary.test.js",
-        "specifier": "../context-indexer",
-        "target": "scripts/context-engine/context-indexer.js",
-        "targetKind": "internal",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
         "id": "REL-1682fc89a3688a15",
         "source": "scripts/context-engine/technical-debt.js",
         "specifier": "typescript",
         "target": "typescript",
         "targetKind": "external_package",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
-        "id": "REL-173e1d5d360cd092",
-        "source": "scripts/context-engine/__tests__/context-enrichment.test.js",
-        "specifier": "node:assert/strict",
-        "target": "node:assert/strict",
-        "targetKind": "node_builtin",
         "relationType": "require",
         "resolved": true,
         "resolutionReason": null
@@ -2116,16 +2060,6 @@
         "specifier": "fs",
         "target": "fs",
         "targetKind": "external_package",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
-        "id": "REL-1fe5c05fae4cf2e0",
-        "source": "scripts/context-engine/__tests__/recursive-isolation.test.js",
-        "specifier": "node:assert/strict",
-        "target": "node:assert/strict",
-        "targetKind": "node_builtin",
         "relationType": "require",
         "resolved": true,
         "resolutionReason": null
@@ -2175,26 +2109,6 @@
         "source": "scripts/context-engine/run-tests.js",
         "specifier": "fs",
         "target": "fs",
-        "targetKind": "external_package",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
-        "id": "REL-3467454ff837eb24",
-        "source": "scripts/context-engine/__tests__/lote0.test.js",
-        "specifier": "node:test",
-        "target": "node:test",
-        "targetKind": "node_builtin",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
-        "id": "REL-38a75ba6f9ec4f28",
-        "source": "scripts/context-engine/__tests__/recursive-isolation.test.js",
-        "specifier": "path",
-        "target": "path",
         "targetKind": "external_package",
         "relationType": "require",
         "resolved": true,
@@ -2251,16 +2165,6 @@
         "resolutionReason": null
       },
       {
-        "id": "REL-42d88518ecf10cc2",
-        "source": "scripts/baseline/generate-project-map.baseline.js",
-        "specifier": "fs",
-        "target": "fs",
-        "targetKind": "external_package",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
         "id": "REL-4340818531760135",
         "source": "scripts/context-engine/compare-staged.js",
         "specifier": "fs",
@@ -2311,16 +2215,6 @@
         "resolutionReason": null
       },
       {
-        "id": "REL-4de506e6a37483ab",
-        "source": "scripts/context-engine/__tests__/context-enrichment.test.js",
-        "specifier": "node:test",
-        "target": "node:test",
-        "targetKind": "node_builtin",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
         "id": "REL-4e31fe2de5c751c2",
         "source": "lib/posts.ts",
         "specifier": "gray-matter",
@@ -2335,16 +2229,6 @@
         "source": "scripts/generate-posts.js",
         "specifier": "gray-matter",
         "target": "gray-matter",
-        "targetKind": "external_package",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
-        "id": "REL-50f70752390f182d",
-        "source": "scripts/context-engine/__tests__/recursive-isolation.test.js",
-        "specifier": "fs",
-        "target": "fs",
         "targetKind": "external_package",
         "relationType": "require",
         "resolved": true,
@@ -2366,16 +2250,6 @@
         "specifier": "path",
         "target": "path",
         "targetKind": "external_package",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
-        "id": "REL-52d4be85dc5b8b67",
-        "source": "scripts/context-engine/__tests__/knowledge-graph.test.js",
-        "specifier": "node:assert/strict",
-        "target": "node:assert/strict",
-        "targetKind": "node_builtin",
         "relationType": "require",
         "resolved": true,
         "resolutionReason": null
@@ -2425,16 +2299,6 @@
         "source": "scripts/context-engine/build-staged-index.js",
         "specifier": "path",
         "target": "path",
-        "targetKind": "external_package",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
-        "id": "REL-5f97f708b06699c2",
-        "source": "scripts/context-engine/__tests__/lote0.test.js",
-        "specifier": "ajv-formats",
-        "target": "ajv-formats",
         "targetKind": "external_package",
         "relationType": "require",
         "resolved": true,
@@ -2511,16 +2375,6 @@
         "resolutionReason": null
       },
       {
-        "id": "REL-7385f6c518fd90d9",
-        "source": "scripts/context-engine/__tests__/recursive-isolation.test.js",
-        "specifier": "node:test",
-        "target": "node:test",
-        "targetKind": "node_builtin",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
         "id": "REL-7742dcfb4d1654db",
         "source": "lib/posts.ts",
         "specifier": "path",
@@ -2551,16 +2405,6 @@
         "resolutionReason": null
       },
       {
-        "id": "REL-7d299b6ffc0193f6",
-        "source": "scripts/context-engine/__tests__/context-indexer.test.js",
-        "specifier": "node:assert/strict",
-        "target": "node:assert/strict",
-        "targetKind": "node_builtin",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
         "id": "REL-7ea8b15b4b1ca8bb",
         "source": "scripts/context-engine/verify-lote2.js",
         "specifier": "path",
@@ -2586,36 +2430,6 @@
         "specifier": "fs",
         "target": "fs",
         "targetKind": "external_package",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
-        "id": "REL-85081c9eaaa9c19a",
-        "source": "scripts/context-engine/__tests__/context-indexer.test.js",
-        "specifier": "node:test",
-        "target": "node:test",
-        "targetKind": "node_builtin",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
-        "id": "REL-86527aa10623d16a",
-        "source": "scripts/baseline/generate-project-map.baseline.js",
-        "specifier": "path",
-        "target": "path",
-        "targetKind": "external_package",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
-        "id": "REL-887f5c67e7c91923",
-        "source": "scripts/context-engine/__tests__/knowledge-graph.test.js",
-        "specifier": "node:test",
-        "target": "node:test",
-        "targetKind": "node_builtin",
         "relationType": "require",
         "resolved": true,
         "resolutionReason": null
@@ -2711,6 +2525,16 @@
         "resolutionReason": null
       },
       {
+        "id": "REL-9e43d4142bb14b75",
+        "source": "scripts/context-engine/verify-lote6.js",
+        "specifier": "fs",
+        "target": "fs",
+        "targetKind": "external_package",
+        "relationType": "require",
+        "resolved": true,
+        "resolutionReason": null
+      },
+      {
         "id": "REL-9e8702b7d3c3a480",
         "source": "scripts/context-engine/verify-lote3.js",
         "specifier": "crypto",
@@ -2727,16 +2551,6 @@
         "target": "next/navigation",
         "targetKind": "external_package",
         "relationType": "static_import",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
-        "id": "REL-a09760e332edebda",
-        "source": "scripts/context-engine/__tests__/knowledge-graph.test.js",
-        "specifier": "../knowledge-graph",
-        "target": "scripts/context-engine/knowledge-graph.js",
-        "targetKind": "internal",
-        "relationType": "require",
         "resolved": true,
         "resolutionReason": null
       },
@@ -2801,16 +2615,6 @@
         "resolutionReason": null
       },
       {
-        "id": "REL-a7904aa9a777c29e",
-        "source": "scripts/context-engine/__tests__/lote0.test.js",
-        "specifier": "path",
-        "target": "path",
-        "targetKind": "external_package",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
         "id": "REL-abb3c35879a4ce0a",
         "source": "scripts/generate-project-map-v3.js",
         "specifier": "fs",
@@ -2861,16 +2665,6 @@
         "resolutionReason": null
       },
       {
-        "id": "REL-b104a170c6d99b67",
-        "source": "scripts/context-engine/__tests__/context-enrichment.test.js",
-        "specifier": "../feature-map",
-        "target": "scripts/context-engine/feature-map.js",
-        "targetKind": "internal",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
         "id": "REL-b5f7f52df8f907bd",
         "source": "scripts/context-engine/verify-lote1.js",
         "specifier": "path",
@@ -2901,38 +2695,8 @@
         "resolutionReason": null
       },
       {
-        "id": "REL-bd76c2373212264c",
-        "source": "scripts/baseline/generate-project-map.baseline.js",
-        "specifier": "crypto",
-        "target": "crypto",
-        "targetKind": "external_package",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
-        "id": "REL-bfe98d0987ec7f51",
-        "source": "scripts/context-engine/__tests__/context-enrichment.test.js",
-        "specifier": "../ai-context",
-        "target": "scripts/context-engine/ai-context.js",
-        "targetKind": "internal",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
         "id": "REL-c00f0f4b307a995c",
         "source": "scripts/context-engine/verify-lote4.js",
-        "specifier": "path",
-        "target": "path",
-        "targetKind": "external_package",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
-        "id": "REL-c116356331b9a310",
-        "source": "scripts/context-engine/__tests__/knowledge-graph.test.js",
         "specifier": "path",
         "target": "path",
         "targetKind": "external_package",
@@ -2945,16 +2709,6 @@
         "source": "scripts/context-engine/knowledge-graph.js",
         "specifier": "crypto",
         "target": "crypto",
-        "targetKind": "external_package",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
-        "id": "REL-c27ea8eced1f9b25",
-        "source": "scripts/context-engine/__tests__/lote0.test.js",
-        "specifier": "child_process",
-        "target": "child_process",
         "targetKind": "external_package",
         "relationType": "require",
         "resolved": true,
@@ -3001,6 +2755,16 @@
         "resolutionReason": null
       },
       {
+        "id": "REL-c710e8f678acf877",
+        "source": "scripts/context-engine/query-context.js",
+        "specifier": "fs",
+        "target": "fs",
+        "targetKind": "external_package",
+        "relationType": "require",
+        "resolved": true,
+        "resolutionReason": null
+      },
+      {
         "id": "REL-c88e7b747931e202",
         "source": "scripts/context-engine/verify-lote1.js",
         "specifier": "child_process",
@@ -3036,26 +2800,6 @@
         "specifier": "child_process",
         "target": "child_process",
         "targetKind": "external_package",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
-        "id": "REL-d152bda1388ef64b",
-        "source": "scripts/context-engine/__tests__/context-enrichment.test.js",
-        "specifier": "../technical-debt",
-        "target": "scripts/context-engine/technical-debt.js",
-        "targetKind": "internal",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
-        "id": "REL-d1e0b01bf09e56c6",
-        "source": "scripts/context-engine/__tests__/context-indexer.test.js",
-        "specifier": "../context-indexer",
-        "target": "scripts/context-engine/context-indexer.js",
-        "targetKind": "internal",
         "relationType": "require",
         "resolved": true,
         "resolutionReason": null
@@ -3121,11 +2865,21 @@
         "resolutionReason": null
       },
       {
-        "id": "REL-e00bdfdb4cf054f0",
-        "source": "scripts/context-engine/__tests__/context-indexer-boundary.test.js",
-        "specifier": "node:test",
-        "target": "node:test",
-        "targetKind": "node_builtin",
+        "id": "REL-dbf3536f8588606b",
+        "source": "scripts/context-engine/verify-lote6.js",
+        "specifier": "path",
+        "target": "path",
+        "targetKind": "external_package",
+        "relationType": "require",
+        "resolved": true,
+        "resolutionReason": null
+      },
+      {
+        "id": "REL-e1663309531fd6ca",
+        "source": "scripts/context-engine/verify-lote6.js",
+        "specifier": "crypto",
+        "target": "crypto",
+        "targetKind": "external_package",
         "relationType": "require",
         "resolved": true,
         "resolutionReason": null
@@ -3136,16 +2890,6 @@
         "specifier": "fs",
         "target": "fs",
         "targetKind": "external_package",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
-        "id": "REL-e3f0e3f164c8daf4",
-        "source": "scripts/context-engine/__tests__/context-indexer-boundary.test.js",
-        "specifier": "node:assert/strict",
-        "target": "node:assert/strict",
-        "targetKind": "node_builtin",
         "relationType": "require",
         "resolved": true,
         "resolutionReason": null
@@ -3251,16 +2995,6 @@
         "resolutionReason": null
       },
       {
-        "id": "REL-f4851bbc61690685",
-        "source": "scripts/context-engine/__tests__/lote0.test.js",
-        "specifier": "ajv/dist/2020",
-        "target": "ajv/dist/2020",
-        "targetKind": "external_package",
-        "relationType": "require",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
         "id": "REL-f4cf59c7de474c0e",
         "source": "scripts/context-engine/verify-lote3.js",
         "specifier": "fs",
@@ -3281,10 +3015,10 @@
         "resolutionReason": null
       },
       {
-        "id": "REL-f7a1ff75e782a78d",
-        "source": "scripts/context-engine/__tests__/lote0.test.js",
-        "specifier": "crypto",
-        "target": "crypto",
+        "id": "REL-f8bd1d256078d96e",
+        "source": "scripts/context-engine/query-context.js",
+        "specifier": "path",
+        "target": "path",
         "targetKind": "external_package",
         "relationType": "require",
         "resolved": true,
@@ -3307,16 +3041,6 @@
         "target": "lib/generated-posts.ts",
         "targetKind": "internal",
         "relationType": "static_import",
-        "resolved": true,
-        "resolutionReason": null
-      },
-      {
-        "id": "REL-fd906db49a2b9dc5",
-        "source": "scripts/context-engine/__tests__/lote0.test.js",
-        "specifier": "node:assert/strict",
-        "target": "node:assert/strict",
-        "targetKind": "node_builtin",
-        "relationType": "require",
         "resolved": true,
         "resolutionReason": null
       },
@@ -3375,6 +3099,8 @@
         "scripts/context-engine/__tests__/context-enrichment.test.js",
         "scripts/context-engine/__tests__/context-indexer-boundary.test.js",
         "scripts/context-engine/__tests__/context-indexer.test.js",
+        "scripts/context-engine/__tests__/context-query-quality.test.js",
+        "scripts/context-engine/__tests__/context-query.test.js",
         "scripts/context-engine/__tests__/knowledge-graph.test.js",
         "scripts/context-engine/__tests__/lote0.test.js",
         "scripts/context-engine/__tests__/recursive-isolation.test.js",
@@ -3382,6 +3108,7 @@
         "scripts/context-engine/build-staged-index.js",
         "scripts/context-engine/compare-staged.js",
         "scripts/context-engine/context-indexer.js",
+        "scripts/context-engine/context-query.js",
         "scripts/context-engine/decision-memory.js",
         "scripts/context-engine/enhance-staged-graph.js",
         "scripts/context-engine/enrich-staged-context.js",
@@ -3390,6 +3117,7 @@
         "scripts/context-engine/knowledge-graph.js",
         "scripts/context-engine/prepare-context.js",
         "scripts/context-engine/promote-v3.js",
+        "scripts/context-engine/query-context.js",
         "scripts/context-engine/run-context-v3.js",
         "scripts/context-engine/run-tests.js",
         "scripts/context-engine/technical-debt.js",
@@ -3400,6 +3128,7 @@
         "scripts/context-engine/verify-lote2.js",
         "scripts/context-engine/verify-lote3.js",
         "scripts/context-engine/verify-lote4.js",
+        "scripts/context-engine/verify-lote6.js",
         "scripts/generate-project-map-v3.js",
         "scripts/generate-project-map.js",
         "scripts/generate-project-map_v2.js",
@@ -3429,13 +3158,11 @@
     "app/quem-somos/page.tsx",
     "components/layout/Footer.tsx",
     "components/layout/Header.tsx",
-    "context-engine-v3.schema.json",
     "diff-project-map.txt",
     "docs/BASELINE.docx",
     "docs/baseline.md",
     "docs/ÂNCORA PERMANENTE DO PROJETO.docx",
     "eslint.config.mjs",
-    "invalid-decision-memory.json",
     "lib/posts.ts",
     "next-env.d.ts",
     "next.config.ts",
