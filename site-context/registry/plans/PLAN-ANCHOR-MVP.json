@@ -46,7 +46,7 @@
     {
       "id": "PHASE-HARNESS-00-TRANSITION",
       "name": "Organizacao da Transicao e Apropriacao de Escopo",
-      "status": "in_progress",
+      "status": "completed",
       "objective": "Organizar o pausamento do EPIC-003, formalizar o EPIC-004, apropriar ao Harness os artefatos de continuidade e publicar um estado recuperavel antes de retomar o inventario.",
       "deliverables": [
         "inventario classificado da raiz",
@@ -70,7 +70,7 @@
         {
           "id": "TASK-HARNESS-TRANSITION-CLEANUP",
           "title": "Classificar e limpar controladamente a raiz",
-          "status": "in_progress",
+          "status": "completed",
           "deliverables": [
             "inventario de temporarios",
             "classificacao dos arquivos divergentes",
@@ -89,7 +89,7 @@
     {
       "id": "PHASE-ANCHOR-01-INVENTORY",
       "name": "Inventário e Matriz de Migração",
-      "status": "paused",
+      "status": "in_progress",
       "objective": "Classificar patrimônio confirmado, histórico, planejado, conflitante, incompleto e não comprovado.",
       "deliverables": [
         "migration-matrix.json",
@@ -211,6 +211,6 @@
     "DEC-2026-EPIC-TRANSITION-HARNESS",
     "DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY"
   ],
-  "currentPhase": "PHASE-HARNESS-00-TRANSITION",
-  "nextPhase": "PHASE-ANCHOR-01-INVENTORY"
+  "currentPhase": "PHASE-ANCHOR-01-INVENTORY",
+  "nextPhase": "PHASE-ANCHOR-02-REGISTRIES"
 }

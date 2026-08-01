@@ -1,6 +1,6 @@
 {
-  "generationId": "73f5609e1914f0e87329712e728ff305b4e57fe80a6ba82aa73f0f907120d2a3",
-  "generatedAt": "2026-08-01T20:25:38.489Z",
+  "generationId": "8dd4187a288568caa3b40cef6f7f0114f9712497f737b722d3edd0317ebd0110",
+  "generatedAt": "2026-08-01T20:48:14.242Z",
   "schemaVersion": "3.1.0",
   "inputs": {
     "decisionMemory": {
@@ -12,16 +12,16 @@
   "artifacts": {
     "projectMap": {
       "path": "site-context/project-map.json",
-      "sha256": "85e0822ab9e4d823d669c9d65f49591505307fcd9fe4e944bbf72b909fa90f42"
+      "sha256": "7b88e397e04db5a23625f412d82438114e00cfaf10f29d11da2e8c746628ff3a"
     },
     "contextIndex": {
       "path": "site-context/context-index.json",
-      "sha256": "97a452522735b5ad4822388f1169fdf1fdf2394bdfb08b7612e80aeded31b287"
+      "sha256": "64957bdfaa4a3f41a9b2efe11991b3ce5e5cebc4c2d32dfc938cc523f3eae60d"
     }
   },
   "promotion": {
-    "promotedAt": "2026-08-01T20:25:43.463Z",
-    "sourceGenerationId": "73f5609e1914f0e87329712e728ff305b4e57fe80a6ba82aa73f0f907120d2a3",
+    "promotedAt": "2026-08-01T20:48:19.017Z",
+    "sourceGenerationId": "8dd4187a288568caa3b40cef6f7f0114f9712497f737b722d3edd0317ebd0110",
     "status": "promoted"
   }
 }

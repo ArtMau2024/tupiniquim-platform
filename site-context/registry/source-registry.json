@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-01T20:27:00.695Z",
+  "generatedAt": "2026-08-01T20:48:50.682Z",
   "sources": [
     {
       "id": "SRC-ANCHOR-HISTORICAL-DOCX",
@@ -74,7 +74,7 @@
         "Derived and regenerable.",
         "Does not replace persistent decision or historical sources."
       ],
-      "sha256": "85e0822ab9e4d823d669c9d65f49591505307fcd9fe4e944bbf72b909fa90f42"
+      "sha256": "7b88e397e04db5a23625f412d82438114e00cfaf10f29d11da2e8c746628ff3a"
     },
     {
       "id": "SRC-DECISION-MEMORY",
@@ -128,7 +128,7 @@
       "limitations": [
         "Planning authority only; current technical evidence remains in Project Map."
       ],
-      "sha256": "b0e82c89f35a2a121b07ee1e3a806962a265168f720e54896c6a2ef709ac2525"
+      "sha256": "39d00160ad0caacafaf0557b469b836ff5b2b72cf8000c5b77352c5bba9e800a"
     },
     {
       "id": "SRC-ANCHOR-MVP-NARRATIVE",
@@ -198,7 +198,7 @@
       "limitations": [
         "Technical filesystem state remains derived from the Project Map."
       ],
-      "sha256": "5f37c43466c0fea6eab6249f12b10633fdbb856673f119422b20ebd76586cbbc"
+      "sha256": "c912a9741d4891a26beb8a41e2fd12f958bcbe96eb45f4e6814c5700fd37d75f"
     },
     {
       "id": "SRC-MIGRATION-MATRIX",
