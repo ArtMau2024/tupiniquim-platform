@@ -1,0 +1,4 @@
+"use strict";const test=require("node:test");const assert=require("node:assert/strict");const {buildAnchor,validateAnchor}=require("../bootstrap-context");
+test("builds exactly five canonical anchor blocks",()=>{const a=validateAnchor(buildAnchor());assert.deepEqual(a.blocks.map(x=>x.id),["architecture","roadmap","flow","rules","nextStep"]);});
+test("bootstrap recovers canonical continuity without conversation state",()=>{const a=buildAnchor();const arch=a.blocks.find(x=>x.id==="architecture").content;const next=a.blocks.find(x=>x.id==="nextStep").content;assert.equal(arch.currentProject.id,"EPIC-HARNESS-001");assert.equal(arch.currentPhase.id,"PHASE-ANCHOR-04-VALIDATION");assert.equal(next.task,"TASK-ANCHOR-VALIDATION-01-FINAL");assert.deepEqual(arch.pausedProjects.map(x=>x.id),["EPIC-003","EPIC-004"]);});
+test("every anchor block contains canonical sources",()=>{const a=buildAnchor();for(const block of a.blocks)assert.ok(block.sources.length>0,block.id);});

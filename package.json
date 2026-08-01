@@ -46,7 +46,8 @@
     "context:source:validate": "node scripts/context-engine/source-registry.js validate",
     "context:migration:validate": "node scripts/context-engine/migration-registry.js",
     "context:rules:validate": "node scripts/context-engine/rules-registry.js validate",
-    "context:rules:list": "node scripts/context-engine/rules-registry.js list"
+    "context:rules:list": "node scripts/context-engine/rules-registry.js list",
+    "context:bootstrap": "node scripts/context-engine/bootstrap-context.js"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.20.1",

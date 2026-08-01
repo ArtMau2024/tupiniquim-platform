@@ -267,7 +267,7 @@
     {
       "id": "PHASE-ANCHOR-03-GENERATION",
       "name": "Geração Transacional da Âncora",
-      "status": "in_progress",
+      "status": "completed",
       "objective": "Gerar uma projeção operacional sucinta sem perder as fontes detalhadas.",
       "deliverables": [
         "anchor.json",
@@ -284,7 +284,7 @@
         {
           "id": "TASK-ANCHOR-GENERATION-01-BOOTSTRAP",
           "title": "Validar Ancora operacional e bootstrap de retomada",
-          "status": "in_progress",
+          "status": "completed",
           "objective": "Comprovar geracao dos cinco blocos, referencias canonicas e retomada sem dependencia da conversa.",
           "deliverables": [
             "Ancora operacional de cinco blocos",
@@ -305,6 +305,12 @@
               "preenchimento dos 80 blocos audit",
               "automacoes avancadas de evidencia"
             ]
+          },
+          "completedSummary": {
+            "command": "npm run context:bootstrap",
+            "blocks": 5,
+            "conversationDependency": false,
+            "canonicalSources": true
           }
         }
       ]
@@ -312,7 +318,7 @@
     {
       "id": "PHASE-ANCHOR-04-VALIDATION",
       "name": "Validação e Não Regressão",
-      "status": "planned",
+      "status": "in_progress",
       "objective": "Bloquear perda silenciosa de patrimônio e fontes dessincronizadas.",
       "deliverables": [
         "validate-anchor.js",
@@ -325,6 +331,36 @@
         "EPICs, regras, ADRs, commits, marcos e decisões confirmadas não desaparecem.",
         "Remoções exigem decisão ou justificativa explícita.",
         "Freshness validada contra as fontes."
+      ],
+      "tasks": [
+        {
+          "id": "TASK-ANCHOR-VALIDATION-01-FINAL",
+          "title": "Executar validacao final e nao regressao basica",
+          "status": "in_progress",
+          "objective": "Validar schema, hashes, cinco blocos e retomada antes do handoff.",
+          "deliverables": [
+            "validacao do anchor.json",
+            "validacao do anchor-history.json",
+            "teste de retomada sem conversa",
+            "parecer final do Harness MVP"
+          ],
+          "acceptanceCriteria": [
+            "Anchor possui exatamente cinco blocos.",
+            "Historico possui hashes encadeados.",
+            "Projeto, fase, tarefa, pausas e proxima acao sao recuperados.",
+            "Referencias canonicas existem em todos os blocos.",
+            "Suite completa permanece verde.",
+            "Working tree fica limpa apos publicacao."
+          ],
+          "scopeLimit": {
+            "maximumImplementationBatches": 1,
+            "excludedPostMvpItems": [
+              "IA integrada",
+              "80 blocos audit",
+              "resolvedores avancados"
+            ]
+          }
+        }
       ]
     },
     {
@@ -379,6 +415,6 @@
     "DEC-2026-EPIC-TRANSITION-HARNESS",
     "DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY"
   ],
-  "currentPhase": "PHASE-ANCHOR-03-GENERATION",
-  "nextPhase": "PHASE-ANCHOR-04-VALIDATION"
+  "currentPhase": "PHASE-ANCHOR-04-VALIDATION",
+  "nextPhase": "PHASE-ANCHOR-05-BOOTSTRAP"
 }

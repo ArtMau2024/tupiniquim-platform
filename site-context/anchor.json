@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-08-01T23:30:48.096Z",
+  "blocks": [
+    {
+      "id": "architecture",
+      "title": "Arquitetura Fisica completa com status",
+      "content": {
+        "currentProject": {
+          "id": "EPIC-HARNESS-001",
+          "name": "Harness de Continuidade e Anchor Engine",
+          "status": "in_progress"
+        },
+        "currentPhase": {
+          "id": "PHASE-ANCHOR-04-VALIDATION",
+          "name": "Validação e Não Regressão",
+          "status": "in_progress"
+        },
+        "currentTasks": [
+          {
+            "id": "TASK-ANCHOR-VALIDATION-01-FINAL",
+            "title": "Executar validacao final e nao regressao basica",
+            "status": "in_progress"
+          }
+        ],
+        "pausedProjects": [
+          {
+            "id": "EPIC-003",
+            "name": "Site Institucional Profissional",
+            "status": "paused"
+          },
+          {
+            "id": "EPIC-004",
+            "name": "Plataforma Editorial",
+            "status": "paused"
+          }
+        ],
+        "activeDecisions": 7,
+        "activeRules": 15,
+        "openConflicts": 0
+      },
+      "sources": [
+        "site-context/registry/projects/PROJECT-REGISTRY-TUPINIQUIM.json",
+        "site-context/registry/plans/PLAN-ANCHOR-MVP.json",
+        "site-context/decision-memory.json",
+        "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
+        "site-context/registry/conflict-register.json"
+      ]
+    },
+    {
+      "id": "roadmap",
+      "title": "Roadmap acumulado",
+      "content": {
+        "currentPhase": "PHASE-ANCHOR-04-VALIDATION",
+        "nextPhase": "PHASE-ANCHOR-05-BOOTSTRAP",
+        "remainingPhases": [
+          {
+            "id": "PHASE-ANCHOR-04-VALIDATION",
+            "status": "in_progress",
+            "name": "Validação e Não Regressão"
+          },
+          {
+            "id": "PHASE-ANCHOR-05-BOOTSTRAP",
+            "status": "planned",
+            "name": "Bootstrap e Handoff"
+          }
+        ]
+      },
+      "sources": [
+        "site-context/registry/plans/PLAN-ANCHOR-MVP.json"
+      ]
+    },
+    {
+      "id": "flow",
+      "title": "Fluxo de Execucao real",
+      "content": {
+        "sequence": [
+          "EPIC-HARNESS-001",
+          "PHASE-ANCHOR-04-VALIDATION",
+          "TASK-ANCHOR-VALIDATION-01-FINAL",
+          "PHASE-ANCHOR-05-BOOTSTRAP"
+        ]
+      },
+      "sources": [
+        "site-context/registry/projects/PROJECT-REGISTRY-TUPINIQUIM.json",
+        "site-context/registry/plans/PLAN-ANCHOR-MVP.json"
+      ]
+    },
+    {
+      "id": "rules",
+      "title": "Regras alinhadas no decorrer do chat",
+      "content": {
+        "activeRuleIds": [
+          "RULE-CMD-001",
+          "RULE-CMD-002",
+          "RULE-DECISION-001",
+          "RULE-DECISION-002",
+          "RULE-RAG-001",
+          "RULE-RAG-002",
+          "RULE-DOC-001",
+          "RULE-HARNESS-001",
+          "RULE-FORMAT-001",
+          "RULE-FORMAT-002",
+          "RULE-CONTINUITY-001",
+          "RULE-RAG-003",
+          "RULE-RAG-004",
+          "RULE-SOURCE-001",
+          "RULE-CMD-003"
+        ],
+        "activeDecisionIds": [
+          "DEC-2026-EPIC-TRANSITION-HARNESS",
+          "DEC-2026-HARNESS-AGENT-PROTOCOL",
+          "DEC-2026-ANCHOR-HARNESS-FIRST",
+          "DEC-2026-CONTEXT-CONTINUITY",
+          "DEC-2026-IA-PAUSE-CMS",
+          "DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY",
+          "DEC-2026-MIGRATION-AUDIT-CONTRACT"
+        ],
+        "openConflicts": 0
+      },
+      "sources": [
+        "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
+        "site-context/decision-memory.json",
+        "site-context/registry/conflict-register.json"
+      ]
+    },
+    {
+      "id": "nextStep",
+      "title": "Sugestao Fixa de Proxima Etapa",
+      "content": {
+        "task": "TASK-ANCHOR-VALIDATION-01-FINAL",
+        "command": "npm run context:bootstrap"
+      },
+      "sources": [
+        "site-context/registry/plans/PLAN-ANCHOR-MVP.json"
+      ]
+    }
+  ],
+  "sourceDigest": "954124dcfabe895bed967474974008f4171b099168a729d17997a01e10b11c1d"
+}
