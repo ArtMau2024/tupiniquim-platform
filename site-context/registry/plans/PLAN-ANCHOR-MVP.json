@@ -89,7 +89,7 @@
     {
       "id": "PHASE-ANCHOR-01-INVENTORY",
       "name": "Inventário e Matriz de Migração",
-      "status": "in_progress",
+      "status": "completed",
       "objective": "Classificar patrimônio confirmado, histórico, planejado, conflitante, incompleto e não comprovado.",
       "deliverables": [
         "migration-matrix.json",
@@ -106,7 +106,7 @@
         {
           "id": "TASK-ANCHOR-INVENTORY-01-AUDIT-MATRIX",
           "title": "Auditar invariantes e cobertura da Migration Matrix",
-          "status": "in_progress",
+          "status": "completed",
           "objective": "Transformar a matriz existente em um registro semanticamente verificavel antes da migracao dos itens nao resolvidos.",
           "deliverables": [
             "validador semantico da Migration Matrix",
@@ -126,14 +126,83 @@
             "Todos os sourceRefs resolvem.",
             "Todos os destinos canonicos sao classificados.",
             "O primeiro lote de migracao e identificado por IDs."
-          ]
+          ],
+          "auditSummary": {
+            "totalItems": 80,
+            "byType": {
+              "rules": 39,
+              "methods": 12,
+              "epics": 8,
+              "adrs": 9,
+              "commits": 8,
+              "engines": 4
+            },
+            "openConflicts": 0,
+            "canonicalDestinations": {
+              "existing": [
+                "docs/method-of-operation.md",
+                "site-context/registry/projects/",
+                "site-context/registry/rules/"
+              ],
+              "missing": [
+                "docs/adr-registry.md",
+                "docs/project-history.md"
+              ]
+            },
+            "preservedGaps": [
+              "MIG-ADR-001",
+              "MIG-ADR-002",
+              "MIG-ADR-003",
+              "MIG-ADR-004",
+              "MIG-ADR-005",
+              "MIG-ADR-006",
+              "MIG-ADR-007",
+              "MIG-ADR-008",
+              "MIG-ADR-009"
+            ],
+            "verifiedCommits": 8,
+            "correctedHistoricalCommitRefs": [
+              {
+                "historical": "ff667591",
+                "verified": "f667591"
+              },
+              {
+                "historical": "3d12a04",
+                "verified": "31d2a04"
+              },
+              {
+                "historical": "78dfab1",
+                "verified": "78dfabc"
+              }
+            ],
+            "firstMigrationBatch": [
+              "MIG-M-001",
+              "MIG-M-002",
+              "MIG-M-003",
+              "MIG-M-004",
+              "MIG-M-005",
+              "MIG-M-006",
+              "MIG-M-007",
+              "MIG-M-008",
+              "MIG-M-009",
+              "MIG-M-010",
+              "MIG-M-011",
+              "MIG-M-012"
+            ],
+            "constraints": [
+              "Migration items remain unchanged by inventory closeout.",
+              "Unresolved items remain unresolved without a formal decision.",
+              "Historical gaps remain explicit and receive no invented content.",
+              "Advanced evidence resolution remains post-MVP backlog."
+            ]
+          }
         }
       ]
     },
     {
       "id": "PHASE-ANCHOR-02-REGISTRIES",
       "name": "Registros Canônicos",
-      "status": "planned",
+      "status": "in_progress",
       "objective": "Persistir projetos, fases, planos, regras, método, histórico, marcos e lacunas nos destinos corretos.",
       "deliverables": [
         "projects.json",
@@ -149,6 +218,37 @@
         "Referências resolvíveis.",
         "Estado atual separado de histórico e futuro.",
         "Regras 1 a 39 e Método M-001 a M-012 classificados."
+      ],
+      "tasks": [
+        {
+          "id": "TASK-ANCHOR-REGISTRIES-01-CONSOLIDATE-MINIMUM",
+          "title": "Consolidar registries mínimos para o fechamento do Harness MVP",
+          "status": "in_progress",
+          "objective": "Materializar somente os registros mínimos necessários para continuidade, bootstrap e retomada, sem resolver todo o patrimônio histórico.",
+          "deliverables": [
+            "docs/project-history.md com os oito commits verificados e três divergências preservadas",
+            "docs/adr-registry.md com nove lacunas explícitas e sem conteúdo inventado",
+            "docs/method-of-operation.md com M-001 a M-012 preservados",
+            "registries atuais validados sem ativar projetos históricos"
+          ],
+          "acceptanceCriteria": [
+            "IDs estáveis e únicos.",
+            "Oito commits históricos permanecem auditáveis.",
+            "Nove ADRs permanecem lacunas explícitas.",
+            "M-001 a M-012 permanecem recuperáveis no destino canônico.",
+            "Nenhum EPIC histórico é ativado automaticamente.",
+            "A fase seguinte fica limitada a Âncora, bootstrap e teste de retomada."
+          ],
+          "scopeLimit": {
+            "maximumImplementationBatches": 1,
+            "excludedPostMvpItems": [
+              "HOTFIX-MIGRATION-AUDIT-EVIDENCE-RESOLUTION",
+              "preenchimento dos 80 blocos audit",
+              "reconstrucao de conteudo perdido dos ADRs",
+              "reativacao da IA integrada"
+            ]
+          }
+        }
       ]
     },
     {
@@ -238,6 +338,6 @@
     "DEC-2026-EPIC-TRANSITION-HARNESS",
     "DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY"
   ],
-  "currentPhase": "PHASE-ANCHOR-01-INVENTORY",
-  "nextPhase": "PHASE-ANCHOR-02-REGISTRIES"
+  "currentPhase": "PHASE-ANCHOR-02-REGISTRIES",
+  "nextPhase": "PHASE-ANCHOR-03-GENERATION"
 }
