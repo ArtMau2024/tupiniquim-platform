@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-01T21:12:21.158Z",
+  "generatedAt": "2026-08-01T22:22:31.186Z",
   "sources": [
     {
       "id": "SRC-ANCHOR-HISTORICAL-DOCX",
@@ -74,7 +74,7 @@
         "Derived and regenerable.",
         "Does not replace persistent decision or historical sources."
       ],
-      "sha256": "288a90f2115a34e8274e41b9414d2751dd7c5b483719b674353f947e9408026c"
+      "sha256": "e4c838d10cd7c032901735df596e5f2df2a8fb00968ead748d62e46d9530f4f0"
     },
     {
       "id": "SRC-DECISION-MEMORY",
@@ -92,7 +92,7 @@
       "limitations": [
         "Stores decisions, not complete execution plans."
       ],
-      "sha256": "ce2e55baf3eab557b9c1ba617d5bf395d38aa6744d2b6f8ccc5218ef3413fe86"
+      "sha256": "c9f333c993f6e2995bd383ca024d6248d183897f0e621d942596fae3b956f655"
     },
     {
       "id": "SRC-CONTEXT-GOVERNANCE",

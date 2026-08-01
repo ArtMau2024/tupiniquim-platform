@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "sourceProjectMapHash": "288a90f2115a34e8274e41b9414d2751dd7c5b483719b674353f947e9408026c",
+  "sourceProjectMapHash": "e4c838d10cd7c032901735df596e5f2df2a8fb00968ead748d62e46d9530f4f0",
   "chunkingVersion": "1.0.0",
   "chunks": [
     {
@@ -2765,59 +2765,92 @@
       "content": "oLowerCase())) continue;\n    const result = collectRelations(root, file.path, file.content, parsed.options);\n    relations.push(...result.relations);\n    for (const diagnostic of result.parseDiagnostics) parseErrors.push({ file: file.path, status: \"parse_error\", message: ts.flattenDiagnosticMessageText(diagnostic.messageText, \" \"), blocking: false });\n  }\n  relations.sort((a,b)=>a.id.localeCompare(b.id));\n  return { relations, cycles: detectCycles(relations), parseErrors, complete: parseErrors.length === 0 };\n}\nmodule.exports = { buildKnowledgeGraph, collectRelations, detectCycles };\n"
     },
     {
-      "id": "7406a7dab56841895d6976dda1751e6ded01f47aa0d64f3bec531b3775b12e60",
+      "id": "4a1287ac95b27c30e1007f9adbd279cc9203f94f2d36b2a025b84996a04ab2ae",
       "sourcePath": "scripts/context-engine/migration-registry.js",
-      "sourceHash": "5ab7dadc3dba66ca1ce5889a3c8f15d442441354eec63848cde79f02deddd134",
+      "sourceHash": "3fd9156fd0b91475e335fd13b1d7a58f4bada8503e6f498c3be48c4b0563fa3c",
       "startLine": 1,
-      "endLine": 11,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "\"use strict\";\nconst fs=require(\"fs\");\nconst path=require(\"path\");\nconst ROOT=process.cwd();\nconst matrixFile=path.join(ROOT,\"site-context\",\"registry\",\"migration-matrix.json\");\nconst conflictFile=path.join(ROOT,\"site-context\",\"registry\",\"conflict-register.json\");\nconst sourceFile=path.join(ROOT,\"site-context\",\"registry\",\"source-registry.json\");\nconst ALLOWED={evidenceStatus:new Set([\"historical-confirmed\",\"historical\",\"incomplete\",\"conflicting\"]),currentStatus:new Set([\"resolved\",\"unresolved\"]),requiredAction:new Set([\"review\",\"preserve-gap\",\"migrate\"])};\nfunction read(file){return JSON.parse(fs.readFileSync(file,\"utf8\"));}\nfunction ensure(v,m){if(!v)throw new Error(m);}\nfunction count(items,field,value){return items.filter(x=>x[field]===value).length;}\n"
-    },
-    {
-      "id": "0f0f07201addc3bcc325120b880eccf87128c6766a40e18bd644f454dda39834",
-      "sourcePath": "scripts/context-engine/migration-registry.js",
-      "sourceHash": "5ab7dadc3dba66ca1ce5889a3c8f15d442441354eec63848cde79f02deddd134",
-      "startLine": 9,
       "endLine": 12,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": "c(file,\"utf8\"));}\nfunction ensure(v,m){if(!v)throw new Error(m);}\nfunction count(items,field,value){return items.filter(x=>x[field]===value).length;}\nfunction validateData(m,c,s){ensure(Array.isArray(m.items)&&m.items.length>=70,\"Migration matrix is incomplete.\");const ids=new Set();for(const item of m.items){ensure(item&&typeof item.id===\"string\"&&item.id,\"Migration item id is required.\");ensure(!ids.has(item.id),`Duplicate migration item: ${item.id}`);ids.add(item.id);ensure(Array.isArray(item.sourceRefs)&&item.sourceRefs.length>0,`Item without source: ${item.id}`);for(const field of Object.keys(ALLOWED))ensure(ALLOWED[field].has(item[field]),`Invalid ${field} in ${item.id}: ${item[field]}`);ensure(typeof item.canonicalDestination===\"string\"&&item.canonicalDestination.trim(),`Canonical destination missing in ${item.id}`);if(item.currentStatus===\"resolved\"){ensure(typeof item.resolution===\"string\"&&item.resolution.trim(),`Resolved item without resolution: ${item.id}`);ensure(typeof it"
+      "content": "\"use strict\";\nconst fs=require(\"fs\");\nconst path=require(\"path\");\nconst ROOT=process.cwd();\nconst matrixFile=path.join(ROOT,\"site-context\",\"registry\",\"migration-matrix.json\");\nconst conflictFile=path.join(ROOT,\"site-context\",\"registry\",\"conflict-register.json\");\nconst sourceFile=path.join(ROOT,\"site-context\",\"registry\",\"source-registry.json\");\nconst ALLOWED={evidenceStatus:new Set([\"historical-confirmed\",\"historical\",\"incomplete\",\"conflicting\"]),currentStatus:new Set([\"resolved\",\"unresolved\"]),requiredAction:new Set([\"review\",\"preserve-gap\",\"migrate\"])};\nconst AUDIT_ALLOWED={status:new Set([\"verified\",\"partial\",\"gap\",\"pending\"]),destinationStatus:new Set([\"existing\",\"missing\",\"not_applicable\"]),provenanceKind:new Set([\"direct\",\"broad\",\"divergent\"])};\nfunction read(file){return JSON.parse(fs.readFileSync(file,\"utf8\"));}\nfunction ensure(v,m){if(!v)throw new Error(m);}\nfunction count(items,field,value){return items.filter(x=>x[field]===value).length;}\n"
     },
     {
-      "id": "76b0eea4d3defb55d1513df96b51f4504d1cd9a7dc9dd5c22950b2d0453013bc",
+      "id": "be6c8aa9dc094b842c0d80696caef4ece44229e8a96b844069ef754a377e8b37",
       "sourcePath": "scripts/context-engine/migration-registry.js",
-      "sourceHash": "5ab7dadc3dba66ca1ce5889a3c8f15d442441354eec63848cde79f02deddd134",
-      "startLine": 12,
-      "endLine": 13,
+      "sourceHash": "3fd9156fd0b91475e335fd13b1d7a58f4bada8503e6f498c3be48c4b0563fa3c",
+      "startLine": 10,
+      "endLine": 16,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": "Status===\"resolved\"){ensure(typeof item.resolution===\"string\"&&item.resolution.trim(),`Resolved item without resolution: ${item.id}`);ensure(typeof item.decisionRef===\"string\"&&item.decisionRef.trim(),`Resolved item without decisionRef: ${item.id}`);}if(item.requiredAction===\"preserve-gap\")ensure(item.evidenceStatus===\"incomplete\",`preserve-gap requires incomplete evidence: ${item.id}`);if(item.conflict===true)ensure(item.currentStatus!==\"resolved\",`Resolved item cannot keep open conflict: ${item.id}`);}\nconst sourceIds=new Set((s.sources||[]).map(x=>x.id));for(const item of m.items)for(const ref of item.sourceRefs)ensure(sourceIds.has(ref),`Unknown source ${ref} in ${item.id}`);for(const conflict of c.conflicts||[])ensure(ids.has(conflict.itemRef),`Unknown conflict item: ${conflict.itemRef}`);\n"
+      "content": "c(file,\"utf8\"));}\nfunction ensure(v,m){if(!v)throw new Error(m);}\nfunction count(items,field,value){return items.filter(x=>x[field]===value).length;}\nfunction isObject(value){return value!==null&&typeof value===\"object\"&&!Array.isArray(value);}\nfunction canonicalIso(value){return typeof value===\"string\"&&!Number.isNaN(new Date(value).getTime())&&new Date(value).toISOString()===value;}\nfunction nonEmptyStrings(value){return Array.isArray(value)&&value.every(x=>typeof x===\"string\"&&x.trim());}\nfunction validateAudit(item){const audit=item.audit;if(audit===undefined)return;ensure(isObject(audit),`Audit must be an object in ${item.id}`);ensure(AUDIT_ALLOWED.status.has(audit.status),`Invalid audit.status in ${item.id}: ${audit.status}`);ensure(typeof audit.classification===\"string\"&&audit.classification.trim(),`Audit classification is required in ${item.id}`);ensure(canonicalIso(audit.verifiedAt),`Audit verifiedAt must be canonical ISO in ${item.id}`);ensure(AUDIT_ALLOWED.destinationStatus."
     },
     {
-      "id": "269c10e016252986e0e6cf7bd5e26a2c46172f3c3c00268e2310559255b9c450",
+      "id": "42df321d38f92ed7fdc7a4334bbbfd4b4be45ee0cf7a23046f19d2f5cc85d232",
       "sourcePath": "scripts/context-engine/migration-registry.js",
-      "sourceHash": "5ab7dadc3dba66ca1ce5889a3c8f15d442441354eec63848cde79f02deddd134",
-      "startLine": 13,
-      "endLine": 15,
+      "sourceHash": "3fd9156fd0b91475e335fd13b1d7a58f4bada8503e6f498c3be48c4b0563fa3c",
+      "startLine": 16,
+      "endLine": 16,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": "n source ${ref} in ${item.id}`);for(const conflict of c.conflicts||[])ensure(ids.has(conflict.itemRef),`Unknown conflict item: ${conflict.itemRef}`);\nensure(m.summary&&m.summary.total===m.items.length,\"Migration summary mismatch.\");const checks={rules:count(m.items,\"type\",\"rule\"),methods:count(m.items,\"type\",\"method\"),epics:count(m.items,\"type\",\"epic\"),adrs:count(m.items,\"type\",\"adr\"),commits:count(m.items,\"type\",\"commit\"),engines:count(m.items,\"type\",\"engine\"),conflicts:count(m.items,\"evidenceStatus\",\"conflicting\")};for(const [key,value] of Object.entries(checks))ensure(m.summary[key]===value,`Migration summary mismatch for ${key}. Expected ${value}, received ${m.summary[key]}.`);ensure((c.summary?.open??0)===(c.conflicts||[]).filter(x=>x.status===\"open\").length,\"Conflict Register open summary mismatch.\");return{matrix:m,conflicts:c};}\nfunction validate(){return validateData(read(matrixFile),read(conflictFile),read(sourceFile));}\n"
+      "content": " in ${item.id}`);ensure(canonicalIso(audit.verifiedAt),`Audit verifiedAt must be canonical ISO in ${item.id}`);ensure(AUDIT_ALLOWED.destinationStatus.has(audit.destinationStatus),`Invalid audit.destinationStatus in ${item.id}: ${audit.destinationStatus}`);ensure(nonEmptyStrings(audit.destinationEvidence),`Audit destinationEvidence must be an array of non-empty strings in ${item.id}`);ensure(Array.isArray(audit.provenance)&&audit.provenance.length>0,`Audit provenance is required in ${item.id}`);for(const p of audit.provenance){ensure(isObject(p),`Audit provenance entry must be an object in ${item.id}`);ensure(AUDIT_ALLOWED.provenanceKind.has(p.kind),`Invalid audit provenance kind in ${item.id}: ${p.kind}`);ensure(typeof p.ref===\"string\"&&p.ref.trim(),`Audit provenance ref is required in ${item.id}`);ensure(typeof p.note===\"string\"&&p.note.trim(),`Audit provenance note is required in ${item.id}`);}ensure(nonEmptyStrings(audit.gaps),`Audit gaps must be an array of non-empty strings in ${i"
     },
     {
-      "id": "fda5eda70c7baf7052e5847cbc7b4362ea55e2baadb05c1c363e7773f5a6ca7e",
+      "id": "6564801d87ca9ef6c6295d6de46a62ab50dc9a7a1d7e2556581e5f405d6795d4",
       "sourcePath": "scripts/context-engine/migration-registry.js",
-      "sourceHash": "5ab7dadc3dba66ca1ce5889a3c8f15d442441354eec63848cde79f02deddd134",
-      "startLine": 14,
+      "sourceHash": "3fd9156fd0b91475e335fd13b1d7a58f4bada8503e6f498c3be48c4b0563fa3c",
+      "startLine": 16,
+      "endLine": 16,
+      "language": "javascript",
+      "category": "source-code",
+      "redacted": false,
+      "content": "trim(),`Audit provenance note is required in ${item.id}`);}ensure(nonEmptyStrings(audit.gaps),`Audit gaps must be an array of non-empty strings in ${item.id}`);ensure(Array.isArray(audit.correctedRefs),`Audit correctedRefs must be an array in ${item.id}`);for(const ref of audit.correctedRefs){ensure(isObject(ref),`Audit correctedRefs entry must be an object in ${item.id}`);for(const field of [\"kind\",\"historical\",\"verified\",\"evidence\"])ensure(typeof ref[field]===\"string\"&&ref[field].trim(),`Audit correctedRefs.${field} is required in ${item.id}`);}ensure(typeof audit.notes===\"string\",`Audit notes must be a string in ${item.id}`);if(audit.status===\"verified\")ensure(audit.destinationEvidence.length>0,`Verified audit requires destination evidence in ${item.id}`);if(audit.status===\"gap\")ensure(audit.gaps.length>0,`Gap audit requires at least one gap in ${item.id}`);}\n"
+    },
+    {
+      "id": "ff3b8dea362806884159dca98304931072229a3dc13e25ad22359b5bf9fb5627",
+      "sourcePath": "scripts/context-engine/migration-registry.js",
+      "sourceHash": "3fd9156fd0b91475e335fd13b1d7a58f4bada8503e6f498c3be48c4b0563fa3c",
+      "startLine": 16,
       "endLine": 17,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": "en summary mismatch.\");return{matrix:m,conflicts:c};}\nfunction validate(){return validateData(read(matrixFile),read(conflictFile),read(sourceFile));}\nif(require.main===module){try{const r=validate();console.log(`Migration Matrix is valid. Items: ${r.matrix.items.length}. Open conflicts: ${r.conflicts.summary.open}.`);}catch(e){console.error(e.message);process.exit(1);}}\nmodule.exports={validate,validateData};\n"
+      "content": "quires destination evidence in ${item.id}`);if(audit.status===\"gap\")ensure(audit.gaps.length>0,`Gap audit requires at least one gap in ${item.id}`);}\nfunction validateData(m,c,s){ensure(Array.isArray(m.items)&&m.items.length>=70,\"Migration matrix is incomplete.\");const ids=new Set();for(const item of m.items){ensure(item&&typeof item.id===\"string\"&&item.id,\"Migration item id is required.\");ensure(!ids.has(item.id),`Duplicate migration item: ${item.id}`);ids.add(item.id);ensure(Array.isArray(item.sourceRefs)&&item.sourceRefs.length>0,`Item without source: ${item.id}`);for(const field of Object.keys(ALLOWED))ensure(ALLOWED[field].has(item[field]),`Invalid ${field} in ${item.id}: ${item[field]}`);ensure(typeof item.canonicalDestination===\"string\"&&item.canonicalDestination.trim(),`Canonical destination missing in ${item.id}`);if(item.currentStatus===\"resolved\"){ensure(typeof item.resolution===\"string\"&&item.resolution.trim(),`Resolved item without resolution: ${item.id}`);ensure(typeof it"
+    },
+    {
+      "id": "fbb84b04ecf700f77d71d4a845bd2695288ae73477430ea880280270821f764b",
+      "sourcePath": "scripts/context-engine/migration-registry.js",
+      "sourceHash": "3fd9156fd0b91475e335fd13b1d7a58f4bada8503e6f498c3be48c4b0563fa3c",
+      "startLine": 17,
+      "endLine": 17,
+      "language": "javascript",
+      "category": "source-code",
+      "redacted": false,
+      "content": "Status===\"resolved\"){ensure(typeof item.resolution===\"string\"&&item.resolution.trim(),`Resolved item without resolution: ${item.id}`);ensure(typeof item.decisionRef===\"string\"&&item.decisionRef.trim(),`Resolved item without decisionRef: ${item.id}`);}if(item.requiredAction===\"preserve-gap\")ensure(item.evidenceStatus===\"incomplete\",`preserve-gap requires incomplete evidence: ${item.id}`);if(item.conflict===true)ensure(item.currentStatus!==\"resolved\",`Resolved item cannot keep open conflict: ${item.id}`);validateAudit(item);}\n"
+    },
+    {
+      "id": "d7f00b2458695b178320e7d9e22bb17dd08e36f926c944b2bd45e10ff905c3d3",
+      "sourcePath": "scripts/context-engine/migration-registry.js",
+      "sourceHash": "3fd9156fd0b91475e335fd13b1d7a58f4bada8503e6f498c3be48c4b0563fa3c",
+      "startLine": 17,
+      "endLine": 18,
+      "language": "javascript",
+      "category": "source-code",
+      "redacted": false,
+      "content": "tem.id}`);if(item.conflict===true)ensure(item.currentStatus!==\"resolved\",`Resolved item cannot keep open conflict: ${item.id}`);validateAudit(item);}\nconst sourceIds=new Set((s.sources||[]).map(x=>x.id));for(const item of m.items)for(const ref of item.sourceRefs)ensure(sourceIds.has(ref),`Unknown source ${ref} in ${item.id}`);for(const conflict of c.conflicts||[])ensure(ids.has(conflict.itemRef),`Unknown conflict item: ${conflict.itemRef}`);ensure(m.summary&&m.summary.total===m.items.length,\"Migration summary mismatch.\");const checks={rules:count(m.items,\"type\",\"rule\"),methods:count(m.items,\"type\",\"method\"),epics:count(m.items,\"type\",\"epic\"),adrs:count(m.items,\"type\",\"adr\"),commits:count(m.items,\"type\",\"commit\"),engines:count(m.items,\"type\",\"engine\"),conflicts:count(m.items,\"evidenceStatus\",\"conflicting\")};for(const [key,value] of Object.entries(checks))ensure(m.summary[key]===value,`Migration summary mismatch for ${key}. Expected ${value}, received ${m.summary[key]}.`);ensure((c.summa"
+    },
+    {
+      "id": "4ee482a3878a17b50df6c3cf15f8119254d5ee8fae099c01fdf77d6736d6a995",
+      "sourcePath": "scripts/context-engine/migration-registry.js",
+      "sourceHash": "3fd9156fd0b91475e335fd13b1d7a58f4bada8503e6f498c3be48c4b0563fa3c",
+      "startLine": 18,
+      "endLine": 21,
+      "language": "javascript",
+      "category": "source-code",
+      "redacted": false,
+      "content": "entries(checks))ensure(m.summary[key]===value,`Migration summary mismatch for ${key}. Expected ${value}, received ${m.summary[key]}.`);ensure((c.summary?.open??0)===(c.conflicts||[]).filter(x=>x.status===\"open\").length,\"Conflict Register open summary mismatch.\");return{matrix:m,conflicts:c};}\nfunction validate(){return validateData(read(matrixFile),read(conflictFile),read(sourceFile));}\nif(require.main===module){try{const r=validate();console.log(`Migration Matrix is valid. Items: ${r.matrix.items.length}. Open conflicts: ${r.conflicts.summary.open}.`);}catch(e){console.error(e.message);process.exit(1);}}\nmodule.exports={validate,validateData};\n"
     },
     {
       "id": "b907999183723eb69ebfc88e71f7bd86f8437817ed1399b2e105f1f64ef59faf",
@@ -4954,20 +4987,20 @@
       "content": "ipt fisico; node -e longo deve ser decomposto quando comprometer legibilidade, copia ou auditoria.\",\n      \"origin\": \"Aprovacao explicita de Arthur\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    }\n  ]\n}\n"
     },
     {
-      "id": "71aaf1b6196fb1fcdb85bf52fc6399a1794eb88334afafbcc166f0e73beab783",
+      "id": "8cab6f799ff9ac96a02903b9d46d0125ae3f4d4b984c0c4a2fbf8b733cfe4cc3",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
+      "sourceHash": "01c1970c64a7cb36b227c95431753c25e9b1787014596819d6aecc0c86aadc66",
       "startLine": 1,
       "endLine": 32,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "{\n  \"schemaVersion\": \"1.0.0\",\n  \"generatedAt\": \"2026-08-01T21:10:29.959Z\",\n  \"sources\": [\n    {\n      \"id\": \"SRC-ANCHOR-HISTORICAL-DOCX\",\n      \"path\": \"docs/ÂNCORA PERMANENTE DO PROJETO.docx\",\n      \"type\": \"historical-document\",\n      \"role\": \"historical-operational-snapshot\",\n      \"authority\": [\n        \"historical-anchor\",\n        \"historical-rules\",\n        \"historical-roadmap\"\n      ],\n      \"evidenceStatus\": \"historical\",\n      \"priority\": 70,\n      \"limitations\": [\n        \"May contain outdated operational status.\",\n        \"Must not overwrite current technical state automatically.\"\n      ],\n      \"sha256\": \"a7a92f34a53dea7b5718029c6136b921711565f69953dfedef525fcf9625719b\"\n    },\n    {\n      \"id\": \"SRC-BASELINE-HISTORICAL-DOCX\",\n      \"path\": \"docs/BASELINE.docx\",\n      \"type\": \"historical-document\",\n      \"role\": \"historical-patrimony\",\n      \"authority\": [\n        \"historical-epics\",\n        \"historical-method\",\n        \"historical-milestones\",\n        \"historical-rules\"\n"
+      "content": "{\n  \"schemaVersion\": \"1.0.0\",\n  \"generatedAt\": \"2026-08-01T22:20:48.701Z\",\n  \"sources\": [\n    {\n      \"id\": \"SRC-ANCHOR-HISTORICAL-DOCX\",\n      \"path\": \"docs/ÂNCORA PERMANENTE DO PROJETO.docx\",\n      \"type\": \"historical-document\",\n      \"role\": \"historical-operational-snapshot\",\n      \"authority\": [\n        \"historical-anchor\",\n        \"historical-rules\",\n        \"historical-roadmap\"\n      ],\n      \"evidenceStatus\": \"historical\",\n      \"priority\": 70,\n      \"limitations\": [\n        \"May contain outdated operational status.\",\n        \"Must not overwrite current technical state automatically.\"\n      ],\n      \"sha256\": \"a7a92f34a53dea7b5718029c6136b921711565f69953dfedef525fcf9625719b\"\n    },\n    {\n      \"id\": \"SRC-BASELINE-HISTORICAL-DOCX\",\n      \"path\": \"docs/BASELINE.docx\",\n      \"type\": \"historical-document\",\n      \"role\": \"historical-patrimony\",\n      \"authority\": [\n        \"historical-epics\",\n        \"historical-method\",\n        \"historical-milestones\",\n        \"historical-rules\"\n"
     },
     {
-      "id": "2f3e3005f03cf7b679a5229d1c8a41cf1baae5062ff999a3e0b47861ecf5d139",
+      "id": "e754ae749649945af979bac30ae1b8c13018a7a40104ae69654a663c9c87ceb6",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
+      "sourceHash": "01c1970c64a7cb36b227c95431753c25e9b1787014596819d6aecc0c86aadc66",
       "startLine": 27,
       "endLine": 60,
       "language": "json",
@@ -4976,31 +5009,31 @@
       "content": "patrimony\",\n      \"authority\": [\n        \"historical-epics\",\n        \"historical-method\",\n        \"historical-milestones\",\n        \"historical-rules\"\n      ],\n      \"evidenceStatus\": \"historical\",\n      \"priority\": 80,\n      \"limitations\": [\n        \"Known conflicts with later project status require human resolution.\"\n      ],\n      \"sha256\": \"a620d0fc3e3ba8aafc9531e35812d4eb62405b1d03611837629ee1cbae43feb6\"\n    },\n    {\n      \"id\": \"SRC-BASELINE-MARKDOWN\",\n      \"path\": \"docs/baseline.md\",\n      \"type\": \"historical-document\",\n      \"role\": \"historical-baseline\",\n      \"authority\": [\n        \"historical-epics\",\n        \"historical-commits\",\n        \"historical-gaps\",\n        \"historical-adrs\"\n      ],\n      \"evidenceStatus\": \"historical\",\n      \"priority\": 85,\n      \"limitations\": [\n        \"Reconstruction is incomplete.\",\n        \"Missing ADR content must not be invented.\"\n      ],\n      \"sha256\": \"0339fbf4a8c916b594e14b32df3964af2a6c9a5d0fcf7ecb815bdce6511a4c48\"\n    },\n    {\n"
     },
     {
-      "id": "24b7ba8dec9b5e747878c190bec94648b1a3264906667ed598a0cceb978d2249",
+      "id": "0ef62f5501987842a6a429ba795a846d0074e3a40e7f036f1450be1141111386",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
+      "sourceHash": "01c1970c64a7cb36b227c95431753c25e9b1787014596819d6aecc0c86aadc66",
       "startLine": 56,
       "endLine": 86,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": " \"Missing ADR content must not be invented.\"\n      ],\n      \"sha256\": \"0339fbf4a8c916b594e14b32df3964af2a6c9a5d0fcf7ecb815bdce6511a4c48\"\n    },\n    {\n      \"id\": \"SRC-PROJECT-MAP\",\n      \"path\": \"site-context/project-map.json\",\n      \"type\": \"generated-artifact\",\n      \"role\": \"current-technical-state\",\n      \"authority\": [\n        \"current-architecture\",\n        \"current-filesystem\",\n        \"current-routes\",\n        \"current-roadmap\"\n      ],\n      \"evidenceStatus\": \"current-derived\",\n      \"priority\": 100,\n      \"limitations\": [\n        \"Derived and regenerable.\",\n        \"Does not replace persistent decision or historical sources.\"\n      ],\n      \"sha256\": \"7b88e397e04db5a23625f412d82438114e00cfaf10f29d11da2e8c746628ff3a\"\n    },\n    {\n      \"id\": \"SRC-DECISION-MEMORY\",\n      \"path\": \"site-context/decision-memory.json\",\n      \"type\": \"persistent-registry\",\n      \"role\": \"deliberative-truth\",\n      \"authority\": [\n        \"active-decisions\",\n        \"decision-rationale\",\n"
+      "content": " \"Missing ADR content must not be invented.\"\n      ],\n      \"sha256\": \"0339fbf4a8c916b594e14b32df3964af2a6c9a5d0fcf7ecb815bdce6511a4c48\"\n    },\n    {\n      \"id\": \"SRC-PROJECT-MAP\",\n      \"path\": \"site-context/project-map.json\",\n      \"type\": \"generated-artifact\",\n      \"role\": \"current-technical-state\",\n      \"authority\": [\n        \"current-architecture\",\n        \"current-filesystem\",\n        \"current-routes\",\n        \"current-roadmap\"\n      ],\n      \"evidenceStatus\": \"current-derived\",\n      \"priority\": 100,\n      \"limitations\": [\n        \"Derived and regenerable.\",\n        \"Does not replace persistent decision or historical sources.\"\n      ],\n      \"sha256\": \"60e9cbb2fc8326c9af07082e797cff4ce7e78121109f75617e2d11516f315a43\"\n    },\n    {\n      \"id\": \"SRC-DECISION-MEMORY\",\n      \"path\": \"site-context/decision-memory.json\",\n      \"type\": \"persistent-registry\",\n      \"role\": \"deliberative-truth\",\n      \"authority\": [\n        \"active-decisions\",\n        \"decision-rationale\",\n"
     },
     {
-      "id": "3d80819fda477d3cf469dd4fa00a69ffab18d91b776b312f5f16a3fcb5c235de",
+      "id": "8441da13c25b10123d79f35571686a7526fb8650bb163ca4097ce786069b3f1f",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
+      "sourceHash": "01c1970c64a7cb36b227c95431753c25e9b1787014596819d6aecc0c86aadc66",
       "startLine": 82,
       "endLine": 112,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "    \"type\": \"persistent-registry\",\n      \"role\": \"deliberative-truth\",\n      \"authority\": [\n        \"active-decisions\",\n        \"decision-rationale\",\n        \"decision-rules\",\n        \"resume-criteria\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 100,\n      \"limitations\": [\n        \"Stores decisions, not complete execution plans.\"\n      ],\n      \"sha256\": \"ce2e55baf3eab557b9c1ba617d5bf395d38aa6744d2b6f8ccc5218ef3413fe86\"\n    },\n    {\n      \"id\": \"SRC-CONTEXT-GOVERNANCE\",\n      \"path\": \"docs/context-engine-governance.md\",\n      \"type\": \"governance-document\",\n      \"role\": \"operational-governance\",\n      \"authority\": [\n        \"persistence-process\",\n        \"decision-lifecycle\",\n        \"governance-procedure\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 95,\n      \"limitations\": [\n        \"Procedural authority only; not a technical inventory.\"\n      ],\n      \"sha256\": \"ea3db8a380cb196dea705b4f602fbbb9c5f0cfd65212494f817fe737af591532\"\n"
+      "content": "    \"type\": \"persistent-registry\",\n      \"role\": \"deliberative-truth\",\n      \"authority\": [\n        \"active-decisions\",\n        \"decision-rationale\",\n        \"decision-rules\",\n        \"resume-criteria\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 100,\n      \"limitations\": [\n        \"Stores decisions, not complete execution plans.\"\n      ],\n      \"sha256\": \"c9f333c993f6e2995bd383ca024d6248d183897f0e621d942596fae3b956f655\"\n    },\n    {\n      \"id\": \"SRC-CONTEXT-GOVERNANCE\",\n      \"path\": \"docs/context-engine-governance.md\",\n      \"type\": \"governance-document\",\n      \"role\": \"operational-governance\",\n      \"authority\": [\n        \"persistence-process\",\n        \"decision-lifecycle\",\n        \"governance-procedure\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 95,\n      \"limitations\": [\n        \"Procedural authority only; not a technical inventory.\"\n      ],\n      \"sha256\": \"ea3db8a380cb196dea705b4f602fbbb9c5f0cfd65212494f817fe737af591532\"\n"
     },
     {
-      "id": "fcd5939f1d882601f714556c453085ca3d77dcd2741f97c320a139f5bd119b1e",
+      "id": "8f663ba0e75e62e21613e4a2fc9ba8c64105527eb358b4642afa636f54829109",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
+      "sourceHash": "01c1970c64a7cb36b227c95431753c25e9b1787014596819d6aecc0c86aadc66",
       "startLine": 110,
       "endLine": 140,
       "language": "json",
@@ -5009,9 +5042,9 @@
       "content": "  \"Procedural authority only; not a technical inventory.\"\n      ],\n      \"sha256\": \"ea3db8a380cb196dea705b4f602fbbb9c5f0cfd65212494f817fe737af591532\"\n    },\n    {\n      \"id\": \"SRC-ANCHOR-MVP-PLAN\",\n      \"path\": \"site-context/registry/plans/PLAN-ANCHOR-MVP.json\",\n      \"type\": \"planning-registry\",\n      \"role\": \"current-execution-plan\",\n      \"authority\": [\n        \"plan-status\",\n        \"phases\",\n        \"deliverables\",\n        \"acceptance-criteria\",\n        \"risks\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 100,\n      \"limitations\": [\n        \"Planning authority only; current technical evidence remains in Project Map.\"\n      ],\n      \"sha256\": \"9caf4064c7c0d9ebc0d0ffe96af4a960155c3124ad405cae1747ab62c2313f72\"\n    },\n    {\n      \"id\": \"SRC-ANCHOR-MVP-NARRATIVE\",\n      \"path\": \"docs/plans/anchor-engine-mvp.md\",\n      \"type\": \"planning-document\",\n      \"role\": \"planning-narrative\",\n      \"authority\": [\n        \"plan-context\",\n        \"plan-explanation\",\n"
     },
     {
-      "id": "0501b98222b7b2fd95cd0380e3fef9dd6b5bd38b41ce515032b3910a8d37cfa2",
+      "id": "a303a1ff93fce9ef30081c14993e7ca37474a569ae122ab34245445e2683627d",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
+      "sourceHash": "01c1970c64a7cb36b227c95431753c25e9b1787014596819d6aecc0c86aadc66",
       "startLine": 135,
       "endLine": 165,
       "language": "json",
@@ -5020,9 +5053,9 @@
       "content": ".md\",\n      \"type\": \"planning-document\",\n      \"role\": \"planning-narrative\",\n      \"authority\": [\n        \"plan-context\",\n        \"plan-explanation\",\n        \"risk-explanation\"\n      ],\n      \"evidenceStatus\": \"current-supporting\",\n      \"priority\": 90,\n      \"limitations\": [\n        \"The structured plan controls machine-readable status and phase fields.\"\n      ],\n      \"sha256\": \"aa4a9cf1ee9226bb88362ed9149aeceac3f58ff5b080fc395005d938a2348066\"\n    },\n    {\n      \"id\": \"SRC-HARNESS-RULES\",\n      \"path\": \"site-context/registry/rules/RULESET-HARNESS-QUALITY.json\",\n      \"type\": \"persistent-registry\",\n      \"role\": \"operational-rules\",\n      \"authority\": [\n        \"active-rules\",\n        \"rule-verification\",\n        \"rule-supersession\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 100,\n      \"limitations\": [\n        \"Stores operational rules, not decision rationale.\"\n      ],\n      \"sha256\": \"208d9854b7371591b351b1af5bc0f143148eacecbcb0fd841ded841fe3c03b39\"\n"
     },
     {
-      "id": "587d71e413a9c036b1622ca5b759928950aac0b7c40167d403b9db7e5f33447f",
+      "id": "3fe7a0f84b4939b087cd3beacbc2dcac5abb620fa39cbea8a9152fd8e91fbe03",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
+      "sourceHash": "01c1970c64a7cb36b227c95431753c25e9b1787014596819d6aecc0c86aadc66",
       "startLine": 163,
       "endLine": 191,
       "language": "json",
@@ -5031,9 +5064,9 @@
       "content": "      \"Stores operational rules, not decision rationale.\"\n      ],\n      \"sha256\": \"208d9854b7371591b351b1af5bc0f143148eacecbcb0fd841ded841fe3c03b39\"\n    },\n    {\n      \"id\": \"SRC-METHOD-OF-OPERATION\",\n      \"path\": \"docs/method-of-operation.md\",\n      \"type\": \"governance-document\",\n      \"role\": \"agent-operation-method\",\n      \"authority\": [\n        \"operational-protocol\",\n        \"documentation-consultation\",\n        \"rag-usage\",\n        \"decision-clarity\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 100,\n      \"limitations\": [\n        \"Organizes the method; individual rules remain authoritative in the Rules Registry.\"\n      ],\n      \"sha256\": \"dc2f701875d058cf2eb9ead6079073a7470c837c9f4b168ee27badcbe3a1d3b6\"\n    },\n    {\n      \"id\": \"SRC-PROJECT-REGISTRY\",\n      \"path\": \"site-context/registry/projects/PROJECT-REGISTRY-TUPINIQUIM.json\",\n      \"type\": \"persistent-registry\",\n      \"role\": \"project-state-truth\",\n      \"authority\": [\n        \"project-status\",\n"
     },
     {
-      "id": "3c6d313c51b9a0680c0f896b2ac7b9d29ce61178aaca93764e289892030adb1e",
+      "id": "27e74772b550115741af88db0d02430b12ef0bc6b2d58b52d6c5e1da747f9637",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
+      "sourceHash": "01c1970c64a7cb36b227c95431753c25e9b1787014596819d6aecc0c86aadc66",
       "startLine": 187,
       "endLine": 216,
       "language": "json",
@@ -5042,9 +5075,9 @@
       "content": "T-REGISTRY-TUPINIQUIM.json\",\n      \"type\": \"persistent-registry\",\n      \"role\": \"project-state-truth\",\n      \"authority\": [\n        \"project-status\",\n        \"project-capabilities\",\n        \"resume-conditions\",\n        \"current-initiative\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 100,\n      \"limitations\": [\n        \"Technical filesystem state remains derived from the Project Map.\"\n      ],\n      \"sha256\": \"c912a9741d4891a26beb8a41e2fd12f958bcbe96eb45f4e6814c5700fd37d75f\"\n    },\n    {\n      \"id\": \"SRC-MIGRATION-MATRIX\",\n      \"path\": \"site-context/registry/migration-matrix.json\",\n      \"type\": \"migration-registry\",\n      \"role\": \"patrimony-inventory\",\n      \"authority\": [\n        \"migration-provenance\",\n        \"evidence-classification\",\n        \"canonical-destination\",\n        \"migration-status\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 95,\n      \"limitations\": [\n"
     },
     {
-      "id": "2bd0035f8ce0a6d6ee8e65c31fdeec5a70a80096f3c18537a74d7160409f3d96",
+      "id": "ffa03d96c93f054123142790f3796f49f97bd9ce4693c9626b1f55b33ed75acf",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
+      "sourceHash": "01c1970c64a7cb36b227c95431753c25e9b1787014596819d6aecc0c86aadc66",
       "startLine": 211,
       "endLine": 240,
       "language": "json",
@@ -5053,9 +5086,9 @@
       "content": "canonical-destination\",\n        \"migration-status\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 95,\n      \"limitations\": [\n        \"Inventory does not activate historical items automatically.\"\n      ],\n      \"sha256\": \"cc352ce6f6297655ad663a6f2a9dac8b62622ccf0f07233e1d277ed933d355e2\"\n    },\n    {\n      \"id\": \"SRC-CONFLICT-REGISTER\",\n      \"path\": \"site-context/registry/conflict-register.json\",\n      \"type\": \"governance-registry\",\n      \"role\": \"conflict-truth\",\n      \"authority\": [\n        \"open-conflicts\",\n        \"source-positions\",\n        \"conflict-resolution\",\n        \"resolution-decision\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 100,\n      \"limitations\": [\n        \"A resolved conflict does not replace its related decision or source history.\"\n      ],\n      \"sha256\": \"1a8b472268556422b73b1535a78004c324b290b914238e99d0ff5831ce8ba1c3\"\n    },\n    {\n      \"id\": \"SRC-HISTORY-CONTEXT-V2-V3\",\n"
     },
     {
-      "id": "a09bf2a7816e7700cf5d7849e4b6110a4cc2db61de1f214a3ca5796946eb99d7",
+      "id": "4f2ed5ea1b2c3d60d3097f7bf10ec791bab3e691dd19aee2ae30479a9979eb46",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
+      "sourceHash": "01c1970c64a7cb36b227c95431753c25e9b1787014596819d6aecc0c86aadc66",
       "startLine": 235,
       "endLine": 263,
       "language": "json",
@@ -5064,9 +5097,9 @@
       "content": "y.\"\n      ],\n      \"sha256\": \"1a8b472268556422b73b1535a78004c324b290b914238e99d0ff5831ce8ba1c3\"\n    },\n    {\n      \"id\": \"SRC-HISTORY-CONTEXT-V2-V3\",\n      \"path\": \"docs/history/context-engine-v2-transition.md\",\n      \"type\": \"historical-document\",\n      \"role\": \"technical-transition-history\",\n      \"authority\": [\n        \"context-v2-v3-transition\",\n        \"absorbed-capabilities\",\n        \"removed-artifacts\"\n      ],\n      \"evidenceStatus\": \"historical-confirmed\",\n      \"priority\": 75,\n      \"limitations\": [\n        \"Historical authority only; it does not define the current implementation.\"\n      ],\n      \"sha256\": \"65cff092a8aa0f81f748c460ead1689dc25a5f7468ea1abb32aa55bcd059176a\"\n    },\n    {\n      \"id\": \"SRC-HISTORY-GOVERNANCE-HOTFIXES\",\n      \"path\": \"docs/history/context-engine-governance-hotfixes.md\",\n      \"type\": \"historical-document\",\n      \"role\": \"governance-hotfix-history\",\n      \"authority\": [\n        \"decision-memory-integration-history\",\n        \"governance-evolution\",\n"
     },
     {
-      "id": "5b76951ad8231ae02bf61bc47127f9a9729ab3ec7cbb876667d4193ab2eb7077",
+      "id": "1365d7b9ce563e2ea69e5df99a79e764222eae2570579e3570f812cb754620a0",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
+      "sourceHash": "01c1970c64a7cb36b227c95431753c25e9b1787014596819d6aecc0c86aadc66",
       "startLine": 259,
       "endLine": 274,
       "language": "json",

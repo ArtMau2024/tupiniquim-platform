@@ -226,6 +226,49 @@
         "Rules Registry",
         "Conflict Register"
       ]
+    },
+    {
+      "id": "DEC-2026-MIGRATION-AUDIT-CONTRACT",
+      "title": "Adotar contrato persistente de auditoria para a Migration Matrix",
+      "status": "active",
+      "decidedAt": "2026-08-01",
+      "category": "architecture",
+      "context": "A auditoria dos 80 itens da Migration Matrix demonstrou que evidencia fisica, classificacao de auditoria, lacuna historica e resolucao decisoria sao dimensoes distintas. Tambem foram comprovadas referencias historicas divergentes, incluindo tres hashes de commit com equivalentes fisicos verificaveis.",
+      "decision": "Adotar um bloco audit opcional e validavel por item da Migration Matrix, mantendo a auditoria fisica separada de currentStatus e da resolucao decisoria. audit.status nao altera automaticamente currentStatus; verified nao equivale a resolved; proveniencias direct, broad e divergent permanecem distinguiveis; lacunas nao recebem conteudo inferido; e referencias historicas divergentes preservam simultaneamente o valor original e o valor fisico verificado.",
+      "reason": "Permitir persistir resultados verificaveis da auditoria sem reabrir decisoes, apagar divergencias historicas, promover inferencias a fatos ou confundir correspondencia fisica com resolucao formal.",
+      "impacts": [
+        "A Migration Matrix passa a aceitar auditoria persistente separada do estado de migracao.",
+        "Itens auditados podem permanecer unresolved quando nao houver decisao formal de resolucao.",
+        "Lacunas historicas permanecem explicitas e nao podem ser preenchidas por inferencia.",
+        "Hashes e referencias historicas divergentes permanecem preservados ao lado dos valores fisicos verificados.",
+        "Evidencias de destino e proveniencia passam a ser validadas por contrato e testes automatizados.",
+        "A instalacao do contrato nao modifica automaticamente os 80 itens existentes."
+      ],
+      "rules": [
+        "Auditoria fisica e resolucao decisoria sao estados distintos.",
+        "audit.status nao altera automaticamente currentStatus.",
+        "verified nao equivale a resolved.",
+        "Proveniencia direct, broad e divergent deve permanecer distinguivel.",
+        "Lacunas nao recebem conteudo inventado ou inferido.",
+        "Referencia historica divergente nao pode ser sobrescrita silenciosamente.",
+        "Valor historico e valor fisico verificado devem permanecer auditaveis.",
+        "Decisoes formais continuam exigindo decisionRef quando o item estiver resolved."
+      ],
+      "resumeCriteria": [
+        "Reavaliar o contrato apenas mediante nova evidencia de que os campos sao insuficientes, ambiguos ou incompatíveis com a governanca canonica.",
+        "Alteracoes futuras no contrato exigem validacao retrocompativel dos itens e testes automatizados."
+      ],
+      "supersedes": [],
+      "affectedAreas": [
+        "Migration Matrix",
+        "Decision Memory",
+        "Source Registry",
+        "Context Engine",
+        "Planning Registry",
+        "Conflict Register",
+        "Project History",
+        "ADR Registry"
+      ]
     }
   ]
 }
