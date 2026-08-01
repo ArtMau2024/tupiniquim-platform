@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-01T22:54:16.794Z",
+  "generatedAt": "2026-08-01T23:18:11.927Z",
   "sources": [
     {
       "id": "SRC-ANCHOR-HISTORICAL-DOCX",
@@ -74,7 +74,7 @@
         "Derived and regenerable.",
         "Does not replace persistent decision or historical sources."
       ],
-      "sha256": "28fbd27fc6ba962c1b95a7d2e5c1fe4819cc4587e92a7ebd10790121327fb600"
+      "sha256": "d3d6359771367454746a61f1c2cd4f3fa8daa32fc64df43c3f1800957df11966"
     },
     {
       "id": "SRC-DECISION-MEMORY",
@@ -128,7 +128,7 @@
       "limitations": [
         "Planning authority only; current technical evidence remains in Project Map."
       ],
-      "sha256": "e84e3db245e11bc9b2d020c5b610a0518b195c1946a240c9997b598eb38d68d6"
+      "sha256": "8702914604e922ebf71c41288cf50e356347621805044a854f3709c64778932e"
     },
     {
       "id": "SRC-ANCHOR-MVP-NARRATIVE",
@@ -180,7 +180,7 @@
       "limitations": [
         "Organizes the method; individual rules remain authoritative in the Rules Registry."
       ],
-      "sha256": "dc2f701875d058cf2eb9ead6079073a7470c837c9f4b168ee27badcbe3a1d3b6"
+      "sha256": "f74b2d757587c56787b41c9ebb038e6d50c1c8792ac9ec3cbfb9253dc301a804"
     },
     {
       "id": "SRC-PROJECT-REGISTRY",
@@ -269,6 +269,40 @@
         "Historical authority only; current behavior is defined by operational code and registries."
       ],
       "sha256": "0583ec591f639d4740a152df89f4f6dbd7a1f760fcdce14a71906fcd18c33435"
+    },
+    {
+      "id": "SRC-PROJECT-HISTORY",
+      "path": "docs/project-history.md",
+      "type": "historical-registry",
+      "role": "verified-project-history",
+      "authority": [
+        "verified-commits",
+        "historical-hash-divergences",
+        "published-milestones"
+      ],
+      "evidenceStatus": "current-canonical",
+      "priority": 95,
+      "limitations": [
+        "Git remains authoritative for commit objects and file changes."
+      ],
+      "sha256": "aedaa490f6db7ea0ca387eca23ec8a8704490da61c9a3c26989786b9caab2322"
+    },
+    {
+      "id": "SRC-ADR-REGISTRY",
+      "path": "docs/adr-registry.md",
+      "type": "historical-registry",
+      "role": "adr-gap-registry",
+      "authority": [
+        "historical-adr-existence",
+        "historical-adr-approval",
+        "adr-gaps"
+      ],
+      "evidenceStatus": "current-canonical",
+      "priority": 95,
+      "limitations": [
+        "Original ADR decisions were not recovered and must not be invented."
+      ],
+      "sha256": "a6d3677102abb08a7fc8c95c61d0f1e2bf091192dc1f94a24644d92b49ff9e5b"
     }
   ]
 }

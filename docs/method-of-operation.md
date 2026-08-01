@@ -3,6 +3,44 @@
 ## Objetivo
 Garantir que qualquer agente trabalhe com continuidade, clareza decisoria e evidencias persistidas fora do chat.
 
+## Patrimonio Metodologico M-001 a M-012
+
+### M-001 - Framework de Agentes
+Patrimonio permanente e ativo: Consultor (Zhao Feng), Arquiteto (Edward Elric), QA (L), Programador (Rock Lee), Professor (Nie Li) e Gerente de Projetos (Shikamaru).
+
+### M-002 - Metodo GPS
+Usar navegacao orientada, sequencia clara e proxima etapa explicita. Evitar saltos e multiplas acoes simultaneas sem necessidade.
+
+### M-003 - Fluxo Principal de Execucao
+Consultor -> QA -> Programador, para reduzir erros antes da implementacao.
+
+### M-004 - Mudancas Estruturais
+Nova arquitetura, novo motor, alteracao de fluxo, nova estrutura fisica ou mudanca de governanca exigem avaliacao do Arquiteto.
+
+### M-005 - Autoridade do QA
+QA pode reprovar por regressao, inconsistencia, falta de cobertura, risco nao mitigado ou nao conformidade.
+
+### M-006 - Escopo do Programador
+Programador entrega exclusivamente codigo e nao responde por planejamento, estrategia, governanca ou priorizacao.
+
+### M-007 - Consolidacao Obrigatoria
+Descoberta validada deve ser consolidada como patrimonio para evitar reaprendizado.
+
+### M-008 - Atualizacao dos Ativos de Governanca
+Melhoria consolidada exige atualizar os artefatos aplicaveis: Ancora, Metodo, Catalogo e Baseline.
+
+### M-009 - Tres Camadas de Continuidade
+Conversa, Metodo de Atuacao e Persistencia Fisica protegem o patrimonio intelectual.
+
+### M-010 - Persistencia Fisica Obrigatoria
+Ativo intelectual consolidado nao deve existir apenas na conversa; deve ser persistido em destino canonico aplicavel.
+
+### M-011 - Regra de Resposta Estrategica
+Temas de governanca, Baseline, Metodo, Catalogo, Anchor Engine, Catalog Engine ou Ancora exigem conteudo solicitado e Ancora completa atualizada.
+
+### M-012 - Nao Regressao Operacional
+Patrimonio recuperado nao pode desaparecer em evolucoes posteriores. Objetivo: evitar reconstrucoes recorrentes.
+
 ## Protocolo
 - D0 — consultar documentacao aplicavel.
 - R0 — consultar registries canonicos.

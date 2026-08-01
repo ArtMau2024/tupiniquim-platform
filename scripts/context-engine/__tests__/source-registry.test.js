@@ -13,7 +13,7 @@ function fixture() {
     sources: definitions.map(item => ({ ...item, sha256: hash(path.resolve(ROOT, item.path)) }))
   };
 }
-test("validates the fifteen canonical Harness sources", () => assert.equal(validateRegistry(fixture(), true).sources.length, 15));
+test("validates the seventeen canonical Harness sources", () => assert.equal(validateRegistry(fixture(), true).sources.length, 17));
 test("rejects duplicate source ids", () => {
   const registry = fixture();
   registry.sources[1] = { ...registry.sources[1], id: registry.sources[0].id };

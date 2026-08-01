@@ -202,7 +202,7 @@
     {
       "id": "PHASE-ANCHOR-02-REGISTRIES",
       "name": "Registros Canônicos",
-      "status": "in_progress",
+      "status": "completed",
       "objective": "Persistir projetos, fases, planos, regras, método, histórico, marcos e lacunas nos destinos corretos.",
       "deliverables": [
         "projects.json",
@@ -223,7 +223,7 @@
         {
           "id": "TASK-ANCHOR-REGISTRIES-01-CONSOLIDATE-MINIMUM",
           "title": "Consolidar registries mínimos para o fechamento do Harness MVP",
-          "status": "in_progress",
+          "status": "completed",
           "objective": "Materializar somente os registros mínimos necessários para continuidade, bootstrap e retomada, sem resolver todo o patrimônio histórico.",
           "deliverables": [
             "docs/project-history.md com os oito commits verificados e três divergências preservadas",
@@ -247,6 +247,19 @@
               "reconstrucao de conteudo perdido dos ADRs",
               "reativacao da IA integrada"
             ]
+          },
+          "completedSummary": {
+            "created": [
+              "docs/project-history.md",
+              "docs/adr-registry.md"
+            ],
+            "updated": [
+              "docs/method-of-operation.md"
+            ],
+            "verifiedCommits": 8,
+            "preservedAdrGaps": 9,
+            "preservedMethods": 12,
+            "activatedHistoricalEpics": 0
           }
         }
       ]
@@ -254,7 +267,7 @@
     {
       "id": "PHASE-ANCHOR-03-GENERATION",
       "name": "Geração Transacional da Âncora",
-      "status": "planned",
+      "status": "in_progress",
       "objective": "Gerar uma projeção operacional sucinta sem perder as fontes detalhadas.",
       "deliverables": [
         "anchor.json",
@@ -266,6 +279,34 @@
         "Todo resumo possui referência aprofundável.",
         "Geração em staging e promoção atômica.",
         "Histórico encadeado por hashes."
+      ],
+      "tasks": [
+        {
+          "id": "TASK-ANCHOR-GENERATION-01-BOOTSTRAP",
+          "title": "Validar Ancora operacional e bootstrap de retomada",
+          "status": "in_progress",
+          "objective": "Comprovar geracao dos cinco blocos, referencias canonicas e retomada sem dependencia da conversa.",
+          "deliverables": [
+            "Ancora operacional de cinco blocos",
+            "bootstrap de retomada",
+            "teste deterministico de interrupcao e retomada"
+          ],
+          "acceptanceCriteria": [
+            "Projeto, fase e tarefa atuais sao recuperados.",
+            "Projetos pausados e proxima fase sao recuperados.",
+            "Decisoes, regras, fontes e conflitos possuem referencias canonicas.",
+            "A proxima acao e explicita.",
+            "A retomada funciona com working tree limpa."
+          ],
+          "scopeLimit": {
+            "maximumImplementationBatches": 1,
+            "excludedPostMvpItems": [
+              "refinamentos de IA integrada",
+              "preenchimento dos 80 blocos audit",
+              "automacoes avancadas de evidencia"
+            ]
+          }
+        }
       ]
     },
     {
@@ -338,6 +379,6 @@
     "DEC-2026-EPIC-TRANSITION-HARNESS",
     "DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY"
   ],
-  "currentPhase": "PHASE-ANCHOR-02-REGISTRIES",
-  "nextPhase": "PHASE-ANCHOR-03-GENERATION"
+  "currentPhase": "PHASE-ANCHOR-03-GENERATION",
+  "nextPhase": "PHASE-ANCHOR-04-VALIDATION"
 }
