@@ -101,6 +101,33 @@
         "Cada item possui destino canônico.",
         "Conflitos não são resolvidos automaticamente.",
         "Conteúdo perdido permanece registrado como lacuna."
+      ],
+      "tasks": [
+        {
+          "id": "TASK-ANCHOR-INVENTORY-01-AUDIT-MATRIX",
+          "title": "Auditar invariantes e cobertura da Migration Matrix",
+          "status": "in_progress",
+          "objective": "Transformar a matriz existente em um registro semanticamente verificavel antes da migracao dos itens nao resolvidos.",
+          "deliverables": [
+            "validador semantico da Migration Matrix",
+            "testes automatizados das invariantes",
+            "auditoria dos 80 itens e sourceRefs",
+            "classificacao de destinos existentes e pendentes",
+            "primeiro lote de migracao identificado por IDs"
+          ],
+          "acceptanceCriteria": [
+            "Os 80 itens permanecem contabilizados.",
+            "O resumo por tipo coincide com os itens fisicos.",
+            "summary.conflicts contabiliza evidencias historicamente conflitantes.",
+            "Conflitos abertos permanecem controlados pelo Conflict Register.",
+            "Itens resolvidos possuem resolution e decisionRef.",
+            "As nove lacunas permanecem incomplete e preserve-gap.",
+            "Nenhuma lacuna recebe conteudo inventado.",
+            "Todos os sourceRefs resolvem.",
+            "Todos os destinos canonicos sao classificados.",
+            "O primeiro lote de migracao e identificado por IDs."
+          ]
+        }
       ]
     },
     {

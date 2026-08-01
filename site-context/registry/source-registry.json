@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-01T20:48:50.682Z",
+  "generatedAt": "2026-08-01T21:12:21.158Z",
   "sources": [
     {
       "id": "SRC-ANCHOR-HISTORICAL-DOCX",
@@ -74,7 +74,7 @@
         "Derived and regenerable.",
         "Does not replace persistent decision or historical sources."
       ],
-      "sha256": "7b88e397e04db5a23625f412d82438114e00cfaf10f29d11da2e8c746628ff3a"
+      "sha256": "288a90f2115a34e8274e41b9414d2751dd7c5b483719b674353f947e9408026c"
     },
     {
       "id": "SRC-DECISION-MEMORY",
@@ -128,7 +128,7 @@
       "limitations": [
         "Planning authority only; current technical evidence remains in Project Map."
       ],
-      "sha256": "39d00160ad0caacafaf0557b469b836ff5b2b72cf8000c5b77352c5bba9e800a"
+      "sha256": "9caf4064c7c0d9ebc0d0ffe96af4a960155c3124ad405cae1747ab62c2313f72"
     },
     {
       "id": "SRC-ANCHOR-MVP-NARRATIVE",

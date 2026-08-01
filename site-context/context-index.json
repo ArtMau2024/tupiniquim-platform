@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "sourceProjectMapHash": "7b88e397e04db5a23625f412d82438114e00cfaf10f29d11da2e8c746628ff3a",
+  "sourceProjectMapHash": "288a90f2115a34e8274e41b9414d2751dd7c5b483719b674353f947e9408026c",
   "chunkingVersion": "1.0.0",
   "chunks": [
     {
@@ -2765,26 +2765,59 @@
       "content": "oLowerCase())) continue;\n    const result = collectRelations(root, file.path, file.content, parsed.options);\n    relations.push(...result.relations);\n    for (const diagnostic of result.parseDiagnostics) parseErrors.push({ file: file.path, status: \"parse_error\", message: ts.flattenDiagnosticMessageText(diagnostic.messageText, \" \"), blocking: false });\n  }\n  relations.sort((a,b)=>a.id.localeCompare(b.id));\n  return { relations, cycles: detectCycles(relations), parseErrors, complete: parseErrors.length === 0 };\n}\nmodule.exports = { buildKnowledgeGraph, collectRelations, detectCycles };\n"
     },
     {
-      "id": "f1c58fc51cd2e180e4f2d3106370ebfd001a569ad06b49e3f3d70dd15d777192",
+      "id": "7406a7dab56841895d6976dda1751e6ded01f47aa0d64f3bec531b3775b12e60",
       "sourcePath": "scripts/context-engine/migration-registry.js",
-      "sourceHash": "4548023e77de1a8ce45ca9debd8cc3b5c6d0a24a01d98e12387d34b2328d3c48",
+      "sourceHash": "5ab7dadc3dba66ca1ce5889a3c8f15d442441354eec63848cde79f02deddd134",
       "startLine": 1,
-      "endLine": 9,
-      "language": "javascript",
-      "category": "source-code",
-      "redacted": false,
-      "content": "\"use strict\";\nconst fs=require(\"fs\");\nconst path=require(\"path\");\nconst ROOT=process.cwd();\nconst matrixFile=path.join(ROOT,\"site-context\",\"registry\",\"migration-matrix.json\");\nconst conflictFile=path.join(ROOT,\"site-context\",\"registry\",\"conflict-register.json\");\nconst sourceFile=path.join(ROOT,\"site-context\",\"registry\",\"source-registry.json\");\nfunction read(file){return JSON.parse(fs.readFileSync(file,\"utf8\"));}\nfunction validate(){const m=read(matrixFile),c=read(conflictFile),s=read(sourceFile);if(!Array.isArray(m.items)||m.items.length<70)throw new Error(\"Migration matrix is incomplete.\");const ids=new Set();for(const item of m.items){if(ids.has(item.id))throw new Error(`Duplicate migration item: ${item.id}`);ids.add(item.id);if(!item.sourceRefs.length)throw new Error(`Item without source: ${item.id}`);}const sourceIds=new Set(s.sources.map(x=>x.id));for(const item of m.items)for(const ref of item.sourceRefs)if(!sourceIds.has(ref))throw new Error(`Unknown source ${ref} in ${item.id}`"
-    },
-    {
-      "id": "8d550d72d56b8047b5d8df89abf497edc8f78c40d3ba9551e3bd67194d2c7524",
-      "sourcePath": "scripts/context-engine/migration-registry.js",
-      "sourceHash": "4548023e77de1a8ce45ca9debd8cc3b5c6d0a24a01d98e12387d34b2328d3c48",
-      "startLine": 9,
       "endLine": 11,
       "language": "javascript",
       "category": "source-code",
       "redacted": false,
-      "content": ".map(x=>x.id));for(const item of m.items)for(const ref of item.sourceRefs)if(!sourceIds.has(ref))throw new Error(`Unknown source ${ref} in ${item.id}`);for(const conflict of c.conflicts)if(!ids.has(conflict.itemRef))throw new Error(`Unknown conflict item: ${conflict.itemRef}`);if(m.summary.total!==m.items.length)throw new Error(\"Migration summary mismatch.\");return{matrix:m,conflicts:c};}\nif(require.main===module){try{const r=validate();console.log(`Migration Matrix is valid. Items: ${r.matrix.items.length}. Open conflicts: ${r.conflicts.summary.open}.`);}catch(e){console.error(e.message);process.exit(1);}}\nmodule.exports={validate};\n"
+      "content": "\"use strict\";\nconst fs=require(\"fs\");\nconst path=require(\"path\");\nconst ROOT=process.cwd();\nconst matrixFile=path.join(ROOT,\"site-context\",\"registry\",\"migration-matrix.json\");\nconst conflictFile=path.join(ROOT,\"site-context\",\"registry\",\"conflict-register.json\");\nconst sourceFile=path.join(ROOT,\"site-context\",\"registry\",\"source-registry.json\");\nconst ALLOWED={evidenceStatus:new Set([\"historical-confirmed\",\"historical\",\"incomplete\",\"conflicting\"]),currentStatus:new Set([\"resolved\",\"unresolved\"]),requiredAction:new Set([\"review\",\"preserve-gap\",\"migrate\"])};\nfunction read(file){return JSON.parse(fs.readFileSync(file,\"utf8\"));}\nfunction ensure(v,m){if(!v)throw new Error(m);}\nfunction count(items,field,value){return items.filter(x=>x[field]===value).length;}\n"
+    },
+    {
+      "id": "0f0f07201addc3bcc325120b880eccf87128c6766a40e18bd644f454dda39834",
+      "sourcePath": "scripts/context-engine/migration-registry.js",
+      "sourceHash": "5ab7dadc3dba66ca1ce5889a3c8f15d442441354eec63848cde79f02deddd134",
+      "startLine": 9,
+      "endLine": 12,
+      "language": "javascript",
+      "category": "source-code",
+      "redacted": false,
+      "content": "c(file,\"utf8\"));}\nfunction ensure(v,m){if(!v)throw new Error(m);}\nfunction count(items,field,value){return items.filter(x=>x[field]===value).length;}\nfunction validateData(m,c,s){ensure(Array.isArray(m.items)&&m.items.length>=70,\"Migration matrix is incomplete.\");const ids=new Set();for(const item of m.items){ensure(item&&typeof item.id===\"string\"&&item.id,\"Migration item id is required.\");ensure(!ids.has(item.id),`Duplicate migration item: ${item.id}`);ids.add(item.id);ensure(Array.isArray(item.sourceRefs)&&item.sourceRefs.length>0,`Item without source: ${item.id}`);for(const field of Object.keys(ALLOWED))ensure(ALLOWED[field].has(item[field]),`Invalid ${field} in ${item.id}: ${item[field]}`);ensure(typeof item.canonicalDestination===\"string\"&&item.canonicalDestination.trim(),`Canonical destination missing in ${item.id}`);if(item.currentStatus===\"resolved\"){ensure(typeof item.resolution===\"string\"&&item.resolution.trim(),`Resolved item without resolution: ${item.id}`);ensure(typeof it"
+    },
+    {
+      "id": "76b0eea4d3defb55d1513df96b51f4504d1cd9a7dc9dd5c22950b2d0453013bc",
+      "sourcePath": "scripts/context-engine/migration-registry.js",
+      "sourceHash": "5ab7dadc3dba66ca1ce5889a3c8f15d442441354eec63848cde79f02deddd134",
+      "startLine": 12,
+      "endLine": 13,
+      "language": "javascript",
+      "category": "source-code",
+      "redacted": false,
+      "content": "Status===\"resolved\"){ensure(typeof item.resolution===\"string\"&&item.resolution.trim(),`Resolved item without resolution: ${item.id}`);ensure(typeof item.decisionRef===\"string\"&&item.decisionRef.trim(),`Resolved item without decisionRef: ${item.id}`);}if(item.requiredAction===\"preserve-gap\")ensure(item.evidenceStatus===\"incomplete\",`preserve-gap requires incomplete evidence: ${item.id}`);if(item.conflict===true)ensure(item.currentStatus!==\"resolved\",`Resolved item cannot keep open conflict: ${item.id}`);}\nconst sourceIds=new Set((s.sources||[]).map(x=>x.id));for(const item of m.items)for(const ref of item.sourceRefs)ensure(sourceIds.has(ref),`Unknown source ${ref} in ${item.id}`);for(const conflict of c.conflicts||[])ensure(ids.has(conflict.itemRef),`Unknown conflict item: ${conflict.itemRef}`);\n"
+    },
+    {
+      "id": "269c10e016252986e0e6cf7bd5e26a2c46172f3c3c00268e2310559255b9c450",
+      "sourcePath": "scripts/context-engine/migration-registry.js",
+      "sourceHash": "5ab7dadc3dba66ca1ce5889a3c8f15d442441354eec63848cde79f02deddd134",
+      "startLine": 13,
+      "endLine": 15,
+      "language": "javascript",
+      "category": "source-code",
+      "redacted": false,
+      "content": "n source ${ref} in ${item.id}`);for(const conflict of c.conflicts||[])ensure(ids.has(conflict.itemRef),`Unknown conflict item: ${conflict.itemRef}`);\nensure(m.summary&&m.summary.total===m.items.length,\"Migration summary mismatch.\");const checks={rules:count(m.items,\"type\",\"rule\"),methods:count(m.items,\"type\",\"method\"),epics:count(m.items,\"type\",\"epic\"),adrs:count(m.items,\"type\",\"adr\"),commits:count(m.items,\"type\",\"commit\"),engines:count(m.items,\"type\",\"engine\"),conflicts:count(m.items,\"evidenceStatus\",\"conflicting\")};for(const [key,value] of Object.entries(checks))ensure(m.summary[key]===value,`Migration summary mismatch for ${key}. Expected ${value}, received ${m.summary[key]}.`);ensure((c.summary?.open??0)===(c.conflicts||[]).filter(x=>x.status===\"open\").length,\"Conflict Register open summary mismatch.\");return{matrix:m,conflicts:c};}\nfunction validate(){return validateData(read(matrixFile),read(conflictFile),read(sourceFile));}\n"
+    },
+    {
+      "id": "fda5eda70c7baf7052e5847cbc7b4362ea55e2baadb05c1c363e7773f5a6ca7e",
+      "sourcePath": "scripts/context-engine/migration-registry.js",
+      "sourceHash": "5ab7dadc3dba66ca1ce5889a3c8f15d442441354eec63848cde79f02deddd134",
+      "startLine": 14,
+      "endLine": 17,
+      "language": "javascript",
+      "category": "source-code",
+      "redacted": false,
+      "content": "en summary mismatch.\");return{matrix:m,conflicts:c};}\nfunction validate(){return validateData(read(matrixFile),read(conflictFile),read(sourceFile));}\nif(require.main===module){try{const r=validate();console.log(`Migration Matrix is valid. Items: ${r.matrix.items.length}. Open conflicts: ${r.conflicts.summary.open}.`);}catch(e){console.error(e.message);process.exit(1);}}\nmodule.exports={validate,validateData};\n"
     },
     {
       "id": "b907999183723eb69ebfc88e71f7bd86f8437817ed1399b2e105f1f64ef59faf",
@@ -4635,9 +4668,9 @@
       "content": "Status\": \"historical\",\n      \"currentStatus\": \"unresolved\",\n      \"conflict\": false,\n      \"canonicalDestination\": \"site-context/registry/projects/\",\n      \"requiredAction\": \"review\"\n    },\n    {\n      \"id\": \"MIG-ENGINE-NON-REGRESSION-GUARD\",\n      \"type\": \"engine\",\n      \"title\": \"Non Regression Guard\",\n      \"content\": \"Estado histórico: planned.\",\n      \"sourceRefs\": [\n        \"SRC-ANCHOR-HISTORICAL-DOCX\",\n        \"SRC-BASELINE-HISTORICAL-DOCX\"\n      ],\n      \"evidenceStatus\": \"historical\",\n      \"currentStatus\": \"unresolved\",\n      \"conflict\": false,\n      \"canonicalDestination\": \"site-context/registry/projects/\",\n      \"requiredAction\": \"review\"\n    }\n  ],\n  \"summary\": {\n    \"total\": 80,\n    \"rules\": 39,\n    \"methods\": 12,\n    \"epics\": 8,\n    \"adrs\": 9,\n    \"commits\": 8,\n    \"engines\": 4,\n    \"conflicts\": 1\n  }\n}\n"
     },
     {
-      "id": "67323e00b86e87d352acf2d1cc958259c4c9d06ef44842770f7acf04ade6f0f1",
+      "id": "ed620d770442e025bf164bea462ae810ae4ef80c79c0c1058fb584e67858df75",
       "sourcePath": "site-context/registry/plans/PLAN-ANCHOR-MVP.json",
-      "sourceHash": "39d00160ad0caacafaf0557b469b836ff5b2b72cf8000c5b77352c5bba9e800a",
+      "sourceHash": "9caf4064c7c0d9ebc0d0ffe96af4a960155c3124ad405cae1747ab62c2313f72",
       "startLine": 1,
       "endLine": 22,
       "language": "json",
@@ -4646,9 +4679,9 @@
       "content": "{\n  \"schemaVersion\": \"1.0.0\",\n  \"id\": \"PLAN-ANCHOR-MVP\",\n  \"projectId\": \"EPIC-HARNESS-001\",\n  \"title\": \"Harness de Continuidade e Anchor Engine MVP\",\n  \"status\": \"in_progress\",\n  \"priority\": \"critical\",\n  \"objective\": \"Permitir que qualquer conversa ou agente recupere e aprofunde o contexto correto do projeto sem depender do histórico do chat.\",\n  \"motivation\": [\n    \"Reduzir reconstruções de contexto.\",\n    \"Evitar perda de decisões, regras, histórico e planejamento detalhado.\",\n    \"Diminuir retrabalho e risco de regressão.\",\n    \"Preparar o desenvolvimento do CMS sobre uma governança aderente à realidade.\"\n  ],\n  \"scope\": [\n    \"Matriz de Migração do patrimônio histórico.\",\n    \"Registro de projetos, fases, planos, fluxos e regras.\",\n    \"anchor.json com cinco blocos conceituais.\",\n    \"anchor-history.json com cadeia de gerações.\",\n    \"Gerador transacional da Âncora.\",\n    \"Validador de schema, cobertura, referências e freshness.\",\n    \"Non Regression Guard básico.\",\n"
     },
     {
-      "id": "1afcf38b2766f7626897872676852ea56f6073b59ff462cfaa0b7a3102dbc65d",
+      "id": "4382ead055adac459e518705bd7ccc6c92399263a84ca4495dd54d1e396f7c6a",
       "sourcePath": "site-context/registry/plans/PLAN-ANCHOR-MVP.json",
-      "sourceHash": "39d00160ad0caacafaf0557b469b836ff5b2b72cf8000c5b77352c5bba9e800a",
+      "sourceHash": "9caf4064c7c0d9ebc0d0ffe96af4a960155c3124ad405cae1747ab62c2313f72",
       "startLine": 19,
       "endLine": 47,
       "language": "json",
@@ -4657,9 +4690,9 @@
       "content": "erações.\",\n    \"Gerador transacional da Âncora.\",\n    \"Validador de schema, cobertura, referências e freshness.\",\n    \"Non Regression Guard básico.\",\n    \"context:bootstrap com profundidade progressiva.\",\n    \"context:resolve para referências estáveis.\",\n    \"context:handoff para transição entre conversas.\",\n    \"Teste de retomada em conversa nova.\"\n  ],\n  \"nonGoals\": [\n    \"Interface gráfica de governança.\",\n    \"Banco de dados para o harness.\",\n    \"Embeddings ou banco vetorial.\",\n    \"Agentes autônomos.\",\n    \"Dashboard sofisticado.\",\n    \"Reconstrução inventada de conteúdo histórico perdido.\",\n    \"Automação sem relação direta com continuidade.\"\n  ],\n  \"sources\": [\n    \"ÂNCORA PERMANENTE DO PROJETO.docx\",\n    \"BASELINE.docx\",\n    \"baseline.md\",\n    \"site-context/project-map.json\",\n    \"site-context/decision-memory.json\",\n    \"docs/context-engine-governance.md\"\n  ],\n  \"phases\": [\n    {\n      \"id\": \"PHASE-HARNESS-00-TRANSITION\",\n"
     },
     {
-      "id": "bba4cd60fbc29568313db42fe42a8c81bad24f98b9f863b4266c5967e2ac4a95",
+      "id": "7a7022dc128f535b16928e8a24bb06c8743e9c1578436effce7da7c9e2683412",
       "sourcePath": "site-context/registry/plans/PLAN-ANCHOR-MVP.json",
-      "sourceHash": "39d00160ad0caacafaf0557b469b836ff5b2b72cf8000c5b77352c5bba9e800a",
+      "sourceHash": "9caf4064c7c0d9ebc0d0ffe96af4a960155c3124ad405cae1747ab62c2313f72",
       "startLine": 41,
       "endLine": 63,
       "language": "json",
@@ -4668,9 +4701,9 @@
       "content": "\n    \"site-context/decision-memory.json\",\n    \"docs/context-engine-governance.md\"\n  ],\n  \"phases\": [\n    {\n      \"id\": \"PHASE-HARNESS-00-TRANSITION\",\n      \"name\": \"Organizacao da Transicao e Apropriacao de Escopo\",\n      \"status\": \"completed\",\n      \"objective\": \"Organizar o pausamento do EPIC-003, formalizar o EPIC-004, apropriar ao Harness os artefatos de continuidade e publicar um estado recuperavel antes de retomar o inventario.\",\n      \"deliverables\": [\n        \"inventario classificado da raiz\",\n        \"limpeza controlada dos temporarios\",\n        \"EPIC-003 pausado e organizado\",\n        \"EPIC-004 formalizado\",\n        \"Context Engine e RAG atualizados\",\n        \"build validado\",\n        \"commit e push do estado recuperavel\"\n      ],\n      \"acceptanceCriteria\": [\n        \"Nenhum instalador ou ZIP obsoleto permanece na raiz.\",\n        \"Copias identicas sao removidas e divergencias sao inspecionadas.\",\n        \"Backups sao removidos somente apos validacao.\",\n"
     },
     {
-      "id": "2d81e2569b53dba29cd4e1fc6697116978cdf0299c4a7cabdf53663a7459c979",
+      "id": "2406583635ab46a09fb9097216b738ebb952c42810e48d25ab1d6094516cd4a2",
       "sourcePath": "site-context/registry/plans/PLAN-ANCHOR-MVP.json",
-      "sourceHash": "39d00160ad0caacafaf0557b469b836ff5b2b72cf8000c5b77352c5bba9e800a",
+      "sourceHash": "9caf4064c7c0d9ebc0d0ffe96af4a960155c3124ad405cae1747ab62c2313f72",
       "startLine": 61,
       "endLine": 83,
       "language": "json",
@@ -4679,70 +4712,92 @@
       "content": "anece na raiz.\",\n        \"Copias identicas sao removidas e divergencias sao inspecionadas.\",\n        \"Backups sao removidos somente apos validacao.\",\n        \"EPIC-003 e EPIC-004 possuem estado e escopo formalizados.\",\n        \"context:query deixa de recuperar copias temporarias da raiz.\",\n        \"context:ask e comparado com registries e evidencia fisica.\",\n        \"Testes e build passam antes do commit.\"\n      ],\n      \"tasks\": [\n        {\n          \"id\": \"TASK-HARNESS-TRANSITION-CLEANUP\",\n          \"title\": \"Classificar e limpar controladamente a raiz\",\n          \"status\": \"completed\",\n          \"deliverables\": [\n            \"inventario de temporarios\",\n            \"classificacao dos arquivos divergentes\",\n            \"remocao controlada\",\n            \"git status revisado\"\n          ],\n          \"acceptanceCriteria\": [\n            \"Raiz sem apply-*.js obsoletos.\",\n            \"Raiz sem ZIPs de instalacao aplicados.\",\n            \"Arquivos cls e node removidos.\",\n"
     },
     {
-      "id": "2ee8ad2779aafbf8402b62e8b7ff7909d2374fc972a51ec69e7043ae2b658147",
+      "id": "a0c8ed2836c1e310febd444001d62c8aa3d6452ab05160ba86a15a14291e5be4",
       "sourcePath": "site-context/registry/plans/PLAN-ANCHOR-MVP.json",
-      "sourceHash": "39d00160ad0caacafaf0557b469b836ff5b2b72cf8000c5b77352c5bba9e800a",
+      "sourceHash": "9caf4064c7c0d9ebc0d0ffe96af4a960155c3124ad405cae1747ab62c2313f72",
       "startLine": 80,
-      "endLine": 108,
+      "endLine": 107,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": ": [\n            \"Raiz sem apply-*.js obsoletos.\",\n            \"Raiz sem ZIPs de instalacao aplicados.\",\n            \"Arquivos cls e node removidos.\",\n            \"Nenhuma copia operacional duplicada permanece na raiz.\"\n          ]\n        }\n      ]\n    },\n    {\n      \"id\": \"PHASE-ANCHOR-01-INVENTORY\",\n      \"name\": \"Inventário e Matriz de Migração\",\n      \"status\": \"in_progress\",\n      \"objective\": \"Classificar patrimônio confirmado, histórico, planejado, conflitante, incompleto e não comprovado.\",\n      \"deliverables\": [\n        \"migration-matrix.json\",\n        \"conflict-register.json\",\n        \"source-registry.json\"\n      ],\n      \"acceptanceCriteria\": [\n        \"Cada item possui origem e evidência.\",\n        \"Cada item possui destino canônico.\",\n        \"Conflitos não são resolvidos automaticamente.\",\n        \"Conteúdo perdido permanece registrado como lacuna.\"\n      ]\n    },\n    {\n      \"id\": \"PHASE-ANCHOR-02-REGISTRIES\",\n      \"name\": \"Registros Canônicos\",\n"
+      "content": ": [\n            \"Raiz sem apply-*.js obsoletos.\",\n            \"Raiz sem ZIPs de instalacao aplicados.\",\n            \"Arquivos cls e node removidos.\",\n            \"Nenhuma copia operacional duplicada permanece na raiz.\"\n          ]\n        }\n      ]\n    },\n    {\n      \"id\": \"PHASE-ANCHOR-01-INVENTORY\",\n      \"name\": \"Inventário e Matriz de Migração\",\n      \"status\": \"in_progress\",\n      \"objective\": \"Classificar patrimônio confirmado, histórico, planejado, conflitante, incompleto e não comprovado.\",\n      \"deliverables\": [\n        \"migration-matrix.json\",\n        \"conflict-register.json\",\n        \"source-registry.json\"\n      ],\n      \"acceptanceCriteria\": [\n        \"Cada item possui origem e evidência.\",\n        \"Cada item possui destino canônico.\",\n        \"Conflitos não são resolvidos automaticamente.\",\n        \"Conteúdo perdido permanece registrado como lacuna.\"\n      ],\n      \"tasks\": [\n        {\n          \"id\": \"TASK-ANCHOR-INVENTORY-01-AUDIT-MATRIX\",\n"
     },
     {
-      "id": "b4ba3f4afec770984a20863f0cdba6494f411b3759548f2b99cb33cd5b7f16cb",
+      "id": "f01877ec5c2fdd1d351594b0396573f688ff73bab9b02f13d6d1aa1f3afc7641",
       "sourcePath": "site-context/registry/plans/PLAN-ANCHOR-MVP.json",
-      "sourceHash": "39d00160ad0caacafaf0557b469b836ff5b2b72cf8000c5b77352c5bba9e800a",
+      "sourceHash": "9caf4064c7c0d9ebc0d0ffe96af4a960155c3124ad405cae1747ab62c2313f72",
       "startLine": 103,
-      "endLine": 132,
+      "endLine": 121,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "nteúdo perdido permanece registrado como lacuna.\"\n      ]\n    },\n    {\n      \"id\": \"PHASE-ANCHOR-02-REGISTRIES\",\n      \"name\": \"Registros Canônicos\",\n      \"status\": \"planned\",\n      \"objective\": \"Persistir projetos, fases, planos, regras, método, histórico, marcos e lacunas nos destinos corretos.\",\n      \"deliverables\": [\n        \"projects.json\",\n        \"phases.json\",\n        \"plans.json\",\n        \"rules.json\",\n        \"project-history.md\",\n        \"method-of-operation.md\",\n        \"adr-registry.md\"\n      ],\n      \"acceptanceCriteria\": [\n        \"IDs estáveis e únicos.\",\n        \"Referências resolvíveis.\",\n        \"Estado atual separado de histórico e futuro.\",\n        \"Regras 1 a 39 e Método M-001 a M-012 classificados.\"\n      ]\n    },\n    {\n      \"id\": \"PHASE-ANCHOR-03-GENERATION\",\n      \"name\": \"Geração Transacional da Âncora\",\n      \"status\": \"planned\",\n      \"objective\": \"Gerar uma projeção operacional sucinta sem perder as fontes detalhadas.\",\n      \"deliverables\": [\n"
+      "content": "    \"Conteúdo perdido permanece registrado como lacuna.\"\n      ],\n      \"tasks\": [\n        {\n          \"id\": \"TASK-ANCHOR-INVENTORY-01-AUDIT-MATRIX\",\n          \"title\": \"Auditar invariantes e cobertura da Migration Matrix\",\n          \"status\": \"in_progress\",\n          \"objective\": \"Transformar a matriz existente em um registro semanticamente verificavel antes da migracao dos itens nao resolvidos.\",\n          \"deliverables\": [\n            \"validador semantico da Migration Matrix\",\n            \"testes automatizados das invariantes\",\n            \"auditoria dos 80 itens e sourceRefs\",\n            \"classificacao de destinos existentes e pendentes\",\n            \"primeiro lote de migracao identificado por IDs\"\n          ],\n          \"acceptanceCriteria\": [\n            \"Os 80 itens permanecem contabilizados.\",\n            \"O resumo por tipo coincide com os itens fisicos.\",\n            \"summary.conflicts contabiliza evidencias historicamente conflitantes.\",\n"
     },
     {
-      "id": "09227d5a81ed8cc9704b64a4e29ad307871fb634bc272c8ad3f27dbb62df2d6d",
+      "id": "7acc95e012c19cdac6296177ad275febe09db3aaa59f74f835e9885de41e099b",
       "sourcePath": "site-context/registry/plans/PLAN-ANCHOR-MVP.json",
-      "sourceHash": "39d00160ad0caacafaf0557b469b836ff5b2b72cf8000c5b77352c5bba9e800a",
-      "startLine": 129,
-      "endLine": 157,
+      "sourceHash": "9caf4064c7c0d9ebc0d0ffe96af4a960155c3124ad405cae1747ab62c2313f72",
+      "startLine": 119,
+      "endLine": 142,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "ra\",\n      \"status\": \"planned\",\n      \"objective\": \"Gerar uma projeção operacional sucinta sem perder as fontes detalhadas.\",\n      \"deliverables\": [\n        \"anchor.json\",\n        \"anchor-history.json\",\n        \"generate-anchor.js\"\n      ],\n      \"acceptanceCriteria\": [\n        \"Exatamente cinco blocos conceituais.\",\n        \"Todo resumo possui referência aprofundável.\",\n        \"Geração em staging e promoção atômica.\",\n        \"Histórico encadeado por hashes.\"\n      ]\n    },\n    {\n      \"id\": \"PHASE-ANCHOR-04-VALIDATION\",\n      \"name\": \"Validação e Não Regressão\",\n      \"status\": \"planned\",\n      \"objective\": \"Bloquear perda silenciosa de patrimônio e fontes dessincronizadas.\",\n      \"deliverables\": [\n        \"validate-anchor.js\",\n        \"non-regression-guard.js\",\n        \"anchor schema\",\n        \"testes automatizados\"\n      ],\n      \"acceptanceCriteria\": [\n        \"Schema e hashes válidos.\",\n        \"EPICs, regras, ADRs, commits, marcos e decisões confirmadas não desaparecem.\",\n"
+      "content": "\n            \"O resumo por tipo coincide com os itens fisicos.\",\n            \"summary.conflicts contabiliza evidencias historicamente conflitantes.\",\n            \"Conflitos abertos permanecem controlados pelo Conflict Register.\",\n            \"Itens resolvidos possuem resolution e decisionRef.\",\n            \"As nove lacunas permanecem incomplete e preserve-gap.\",\n            \"Nenhuma lacuna recebe conteudo inventado.\",\n            \"Todos os sourceRefs resolvem.\",\n            \"Todos os destinos canonicos sao classificados.\",\n            \"O primeiro lote de migracao e identificado por IDs.\"\n          ]\n        }\n      ]\n    },\n    {\n      \"id\": \"PHASE-ANCHOR-02-REGISTRIES\",\n      \"name\": \"Registros Canônicos\",\n      \"status\": \"planned\",\n      \"objective\": \"Persistir projetos, fases, planos, regras, método, histórico, marcos e lacunas nos destinos corretos.\",\n      \"deliverables\": [\n        \"projects.json\",\n        \"phases.json\",\n        \"plans.json\",\n        \"rules.json\",\n"
     },
     {
-      "id": "7be46770d7bc09c05fd643edee7005ff18e1687ad3061edc1fde1f1bf908fa23",
+      "id": "4191a126316c72dab86daba3e3a2aba566c658d351dddadc8bfad14bff8766c6",
       "sourcePath": "site-context/registry/plans/PLAN-ANCHOR-MVP.json",
-      "sourceHash": "39d00160ad0caacafaf0557b469b836ff5b2b72cf8000c5b77352c5bba9e800a",
-      "startLine": 155,
-      "endLine": 180,
+      "sourceHash": "9caf4064c7c0d9ebc0d0ffe96af4a960155c3124ad405cae1747ab62c2313f72",
+      "startLine": 137,
+      "endLine": 167,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "  \"acceptanceCriteria\": [\n        \"Schema e hashes válidos.\",\n        \"EPICs, regras, ADRs, commits, marcos e decisões confirmadas não desaparecem.\",\n        \"Remoções exigem decisão ou justificativa explícita.\",\n        \"Freshness validada contra as fontes.\"\n      ]\n    },\n    {\n      \"id\": \"PHASE-ANCHOR-05-BOOTSTRAP\",\n      \"name\": \"Bootstrap e Handoff\",\n      \"status\": \"planned\",\n      \"objective\": \"Permitir retomada fluida por qualquer agente ou conversa.\",\n      \"deliverables\": [\n        \"context:bootstrap\",\n        \"context:resolve\",\n        \"context:handoff\",\n        \"teste de nova conversa\"\n      ],\n      \"acceptanceCriteria\": [\n        \"Bootstrap rápido retorna os cinco blocos e referências.\",\n        \"Bootstrap planning retorna plano, fases, riscos e critérios.\",\n        \"Bootstrap full retorna regras, método, histórico, lacunas e conflitos relevantes.\",\n        \"Uma conversa sem histórico identifica corretamente prioridade, bloqueios e próxima etapa.\"\n      ]\n    }\n  ],\n"
+      "content": " lacunas nos destinos corretos.\",\n      \"deliverables\": [\n        \"projects.json\",\n        \"phases.json\",\n        \"plans.json\",\n        \"rules.json\",\n        \"project-history.md\",\n        \"method-of-operation.md\",\n        \"adr-registry.md\"\n      ],\n      \"acceptanceCriteria\": [\n        \"IDs estáveis e únicos.\",\n        \"Referências resolvíveis.\",\n        \"Estado atual separado de histórico e futuro.\",\n        \"Regras 1 a 39 e Método M-001 a M-012 classificados.\"\n      ]\n    },\n    {\n      \"id\": \"PHASE-ANCHOR-03-GENERATION\",\n      \"name\": \"Geração Transacional da Âncora\",\n      \"status\": \"planned\",\n      \"objective\": \"Gerar uma projeção operacional sucinta sem perder as fontes detalhadas.\",\n      \"deliverables\": [\n        \"anchor.json\",\n        \"anchor-history.json\",\n        \"generate-anchor.js\"\n      ],\n      \"acceptanceCriteria\": [\n        \"Exatamente cinco blocos conceituais.\",\n        \"Todo resumo possui referência aprofundável.\",\n        \"Geração em staging e promoção atômica.\",\n"
     },
     {
-      "id": "c032b1ec6decd17be7e056f75dc085e510ab6a8683519151470748f8c163ddc6",
+      "id": "0a9d3b6cd9e6580347db484002160fdab5a2efc1f264fdfbabe06fe8e42d51f1",
       "sourcePath": "site-context/registry/plans/PLAN-ANCHOR-MVP.json",
-      "sourceHash": "39d00160ad0caacafaf0557b469b836ff5b2b72cf8000c5b77352c5bba9e800a",
-      "startLine": 176,
-      "endLine": 199,
+      "sourceHash": "9caf4064c7c0d9ebc0d0ffe96af4a960155c3124ad405cae1747ab62c2313f72",
+      "startLine": 165,
+      "endLine": 192,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "unas e conflitos relevantes.\",\n        \"Uma conversa sem histórico identifica corretamente prioridade, bloqueios e próxima etapa.\"\n      ]\n    }\n  ],\n  \"risks\": [\n    {\n      \"id\": \"RISK-ANCHOR-001\",\n      \"description\": \"O Harness se transformar em uma frente infinita e adiar o CMS indefinidamente.\",\n      \"mitigation\": \"Restringir o MVP ao inventário, registros, geração, validação, bootstrap e teste de continuidade.\"\n    },\n    {\n      \"id\": \"RISK-ANCHOR-002\",\n      \"description\": \"Migrar conteúdo histórico conflitante como verdade atual.\",\n      \"mitigation\": \"Exigir classificação de evidência e decisão explícita de Arthur para conflitos.\"\n    },\n    {\n      \"id\": \"RISK-ANCHOR-003\",\n      \"description\": \"A Âncora resumida substituir os registros completos.\",\n      \"mitigation\": \"Bloquear itens resumidos sem referências aprofundáveis.\"\n    }\n  ],\n  \"globalAcceptanceCriteria\": [\n    \"A Âncora oficial é gerada pelo projeto e não depende do chat.\",\n"
+      "content": "     \"Exatamente cinco blocos conceituais.\",\n        \"Todo resumo possui referência aprofundável.\",\n        \"Geração em staging e promoção atômica.\",\n        \"Histórico encadeado por hashes.\"\n      ]\n    },\n    {\n      \"id\": \"PHASE-ANCHOR-04-VALIDATION\",\n      \"name\": \"Validação e Não Regressão\",\n      \"status\": \"planned\",\n      \"objective\": \"Bloquear perda silenciosa de patrimônio e fontes dessincronizadas.\",\n      \"deliverables\": [\n        \"validate-anchor.js\",\n        \"non-regression-guard.js\",\n        \"anchor schema\",\n        \"testes automatizados\"\n      ],\n      \"acceptanceCriteria\": [\n        \"Schema e hashes válidos.\",\n        \"EPICs, regras, ADRs, commits, marcos e decisões confirmadas não desaparecem.\",\n        \"Remoções exigem decisão ou justificativa explícita.\",\n        \"Freshness validada contra as fontes.\"\n      ]\n    },\n    {\n      \"id\": \"PHASE-ANCHOR-05-BOOTSTRAP\",\n      \"name\": \"Bootstrap e Handoff\",\n      \"status\": \"planned\",\n"
     },
     {
-      "id": "afb1da1a8eb432493b9dde8c434382dd4107509aa76772f7ab136fe1c1986e84",
+      "id": "df0c1276915925cb1d2e2111e3e97527f46eb834277491338058e707d72c0168",
       "sourcePath": "site-context/registry/plans/PLAN-ANCHOR-MVP.json",
-      "sourceHash": "39d00160ad0caacafaf0557b469b836ff5b2b72cf8000c5b77352c5bba9e800a",
-      "startLine": 195,
-      "endLine": 216,
+      "sourceHash": "9caf4064c7c0d9ebc0d0ffe96af4a960155c3124ad405cae1747ab62c2313f72",
+      "startLine": 186,
+      "endLine": 211,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "midos sem referências aprofundáveis.\"\n    }\n  ],\n  \"globalAcceptanceCriteria\": [\n    \"A Âncora oficial é gerada pelo projeto e não depende do chat.\",\n    \"Planejamentos detalhados permanecem consultáveis por referências estáveis.\",\n    \"Decision Memory, Baseline, Método, Catálogo e Project Map mantêm responsabilidades distintas.\",\n    \"O Non Regression Guard impede perda silenciosa de patrimônio confirmado.\",\n    \"Uma nova conversa retoma o projeto sem reconstrução manual extensa.\",\n    \"O CMS é liberado após aprovação do teste de continuidade do MVP.\"\n  ],\n  \"relatedDecisions\": [\n    \"DEC-2026-CONTEXT-CONTINUITY\",\n    \"DEC-2026-IA-PAUSE-CMS\",\n    \"DEC-2026-ANCHOR-HARNESS-FIRST\",\n    \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n    \"DEC-2026-EPIC-TRANSITION-HARNESS\",\n    \"DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY\"\n  ],\n  \"currentPhase\": \"PHASE-ANCHOR-01-INVENTORY\",\n  \"nextPhase\": \"PHASE-ANCHOR-02-REGISTRIES\"\n}\n"
+      "content": "dada contra as fontes.\"\n      ]\n    },\n    {\n      \"id\": \"PHASE-ANCHOR-05-BOOTSTRAP\",\n      \"name\": \"Bootstrap e Handoff\",\n      \"status\": \"planned\",\n      \"objective\": \"Permitir retomada fluida por qualquer agente ou conversa.\",\n      \"deliverables\": [\n        \"context:bootstrap\",\n        \"context:resolve\",\n        \"context:handoff\",\n        \"teste de nova conversa\"\n      ],\n      \"acceptanceCriteria\": [\n        \"Bootstrap rápido retorna os cinco blocos e referências.\",\n        \"Bootstrap planning retorna plano, fases, riscos e critérios.\",\n        \"Bootstrap full retorna regras, método, histórico, lacunas e conflitos relevantes.\",\n        \"Uma conversa sem histórico identifica corretamente prioridade, bloqueios e próxima etapa.\"\n      ]\n    }\n  ],\n  \"risks\": [\n    {\n      \"id\": \"RISK-ANCHOR-001\",\n      \"description\": \"O Harness se transformar em uma frente infinita e adiar o CMS indefinidamente.\",\n"
+    },
+    {
+      "id": "c84ad4e17fb3857a24c3f0dd19f72d29f6e5a069abdd5bcdb90009612e64ce06",
+      "sourcePath": "site-context/registry/plans/PLAN-ANCHOR-MVP.json",
+      "sourceHash": "9caf4064c7c0d9ebc0d0ffe96af4a960155c3124ad405cae1747ab62c2313f72",
+      "startLine": 208,
+      "endLine": 228,
+      "language": "json",
+      "category": "source-code",
+      "redacted": false,
+      "content": "risks\": [\n    {\n      \"id\": \"RISK-ANCHOR-001\",\n      \"description\": \"O Harness se transformar em uma frente infinita e adiar o CMS indefinidamente.\",\n      \"mitigation\": \"Restringir o MVP ao inventário, registros, geração, validação, bootstrap e teste de continuidade.\"\n    },\n    {\n      \"id\": \"RISK-ANCHOR-002\",\n      \"description\": \"Migrar conteúdo histórico conflitante como verdade atual.\",\n      \"mitigation\": \"Exigir classificação de evidência e decisão explícita de Arthur para conflitos.\"\n    },\n    {\n      \"id\": \"RISK-ANCHOR-003\",\n      \"description\": \"A Âncora resumida substituir os registros completos.\",\n      \"mitigation\": \"Bloquear itens resumidos sem referências aprofundáveis.\"\n    }\n  ],\n  \"globalAcceptanceCriteria\": [\n    \"A Âncora oficial é gerada pelo projeto e não depende do chat.\",\n    \"Planejamentos detalhados permanecem consultáveis por referências estáveis.\",\n    \"Decision Memory, Baseline, Método, Catálogo e Project Map mantêm responsabilidades distintas.\",\n"
+    },
+    {
+      "id": "cb3966363f338e0e7e471873e3a54da4cf40f218afae3b390ec20ee8ca3ad031",
+      "sourcePath": "site-context/registry/plans/PLAN-ANCHOR-MVP.json",
+      "sourceHash": "9caf4064c7c0d9ebc0d0ffe96af4a960155c3124ad405cae1747ab62c2313f72",
+      "startLine": 227,
+      "endLine": 243,
+      "language": "json",
+      "category": "source-code",
+      "redacted": false,
+      "content": "manecem consultáveis por referências estáveis.\",\n    \"Decision Memory, Baseline, Método, Catálogo e Project Map mantêm responsabilidades distintas.\",\n    \"O Non Regression Guard impede perda silenciosa de patrimônio confirmado.\",\n    \"Uma nova conversa retoma o projeto sem reconstrução manual extensa.\",\n    \"O CMS é liberado após aprovação do teste de continuidade do MVP.\"\n  ],\n  \"relatedDecisions\": [\n    \"DEC-2026-CONTEXT-CONTINUITY\",\n    \"DEC-2026-IA-PAUSE-CMS\",\n    \"DEC-2026-ANCHOR-HARNESS-FIRST\",\n    \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n    \"DEC-2026-EPIC-TRANSITION-HARNESS\",\n    \"DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY\"\n  ],\n  \"currentPhase\": \"PHASE-ANCHOR-01-INVENTORY\",\n  \"nextPhase\": \"PHASE-ANCHOR-02-REGISTRIES\"\n}\n"
     },
     {
       "id": "3146b8112e0e74fb160e4969f007d4cf07a6b0c8f96c0341f5c3420521b880aa",
@@ -4899,20 +4954,20 @@
       "content": "ipt fisico; node -e longo deve ser decomposto quando comprometer legibilidade, copia ou auditoria.\",\n      \"origin\": \"Aprovacao explicita de Arthur\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    }\n  ]\n}\n"
     },
     {
-      "id": "cb4402633245d18909fc4fe25100611a24148ffe85bd368c8fe5d15045efd781",
+      "id": "71aaf1b6196fb1fcdb85bf52fc6399a1794eb88334afafbcc166f0e73beab783",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "68c09b68d24cf9670798a595fccbf585218e6c1544a16323cbed7564839e794f",
+      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
       "startLine": 1,
       "endLine": 32,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "{\n  \"schemaVersion\": \"1.0.0\",\n  \"generatedAt\": \"2026-08-01T20:45:13.239Z\",\n  \"sources\": [\n    {\n      \"id\": \"SRC-ANCHOR-HISTORICAL-DOCX\",\n      \"path\": \"docs/ÂNCORA PERMANENTE DO PROJETO.docx\",\n      \"type\": \"historical-document\",\n      \"role\": \"historical-operational-snapshot\",\n      \"authority\": [\n        \"historical-anchor\",\n        \"historical-rules\",\n        \"historical-roadmap\"\n      ],\n      \"evidenceStatus\": \"historical\",\n      \"priority\": 70,\n      \"limitations\": [\n        \"May contain outdated operational status.\",\n        \"Must not overwrite current technical state automatically.\"\n      ],\n      \"sha256\": \"a7a92f34a53dea7b5718029c6136b921711565f69953dfedef525fcf9625719b\"\n    },\n    {\n      \"id\": \"SRC-BASELINE-HISTORICAL-DOCX\",\n      \"path\": \"docs/BASELINE.docx\",\n      \"type\": \"historical-document\",\n      \"role\": \"historical-patrimony\",\n      \"authority\": [\n        \"historical-epics\",\n        \"historical-method\",\n        \"historical-milestones\",\n        \"historical-rules\"\n"
+      "content": "{\n  \"schemaVersion\": \"1.0.0\",\n  \"generatedAt\": \"2026-08-01T21:10:29.959Z\",\n  \"sources\": [\n    {\n      \"id\": \"SRC-ANCHOR-HISTORICAL-DOCX\",\n      \"path\": \"docs/ÂNCORA PERMANENTE DO PROJETO.docx\",\n      \"type\": \"historical-document\",\n      \"role\": \"historical-operational-snapshot\",\n      \"authority\": [\n        \"historical-anchor\",\n        \"historical-rules\",\n        \"historical-roadmap\"\n      ],\n      \"evidenceStatus\": \"historical\",\n      \"priority\": 70,\n      \"limitations\": [\n        \"May contain outdated operational status.\",\n        \"Must not overwrite current technical state automatically.\"\n      ],\n      \"sha256\": \"a7a92f34a53dea7b5718029c6136b921711565f69953dfedef525fcf9625719b\"\n    },\n    {\n      \"id\": \"SRC-BASELINE-HISTORICAL-DOCX\",\n      \"path\": \"docs/BASELINE.docx\",\n      \"type\": \"historical-document\",\n      \"role\": \"historical-patrimony\",\n      \"authority\": [\n        \"historical-epics\",\n        \"historical-method\",\n        \"historical-milestones\",\n        \"historical-rules\"\n"
     },
     {
-      "id": "979a040c82a8a65442daa9e5b4b8a5a65b9ec6054a9a28eeb5a643393194f569",
+      "id": "2f3e3005f03cf7b679a5229d1c8a41cf1baae5062ff999a3e0b47861ecf5d139",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "68c09b68d24cf9670798a595fccbf585218e6c1544a16323cbed7564839e794f",
+      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
       "startLine": 27,
       "endLine": 60,
       "language": "json",
@@ -4921,20 +4976,20 @@
       "content": "patrimony\",\n      \"authority\": [\n        \"historical-epics\",\n        \"historical-method\",\n        \"historical-milestones\",\n        \"historical-rules\"\n      ],\n      \"evidenceStatus\": \"historical\",\n      \"priority\": 80,\n      \"limitations\": [\n        \"Known conflicts with later project status require human resolution.\"\n      ],\n      \"sha256\": \"a620d0fc3e3ba8aafc9531e35812d4eb62405b1d03611837629ee1cbae43feb6\"\n    },\n    {\n      \"id\": \"SRC-BASELINE-MARKDOWN\",\n      \"path\": \"docs/baseline.md\",\n      \"type\": \"historical-document\",\n      \"role\": \"historical-baseline\",\n      \"authority\": [\n        \"historical-epics\",\n        \"historical-commits\",\n        \"historical-gaps\",\n        \"historical-adrs\"\n      ],\n      \"evidenceStatus\": \"historical\",\n      \"priority\": 85,\n      \"limitations\": [\n        \"Reconstruction is incomplete.\",\n        \"Missing ADR content must not be invented.\"\n      ],\n      \"sha256\": \"0339fbf4a8c916b594e14b32df3964af2a6c9a5d0fcf7ecb815bdce6511a4c48\"\n    },\n    {\n"
     },
     {
-      "id": "57cbe57b53fbb562127110bcd1f7fb0406d6fcb5739ad22a70a1892b0fc8a368",
+      "id": "24b7ba8dec9b5e747878c190bec94648b1a3264906667ed598a0cceb978d2249",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "68c09b68d24cf9670798a595fccbf585218e6c1544a16323cbed7564839e794f",
+      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
       "startLine": 56,
       "endLine": 86,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": " \"Missing ADR content must not be invented.\"\n      ],\n      \"sha256\": \"0339fbf4a8c916b594e14b32df3964af2a6c9a5d0fcf7ecb815bdce6511a4c48\"\n    },\n    {\n      \"id\": \"SRC-PROJECT-MAP\",\n      \"path\": \"site-context/project-map.json\",\n      \"type\": \"generated-artifact\",\n      \"role\": \"current-technical-state\",\n      \"authority\": [\n        \"current-architecture\",\n        \"current-filesystem\",\n        \"current-routes\",\n        \"current-roadmap\"\n      ],\n      \"evidenceStatus\": \"current-derived\",\n      \"priority\": 100,\n      \"limitations\": [\n        \"Derived and regenerable.\",\n        \"Does not replace persistent decision or historical sources.\"\n      ],\n      \"sha256\": \"9760028a03607eaea14cf3323dc235f4cc3b0d3e5c12e0ba94cba5519102e935\"\n    },\n    {\n      \"id\": \"SRC-DECISION-MEMORY\",\n      \"path\": \"site-context/decision-memory.json\",\n      \"type\": \"persistent-registry\",\n      \"role\": \"deliberative-truth\",\n      \"authority\": [\n        \"active-decisions\",\n        \"decision-rationale\",\n"
+      "content": " \"Missing ADR content must not be invented.\"\n      ],\n      \"sha256\": \"0339fbf4a8c916b594e14b32df3964af2a6c9a5d0fcf7ecb815bdce6511a4c48\"\n    },\n    {\n      \"id\": \"SRC-PROJECT-MAP\",\n      \"path\": \"site-context/project-map.json\",\n      \"type\": \"generated-artifact\",\n      \"role\": \"current-technical-state\",\n      \"authority\": [\n        \"current-architecture\",\n        \"current-filesystem\",\n        \"current-routes\",\n        \"current-roadmap\"\n      ],\n      \"evidenceStatus\": \"current-derived\",\n      \"priority\": 100,\n      \"limitations\": [\n        \"Derived and regenerable.\",\n        \"Does not replace persistent decision or historical sources.\"\n      ],\n      \"sha256\": \"7b88e397e04db5a23625f412d82438114e00cfaf10f29d11da2e8c746628ff3a\"\n    },\n    {\n      \"id\": \"SRC-DECISION-MEMORY\",\n      \"path\": \"site-context/decision-memory.json\",\n      \"type\": \"persistent-registry\",\n      \"role\": \"deliberative-truth\",\n      \"authority\": [\n        \"active-decisions\",\n        \"decision-rationale\",\n"
     },
     {
-      "id": "0aca3007fbe07ca5c1bb669a5d88b687872794a09b05aba59bda07b45ad04157",
+      "id": "3d80819fda477d3cf469dd4fa00a69ffab18d91b776b312f5f16a3fcb5c235de",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "68c09b68d24cf9670798a595fccbf585218e6c1544a16323cbed7564839e794f",
+      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
       "startLine": 82,
       "endLine": 112,
       "language": "json",
@@ -4943,20 +4998,20 @@
       "content": "    \"type\": \"persistent-registry\",\n      \"role\": \"deliberative-truth\",\n      \"authority\": [\n        \"active-decisions\",\n        \"decision-rationale\",\n        \"decision-rules\",\n        \"resume-criteria\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 100,\n      \"limitations\": [\n        \"Stores decisions, not complete execution plans.\"\n      ],\n      \"sha256\": \"ce2e55baf3eab557b9c1ba617d5bf395d38aa6744d2b6f8ccc5218ef3413fe86\"\n    },\n    {\n      \"id\": \"SRC-CONTEXT-GOVERNANCE\",\n      \"path\": \"docs/context-engine-governance.md\",\n      \"type\": \"governance-document\",\n      \"role\": \"operational-governance\",\n      \"authority\": [\n        \"persistence-process\",\n        \"decision-lifecycle\",\n        \"governance-procedure\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 95,\n      \"limitations\": [\n        \"Procedural authority only; not a technical inventory.\"\n      ],\n      \"sha256\": \"ea3db8a380cb196dea705b4f602fbbb9c5f0cfd65212494f817fe737af591532\"\n"
     },
     {
-      "id": "28b019b71f7098fd67fad7a39b5e53a09959d195c093e8766454941f82d99b87",
+      "id": "fcd5939f1d882601f714556c453085ca3d77dcd2741f97c320a139f5bd119b1e",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "68c09b68d24cf9670798a595fccbf585218e6c1544a16323cbed7564839e794f",
+      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
       "startLine": 110,
       "endLine": 140,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "  \"Procedural authority only; not a technical inventory.\"\n      ],\n      \"sha256\": \"ea3db8a380cb196dea705b4f602fbbb9c5f0cfd65212494f817fe737af591532\"\n    },\n    {\n      \"id\": \"SRC-ANCHOR-MVP-PLAN\",\n      \"path\": \"site-context/registry/plans/PLAN-ANCHOR-MVP.json\",\n      \"type\": \"planning-registry\",\n      \"role\": \"current-execution-plan\",\n      \"authority\": [\n        \"plan-status\",\n        \"phases\",\n        \"deliverables\",\n        \"acceptance-criteria\",\n        \"risks\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 100,\n      \"limitations\": [\n        \"Planning authority only; current technical evidence remains in Project Map.\"\n      ],\n      \"sha256\": \"39d00160ad0caacafaf0557b469b836ff5b2b72cf8000c5b77352c5bba9e800a\"\n    },\n    {\n      \"id\": \"SRC-ANCHOR-MVP-NARRATIVE\",\n      \"path\": \"docs/plans/anchor-engine-mvp.md\",\n      \"type\": \"planning-document\",\n      \"role\": \"planning-narrative\",\n      \"authority\": [\n        \"plan-context\",\n        \"plan-explanation\",\n"
+      "content": "  \"Procedural authority only; not a technical inventory.\"\n      ],\n      \"sha256\": \"ea3db8a380cb196dea705b4f602fbbb9c5f0cfd65212494f817fe737af591532\"\n    },\n    {\n      \"id\": \"SRC-ANCHOR-MVP-PLAN\",\n      \"path\": \"site-context/registry/plans/PLAN-ANCHOR-MVP.json\",\n      \"type\": \"planning-registry\",\n      \"role\": \"current-execution-plan\",\n      \"authority\": [\n        \"plan-status\",\n        \"phases\",\n        \"deliverables\",\n        \"acceptance-criteria\",\n        \"risks\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 100,\n      \"limitations\": [\n        \"Planning authority only; current technical evidence remains in Project Map.\"\n      ],\n      \"sha256\": \"9caf4064c7c0d9ebc0d0ffe96af4a960155c3124ad405cae1747ab62c2313f72\"\n    },\n    {\n      \"id\": \"SRC-ANCHOR-MVP-NARRATIVE\",\n      \"path\": \"docs/plans/anchor-engine-mvp.md\",\n      \"type\": \"planning-document\",\n      \"role\": \"planning-narrative\",\n      \"authority\": [\n        \"plan-context\",\n        \"plan-explanation\",\n"
     },
     {
-      "id": "fead23f2f1dee4f5a82c49a5c0d8f6e947944066df15a1d38a6828f6a3089513",
+      "id": "0501b98222b7b2fd95cd0380e3fef9dd6b5bd38b41ce515032b3910a8d37cfa2",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "68c09b68d24cf9670798a595fccbf585218e6c1544a16323cbed7564839e794f",
+      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
       "startLine": 135,
       "endLine": 165,
       "language": "json",
@@ -4965,9 +5020,9 @@
       "content": ".md\",\n      \"type\": \"planning-document\",\n      \"role\": \"planning-narrative\",\n      \"authority\": [\n        \"plan-context\",\n        \"plan-explanation\",\n        \"risk-explanation\"\n      ],\n      \"evidenceStatus\": \"current-supporting\",\n      \"priority\": 90,\n      \"limitations\": [\n        \"The structured plan controls machine-readable status and phase fields.\"\n      ],\n      \"sha256\": \"aa4a9cf1ee9226bb88362ed9149aeceac3f58ff5b080fc395005d938a2348066\"\n    },\n    {\n      \"id\": \"SRC-HARNESS-RULES\",\n      \"path\": \"site-context/registry/rules/RULESET-HARNESS-QUALITY.json\",\n      \"type\": \"persistent-registry\",\n      \"role\": \"operational-rules\",\n      \"authority\": [\n        \"active-rules\",\n        \"rule-verification\",\n        \"rule-supersession\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 100,\n      \"limitations\": [\n        \"Stores operational rules, not decision rationale.\"\n      ],\n      \"sha256\": \"208d9854b7371591b351b1af5bc0f143148eacecbcb0fd841ded841fe3c03b39\"\n"
     },
     {
-      "id": "605a939bd726dfcf65ec63c681ea9b61463c695a112281dd3f26c01cf1d06b99",
+      "id": "587d71e413a9c036b1622ca5b759928950aac0b7c40167d403b9db7e5f33447f",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "68c09b68d24cf9670798a595fccbf585218e6c1544a16323cbed7564839e794f",
+      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
       "startLine": 163,
       "endLine": 191,
       "language": "json",
@@ -4976,9 +5031,9 @@
       "content": "      \"Stores operational rules, not decision rationale.\"\n      ],\n      \"sha256\": \"208d9854b7371591b351b1af5bc0f143148eacecbcb0fd841ded841fe3c03b39\"\n    },\n    {\n      \"id\": \"SRC-METHOD-OF-OPERATION\",\n      \"path\": \"docs/method-of-operation.md\",\n      \"type\": \"governance-document\",\n      \"role\": \"agent-operation-method\",\n      \"authority\": [\n        \"operational-protocol\",\n        \"documentation-consultation\",\n        \"rag-usage\",\n        \"decision-clarity\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 100,\n      \"limitations\": [\n        \"Organizes the method; individual rules remain authoritative in the Rules Registry.\"\n      ],\n      \"sha256\": \"dc2f701875d058cf2eb9ead6079073a7470c837c9f4b168ee27badcbe3a1d3b6\"\n    },\n    {\n      \"id\": \"SRC-PROJECT-REGISTRY\",\n      \"path\": \"site-context/registry/projects/PROJECT-REGISTRY-TUPINIQUIM.json\",\n      \"type\": \"persistent-registry\",\n      \"role\": \"project-state-truth\",\n      \"authority\": [\n        \"project-status\",\n"
     },
     {
-      "id": "d7ef2afc9c047c75caa42fd62debf03eadd0f7f00f2e8b735e0555635abfb0dd",
+      "id": "3c6d313c51b9a0680c0f896b2ac7b9d29ce61178aaca93764e289892030adb1e",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "68c09b68d24cf9670798a595fccbf585218e6c1544a16323cbed7564839e794f",
+      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
       "startLine": 187,
       "endLine": 216,
       "language": "json",
@@ -4987,9 +5042,9 @@
       "content": "T-REGISTRY-TUPINIQUIM.json\",\n      \"type\": \"persistent-registry\",\n      \"role\": \"project-state-truth\",\n      \"authority\": [\n        \"project-status\",\n        \"project-capabilities\",\n        \"resume-conditions\",\n        \"current-initiative\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 100,\n      \"limitations\": [\n        \"Technical filesystem state remains derived from the Project Map.\"\n      ],\n      \"sha256\": \"c912a9741d4891a26beb8a41e2fd12f958bcbe96eb45f4e6814c5700fd37d75f\"\n    },\n    {\n      \"id\": \"SRC-MIGRATION-MATRIX\",\n      \"path\": \"site-context/registry/migration-matrix.json\",\n      \"type\": \"migration-registry\",\n      \"role\": \"patrimony-inventory\",\n      \"authority\": [\n        \"migration-provenance\",\n        \"evidence-classification\",\n        \"canonical-destination\",\n        \"migration-status\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 95,\n      \"limitations\": [\n"
     },
     {
-      "id": "b967a084af7088408db2ce25f3d1646abb55a9767237109d84058711d30b3121",
+      "id": "2bd0035f8ce0a6d6ee8e65c31fdeec5a70a80096f3c18537a74d7160409f3d96",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "68c09b68d24cf9670798a595fccbf585218e6c1544a16323cbed7564839e794f",
+      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
       "startLine": 211,
       "endLine": 240,
       "language": "json",
@@ -4998,9 +5053,9 @@
       "content": "canonical-destination\",\n        \"migration-status\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 95,\n      \"limitations\": [\n        \"Inventory does not activate historical items automatically.\"\n      ],\n      \"sha256\": \"cc352ce6f6297655ad663a6f2a9dac8b62622ccf0f07233e1d277ed933d355e2\"\n    },\n    {\n      \"id\": \"SRC-CONFLICT-REGISTER\",\n      \"path\": \"site-context/registry/conflict-register.json\",\n      \"type\": \"governance-registry\",\n      \"role\": \"conflict-truth\",\n      \"authority\": [\n        \"open-conflicts\",\n        \"source-positions\",\n        \"conflict-resolution\",\n        \"resolution-decision\"\n      ],\n      \"evidenceStatus\": \"current-canonical\",\n      \"priority\": 100,\n      \"limitations\": [\n        \"A resolved conflict does not replace its related decision or source history.\"\n      ],\n      \"sha256\": \"1a8b472268556422b73b1535a78004c324b290b914238e99d0ff5831ce8ba1c3\"\n    },\n    {\n      \"id\": \"SRC-HISTORY-CONTEXT-V2-V3\",\n"
     },
     {
-      "id": "210c4364736288041b0b8f48857773643a37d327f88652fe0afb78a1af68a251",
+      "id": "a09bf2a7816e7700cf5d7849e4b6110a4cc2db61de1f214a3ca5796946eb99d7",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "68c09b68d24cf9670798a595fccbf585218e6c1544a16323cbed7564839e794f",
+      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
       "startLine": 235,
       "endLine": 263,
       "language": "json",
@@ -5009,9 +5064,9 @@
       "content": "y.\"\n      ],\n      \"sha256\": \"1a8b472268556422b73b1535a78004c324b290b914238e99d0ff5831ce8ba1c3\"\n    },\n    {\n      \"id\": \"SRC-HISTORY-CONTEXT-V2-V3\",\n      \"path\": \"docs/history/context-engine-v2-transition.md\",\n      \"type\": \"historical-document\",\n      \"role\": \"technical-transition-history\",\n      \"authority\": [\n        \"context-v2-v3-transition\",\n        \"absorbed-capabilities\",\n        \"removed-artifacts\"\n      ],\n      \"evidenceStatus\": \"historical-confirmed\",\n      \"priority\": 75,\n      \"limitations\": [\n        \"Historical authority only; it does not define the current implementation.\"\n      ],\n      \"sha256\": \"65cff092a8aa0f81f748c460ead1689dc25a5f7468ea1abb32aa55bcd059176a\"\n    },\n    {\n      \"id\": \"SRC-HISTORY-GOVERNANCE-HOTFIXES\",\n      \"path\": \"docs/history/context-engine-governance-hotfixes.md\",\n      \"type\": \"historical-document\",\n      \"role\": \"governance-hotfix-history\",\n      \"authority\": [\n        \"decision-memory-integration-history\",\n        \"governance-evolution\",\n"
     },
     {
-      "id": "6cacb0dad599f9fd75c820e092ee3a9ecf68d9a6e8f1026930327ed842d40d51",
+      "id": "5b76951ad8231ae02bf61bc47127f9a9729ab3ec7cbb876667d4193ab2eb7077",
       "sourcePath": "site-context/registry/source-registry.json",
-      "sourceHash": "68c09b68d24cf9670798a595fccbf585218e6c1544a16323cbed7564839e794f",
+      "sourceHash": "5b22f692a371c7aa356568f3da95c66028e9d785b498fbde0585eb40b40439f1",
       "startLine": 259,
       "endLine": 274,
       "language": "json",

@@ -1,0 +1,10 @@
+"use strict";
+const test=require("node:test");
+const assert=require("node:assert/strict");
+const {validateData}=require("../migration-registry");
+function fixture(){const items=[{id:"MIG-RULE-001",type:"rule",sourceRefs:["SRC-1"],evidenceStatus:"historical-confirmed",currentStatus:"unresolved",conflict:false,canonicalDestination:"site-context/registry/rules/",requiredAction:"review"},{id:"MIG-EPIC-003",type:"epic",sourceRefs:["SRC-1"],evidenceStatus:"conflicting",currentStatus:"resolved",conflict:false,canonicalDestination:"site-context/registry/projects/",requiredAction:"migrate",resolution:"Paused",decisionRef:"DEC-1"},{id:"MIG-ADR-001",type:"adr",sourceRefs:["SRC-1"],evidenceStatus:"incomplete",currentStatus:"unresolved",conflict:false,canonicalDestination:"docs/adr-registry.md",requiredAction:"preserve-gap"}];while(items.length<70)items.push({id:`MIG-METHOD-${items.length}`,type:"method",sourceRefs:["SRC-1"],evidenceStatus:"historical",currentStatus:"unresolved",conflict:false,canonicalDestination:"docs/method-of-operation.md",requiredAction:"review"});const summary={total:items.length,rules:1,methods:items.length-3,epics:1,adrs:1,commits:0,engines:0,conflicts:1};return{m:{items,summary},c:{conflicts:[],summary:{open:0}},s:{sources:[{id:"SRC-1"}]}};}
+test("validates semantic migration invariants",()=>{const f=fixture();assert.doesNotThrow(()=>validateData(f.m,f.c,f.s));});
+test("rejects stale type summary",()=>{const f=fixture();f.m.summary.rules=2;assert.throws(()=>validateData(f.m,f.c,f.s),/summary mismatch for rules/);});
+test("counts historical conflicting evidence without open conflict",()=>{const f=fixture();assert.equal(f.m.summary.conflicts,1);assert.equal(f.c.summary.open,0);assert.doesNotThrow(()=>validateData(f.m,f.c,f.s));});
+test("resolved items require resolution and decision",()=>{const f=fixture();delete f.m.items[1].decisionRef;assert.throws(()=>validateData(f.m,f.c,f.s),/decisionRef/);});
+test("preserve-gap requires incomplete evidence",()=>{const f=fixture();f.m.items[2].evidenceStatus="historical";assert.throws(()=>validateData(f.m,f.c,f.s),/preserve-gap requires incomplete/);});
