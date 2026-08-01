@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "CONFLICT-REGISTER-ANCHOR-001",
+  "status": "open",
+  "conflicts": [
+    {
+      "id": "CONFLICT-EPIC-003-STATUS",
+      "itemRef": "MIG-EPIC-003",
+      "title": "Status atual do Site Institucional Profissional",
+      "sources": [
+        "SRC-BASELINE-HISTORICAL-DOCX",
+        "SRC-BASELINE-MARKDOWN",
+        "SRC-PROJECT-MAP"
+      ],
+      "positions": [
+        "Documento histórico indica conclusão parcial ou conclusão com pendências.",
+        "Project Map atual registra in_progress."
+      ],
+      "recommendedOperationalPosition": "Manter in_progress como estado atual e preservar versões antigas como histórico.",
+      "resolution": "resolved",
+      "resolvedStatus": "paused",
+      "decisionRef": "DEC-2026-EPIC-TRANSITION-HARNESS",
+      "resolutionNote": "EPIC-003 foi pausado porque nao e o trabalho atualmente executado; entregas e pendencias permanecem preservadas."
+    }
+  ],
+  "summary": {
+    "open": 0
+  }
+}

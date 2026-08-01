@@ -31,7 +31,22 @@
     "context:update": "node scripts/context-engine/run-context-v3.js",
     "context:lote5:verify": "npm run context:lote4:verify && npm run context:promote:v3 && npm run context:validate:official",
     "context:query": "node scripts/context-engine/query-context.js",
-    "context:lote6:verify": "node scripts/context-engine/verify-lote6.js && npm run context:test"
+    "context:lote6:verify": "node scripts/context-engine/verify-lote6.js && npm run context:test",
+    "context:ask": "node scripts/context-engine/ask-context.js",
+    "context:lote7:verify": "node scripts/context-engine/verify-lote7.js && npm run context:test",
+    "context:decision:add": "node scripts/context-engine/decision-memory.js add",
+    "context:decision:list": "node scripts/context-engine/decision-memory.js list",
+    "context:decision:validate": "node scripts/context-engine/decision-memory.js validate",
+    "context:plan:list": "node scripts/context-engine/planning-registry.js list",
+    "context:plan:show": "node scripts/context-engine/planning-registry.js show",
+    "context:plan:validate": "node scripts/context-engine/planning-registry.js validate",
+    "context:resolve": "node scripts/context-engine/context-resolver.js",
+    "context:source:generate": "node scripts/context-engine/source-registry.js generate",
+    "context:source:list": "node scripts/context-engine/source-registry.js list",
+    "context:source:validate": "node scripts/context-engine/source-registry.js validate",
+    "context:migration:validate": "node scripts/context-engine/migration-registry.js",
+    "context:rules:validate": "node scripts/context-engine/rules-registry.js validate",
+    "context:rules:list": "node scripts/context-engine/rules-registry.js list"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.20.1",

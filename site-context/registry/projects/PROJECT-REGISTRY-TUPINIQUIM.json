@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "PROJECT-REGISTRY-TUPINIQUIM",
+  "status": "active",
+  "projects": [
+    {
+      "id": "EPIC-003",
+      "name": "Site Institucional Profissional",
+      "status": "paused",
+      "currentPhase": null,
+      "ownerType": "product",
+      "completedDeliveries": [
+        "Estrutura institucional",
+        "Home",
+        "Quem Somos",
+        "Contato",
+        "Header responsivo",
+        "Footer responsivo",
+        "Correcoes semanticas confirmadas"
+      ],
+      "pendingWork": [
+        "Servicos",
+        "SEO institucional",
+        "Google AdSense",
+        "Componentes reutilizaveis",
+        "Validacao de producao",
+        "Pendencias adicionais a confirmar na retomada"
+      ],
+      "resumeConditions": [
+        "Harness MVP validado",
+        "Bootstrap operacional",
+        "Pendencias reavaliadas contra o codigo vigente"
+      ],
+      "decisionRef": "DEC-2026-EPIC-TRANSITION-HARNESS"
+    },
+    {
+      "id": "EPIC-004",
+      "name": "Plataforma Editorial",
+      "status": "paused",
+      "currentPhase": null,
+      "ownerType": "product",
+      "completedDeliveries": [
+        "Blog",
+        "Categorias permanentes",
+        "Conteudo MDX",
+        "Geracao de posts",
+        "Paginas por slug",
+        "Estrutura editorial inicial"
+      ],
+      "pendingWork": [
+        "CMS",
+        "Gestao editorial",
+        "Rascunho e edicao",
+        "Validacao e publicacao",
+        "Administracao",
+        "Autorizacao",
+        "Media Center"
+      ],
+      "resumeConditions": [
+        "Harness MVP validado",
+        "EPIC-003 organizado para retomada"
+      ],
+      "decisionRef": "DEC-2026-EPIC-TRANSITION-HARNESS"
+    },
+    {
+      "id": "EPIC-HARNESS-001",
+      "name": "Harness de Continuidade e Anchor Engine",
+      "status": "in_progress",
+      "currentPhase": "PHASE-HARNESS-00-TRANSITION",
+      "ownerType": "infrastructure-governance",
+      "ownedCapabilities": [
+        "Context Engine",
+        "Decision Memory",
+        "Planning Registry",
+        "Rules Registry",
+        "Source Registry",
+        "Migration Matrix",
+        "Conflict Register",
+        "Context Resolver",
+        "RAG integrado",
+        "Method of Operation",
+        "Anchor Engine"
+      ],
+      "nextPhase": "PHASE-ANCHOR-01-INVENTORY",
+      "decisionRef": "DEC-2026-EPIC-TRANSITION-HARNESS"
+    }
+  ]
+}

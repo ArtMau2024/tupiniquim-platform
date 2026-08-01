@@ -1,0 +1,216 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "PLAN-ANCHOR-MVP",
+  "projectId": "EPIC-HARNESS-001",
+  "title": "Harness de Continuidade e Anchor Engine MVP",
+  "status": "in_progress",
+  "priority": "critical",
+  "objective": "Permitir que qualquer conversa ou agente recupere e aprofunde o contexto correto do projeto sem depender do histórico do chat.",
+  "motivation": [
+    "Reduzir reconstruções de contexto.",
+    "Evitar perda de decisões, regras, histórico e planejamento detalhado.",
+    "Diminuir retrabalho e risco de regressão.",
+    "Preparar o desenvolvimento do CMS sobre uma governança aderente à realidade."
+  ],
+  "scope": [
+    "Matriz de Migração do patrimônio histórico.",
+    "Registro de projetos, fases, planos, fluxos e regras.",
+    "anchor.json com cinco blocos conceituais.",
+    "anchor-history.json com cadeia de gerações.",
+    "Gerador transacional da Âncora.",
+    "Validador de schema, cobertura, referências e freshness.",
+    "Non Regression Guard básico.",
+    "context:bootstrap com profundidade progressiva.",
+    "context:resolve para referências estáveis.",
+    "context:handoff para transição entre conversas.",
+    "Teste de retomada em conversa nova."
+  ],
+  "nonGoals": [
+    "Interface gráfica de governança.",
+    "Banco de dados para o harness.",
+    "Embeddings ou banco vetorial.",
+    "Agentes autônomos.",
+    "Dashboard sofisticado.",
+    "Reconstrução inventada de conteúdo histórico perdido.",
+    "Automação sem relação direta com continuidade."
+  ],
+  "sources": [
+    "ÂNCORA PERMANENTE DO PROJETO.docx",
+    "BASELINE.docx",
+    "baseline.md",
+    "site-context/project-map.json",
+    "site-context/decision-memory.json",
+    "docs/context-engine-governance.md"
+  ],
+  "phases": [
+    {
+      "id": "PHASE-HARNESS-00-TRANSITION",
+      "name": "Organizacao da Transicao e Apropriacao de Escopo",
+      "status": "in_progress",
+      "objective": "Organizar o pausamento do EPIC-003, formalizar o EPIC-004, apropriar ao Harness os artefatos de continuidade e publicar um estado recuperavel antes de retomar o inventario.",
+      "deliverables": [
+        "inventario classificado da raiz",
+        "limpeza controlada dos temporarios",
+        "EPIC-003 pausado e organizado",
+        "EPIC-004 formalizado",
+        "Context Engine e RAG atualizados",
+        "build validado",
+        "commit e push do estado recuperavel"
+      ],
+      "acceptanceCriteria": [
+        "Nenhum instalador ou ZIP obsoleto permanece na raiz.",
+        "Copias identicas sao removidas e divergencias sao inspecionadas.",
+        "Backups sao removidos somente apos validacao.",
+        "EPIC-003 e EPIC-004 possuem estado e escopo formalizados.",
+        "context:query deixa de recuperar copias temporarias da raiz.",
+        "context:ask e comparado com registries e evidencia fisica.",
+        "Testes e build passam antes do commit."
+      ],
+      "tasks": [
+        {
+          "id": "TASK-HARNESS-TRANSITION-CLEANUP",
+          "title": "Classificar e limpar controladamente a raiz",
+          "status": "in_progress",
+          "deliverables": [
+            "inventario de temporarios",
+            "classificacao dos arquivos divergentes",
+            "remocao controlada",
+            "git status revisado"
+          ],
+          "acceptanceCriteria": [
+            "Raiz sem apply-*.js obsoletos.",
+            "Raiz sem ZIPs de instalacao aplicados.",
+            "Arquivos cls e node removidos.",
+            "Nenhuma copia operacional duplicada permanece na raiz."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PHASE-ANCHOR-01-INVENTORY",
+      "name": "Inventário e Matriz de Migração",
+      "status": "paused",
+      "objective": "Classificar patrimônio confirmado, histórico, planejado, conflitante, incompleto e não comprovado.",
+      "deliverables": [
+        "migration-matrix.json",
+        "conflict-register.json",
+        "source-registry.json"
+      ],
+      "acceptanceCriteria": [
+        "Cada item possui origem e evidência.",
+        "Cada item possui destino canônico.",
+        "Conflitos não são resolvidos automaticamente.",
+        "Conteúdo perdido permanece registrado como lacuna."
+      ]
+    },
+    {
+      "id": "PHASE-ANCHOR-02-REGISTRIES",
+      "name": "Registros Canônicos",
+      "status": "planned",
+      "objective": "Persistir projetos, fases, planos, regras, método, histórico, marcos e lacunas nos destinos corretos.",
+      "deliverables": [
+        "projects.json",
+        "phases.json",
+        "plans.json",
+        "rules.json",
+        "project-history.md",
+        "method-of-operation.md",
+        "adr-registry.md"
+      ],
+      "acceptanceCriteria": [
+        "IDs estáveis e únicos.",
+        "Referências resolvíveis.",
+        "Estado atual separado de histórico e futuro.",
+        "Regras 1 a 39 e Método M-001 a M-012 classificados."
+      ]
+    },
+    {
+      "id": "PHASE-ANCHOR-03-GENERATION",
+      "name": "Geração Transacional da Âncora",
+      "status": "planned",
+      "objective": "Gerar uma projeção operacional sucinta sem perder as fontes detalhadas.",
+      "deliverables": [
+        "anchor.json",
+        "anchor-history.json",
+        "generate-anchor.js"
+      ],
+      "acceptanceCriteria": [
+        "Exatamente cinco blocos conceituais.",
+        "Todo resumo possui referência aprofundável.",
+        "Geração em staging e promoção atômica.",
+        "Histórico encadeado por hashes."
+      ]
+    },
+    {
+      "id": "PHASE-ANCHOR-04-VALIDATION",
+      "name": "Validação e Não Regressão",
+      "status": "planned",
+      "objective": "Bloquear perda silenciosa de patrimônio e fontes dessincronizadas.",
+      "deliverables": [
+        "validate-anchor.js",
+        "non-regression-guard.js",
+        "anchor schema",
+        "testes automatizados"
+      ],
+      "acceptanceCriteria": [
+        "Schema e hashes válidos.",
+        "EPICs, regras, ADRs, commits, marcos e decisões confirmadas não desaparecem.",
+        "Remoções exigem decisão ou justificativa explícita.",
+        "Freshness validada contra as fontes."
+      ]
+    },
+    {
+      "id": "PHASE-ANCHOR-05-BOOTSTRAP",
+      "name": "Bootstrap e Handoff",
+      "status": "planned",
+      "objective": "Permitir retomada fluida por qualquer agente ou conversa.",
+      "deliverables": [
+        "context:bootstrap",
+        "context:resolve",
+        "context:handoff",
+        "teste de nova conversa"
+      ],
+      "acceptanceCriteria": [
+        "Bootstrap rápido retorna os cinco blocos e referências.",
+        "Bootstrap planning retorna plano, fases, riscos e critérios.",
+        "Bootstrap full retorna regras, método, histórico, lacunas e conflitos relevantes.",
+        "Uma conversa sem histórico identifica corretamente prioridade, bloqueios e próxima etapa."
+      ]
+    }
+  ],
+  "risks": [
+    {
+      "id": "RISK-ANCHOR-001",
+      "description": "O Harness se transformar em uma frente infinita e adiar o CMS indefinidamente.",
+      "mitigation": "Restringir o MVP ao inventário, registros, geração, validação, bootstrap e teste de continuidade."
+    },
+    {
+      "id": "RISK-ANCHOR-002",
+      "description": "Migrar conteúdo histórico conflitante como verdade atual.",
+      "mitigation": "Exigir classificação de evidência e decisão explícita de Arthur para conflitos."
+    },
+    {
+      "id": "RISK-ANCHOR-003",
+      "description": "A Âncora resumida substituir os registros completos.",
+      "mitigation": "Bloquear itens resumidos sem referências aprofundáveis."
+    }
+  ],
+  "globalAcceptanceCriteria": [
+    "A Âncora oficial é gerada pelo projeto e não depende do chat.",
+    "Planejamentos detalhados permanecem consultáveis por referências estáveis.",
+    "Decision Memory, Baseline, Método, Catálogo e Project Map mantêm responsabilidades distintas.",
+    "O Non Regression Guard impede perda silenciosa de patrimônio confirmado.",
+    "Uma nova conversa retoma o projeto sem reconstrução manual extensa.",
+    "O CMS é liberado após aprovação do teste de continuidade do MVP."
+  ],
+  "relatedDecisions": [
+    "DEC-2026-CONTEXT-CONTINUITY",
+    "DEC-2026-IA-PAUSE-CMS",
+    "DEC-2026-ANCHOR-HARNESS-FIRST",
+    "DEC-2026-HARNESS-AGENT-PROTOCOL",
+    "DEC-2026-EPIC-TRANSITION-HARNESS",
+    "DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY"
+  ],
+  "currentPhase": "PHASE-HARNESS-00-TRANSITION",
+  "nextPhase": "PHASE-ANCHOR-01-INVENTORY"
+}

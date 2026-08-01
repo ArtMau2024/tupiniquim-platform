@@ -1,4 +1,231 @@
 {
   "schemaVersion": "1.0.0",
-  "decisions": []
+  "decisions": [
+    {
+      "id": "DEC-2026-EPIC-TRANSITION-HARNESS",
+      "title": "Organizar EPIC-003 e EPIC-004 na transicao inicial do Harness",
+      "status": "active",
+      "decidedAt": "2026-07-29",
+      "category": "governance",
+      "context": "O Site Institucional deixou de ser o trabalho em execucao quando o Harness foi iniciado. A Plataforma Editorial possui entregas iniciadas dentro do escopo anteriormente tratado como EPIC-003, mas ainda nao estava formalizada como iniciativa propria. O Harness precisa organizar essa transicao, apropriar seus componentes e deixar os produtos preparados para retomada.",
+      "decision": "Classificar EPIC-003 como paused, formalizar EPIC-004 como iniciado parcialmente e paused, e reconhecer EPIC-HARNESS-001 como iniciativa atual em in_progress, tendo PHASE-HARNESS-00-TRANSITION como fase inicial.",
+      "reason": "Separar corretamente produto, plataforma editorial e infraestrutura de continuidade, preservando entregas e pendencias sem declarar conclusao indevida.",
+      "impacts": [
+        "EPIC-003 fica pausado e preparado para retomada.",
+        "EPIC-004 passa a possuir identidade propria e preserva o trabalho editorial ja iniciado.",
+        "CMS permanece como capacidade futura do EPIC-004.",
+        "EPIC-HARNESS-001 assume os componentes de continuidade e governanca.",
+        "Project Map devera ser reconciliado na proxima atualizacao do Context Engine."
+      ],
+      "rules": [
+        "Trabalho interrompido nao permanece como in_progress.",
+        "Entregas concluidas permanecem historicamente preservadas.",
+        "Pendencias nao podem ser ocultadas por status completed.",
+        "Artefatos apropriados pelo Harness preservam sua origem historica."
+      ],
+      "resumeCriteria": [
+        "Harness MVP aprovado no teste de continuidade.",
+        "Bootstrap recupera projetos, fases, regras e proxima etapa.",
+        "Project Map, registries e RAG apresentam classificacao coerente."
+      ],
+      "supersedes": [],
+      "affectedAreas": [
+        "EPIC-003",
+        "EPIC-004",
+        "EPIC-HARNESS-001",
+        "CMS",
+        "Context Engine",
+        "Anchor Engine",
+        "Planning Registry",
+        "Project Map"
+      ]
+    },
+    {
+      "id": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "title": "Adotar protocolo operacional do Harness e materializacao imediata de regras",
+      "status": "active",
+      "decidedAt": "2026-07-29",
+      "category": "governance",
+      "context": "Regras operacionais alinhadas no chat estavam sendo aplicadas parcialmente, mas ainda podiam se perder antes de sua persistencia fisica.",
+      "decision": "Adotar um protocolo permanente de atuacao, apresentacao e materializacao de regras. Quando uma tratativa indicar uma nova regra, o Copilot deve identifica-la imediatamente, perguntar se deve ser oficializada e, apos aprovacao explicita de Arthur, integra-la sem acumulo no projeto fisico.",
+      "reason": "Evitar perda de regras na conversa, mudancas silenciosas de metodo, falhas de renderizacao e retrabalho causado por descontinuidade.",
+      "impacts": [
+        "Criacao de Rules Registry canonico.",
+        "Criacao do Method of Operation.",
+        "Atualizacao da governanca documental.",
+        "Regras aprovadas deixam de aguardar um inventario futuro para serem persistidas.",
+        "Consultas estruturais passam a declarar documentacao, registries, busca contextual, RAG e evidencia fisica utilizados ou omitidos."
+      ],
+      "rules": [
+        "Blocos copiaveis ficam restritos a comandos CMD, codigo solicitado ou pedido explicito.",
+        "Toda sequencia CMD orientada comeca com cls integrado a acao principal.",
+        "Todo comando orientado recebe explicacao simples e direta.",
+        "Toda decisao relevante apresenta motivo, impacto, risco, alternativas, evidencias e limites.",
+        "Inferencias em perguntas nao equivalem a aprovacao.",
+        "context:ask e o RAG integrado; context:query e busca contextual.",
+        "A omissao de context:ask deve ser justificada quando pertinente.",
+        "Documentacao aplicavel deve ser consultada antes de mudancas estruturais.",
+        "Os componentes do Harness utilizados devem ser declarados.",
+        "Uma regra identificada nao pode ficar acumulada no chat: deve ser proposta para oficializacao imediatamente."
+      ],
+      "resumeCriteria": [],
+      "supersedes": [],
+      "affectedAreas": [
+        "Harness",
+        "Context Engine",
+        "Decision Memory",
+        "Rules Registry",
+        "Method of Operation",
+        "Governanca",
+        "Agentes"
+      ]
+    },
+    {
+      "id": "DEC-2026-ANCHOR-HARNESS-FIRST",
+      "title": "Implementar o Harness de Continuidade antes do CMS",
+      "status": "active",
+      "decidedAt": "2026-07-30",
+      "category": "product-priority",
+      "context": "A perda recorrente de contexto entre conversas gera reconstrução de informações, retrabalho, risco de regressão e orientações baseadas em uma visão incompleta do projeto. A Decision Memory já está operacional, mas a Âncora histórica, as regras, o método, os fluxos, os marcos e os planejamentos detalhados ainda não foram integralmente migrados para artefatos gerados e consultáveis pelo projeto.",
+      "decision": "Implementar o MVP do Harness de Continuidade e da Anchor Engine antes de iniciar o desenvolvimento funcional do CMS. O harness deverá preservar fontes completas e gerar uma Âncora operacional sucinta com referências aprofundáveis.",
+      "reason": "Garantir que qualquer conversa ou agente recupere o estado, as decisões, as regras, a fase atual, os bloqueios, o planejamento detalhado e a próxima etapa sem depender do histórico do chat.",
+      "impacts": [
+        "O CMS permanece como próximo produto, condicionado à conclusão do Harness de Continuidade MVP.",
+        "A Âncora manual do chat permanece temporariamente obrigatória até a Âncora gerada passar no teste de continuidade.",
+        "Planejamentos completos terão registros próprios e não serão substituídos por resumos.",
+        "Todo resumo da Âncora deverá apontar para fontes detalhadas por referências estáveis.",
+        "Qualquer agente deverá executar o bootstrap do projeto antes de orientar mudanças estruturais.",
+        "A evolução avançada da IA integrada continua pausada."
+      ],
+      "rules": [
+        "Resumos são projeções regeneráveis e não substituem fontes completas.",
+        "Todo item resumido deve possuir ao menos uma referência aprofundável.",
+        "A Âncora gerada deve manter exatamente cinco blocos conceituais: arquitetura, roadmap, fluxo de execução, regras e próxima etapa.",
+        "Realidade atual, histórico e estruturas futuras devem permanecer separados.",
+        "Informações confirmadas não podem desaparecer silenciosamente.",
+        "Conflitos históricos exigem decisão explícita de Arthur.",
+        "O Harness MVP deve permanecer limitado ao necessário para continuidade e não pode se transformar em uma nova frente infinita."
+      ],
+      "resumeCriteria": [
+        "Uma conversa nova recupera a prioridade atual sem usar o histórico do chat.",
+        "Uma conversa nova identifica decisões ativas, regras críticas, fase atual, bloqueios e próxima etapa.",
+        "A Âncora gerada possui referências válidas para planejamentos e registros detalhados.",
+        "O Non Regression Guard bloqueia perda silenciosa de patrimônio confirmado.",
+        "O comando de bootstrap entrega contexto suficiente em profundidades progressivas.",
+        "O teste de continuidade entre conversas é aprovado."
+      ],
+      "supersedes": [],
+      "affectedAreas": [
+        "Anchor Engine",
+        "Context Engine",
+        "Decision Memory",
+        "Baseline",
+        "Método de Atuação",
+        "Catálogo",
+        "CMS",
+        "Governança",
+        "GitHub"
+      ]
+    },
+    {
+      "id": "DEC-2026-CONTEXT-CONTINUITY",
+      "title": "Persistir decisões aprovadas fora da conversa",
+      "status": "active",
+      "decidedAt": "2026-07-30",
+      "category": "governance",
+      "context": "A janela de contexto de uma conversa pode ser excedida e não deve ser tratada como repositório permanente de decisões e regras.",
+      "decision": "Toda decisão aprovada deve ser classificada, persistida no documento canônico, validada pelo Context Engine e versionada no GitHub junto da implementação relacionada.",
+      "reason": "Evitar perda de continuidade, reconstruções contraditórias e dependência da memória da conversa.",
+      "impacts": [
+        "Decision Memory passa a guardar decisões deliberadas e seus efeitos.",
+        "Roadmaps guardam sequência e status.",
+        "ADRs guardam restrições arquiteturais.",
+        "Documentação versionada guarda procedimentos operacionais."
+      ],
+      "rules": [
+        "A conversa não é armazenamento definitivo.",
+        "Uma decisão só é permanente depois de validada e publicada no GitHub.",
+        "O project-map.json é derivado e não substitui a origem persistente da decisão.",
+        "IDs duplicados são proibidos e substituições devem usar supersedes."
+      ],
+      "resumeCriteria": [],
+      "supersedes": [],
+      "affectedAreas": [
+        "Decision Memory",
+        "Context Engine",
+        "Documentação",
+        "GitHub",
+        "CMS"
+      ]
+    },
+    {
+      "id": "DEC-2026-IA-PAUSE-CMS",
+      "title": "Pausar a evolução da IA integrada e priorizar o CMS",
+      "status": "active",
+      "decidedAt": "2026-07-30",
+      "category": "product-priority",
+      "context": "A integração inicial com Ollama, o roteador contextual e o schema dinâmico foram concluídos, enquanto o desenvolvimento funcional do CMS ainda não foi iniciado.",
+      "decision": "Encerrar o Lote 7 no estado validado, pausar novos refinamentos da IA integrada e priorizar o primeiro corte funcional do CMS.",
+      "reason": "Entregar funcionalidades reais do produto antes de ampliar embeddings, busca semântica, memória conversacional e agentes.",
+      "impacts": [
+        "O Context Engine permanece como fonte de verdade.",
+        "context:ask permanece experimental e operacional.",
+        "Ollama permanece instalado sem novas evoluções nesta fase.",
+        "O CMS passa a ser a prioridade imediata.",
+        "A IA integrada será retomada quando os produtos estiverem mais robustos."
+      ],
+      "rules": [
+        "Não implementar embeddings, busca vetorial, memória conversacional ou agente autônomo nesta fase.",
+        "O Ollama não é fonte canônica.",
+        "Toda implementação do CMS deve começar pela arquitetura física real registrada no Context Engine."
+      ],
+      "resumeCriteria": [
+        "CMS com fluxo funcional de rascunho até publicação.",
+        "Produtos principais mais robustos.",
+        "Capacidade técnica disponível para retomar a integração."
+      ],
+      "supersedes": [],
+      "affectedAreas": [
+        "Context Engine",
+        "Ollama",
+        "CMS",
+        "Roadmap técnico"
+      ]
+    },
+    {
+      "id": "DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY",
+      "title": "Adotar resposta deterministica para o estado operacional do projeto",
+      "status": "active",
+      "decidedAt": "2026-08-01",
+      "category": "architecture",
+      "context": "Testes com qwen2.5-coder:1.5b e qwen2.5:3b demonstraram respostas lentas ou semanticamente inconsistentes para fatos operacionais que ja existem de forma estruturada nos registries canonicos.",
+      "decision": "A intencao project_continuity deve produzir a resposta operacional em Mode: deterministic diretamente dos registries canonicos. Mode: ollama permanece reservado a consultas interpretativas validas e Mode: fallback permanece reservado a falhas do modelo ou do contrato.",
+      "reason": "Projeto atual, fase, tarefa, projetos pausados e proxima fase sao fatos exatos e nao devem ser reinterpretados probabilisticamente.",
+      "impacts": [
+        "project_continuity deixa de depender do Ollama.",
+        "A resposta operacional passa a ser rapida e semanticamente estavel.",
+        "Os cinco registries canonicos permanecem fontes obrigatorias.",
+        "Ollama continua disponivel para arquitetura, riscos, alternativas e outras consultas interpretativas."
+      ],
+      "rules": [
+        "Estados operacionais canonicos usam Mode: deterministic.",
+        "Mode: ollama nao substitui registries canonicos.",
+        "Mode: fallback permanece reservado a falhas do modelo ou do contrato."
+      ],
+      "resumeCriteria": [
+        "Reavaliar apenas se houver mecanismo de geracao comprovadamente mais rapido e semanticamente equivalente aos registries."
+      ],
+      "supersedes": [],
+      "affectedAreas": [
+        "Context Engine",
+        "RAG integrado",
+        "project_continuity",
+        "Project Registry",
+        "Planning Registry",
+        "Decision Memory",
+        "Rules Registry",
+        "Conflict Register"
+      ]
+    }
+  ]
 }

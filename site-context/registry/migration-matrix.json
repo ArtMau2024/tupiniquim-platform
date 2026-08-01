@@ -1,0 +1,1172 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "MIGRATION-ANCHOR-BASELINE-001",
+  "status": "in_review",
+  "planRef": "plan://PLAN-ANCHOR-MVP",
+  "phaseRef": "PHASE-ANCHOR-01-INVENTORY",
+  "generatedAt": "2026-08-01T00:00:00Z",
+  "classificationPolicy": {
+    "current": "Evidência vigente no projeto atual.",
+    "historical-confirmed": "Patrimônio histórico confirmado, sem autoridade automática sobre o estado atual.",
+    "planned": "Estrutura futura aprovada.",
+    "conflicting": "Divergência entre fontes; exige decisão explícita de Arthur.",
+    "incomplete": "Existência confirmada, conteúdo parcial ou perdido.",
+    "unverified": "Não promover como fato."
+  },
+  "items": [
+    {
+      "id": "MIG-RULE-001",
+      "type": "rule",
+      "title": "Regra histórica 1",
+      "content": "A Âncora possui exatamente cinco blocos fixos.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-002",
+      "type": "rule",
+      "title": "Regra histórica 2",
+      "content": "Arquitetura é cumulativa.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-003",
+      "type": "rule",
+      "title": "Regra histórica 3",
+      "content": "Roadmap é cumulativo.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-004",
+      "type": "rule",
+      "title": "Regra histórica 4",
+      "content": "Fluxo é cumulativo.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-005",
+      "type": "rule",
+      "title": "Regra histórica 5",
+      "content": "Informações aprovadas não podem desaparecer.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-006",
+      "type": "rule",
+      "title": "Regra histórica 6",
+      "content": "Novos EPICs entram por acréscimo.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-007",
+      "type": "rule",
+      "title": "Regra histórica 7",
+      "content": "Perda de EPIC é regressão.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-008",
+      "type": "rule",
+      "title": "Regra histórica 8",
+      "content": "Perda de roadmap é regressão.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-009",
+      "type": "rule",
+      "title": "Regra histórica 9",
+      "content": "Perda de regras é regressão.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-010",
+      "type": "rule",
+      "title": "Regra histórica 10",
+      "content": "Perda de decisões é regressão.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-011",
+      "type": "rule",
+      "title": "Regra histórica 11",
+      "content": "Perda de marcos publicados é regressão.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-012",
+      "type": "rule",
+      "title": "Regra histórica 12",
+      "content": "Toda resposta estratégica deve atualizar a Âncora.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-013",
+      "type": "rule",
+      "title": "Regra histórica 13",
+      "content": "Anchor Engine possui prioridade máxima.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-014",
+      "type": "rule",
+      "title": "Regra histórica 14",
+      "content": "Governança possui precedência sobre novas funcionalidades.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-015",
+      "type": "rule",
+      "title": "Regra histórica 15",
+      "content": "A Anchor Engine protege conhecimento e não apenas estrutura.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-016",
+      "type": "rule",
+      "title": "Regra histórica 16",
+      "content": "Commits publicados devem permanecer registrados.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-017",
+      "type": "rule",
+      "title": "Regra histórica 17",
+      "content": "Toda nova regra aprovada integra a entidade cumulativa Regras.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-018",
+      "type": "rule",
+      "title": "Regra histórica 18",
+      "content": "Regras aprovadas tornam-se patrimônio permanente.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-019",
+      "type": "rule",
+      "title": "Regra histórica 19",
+      "content": "Toda decisão arquitetural relevante deve ser registrada.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-020",
+      "type": "rule",
+      "title": "Regra histórica 20",
+      "content": "ADRs aprovados tornam-se patrimônio permanente.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-021",
+      "type": "rule",
+      "title": "Regra histórica 21",
+      "content": "ADRs não podem desaparecer silenciosamente.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-022",
+      "type": "rule",
+      "title": "Regra histórica 22",
+      "content": "Alterações arquiteturais relevantes exigem ADR.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-023",
+      "type": "rule",
+      "title": "Regra histórica 23",
+      "content": "O Anchor Validator deverá validar ADRs.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-024",
+      "type": "rule",
+      "title": "Regra histórica 24",
+      "content": "O Non Regression Guard deverá bloquear perda de ADRs.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-025",
+      "type": "rule",
+      "title": "Regra histórica 25",
+      "content": "Todo ADR deve possuir Sugestão Fixa de Próxima Etapa.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-026",
+      "type": "rule",
+      "title": "Regra histórica 26",
+      "content": "ADRs devem conter os 10 elementos definidos no ANCHOR-0.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-027",
+      "type": "rule",
+      "title": "Regra histórica 27",
+      "content": "A última versão da Âncora não é necessariamente a mais completa.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-028",
+      "type": "rule",
+      "title": "Regra histórica 28",
+      "content": "Atualizações da Âncora devem ocorrer por fusão cumulativa.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-029",
+      "type": "rule",
+      "title": "Regra histórica 29",
+      "content": "É proibido substituir uma Âncora mais rica por uma mais pobre.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-030",
+      "type": "rule",
+      "title": "Regra histórica 30",
+      "content": "A reconstrução histórica é permitida quando patrimônio foi perdido.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-031",
+      "type": "rule",
+      "title": "Regra histórica 31",
+      "content": "O patrimônio acumulado possui precedência sobre resumos recentes.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-032",
+      "type": "rule",
+      "title": "Regra histórica 32",
+      "content": "A Baseline Oficial deve ser reconstruída antes da implementação da Anchor Engine.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-033",
+      "type": "rule",
+      "title": "Regra histórica 33",
+      "content": "ANCHOR-1 a ANCHOR-7 dependem da reconstrução da Baseline.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-034",
+      "type": "rule",
+      "title": "Regra histórica 34",
+      "content": "A Baseline é a fonte de verdade da futura Âncora.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-035",
+      "type": "rule",
+      "title": "Regra histórica 35",
+      "content": "A reconstrução da Baseline possui prioridade superior à implementação da Anchor Engine.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-036",
+      "type": "rule",
+      "title": "Regra histórica 36",
+      "content": "Regras são entidades cumulativas permanentes.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-037",
+      "type": "rule",
+      "title": "Regra histórica 37",
+      "content": "ADRs são entidades cumulativas permanentes.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-038",
+      "type": "rule",
+      "title": "Regra histórica 38",
+      "content": "O roadmap completo do projeto deve ser preservado na Baseline.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-RULE-039",
+      "type": "rule",
+      "title": "Regra histórica 39",
+      "content": "A conversa é temporária. O método é persistente. A persistência física é obrigatória para todo ativo intelectual consolidado.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/rules/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-M-001",
+      "type": "method",
+      "title": "Framework de Agentes",
+      "content": "Consultor, Arquiteto, QA, Programador, Professor e Gerente de Projetos como papéis permanentes.",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/method-of-operation.md",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-M-002",
+      "type": "method",
+      "title": "Método GPS",
+      "content": "Navegação orientada, próxima etapa explícita e ausência de saltos desnecessários.",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/method-of-operation.md",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-M-003",
+      "type": "method",
+      "title": "Fluxo Principal de Execução",
+      "content": "Consultor → QA → Programador para reduzir erros antes da implementação.",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/method-of-operation.md",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-M-004",
+      "type": "method",
+      "title": "Mudanças Estruturais",
+      "content": "Mudanças estruturais exigem avaliação do Arquiteto.",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/method-of-operation.md",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-M-005",
+      "type": "method",
+      "title": "Autoridade do QA",
+      "content": "QA pode reprovar por regressão, inconsistência, falta de cobertura, risco ou não conformidade.",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/method-of-operation.md",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-M-006",
+      "type": "method",
+      "title": "Escopo do Programador",
+      "content": "Programador entrega exclusivamente código; planejamento e governança pertencem a outros papéis.",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/method-of-operation.md",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-M-007",
+      "type": "method",
+      "title": "Consolidação Obrigatória",
+      "content": "Descoberta validada deve ser consolidada como patrimônio para evitar reaprendizado.",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/method-of-operation.md",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-M-008",
+      "type": "method",
+      "title": "Atualização dos Ativos de Governança",
+      "content": "Melhorias consolidadas exigem atualização de Âncora, Método, Catálogo e Baseline.",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/method-of-operation.md",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-M-009",
+      "type": "method",
+      "title": "Três Camadas de Continuidade",
+      "content": "Conversa, Método de Atuação e Persistência Física protegem o patrimônio intelectual.",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/method-of-operation.md",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-M-010",
+      "type": "method",
+      "title": "Persistência Física Obrigatória",
+      "content": "Ativo intelectual consolidado não pode existir apenas na conversa.",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/method-of-operation.md",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-M-011",
+      "type": "method",
+      "title": "Regra de Resposta Estratégica",
+      "content": "Temas estratégicos exigem conteúdo solicitado e Âncora completa atualizada.",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/method-of-operation.md",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-M-012",
+      "type": "method",
+      "title": "Não Regressão Operacional",
+      "content": "Patrimônio recuperado não pode desaparecer em evoluções posteriores.",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/method-of-operation.md",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-EPIC-001",
+      "type": "epic",
+      "title": "EPIC-001 — Blog",
+      "content": "Status histórico: completed.",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX",
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "historical",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/projects/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-EPIC-002",
+      "type": "epic",
+      "title": "EPIC-002 — Categorias Permanentes",
+      "content": "Status histórico: completed.",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX",
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "historical",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/projects/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-EPIC-003",
+      "type": "epic",
+      "title": "EPIC-003 — Site Institucional Profissional",
+      "content": "Status histórico: conflicting.",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX",
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "conflicting",
+      "currentStatus": "resolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/projects/",
+      "requiredAction": "migrate",
+      "resolution": "EPIC-003 paused; entregas e pendencias preservadas.",
+      "decisionRef": "DEC-2026-EPIC-TRANSITION-HARNESS"
+    },
+    {
+      "id": "MIG-EPIC-004",
+      "type": "epic",
+      "title": "EPIC-004 — Plataforma Editorial",
+      "content": "Status histórico: planned.",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX",
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "historical",
+      "currentStatus": "resolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/projects/",
+      "requiredAction": "migrate",
+      "resolution": "EPIC-004 formalizado como iniciado parcialmente e paused.",
+      "decisionRef": "DEC-2026-EPIC-TRANSITION-HARNESS"
+    },
+    {
+      "id": "MIG-EPIC-005",
+      "type": "epic",
+      "title": "EPIC-005 — Área do Usuário",
+      "content": "Status histórico: planned.",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX",
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "historical",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/projects/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-EPIC-006",
+      "type": "epic",
+      "title": "EPIC-006 — Produtos Digitais",
+      "content": "Status histórico: planned.",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX",
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "historical",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/projects/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-EPIC-007",
+      "type": "epic",
+      "title": "EPIC-007 — Loja Virtual",
+      "content": "Status histórico: planned.",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX",
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "historical",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/projects/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-EPIC-008",
+      "type": "epic",
+      "title": "EPIC-008 — Criador de Sites",
+      "content": "Status histórico: planned.",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX",
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "historical",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/projects/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-ADR-001",
+      "type": "adr",
+      "title": "ADR-001",
+      "content": "Existência e aprovação históricas confirmadas; conteúdo detalhado não recuperado.",
+      "sourceRefs": [
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "incomplete",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/adr-registry.md",
+      "requiredAction": "preserve-gap"
+    },
+    {
+      "id": "MIG-ADR-002",
+      "type": "adr",
+      "title": "ADR-002",
+      "content": "Existência e aprovação históricas confirmadas; conteúdo detalhado não recuperado.",
+      "sourceRefs": [
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "incomplete",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/adr-registry.md",
+      "requiredAction": "preserve-gap"
+    },
+    {
+      "id": "MIG-ADR-003",
+      "type": "adr",
+      "title": "ADR-003",
+      "content": "Existência e aprovação históricas confirmadas; conteúdo detalhado não recuperado.",
+      "sourceRefs": [
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "incomplete",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/adr-registry.md",
+      "requiredAction": "preserve-gap"
+    },
+    {
+      "id": "MIG-ADR-004",
+      "type": "adr",
+      "title": "ADR-004",
+      "content": "Existência e aprovação históricas confirmadas; conteúdo detalhado não recuperado.",
+      "sourceRefs": [
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "incomplete",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/adr-registry.md",
+      "requiredAction": "preserve-gap"
+    },
+    {
+      "id": "MIG-ADR-005",
+      "type": "adr",
+      "title": "ADR-005",
+      "content": "Existência e aprovação históricas confirmadas; conteúdo detalhado não recuperado.",
+      "sourceRefs": [
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "incomplete",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/adr-registry.md",
+      "requiredAction": "preserve-gap"
+    },
+    {
+      "id": "MIG-ADR-006",
+      "type": "adr",
+      "title": "ADR-006",
+      "content": "Existência e aprovação históricas confirmadas; conteúdo detalhado não recuperado.",
+      "sourceRefs": [
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "incomplete",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/adr-registry.md",
+      "requiredAction": "preserve-gap"
+    },
+    {
+      "id": "MIG-ADR-007",
+      "type": "adr",
+      "title": "ADR-007",
+      "content": "Existência e aprovação históricas confirmadas; conteúdo detalhado não recuperado.",
+      "sourceRefs": [
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "incomplete",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/adr-registry.md",
+      "requiredAction": "preserve-gap"
+    },
+    {
+      "id": "MIG-ADR-008",
+      "type": "adr",
+      "title": "ADR-008",
+      "content": "Existência e aprovação históricas confirmadas; conteúdo detalhado não recuperado.",
+      "sourceRefs": [
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "incomplete",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/adr-registry.md",
+      "requiredAction": "preserve-gap"
+    },
+    {
+      "id": "MIG-ADR-009",
+      "type": "adr",
+      "title": "ADR-009",
+      "content": "Existência e aprovação históricas confirmadas; conteúdo detalhado não recuperado.",
+      "sourceRefs": [
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "incomplete",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/adr-registry.md",
+      "requiredAction": "preserve-gap"
+    },
+    {
+      "id": "MIG-COMMIT-B9F3F78",
+      "type": "commit",
+      "title": "b9f3f78",
+      "content": "Header Isolado",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX",
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/project-history.md",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-COMMIT-FF667591",
+      "type": "commit",
+      "title": "ff667591",
+      "content": "Quem Somos",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX",
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/project-history.md",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-COMMIT-605BDEE",
+      "type": "commit",
+      "title": "605bdee",
+      "content": "Contato",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX",
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/project-history.md",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-COMMIT-3D12A04",
+      "type": "commit",
+      "title": "3d12a04",
+      "content": "Header Global Responsivo",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX",
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/project-history.md",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-COMMIT-0F5597A",
+      "type": "commit",
+      "title": "0f5597a",
+      "content": "Home Profissional",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX",
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/project-history.md",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-COMMIT-306AB38",
+      "type": "commit",
+      "title": "306ab38",
+      "content": "Footer Global Responsivo",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX",
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/project-history.md",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-COMMIT-966DC89",
+      "type": "commit",
+      "title": "966dc89",
+      "content": "Artigo Envelhecimento e Rejuvenescimento",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX",
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/project-history.md",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-COMMIT-78DFAB1",
+      "type": "commit",
+      "title": "78dfab1",
+      "content": "Validation Engine VE-1",
+      "sourceRefs": [
+        "SRC-BASELINE-HISTORICAL-DOCX",
+        "SRC-BASELINE-MARKDOWN"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "docs/project-history.md",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-ENGINE-VALIDATION-ENGINE",
+      "type": "engine",
+      "title": "Validation Engine",
+      "content": "Estado histórico: partial.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX",
+        "SRC-BASELINE-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/projects/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-ENGINE-ANCHOR-ENGINE",
+      "type": "engine",
+      "title": "Anchor Engine",
+      "content": "Estado histórico: redefined-pending.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX",
+        "SRC-BASELINE-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/projects/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-ENGINE-CATALOG-ENGINE",
+      "type": "engine",
+      "title": "Catalog Engine",
+      "content": "Estado histórico: planned.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX",
+        "SRC-BASELINE-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/projects/",
+      "requiredAction": "review"
+    },
+    {
+      "id": "MIG-ENGINE-NON-REGRESSION-GUARD",
+      "type": "engine",
+      "title": "Non Regression Guard",
+      "content": "Estado histórico: planned.",
+      "sourceRefs": [
+        "SRC-ANCHOR-HISTORICAL-DOCX",
+        "SRC-BASELINE-HISTORICAL-DOCX"
+      ],
+      "evidenceStatus": "historical",
+      "currentStatus": "unresolved",
+      "conflict": false,
+      "canonicalDestination": "site-context/registry/projects/",
+      "requiredAction": "review"
+    }
+  ],
+  "summary": {
+    "total": 80,
+    "rules": 39,
+    "methods": 12,
+    "epics": 8,
+    "adrs": 9,
+    "commits": 8,
+    "engines": 4,
+    "conflicts": 1
+  }
+}

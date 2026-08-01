@@ -85,6 +85,8 @@ const INCOMPLETE_EXCLUSION_REASONS = new Set([
   "read_error"
 ]);
 
+const decisionMemoryPath = path.join(ROOT, "site-context", "decision-memory.json");
+const decisionMemorySnapshot = fs.existsSync(decisionMemoryPath) ? JSON.parse(fs.readFileSync(decisionMemoryPath, "utf8")) : { schemaVersion: "1.0.0", decisions: [] };
 const projectMap = {
   "$schema": "../context-engine-v3.schema.json",
   schemaVersion: "3.1.0",
@@ -102,6 +104,7 @@ const projectMap = {
   runtime: {},
   executionFlow: {},
   contextEngine: {
+    decisionMemory: decisionMemorySnapshot,
     productVision: {
       name: "Tupiniquim Platform",
       mission:
@@ -120,6 +123,14 @@ const projectMap = {
       name: "Site Institucional Profissional",
       status: "in_progress"
     },
+    technicalRoadmap: [
+      { name: "Context Engine V3", status: "completed" },
+      { name: "Consulta textual", status: "completed" },
+      { name: "Roteador e resposta contextual", status: "completed" },
+      { name: "Busca semantica", status: "planned" },
+      { name: "Integracao com modelo local", status: "in_progress" },
+      { name: "Memoria conversacional", status: "planned" }
+    ],
     roadmap: [
       { name: "Blog", status: "completed" },
       { name: "Context Engine", status: "completed" },

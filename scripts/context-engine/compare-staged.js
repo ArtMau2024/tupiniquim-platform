@@ -16,8 +16,13 @@ try {
     if (beforeArray !== afterArray) fail(`Legacy type changed: ${key}`);
     if (!beforeArray && typeof canonical[key] !== typeof staged[key]) fail(`Legacy type changed: ${key}`);
   }
-  for (const key of ["project","architecture","integrations","executionFlow","contextEngine"]) {
+  for (const key of ["project","architecture","integrations","executionFlow"]) {
     if (JSON.stringify(canonical[key]) !== JSON.stringify(staged[key])) fail(`Legacy semantic block changed unexpectedly: ${key}`);
   }
+  const legacyContextEngineKeys = ["productVision","businessGoals","projectStatus","roadmap","architectureDecisions"];
+  for (const key of legacyContextEngineKeys) {
+    if (JSON.stringify(canonical.contextEngine?.[key]) !== JSON.stringify(staged.contextEngine?.[key])) fail(`Legacy Context Engine field changed unexpectedly: ${key}`);
+  }
+  if (!Array.isArray(staged.contextEngine?.technicalRoadmap) || staged.contextEngine.technicalRoadmap.length === 0) fail("Additive technicalRoadmap is missing from staged Context Engine.");
   console.log("Staged map preserved legacy keys, types, and semantic blocks.");
 } catch (error) { fail(error.message); }

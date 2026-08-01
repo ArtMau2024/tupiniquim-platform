@@ -1,0 +1,274 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-08-01T20:27:00.695Z",
+  "sources": [
+    {
+      "id": "SRC-ANCHOR-HISTORICAL-DOCX",
+      "path": "docs/ÂNCORA PERMANENTE DO PROJETO.docx",
+      "type": "historical-document",
+      "role": "historical-operational-snapshot",
+      "authority": [
+        "historical-anchor",
+        "historical-rules",
+        "historical-roadmap"
+      ],
+      "evidenceStatus": "historical",
+      "priority": 70,
+      "limitations": [
+        "May contain outdated operational status.",
+        "Must not overwrite current technical state automatically."
+      ],
+      "sha256": "a7a92f34a53dea7b5718029c6136b921711565f69953dfedef525fcf9625719b"
+    },
+    {
+      "id": "SRC-BASELINE-HISTORICAL-DOCX",
+      "path": "docs/BASELINE.docx",
+      "type": "historical-document",
+      "role": "historical-patrimony",
+      "authority": [
+        "historical-epics",
+        "historical-method",
+        "historical-milestones",
+        "historical-rules"
+      ],
+      "evidenceStatus": "historical",
+      "priority": 80,
+      "limitations": [
+        "Known conflicts with later project status require human resolution."
+      ],
+      "sha256": "a620d0fc3e3ba8aafc9531e35812d4eb62405b1d03611837629ee1cbae43feb6"
+    },
+    {
+      "id": "SRC-BASELINE-MARKDOWN",
+      "path": "docs/baseline.md",
+      "type": "historical-document",
+      "role": "historical-baseline",
+      "authority": [
+        "historical-epics",
+        "historical-commits",
+        "historical-gaps",
+        "historical-adrs"
+      ],
+      "evidenceStatus": "historical",
+      "priority": 85,
+      "limitations": [
+        "Reconstruction is incomplete.",
+        "Missing ADR content must not be invented."
+      ],
+      "sha256": "0339fbf4a8c916b594e14b32df3964af2a6c9a5d0fcf7ecb815bdce6511a4c48"
+    },
+    {
+      "id": "SRC-PROJECT-MAP",
+      "path": "site-context/project-map.json",
+      "type": "generated-artifact",
+      "role": "current-technical-state",
+      "authority": [
+        "current-architecture",
+        "current-filesystem",
+        "current-routes",
+        "current-roadmap"
+      ],
+      "evidenceStatus": "current-derived",
+      "priority": 100,
+      "limitations": [
+        "Derived and regenerable.",
+        "Does not replace persistent decision or historical sources."
+      ],
+      "sha256": "85e0822ab9e4d823d669c9d65f49591505307fcd9fe4e944bbf72b909fa90f42"
+    },
+    {
+      "id": "SRC-DECISION-MEMORY",
+      "path": "site-context/decision-memory.json",
+      "type": "persistent-registry",
+      "role": "deliberative-truth",
+      "authority": [
+        "active-decisions",
+        "decision-rationale",
+        "decision-rules",
+        "resume-criteria"
+      ],
+      "evidenceStatus": "current-canonical",
+      "priority": 100,
+      "limitations": [
+        "Stores decisions, not complete execution plans."
+      ],
+      "sha256": "ce2e55baf3eab557b9c1ba617d5bf395d38aa6744d2b6f8ccc5218ef3413fe86"
+    },
+    {
+      "id": "SRC-CONTEXT-GOVERNANCE",
+      "path": "docs/context-engine-governance.md",
+      "type": "governance-document",
+      "role": "operational-governance",
+      "authority": [
+        "persistence-process",
+        "decision-lifecycle",
+        "governance-procedure"
+      ],
+      "evidenceStatus": "current-canonical",
+      "priority": 95,
+      "limitations": [
+        "Procedural authority only; not a technical inventory."
+      ],
+      "sha256": "ea3db8a380cb196dea705b4f602fbbb9c5f0cfd65212494f817fe737af591532"
+    },
+    {
+      "id": "SRC-ANCHOR-MVP-PLAN",
+      "path": "site-context/registry/plans/PLAN-ANCHOR-MVP.json",
+      "type": "planning-registry",
+      "role": "current-execution-plan",
+      "authority": [
+        "plan-status",
+        "phases",
+        "deliverables",
+        "acceptance-criteria",
+        "risks"
+      ],
+      "evidenceStatus": "current-canonical",
+      "priority": 100,
+      "limitations": [
+        "Planning authority only; current technical evidence remains in Project Map."
+      ],
+      "sha256": "b0e82c89f35a2a121b07ee1e3a806962a265168f720e54896c6a2ef709ac2525"
+    },
+    {
+      "id": "SRC-ANCHOR-MVP-NARRATIVE",
+      "path": "docs/plans/anchor-engine-mvp.md",
+      "type": "planning-document",
+      "role": "planning-narrative",
+      "authority": [
+        "plan-context",
+        "plan-explanation",
+        "risk-explanation"
+      ],
+      "evidenceStatus": "current-supporting",
+      "priority": 90,
+      "limitations": [
+        "The structured plan controls machine-readable status and phase fields."
+      ],
+      "sha256": "aa4a9cf1ee9226bb88362ed9149aeceac3f58ff5b080fc395005d938a2348066"
+    },
+    {
+      "id": "SRC-HARNESS-RULES",
+      "path": "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
+      "type": "persistent-registry",
+      "role": "operational-rules",
+      "authority": [
+        "active-rules",
+        "rule-verification",
+        "rule-supersession"
+      ],
+      "evidenceStatus": "current-canonical",
+      "priority": 100,
+      "limitations": [
+        "Stores operational rules, not decision rationale."
+      ],
+      "sha256": "208d9854b7371591b351b1af5bc0f143148eacecbcb0fd841ded841fe3c03b39"
+    },
+    {
+      "id": "SRC-METHOD-OF-OPERATION",
+      "path": "docs/method-of-operation.md",
+      "type": "governance-document",
+      "role": "agent-operation-method",
+      "authority": [
+        "operational-protocol",
+        "documentation-consultation",
+        "rag-usage",
+        "decision-clarity"
+      ],
+      "evidenceStatus": "current-canonical",
+      "priority": 100,
+      "limitations": [
+        "Organizes the method; individual rules remain authoritative in the Rules Registry."
+      ],
+      "sha256": "dc2f701875d058cf2eb9ead6079073a7470c837c9f4b168ee27badcbe3a1d3b6"
+    },
+    {
+      "id": "SRC-PROJECT-REGISTRY",
+      "path": "site-context/registry/projects/PROJECT-REGISTRY-TUPINIQUIM.json",
+      "type": "persistent-registry",
+      "role": "project-state-truth",
+      "authority": [
+        "project-status",
+        "project-capabilities",
+        "resume-conditions",
+        "current-initiative"
+      ],
+      "evidenceStatus": "current-canonical",
+      "priority": 100,
+      "limitations": [
+        "Technical filesystem state remains derived from the Project Map."
+      ],
+      "sha256": "5f37c43466c0fea6eab6249f12b10633fdbb856673f119422b20ebd76586cbbc"
+    },
+    {
+      "id": "SRC-MIGRATION-MATRIX",
+      "path": "site-context/registry/migration-matrix.json",
+      "type": "migration-registry",
+      "role": "patrimony-inventory",
+      "authority": [
+        "migration-provenance",
+        "evidence-classification",
+        "canonical-destination",
+        "migration-status"
+      ],
+      "evidenceStatus": "current-canonical",
+      "priority": 95,
+      "limitations": [
+        "Inventory does not activate historical items automatically."
+      ],
+      "sha256": "cc352ce6f6297655ad663a6f2a9dac8b62622ccf0f07233e1d277ed933d355e2"
+    },
+    {
+      "id": "SRC-CONFLICT-REGISTER",
+      "path": "site-context/registry/conflict-register.json",
+      "type": "governance-registry",
+      "role": "conflict-truth",
+      "authority": [
+        "open-conflicts",
+        "source-positions",
+        "conflict-resolution",
+        "resolution-decision"
+      ],
+      "evidenceStatus": "current-canonical",
+      "priority": 100,
+      "limitations": [
+        "A resolved conflict does not replace its related decision or source history."
+      ],
+      "sha256": "1a8b472268556422b73b1535a78004c324b290b914238e99d0ff5831ce8ba1c3"
+    },
+    {
+      "id": "SRC-HISTORY-CONTEXT-V2-V3",
+      "path": "docs/history/context-engine-v2-transition.md",
+      "type": "historical-document",
+      "role": "technical-transition-history",
+      "authority": [
+        "context-v2-v3-transition",
+        "absorbed-capabilities",
+        "removed-artifacts"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "priority": 75,
+      "limitations": [
+        "Historical authority only; it does not define the current implementation."
+      ],
+      "sha256": "65cff092a8aa0f81f748c460ead1689dc25a5f7468ea1abb32aa55bcd059176a"
+    },
+    {
+      "id": "SRC-HISTORY-GOVERNANCE-HOTFIXES",
+      "path": "docs/history/context-engine-governance-hotfixes.md",
+      "type": "historical-document",
+      "role": "governance-hotfix-history",
+      "authority": [
+        "decision-memory-integration-history",
+        "governance-evolution",
+        "import-safety-history"
+      ],
+      "evidenceStatus": "historical-confirmed",
+      "priority": 75,
+      "limitations": [
+        "Historical authority only; current behavior is defined by operational code and registries."
+      ],
+      "sha256": "0583ec591f639d4740a152df89f4f6dbd7a1f760fcdce14a71906fcd18c33435"
+    }
+  ]
+}
