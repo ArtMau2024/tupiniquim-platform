@@ -318,7 +318,7 @@
     {
       "id": "PHASE-ANCHOR-04-VALIDATION",
       "name": "Validação e Não Regressão",
-      "status": "in_progress",
+      "status": "completed",
       "objective": "Bloquear perda silenciosa de patrimônio e fontes dessincronizadas.",
       "deliverables": [
         "validate-anchor.js",
@@ -336,7 +336,7 @@
         {
           "id": "TASK-ANCHOR-VALIDATION-01-FINAL",
           "title": "Executar validacao final e nao regressao basica",
-          "status": "in_progress",
+          "status": "completed",
           "objective": "Validar schema, hashes, cinco blocos e retomada antes do handoff.",
           "deliverables": [
             "validacao do anchor.json",
@@ -359,6 +359,36 @@
               "80 blocos audit",
               "resolvedores avancados"
             ]
+          },
+          "validationSummary": {
+            "anchorBlocks": {
+              "expected": 5,
+              "actual": 5,
+              "status": "valid"
+            },
+            "canonicalSources": {
+              "allBlocks": true,
+              "status": "valid"
+            },
+            "anchorHistory": {
+              "entries": 4,
+              "chain": "valid"
+            },
+            "conversationIndependence": true,
+            "tests": {
+              "total": 68,
+              "passed": 68,
+              "failed": 0
+            },
+            "contextEngine": {
+              "sourceRegistry": 17,
+              "sourceFiles": 86,
+              "chunks": 496,
+              "relations": 138,
+              "cycles": 0,
+              "parseErrors": 0
+            },
+            "conclusion": "Harness MVP validation criteria satisfied; handoff is authorized."
           }
         }
       ]
@@ -366,7 +396,7 @@
     {
       "id": "PHASE-ANCHOR-05-BOOTSTRAP",
       "name": "Bootstrap e Handoff",
-      "status": "planned",
+      "status": "in_progress",
       "objective": "Permitir retomada fluida por qualquer agente ou conversa.",
       "deliverables": [
         "context:bootstrap",
@@ -379,6 +409,40 @@
         "Bootstrap planning retorna plano, fases, riscos e critérios.",
         "Bootstrap full retorna regras, método, histórico, lacunas e conflitos relevantes.",
         "Uma conversa sem histórico identifica corretamente prioridade, bloqueios e próxima etapa."
+      ],
+      "tasks": [
+        {
+          "id": "TASK-ANCHOR-HANDOFF-01-CMS",
+          "title": "Executar handoff final para a Plataforma Editorial",
+          "status": "in_progress",
+          "objective": "Concluir o Harness MVP, preservar sua manutencao e transferir a iniciativa operacional para EPIC-004 com plano proprio.",
+          "deliverables": [
+            "PLAN-EDITORIAL-CMS-MVP.json",
+            "selecao do plano pelo projectId ativo",
+            "EPIC-HARNESS-001 pausado para manutencao",
+            "EPIC-004 ativado como iniciativa principal",
+            "Ancora pos-handoff e retomada deterministica no CMS"
+          ],
+          "acceptanceCriteria": [
+            "Existe apenas um projeto in_progress.",
+            "O plano ativo pertence ao projeto in_progress.",
+            "EPIC-HARNESS-001 permanece preservado como paused para manutencao.",
+            "EPIC-003 permanece paused.",
+            "EPIC-004 fica in_progress com fase e tarefa do CMS.",
+            "A IA integrada permanece pausada.",
+            "context:bootstrap e project_continuity apontam para o CMS.",
+            "A suite completa permanece verde."
+          ],
+          "scopeLimit": {
+            "maximumImplementationBatches": 1,
+            "excludedPostMvpItems": [
+              "nova funcionalidade do Harness",
+              "IA integrada",
+              "preenchimento dos 80 blocos audit",
+              "resolvedores avancados"
+            ]
+          }
+        }
       ]
     }
   ],
@@ -415,6 +479,5 @@
     "DEC-2026-EPIC-TRANSITION-HARNESS",
     "DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY"
   ],
-  "currentPhase": "PHASE-ANCHOR-04-VALIDATION",
-  "nextPhase": "PHASE-ANCHOR-05-BOOTSTRAP"
+  "currentPhase": "PHASE-ANCHOR-05-BOOTSTRAP"
 }
