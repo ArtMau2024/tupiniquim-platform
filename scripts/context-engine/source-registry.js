@@ -95,6 +95,8 @@ const definitions = [
   {id:"SRC-HISTORY-GOVERNANCE-HOTFIXES",path:"docs/history/context-engine-governance-hotfixes.md",type:"historical-document",role:"governance-hotfix-history",authority:["decision-memory-integration-history","governance-evolution","import-safety-history"],evidenceStatus:"historical-confirmed",priority:75,limitations:["Historical authority only; current behavior is defined by operational code and registries."]},
   {id:"SRC-PROJECT-HISTORY",path:"docs/project-history.md",type:"historical-registry",role:"verified-project-history",authority:["verified-commits","historical-hash-divergences","published-milestones"],evidenceStatus:"current-canonical",priority:95,limitations:["Git remains authoritative for commit objects and file changes."]},
   {id:"SRC-ADR-REGISTRY",path:"docs/adr-registry.md",type:"historical-registry",role:"adr-gap-registry",authority:["historical-adr-existence","historical-adr-approval","adr-gaps"],evidenceStatus:"current-canonical",priority:95,limitations:["Original ADR decisions were not recovered and must not be invented."]}
+,
+  {id:"SRC-CMS-PLAN",path:"site-context/registry/plans/PLAN-EDITORIAL-CMS-MVP.json",type:"persistent-registry",role:"active-product-plan",authority:["cms-phases","cms-tasks","cms-acceptance-criteria","cms-current-state"],evidenceStatus:"current-canonical",priority:100,limitations:["Implementation state remains verified by code and tests."]}
 
 ];
 function sha256(file) { return crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex"); }

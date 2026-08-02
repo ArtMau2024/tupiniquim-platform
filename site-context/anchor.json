@@ -1,25 +1,25 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-01T23:52:19.954Z",
+  "generatedAt": "2026-08-02T00:51:25.821Z",
   "blocks": [
     {
       "id": "architecture",
       "title": "Arquitetura Fisica completa com status",
       "content": {
         "currentProject": {
-          "id": "EPIC-HARNESS-001",
-          "name": "Harness de Continuidade e Anchor Engine",
+          "id": "EPIC-004",
+          "name": "Plataforma Editorial",
           "status": "in_progress"
         },
         "currentPhase": {
-          "id": "PHASE-ANCHOR-05-BOOTSTRAP",
-          "name": "Bootstrap e Handoff",
+          "id": "PHASE-EDITORIAL-CMS-01-FOUNDATION",
+          "name": "Fundacao Administrativa do CMS",
           "status": "in_progress"
         },
         "currentTasks": [
           {
-            "id": "TASK-ANCHOR-HANDOFF-01-CMS",
-            "title": "Executar handoff final para a Plataforma Editorial",
+            "id": "TASK-EDITORIAL-CMS-01-FIRST-SLICE",
+            "title": "Implementar o primeiro corte funcional do CMS",
             "status": "in_progress"
           }
         ],
@@ -30,18 +30,18 @@
             "status": "paused"
           },
           {
-            "id": "EPIC-004",
-            "name": "Plataforma Editorial",
+            "id": "EPIC-HARNESS-001",
+            "name": "Harness de Continuidade e Anchor Engine",
             "status": "paused"
           }
         ],
         "activeDecisions": 7,
-        "activeRules": 15,
+        "activeRules": 16,
         "openConflicts": 0
       },
       "sources": [
         "site-context/registry/projects/PROJECT-REGISTRY-TUPINIQUIM.json",
-        "site-context/registry/plans/PLAN-ANCHOR-MVP.json",
+        "site-context/registry/plans/PLAN-EDITORIAL-CMS-MVP.json",
         "site-context/decision-memory.json",
         "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
         "site-context/registry/conflict-register.json"
@@ -51,13 +51,18 @@
       "id": "roadmap",
       "title": "Roadmap acumulado",
       "content": {
-        "currentPhase": "PHASE-ANCHOR-05-BOOTSTRAP",
-        "nextPhase": null,
+        "currentPhase": "PHASE-EDITORIAL-CMS-01-FOUNDATION",
+        "nextPhase": "PHASE-EDITORIAL-CMS-02-HARDENING",
         "remainingPhases": [
           {
-            "id": "PHASE-ANCHOR-05-BOOTSTRAP",
+            "id": "PHASE-EDITORIAL-CMS-01-FOUNDATION",
             "status": "in_progress",
-            "name": "Bootstrap e Handoff"
+            "name": "Fundacao Administrativa do CMS"
+          },
+          {
+            "id": "PHASE-EDITORIAL-CMS-02-HARDENING",
+            "status": "planned",
+            "name": "Validacao e Endurecimento"
           }
         ]
       },
@@ -70,9 +75,10 @@
       "title": "Fluxo de Execucao real",
       "content": {
         "sequence": [
-          "EPIC-HARNESS-001",
-          "PHASE-ANCHOR-05-BOOTSTRAP",
-          "TASK-ANCHOR-HANDOFF-01-CMS"
+          "EPIC-004",
+          "PHASE-EDITORIAL-CMS-01-FOUNDATION",
+          "TASK-EDITORIAL-CMS-01-FIRST-SLICE",
+          "PHASE-EDITORIAL-CMS-02-HARDENING"
         ]
       },
       "sources": [
@@ -99,16 +105,17 @@
           "RULE-RAG-003",
           "RULE-RAG-004",
           "RULE-SOURCE-001",
-          "RULE-CMD-003"
+          "RULE-CMD-003",
+          "RULE-040"
         ],
         "activeDecisionIds": [
           "DEC-2026-EPIC-TRANSITION-HARNESS",
           "DEC-2026-HARNESS-AGENT-PROTOCOL",
           "DEC-2026-ANCHOR-HARNESS-FIRST",
           "DEC-2026-CONTEXT-CONTINUITY",
-          "DEC-2026-IA-PAUSE-CMS",
           "DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY",
-          "DEC-2026-MIGRATION-AUDIT-CONTRACT"
+          "DEC-2026-MIGRATION-AUDIT-CONTRACT",
+          "DEC-2026-IA-OPERATIONAL-CMS"
         ],
         "openConflicts": 0
       },
@@ -122,7 +129,7 @@
       "id": "nextStep",
       "title": "Sugestao Fixa de Proxima Etapa",
       "content": {
-        "task": "TASK-ANCHOR-HANDOFF-01-CMS",
+        "task": "TASK-EDITORIAL-CMS-01-FIRST-SLICE",
         "command": "npm run context:bootstrap"
       },
       "sources": [
@@ -130,5 +137,5 @@
       ]
     }
   ],
-  "sourceDigest": "954124dcfabe895bed967474974008f4171b099168a729d17997a01e10b11c1d"
+  "sourceDigest": "e39a57dca4ac029e22112dff1e9e762881a2de713b78e54472ca2267e9ef5399"
 }

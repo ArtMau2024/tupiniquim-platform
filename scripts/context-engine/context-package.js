@@ -1,14 +1,14 @@
 "use strict";
 const {searchContext}=require("./context-query");
 function firstPlanned(items=[]){return items.find(x=>x.status==="planned")||null;}
-function buildContextPackage({question,intent,map,index,projects,plan,memory,rules,conflicts}){const base={question,intent,facts:{},sources:[],warnings:[]};
+function buildContextPackage({question,intent,map,index,projects,plan,planPath,memory,rules,conflicts}){const base={question,intent,facts:{},sources:[],warnings:[]};
  if(intent==="project_continuity"){
   const allProjects=projects?.projects||[];const phase=(plan?.phases||[]).find(x=>x.id===plan?.currentPhase)||null;
   const currentProject=allProjects.find(x=>x.status==="in_progress")||null;
   const pausedProjects=allProjects.filter(x=>x.status==="paused").map(x=>({id:x.id,name:x.name,status:x.status}));
   const currentTasks=(phase?.tasks||[]).filter(x=>x.status==="in_progress").map(x=>({id:x.id,title:x.title,status:x.status}));
   base.facts={currentProject:currentProject?{id:currentProject.id,name:currentProject.name,status:currentProject.status}:null,pausedProjects,currentPhase:phase?{id:phase.id,name:phase.name,status:phase.status}:null,currentTasks,nextPhase:plan?.nextPhase||null,activeDecisionCount:(memory?.decisions||[]).filter(x=>x.status==="active").length,activeRuleCount:(rules?.rules||[]).filter(x=>x.status==="active").length,openConflicts:conflicts?.summary?.open??null};
-  base.sources=["site-context/registry/projects/PROJECT-REGISTRY-TUPINIQUIM.json","site-context/registry/plans/PLAN-ANCHOR-MVP.json","site-context/decision-memory.json","site-context/registry/rules/RULESET-HARNESS-QUALITY.json","site-context/registry/conflict-register.json"];
+  if(typeof planPath!=="string"||!planPath.trim())throw new Error("Active plan source path is required for project continuity");base.sources=["site-context/registry/projects/PROJECT-REGISTRY-TUPINIQUIM.json",planPath,"site-context/decision-memory.json","site-context/registry/rules/RULESET-HARNESS-QUALITY.json","site-context/registry/conflict-register.json"];
   if(!base.facts.currentProject)base.warnings.push("Nenhum projeto em andamento encontrado no Project Registry");
   if(!base.facts.currentPhase)base.warnings.push("Fase atual ausente no Planning Registry");
  }

@@ -1,0 +1,101 @@
+{
+  "id": "PLAN-EDITORIAL-CMS-MVP",
+  "projectId": "EPIC-004",
+  "title": "CMS MVP da Plataforma Editorial",
+  "status": "in_progress",
+  "objective": "Entregar o primeiro corte funcional e rentavel do CMS com apoio operacional da IA integrada e do Harness.",
+  "motivation": [
+    "Retomar o projeto rentavel apos validacao do Harness.",
+    "Criar fluxo editorial administravel e compativel com o Blog atual.",
+    "Usar a IA integrada para continuidade e apoio ao trabalho real no site."
+  ],
+  "scope": [
+    "administracao autenticada",
+    "listagem de posts",
+    "criacao de rascunho",
+    "edicao de conteudo",
+    "validacao de metadados",
+    "publicacao",
+    "compatibilidade com MDX e Blog atual",
+    "apoio operacional da IA integrada"
+  ],
+  "nonGoals": [
+    "nova evolucao estrutural da IA integrada",
+    "nova evolucao estrutural do Harness",
+    "Media Center completo",
+    "automacoes editoriais avancadas",
+    "publicacao autonoma pela IA"
+  ],
+  "sources": [
+    "site-context/registry/projects/PROJECT-REGISTRY-TUPINIQUIM.json",
+    "site-context/decision-memory.json",
+    "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
+    "docs/method-of-operation.md",
+    "docs/project-history.md"
+  ],
+  "globalAcceptanceCriteria": [
+    "Fluxo de rascunho ate publicacao funciona.",
+    "Projeto, plano, fase e tarefa atuais sao recuperados deterministicamente.",
+    "IA integrada permanece operacional sem substituir fontes canonicas.",
+    "Suite e validacoes do projeto permanecem verdes."
+  ],
+  "relatedDecisions": [
+    "DEC-2026-EPIC-TRANSITION-HARNESS",
+    "DEC-2026-ANCHOR-HARNESS-FIRST",
+    "DEC-2026-IA-OPERATIONAL-CMS",
+    "DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY"
+  ],
+  "phases": [
+    {
+      "id": "PHASE-EDITORIAL-CMS-01-FOUNDATION",
+      "name": "Fundacao Administrativa do CMS",
+      "status": "in_progress",
+      "objective": "Implementar o primeiro fluxo editorial administravel sobre a estrutura atual.",
+      "deliverables": [
+        "area administrativa autenticada",
+        "listagem de posts",
+        "formulario de rascunho e edicao",
+        "validacao de metadados",
+        "acao controlada de publicacao"
+      ],
+      "acceptanceCriteria": [
+        "Acesso administrativo exige autenticacao.",
+        "Posts atuais sao listados sem regressao do Blog.",
+        "Rascunhos podem ser criados e editados.",
+        "Metadados obrigatorios sao validados.",
+        "Publicacao exige acao explicita e preserva compatibilidade MDX."
+      ],
+      "tasks": [
+        {
+          "id": "TASK-EDITORIAL-CMS-01-FIRST-SLICE",
+          "title": "Implementar o primeiro corte funcional do CMS",
+          "status": "in_progress",
+          "objective": "Entregar administracao autenticada e fluxo minimo de rascunho, edicao, validacao e publicacao.",
+          "acceptanceCriteria": [
+            "Fluxo funcional demonstravel.",
+            "Testes essenciais verdes.",
+            "IA integrada disponivel para apoio contextual."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PHASE-EDITORIAL-CMS-02-HARDENING",
+      "name": "Validacao e Endurecimento",
+      "status": "planned",
+      "objective": "Validar seguranca, regressao e operacao editorial do primeiro corte.",
+      "deliverables": [
+        "testes de autorizacao",
+        "testes editoriais",
+        "validacao de producao"
+      ],
+      "acceptanceCriteria": [
+        "Acesso nao autorizado e bloqueado.",
+        "Fluxo editorial permanece integro.",
+        "Blog publico nao sofre regressao."
+      ]
+    }
+  ],
+  "currentPhase": "PHASE-EDITORIAL-CMS-01-FOUNDATION",
+  "nextPhase": "PHASE-EDITORIAL-CMS-02-HARDENING"
+}

@@ -77,3 +77,6 @@ Mode ollama nao comprova sozinho a correcao semantica. Respostas operacionais de
 ## Complexidade dos comandos orientados
 
 Comandos inline extensos nao devem concentrar multiplas responsabilidades. Quando houver risco de truncamento, a execucao deve ser decomposta ou materializada em script fisico validavel. Alteracoes estruturais complexas nao devem depender de `node -e` longo.
+
+## Isolamento de Agente por Resposta
+Cada resposta possui exatamente um agente ativo. Consultor, QA, Programador, Arquiteto ou qualquer outra persona nao podem atuar conjuntamente na mesma resposta. A troca de responsabilidade ocorre somente entre respostas, preservando o filtro de contexto e impedindo que um agente execute funcao alheia.

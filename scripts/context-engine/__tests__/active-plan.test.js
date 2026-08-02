@@ -1,0 +1,2 @@
+"use strict";const test=require("node:test"),assert=require("node:assert/strict");const {selectActiveProjectAndPlan}=require("../active-plan");
+test("selects the in-progress plan that belongs to the active project",()=>{const x=selectActiveProjectAndPlan();assert.equal(x.activeProject.id,"EPIC-004");assert.equal(x.plan.id,"PLAN-EDITORIAL-CMS-MVP");assert.equal(x.plan.projectId,x.activeProject.id);assert.equal(x.plan.currentPhase,"PHASE-EDITORIAL-CMS-01-FOUNDATION");assert.equal(x.planPath,"site-context/registry/plans/PLAN-EDITORIAL-CMS-MVP.json");});

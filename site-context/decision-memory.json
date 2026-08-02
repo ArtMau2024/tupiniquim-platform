@@ -161,7 +161,7 @@
     {
       "id": "DEC-2026-IA-PAUSE-CMS",
       "title": "Pausar a evolução da IA integrada e priorizar o CMS",
-      "status": "active",
+      "status": "superseded",
       "decidedAt": "2026-07-30",
       "category": "product-priority",
       "context": "A integração inicial com Ollama, o roteador contextual e o schema dinâmico foram concluídos, enquanto o desenvolvimento funcional do CMS ainda não foi iniciado.",
@@ -268,6 +268,48 @@
         "Conflict Register",
         "Project History",
         "ADR Registry"
+      ]
+    },
+    {
+      "id": "DEC-2026-IA-OPERATIONAL-CMS",
+      "title": "Manter a IA integrada operacional no CMS e pausar apenas sua evolucao estrutural",
+      "status": "active",
+      "decidedAt": "2026-07-29",
+      "category": "product-priority",
+      "context": "O Harness foi validado para sustentar continuidade, contexto e governanca durante o desenvolvimento dos produtos rentaveis. A orientacao anterior permitia interpretar que a atuacao da IA ficaria pausada.",
+      "decision": "Manter a IA integrada e o Harness operacionalmente ativos no site e na Plataforma Editorial. Pausar temporariamente apenas novas evolucoes funcionais ou estruturais que nao sejam necessarias para entregar os projetos rentaveis.",
+      "reason": "Usar o investimento no Harness para dar fluidez e continuidade ao CMS sem transformar infraestrutura em uma frente infinita.",
+      "impacts": [
+        "EPIC-004 utiliza a IA integrada durante o desenvolvimento do CMS.",
+        "O Harness deixa de ser iniciativa principal e permanece como infraestrutura operacional sob manutencao.",
+        "context:ask, context:bootstrap, registries e RAG permanecem operacionais.",
+        "Necessidades praticas do CMS orientam futuras evolucoes.",
+        "A prioridade comercial permanece no CMS."
+      ],
+      "rules": [
+        "Atuacao operacional nao equivale a evolucao funcional.",
+        "A IA permanece disponivel durante o CMS.",
+        "Fatos operacionais continuam deterministi­cos e baseados em registries canonicos.",
+        "A IA nao altera governanca ou publica sem controles definidos.",
+        "Correcao bloqueadora permanece permitida.",
+        "Evolucao nao bloqueadora permanece no backlog."
+      ],
+      "resumeCriteria": [
+        "Limitacao recorrente comprovada no CMS.",
+        "Funcionalidade comercial dependente da melhoria.",
+        "Ganho operacional mensuravel ou reducao verificavel de retrabalho."
+      ],
+      "supersedes": [
+        "DEC-2026-IA-PAUSE-CMS"
+      ],
+      "affectedAreas": [
+        "IA integrada",
+        "Harness",
+        "Context Engine",
+        "RAG integrado",
+        "CMS",
+        "Plataforma Editorial",
+        "Decision Memory"
       ]
     }
   ]

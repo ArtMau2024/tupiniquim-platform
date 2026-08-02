@@ -168,6 +168,22 @@
       "origin": "Aprovacao explicita de Arthur",
       "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
       "supersedes": []
+    },
+    {
+      "id": "RULE-040",
+      "title": "Isolar exatamente um agente por resposta",
+      "status": "active",
+      "category": "agent-governance",
+      "statement": "Cada resposta deve ser atribuida a exatamente um agente. Consultor, QA, Programador, Arquiteto ou outro agente nao podem atuar conjuntamente na mesma resposta.",
+      "rationale": "Evitar mistura de contexto, comprometimento do filtro de persona e execucao de funcoes alheias.",
+      "verification": [
+        "Existe somente um cabecalho de agente.",
+        "Todo o conteudo pertence as atribuicoes do agente ativo.",
+        "A troca de agente ocorre somente entre respostas."
+      ],
+      "sourceRefs": [
+        "DEC-2026-HARNESS-AGENT-PROTOCOL"
+      ]
     }
   ]
 }

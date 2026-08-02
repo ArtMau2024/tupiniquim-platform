@@ -1,12 +1,13 @@
 "use strict";
 const fs=require("fs");const path=require("path");const crypto=require("crypto");
 const {buildContextPackage}=require("./context-package");
+const {selectActiveProjectAndPlan}=require("./active-plan");
 const ROOT=process.cwd();
 const read=r=>JSON.parse(fs.readFileSync(path.join(ROOT,r),"utf8"));
 const sha=v=>crypto.createHash("sha256").update(typeof v==="string"?v:JSON.stringify(v)).digest("hex");
 function buildAnchor(){
- const projects=read("site-context/registry/projects/PROJECT-REGISTRY-TUPINIQUIM.json"),plan=read("site-context/registry/plans/PLAN-ANCHOR-MVP.json"),memory=read("site-context/decision-memory.json"),rules=read("site-context/registry/rules/RULESET-HARNESS-QUALITY.json"),conflicts=read("site-context/registry/conflict-register.json");
- const pkg=buildContextPackage({question:"bootstrap",intent:"project_continuity",map:{},index:{chunks:[]},projects,plan,memory,rules,conflicts});const f=pkg.facts;
+ const selected=selectActiveProjectAndPlan(),projects=selected.projects,plan=selected.plan,planPath=selected.planPath,memory=read("site-context/decision-memory.json"),rules=read("site-context/registry/rules/RULESET-HARNESS-QUALITY.json"),conflicts=read("site-context/registry/conflict-register.json");
+ const pkg=buildContextPackage({question:"bootstrap",intent:"project_continuity",map:{},index:{chunks:[]},projects,plan,planPath,memory,rules,conflicts});const f=pkg.facts;
  const blocks=[
   {id:"architecture",title:"Arquitetura Fisica completa com status",content:{currentProject:f.currentProject,currentPhase:f.currentPhase,currentTasks:f.currentTasks,pausedProjects:f.pausedProjects,activeDecisions:f.activeDecisionCount,activeRules:f.activeRuleCount,openConflicts:f.openConflicts},sources:pkg.sources},
   {id:"roadmap",title:"Roadmap acumulado",content:{currentPhase:f.currentPhase?.id,nextPhase:f.nextPhase,remainingPhases:(plan.phases||[]).filter(x=>["in_progress","planned"].includes(x.status)).map(x=>({id:x.id,status:x.status,name:x.name}))},sources:["site-context/registry/plans/PLAN-ANCHOR-MVP.json"]},

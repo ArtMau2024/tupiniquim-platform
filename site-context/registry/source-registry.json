@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-01T23:52:14.777Z",
+  "generatedAt": "2026-08-02T00:51:20.280Z",
   "sources": [
     {
       "id": "SRC-ANCHOR-HISTORICAL-DOCX",
@@ -74,7 +74,7 @@
         "Derived and regenerable.",
         "Does not replace persistent decision or historical sources."
       ],
-      "sha256": "66d550c363eab6159ee6efd4479fbb5a4bba805e4425356997061b964bb79c0b"
+      "sha256": "4e211b0a84b68d6cfdea7eb5bafa4394bacd0bdaf758c34831f6f20145092ba1"
     },
     {
       "id": "SRC-DECISION-MEMORY",
@@ -92,7 +92,7 @@
       "limitations": [
         "Stores decisions, not complete execution plans."
       ],
-      "sha256": "c9f333c993f6e2995bd383ca024d6248d183897f0e621d942596fae3b956f655"
+      "sha256": "ccc5bbcebf7ca43e1dd0de35967a679df2f90922e3d94e52d799d06346b39a84"
     },
     {
       "id": "SRC-CONTEXT-GOVERNANCE",
@@ -128,7 +128,7 @@
       "limitations": [
         "Planning authority only; current technical evidence remains in Project Map."
       ],
-      "sha256": "05ec3eab6d9f8ff4f015fdc9a3f3436b22aecb66dc84f83616f390aa7be85ab8"
+      "sha256": "07225dac1f5cd143220590ad25058f2b9cf901540f90600df991ea368f93e154"
     },
     {
       "id": "SRC-ANCHOR-MVP-NARRATIVE",
@@ -162,7 +162,7 @@
       "limitations": [
         "Stores operational rules, not decision rationale."
       ],
-      "sha256": "208d9854b7371591b351b1af5bc0f143148eacecbcb0fd841ded841fe3c03b39"
+      "sha256": "82e96ea7d599c7fa663e8bf64fc9550200a10910b097c317def2a3e6487eea1e"
     },
     {
       "id": "SRC-METHOD-OF-OPERATION",
@@ -180,7 +180,7 @@
       "limitations": [
         "Organizes the method; individual rules remain authoritative in the Rules Registry."
       ],
-      "sha256": "f74b2d757587c56787b41c9ebb038e6d50c1c8792ac9ec3cbfb9253dc301a804"
+      "sha256": "d8614ba2726254c47ebaaa9747d74a4185076d24923c866bcc317ac1aff83dc9"
     },
     {
       "id": "SRC-PROJECT-REGISTRY",
@@ -198,7 +198,7 @@
       "limitations": [
         "Technical filesystem state remains derived from the Project Map."
       ],
-      "sha256": "c912a9741d4891a26beb8a41e2fd12f958bcbe96eb45f4e6814c5700fd37d75f"
+      "sha256": "a535a2c0b7f3e2611bdb693e3c4568985fa8074d92819a504831e1d5b69b6896"
     },
     {
       "id": "SRC-MIGRATION-MATRIX",
@@ -303,6 +303,24 @@
         "Original ADR decisions were not recovered and must not be invented."
       ],
       "sha256": "a6d3677102abb08a7fc8c95c61d0f1e2bf091192dc1f94a24644d92b49ff9e5b"
+    },
+    {
+      "id": "SRC-CMS-PLAN",
+      "path": "site-context/registry/plans/PLAN-EDITORIAL-CMS-MVP.json",
+      "type": "persistent-registry",
+      "role": "active-product-plan",
+      "authority": [
+        "cms-phases",
+        "cms-tasks",
+        "cms-acceptance-criteria",
+        "cms-current-state"
+      ],
+      "evidenceStatus": "current-canonical",
+      "priority": 100,
+      "limitations": [
+        "Implementation state remains verified by code and tests."
+      ],
+      "sha256": "0b652ea37ad8e1b5454eabeb4d03441ba93b60a6bb2b793c85d9d187ca94f104"
     }
   ]
 }

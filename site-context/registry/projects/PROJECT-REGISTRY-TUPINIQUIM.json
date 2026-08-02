@@ -36,8 +36,8 @@
     {
       "id": "EPIC-004",
       "name": "Plataforma Editorial",
-      "status": "paused",
-      "currentPhase": null,
+      "status": "in_progress",
+      "currentPhase": "PHASE-EDITORIAL-CMS-01-FOUNDATION",
       "ownerType": "product",
       "completedDeliveries": [
         "Blog",
@@ -60,13 +60,17 @@
         "Harness MVP validado",
         "EPIC-003 organizado para retomada"
       ],
-      "decisionRef": "DEC-2026-EPIC-TRANSITION-HARNESS"
+      "decisionRef": "DEC-2026-EPIC-TRANSITION-HARNESS",
+      "nextPhase": "PHASE-EDITORIAL-CMS-02-HARDENING",
+      "activePlan": "PLAN-EDITORIAL-CMS-MVP",
+      "aiIntegration": "operational-active",
+      "nextStep": "TASK-EDITORIAL-CMS-01-FIRST-SLICE"
     },
     {
       "id": "EPIC-HARNESS-001",
       "name": "Harness de Continuidade e Anchor Engine",
-      "status": "in_progress",
-      "currentPhase": "PHASE-ANCHOR-01-INVENTORY",
+      "status": "paused",
+      "currentPhase": null,
       "ownerType": "infrastructure-governance",
       "ownedCapabilities": [
         "Context Engine",
@@ -81,8 +85,9 @@
         "Method of Operation",
         "Anchor Engine"
       ],
-      "nextPhase": "PHASE-ANCHOR-02-REGISTRIES",
-      "decisionRef": "DEC-2026-EPIC-TRANSITION-HARNESS"
+      "decisionRef": "DEC-2026-EPIC-TRANSITION-HARNESS",
+      "operatingMode": "operational-infrastructure-maintenance",
+      "maintenancePolicy": "Operational for CMS context, continuity and governance; structural evolution paused unless blocked by a proven product need."
     }
   ]
 }
