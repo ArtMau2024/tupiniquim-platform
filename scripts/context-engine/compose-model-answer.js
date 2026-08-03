@@ -1,0 +1,5 @@
+"use strict";
+const NORMALIZATION_WARNING="Model source list was replaced by canonical package sources.";
+function compareSources(expected=[],received=[]){const expectedSet=new Set(expected);const receivedSet=new Set(received);return{missing:expected.filter(x=>!receivedSet.has(x)),untrusted:received.filter(x=>!expectedSet.has(x))};}
+function composeModelAnswer(modelAnswer,contextPackage){if(!modelAnswer||typeof modelAnswer!=="object"||Array.isArray(modelAnswer))return modelAnswer;const canonical=Array.isArray(contextPackage?.sources)?[...contextPackage.sources]:[];const received=Array.isArray(modelAnswer.sources)?modelAnswer.sources:[];const diff=compareSources(canonical,received);const exact=diff.missing.length===0&&diff.untrusted.length===0&&received.length===canonical.length&&received.every((x,i)=>x===canonical[i]);const warnings=Array.isArray(modelAnswer.warnings)?[...modelAnswer.warnings]:[];if(!exact&&!warnings.includes(NORMALIZATION_WARNING))warnings.push(NORMALIZATION_WARNING);return{...modelAnswer,sources:canonical,warnings};}
+module.exports={NORMALIZATION_WARNING,compareSources,composeModelAnswer};

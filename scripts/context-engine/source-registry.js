@@ -69,11 +69,11 @@ const definitions = [
     id: "SRC-ANCHOR-MVP-PLAN",
     path: "site-context/registry/plans/PLAN-ANCHOR-MVP.json",
     type: "planning-registry",
-    role: "current-execution-plan",
+    role: "infrastructure-planning-history",
     authority: ["plan-status", "phases", "deliverables", "acceptance-criteria", "risks"],
-    evidenceStatus: "current-canonical",
-    priority: 100,
-    limitations: ["Planning authority only; current technical evidence remains in Project Map."]
+    evidenceStatus: "historical-confirmed",
+    priority: 80,
+    limitations: ["Historical infrastructure plan; does not represent the active project or operational plan."]
   },
   {
     id: "SRC-ANCHOR-MVP-NARRATIVE",
@@ -96,7 +96,7 @@ const definitions = [
   {id:"SRC-PROJECT-HISTORY",path:"docs/project-history.md",type:"historical-registry",role:"verified-project-history",authority:["verified-commits","historical-hash-divergences","published-milestones"],evidenceStatus:"current-canonical",priority:95,limitations:["Git remains authoritative for commit objects and file changes."]},
   {id:"SRC-ADR-REGISTRY",path:"docs/adr-registry.md",type:"historical-registry",role:"adr-gap-registry",authority:["historical-adr-existence","historical-adr-approval","adr-gaps"],evidenceStatus:"current-canonical",priority:95,limitations:["Original ADR decisions were not recovered and must not be invented."]}
 ,
-  {id:"SRC-CMS-PLAN",path:"site-context/registry/plans/PLAN-EDITORIAL-CMS-MVP.json",type:"persistent-registry",role:"active-product-plan",authority:["cms-phases","cms-tasks","cms-acceptance-criteria","cms-current-state"],evidenceStatus:"current-canonical",priority:100,limitations:["Implementation state remains verified by code and tests."]}
+  {id:"SRC-CMS-PLAN",path:"site-context/registry/plans/PLAN-EDITORIAL-CMS-MVP.json",type:"persistent-registry",role:"current-execution-plan",authority:["active-editorial-project","cms-phases","cms-tasks","cms-acceptance-criteria","next-operational-action"],evidenceStatus:"current-canonical",priority:100,limitations:["Active selection depends on Project and Planning Registries; technical state remains verified by code and tests."]}
 
 ];
 function sha256(file) { return crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex"); }
@@ -107,7 +107,19 @@ function atomicJson(file, value) {
   JSON.parse(fs.readFileSync(temp, "utf8"));
   fs.renameSync(temp, file);
 }
+function validateExecutionPlanDefinitions(items = definitions) {
+  const current = items.filter(item => item.role === "current-execution-plan");
+  if (current.length !== 1) throw new Error(`Expected exactly one current-execution-plan source, found ${current.length}.`);
+  const selected = require("./active-plan").selectActiveProjectAndPlan();
+  const source = current[0];
+  if (source.evidenceStatus === "historical-confirmed") throw new Error("Historical source cannot be current-execution-plan.");
+  if (source.path !== selected.planPath) throw new Error("Current execution plan source path differs from active plan path.");
+  if (selected.plan.status !== "in_progress") throw new Error("Current execution plan must be in_progress.");
+  if (selected.plan.projectId !== selected.activeProject.id) throw new Error("Current execution plan project differs from active project.");
+  return source;
+}
 function validateRegistry(registry, checkHashes = true) {
+  validateExecutionPlanDefinitions(definitions);
   if (!registry || registry.schemaVersion !== "1.0.0" || !Array.isArray(registry.sources)) throw new Error("Invalid Source Registry structure.");
   if (registry.sources.length !== definitions.length) throw new Error(`Expected ${definitions.length} sources, received ${registry.sources.length}.`);
   const ids = new Set();
@@ -164,4 +176,4 @@ function main() {
   }
 }
 if (require.main === module) main();
-module.exports = { validateRegistry, definitions };
+module.exports = { validateRegistry, definitions, validateExecutionPlanDefinitions };

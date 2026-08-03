@@ -1,0 +1,5 @@
+"use strict";
+const test=require("node:test");const assert=require("node:assert/strict");const {definitions,validateExecutionPlanDefinitions}=require("../source-registry");
+test("has exactly one current execution plan",()=>{const current=definitions.filter(x=>x.role==="current-execution-plan");assert.equal(current.length,1);assert.equal(current[0].id,"SRC-CMS-PLAN");});
+test("keeps Anchor plan as historical infrastructure",()=>{const x=definitions.find(x=>x.id==="SRC-ANCHOR-MVP-PLAN");assert.equal(x.role,"infrastructure-planning-history");assert.equal(x.evidenceStatus,"historical-confirmed");});
+test("rejects missing or duplicate current plan",()=>{assert.throws(()=>validateExecutionPlanDefinitions(definitions.filter(x=>x.role!=="current-execution-plan")),/exactly one/);const extra={...definitions.find(x=>x.id==="SRC-CMS-PLAN"),id:"SRC-EXTRA",path:"site-context/registry/plans/PLAN-ANCHOR-MVP.json"};assert.throws(()=>validateExecutionPlanDefinitions([...definitions,extra]),/exactly one/);});
