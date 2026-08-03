@@ -1,0 +1,1 @@
+export const CMS_SESSION_COOKIE = "tupiniquim_cms_session";

@@ -13,7 +13,7 @@ export async function loginAdmin(formData: FormData): Promise<void> {
   }
 
   await setAdminSession();
-  redirect("/admin");
+  redirect("/admin/posts");
 }
 
 export async function logoutAdmin(): Promise<void> {
