@@ -71,6 +71,7 @@
           "id": "TASK-HARNESS-TRANSITION-CLEANUP",
           "title": "Classificar e limpar controladamente a raiz",
           "status": "completed",
+          "objective": "Classificar temporários, cópias e arquivos divergentes da raiz do projeto, remover de forma controlada os artefatos obsoletos e revisar o estado Git sem eliminar patrimônio operacional válido.",
           "deliverables": [
             "inventario de temporarios",
             "classificacao dos arquivos divergentes",

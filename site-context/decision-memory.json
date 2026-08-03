@@ -81,6 +81,48 @@
       ]
     },
     {
+      "id": "DEC-2026-IA-OPERATIONAL-CMS",
+      "title": "Manter a IA integrada operacional no CMS e pausar apenas sua evolucao estrutural",
+      "status": "active",
+      "decidedAt": "2026-07-29",
+      "category": "product-priority",
+      "context": "O Harness foi validado para sustentar continuidade, contexto e governanca durante o desenvolvimento dos produtos rentaveis. A orientacao anterior permitia interpretar que a atuacao da IA ficaria pausada.",
+      "decision": "Manter a IA integrada e o Harness operacionalmente ativos no site e na Plataforma Editorial. Pausar temporariamente apenas novas evolucoes funcionais ou estruturais que nao sejam necessarias para entregar os projetos rentaveis.",
+      "reason": "Usar o investimento no Harness para dar fluidez e continuidade ao CMS sem transformar infraestrutura em uma frente infinita.",
+      "impacts": [
+        "EPIC-004 utiliza a IA integrada durante o desenvolvimento do CMS.",
+        "O Harness deixa de ser iniciativa principal e permanece como infraestrutura operacional sob manutencao.",
+        "context:ask, context:bootstrap, registries e RAG permanecem operacionais.",
+        "Necessidades praticas do CMS orientam futuras evolucoes.",
+        "A prioridade comercial permanece no CMS."
+      ],
+      "rules": [
+        "Atuacao operacional nao equivale a evolucao funcional.",
+        "A IA permanece disponivel durante o CMS.",
+        "Fatos operacionais continuam deterministi­cos e baseados em registries canonicos.",
+        "A IA nao altera governanca ou publica sem controles definidos.",
+        "Correcao bloqueadora permanece permitida.",
+        "Evolucao nao bloqueadora permanece no backlog."
+      ],
+      "resumeCriteria": [
+        "Limitacao recorrente comprovada no CMS.",
+        "Funcionalidade comercial dependente da melhoria.",
+        "Ganho operacional mensuravel ou reducao verificavel de retrabalho."
+      ],
+      "supersedes": [
+        "DEC-2026-IA-PAUSE-CMS"
+      ],
+      "affectedAreas": [
+        "IA integrada",
+        "Harness",
+        "Context Engine",
+        "RAG integrado",
+        "CMS",
+        "Plataforma Editorial",
+        "Decision Memory"
+      ]
+    },
+    {
       "id": "DEC-2026-ANCHOR-HARNESS-FIRST",
       "title": "Implementar o Harness de Continuidade antes do CMS",
       "status": "active",
@@ -271,45 +313,53 @@
       ]
     },
     {
-      "id": "DEC-2026-IA-OPERATIONAL-CMS",
-      "title": "Manter a IA integrada operacional no CMS e pausar apenas sua evolucao estrutural",
+      "id": "DEC-2026-EDITORIAL-CMS-READONLY-FIRST-SLICE",
+      "title": "Concluir o primeiro corte administrativo do CMS em modo somente leitura",
       "status": "active",
-      "decidedAt": "2026-07-29",
-      "category": "product-priority",
-      "context": "O Harness foi validado para sustentar continuidade, contexto e governanca durante o desenvolvimento dos produtos rentaveis. A orientacao anterior permitia interpretar que a atuacao da IA ficaria pausada.",
-      "decision": "Manter a IA integrada e o Harness operacionalmente ativos no site e na Plataforma Editorial. Pausar temporariamente apenas novas evolucoes funcionais ou estruturais que nao sejam necessarias para entregar os projetos rentaveis.",
-      "reason": "Usar o investimento no Harness para dar fluidez e continuidade ao CMS sem transformar infraestrutura em uma frente infinita.",
+      "decidedAt": "2026-08-02",
+      "category": "architecture",
+      "context": "O blog publico usa artigos MDX projetados no build em generatedPosts. O runtime publicado no Cloudflare nao oferece os arquivos editoriais como persistencia gravavel, e o primeiro corte precisava avancar sem armazenamento ficticio.",
+      "decision": "Adotar autenticacao administrativa, sessao assinada, logout, listagem dos artigos reais e abertura por slug em modo somente leitura, sem fs editorial no runtime, sem gravacao ou publicacao. A protecao canonica permanece nas paginas por validacao criptografica. proxy.ts permanece removido. D1 sera persistencia textual futura e R2 sera reservado para midia, sem dupla escrita permanente entre MDX e D1.",
+      "reason": "Entregar um corte funcional compativel com Next.js, OpenNext e Cloudflare, preservando o blog e sem simular persistencia inexistente.",
       "impacts": [
-        "EPIC-004 utiliza a IA integrada durante o desenvolvimento do CMS.",
-        "O Harness deixa de ser iniciativa principal e permanece como infraestrutura operacional sob manutencao.",
-        "context:ask, context:bootstrap, registries e RAG permanecem operacionais.",
-        "Necessidades praticas do CMS orientam futuras evolucoes.",
-        "A prioridade comercial permanece no CMS."
+        "Area administrativa autenticada e protegida.",
+        "Quatro artigos reais listados por generatedPosts.",
+        "Artigos abertos por slug exato em modo somente leitura.",
+        "content/posts permanece preservado e generated-posts.ts permanece derivado.",
+        "Persistencia editorial permanece para corte futuro.",
+        "D1 e R2 nao fazem parte do Corte 1."
       ],
       "rules": [
-        "Atuacao operacional nao equivale a evolucao funcional.",
-        "A IA permanece disponivel durante o CMS.",
-        "Fatos operacionais continuam deterministi­cos e baseados em registries canonicos.",
-        "A IA nao altera governanca ou publica sem controles definidos.",
-        "Correcao bloqueadora permanece permitida.",
-        "Evolucao nao bloqueadora permanece no backlog."
+        "Presenca de cookie nao equivale a autenticacao.",
+        "Paginas administrativas protegidas validam criptograficamente a sessao no servidor.",
+        "generated-posts.ts nao e armazenamento gravavel.",
+        "Conteudo nao pode ser declarado salvo sem persistencia real.",
+        "O runtime editorial deste corte nao usa fs.",
+        "Slug e localizado por igualdade exata e duplicidade produz falha explicita.",
+        "D1 sera a persistencia textual futura e R2 sera reservado para midia.",
+        "Nao havera dupla escrita permanente entre MDX e D1.",
+        "O blog publico nao pode regredir."
       ],
       "resumeCriteria": [
-        "Limitacao recorrente comprovada no CMS.",
-        "Funcionalidade comercial dependente da melhoria.",
-        "Ganho operacional mensuravel ou reducao verificavel de retrabalho."
+        "Planejar schema D1 para artigos e rascunhos.",
+        "Definir migracao idempotente dos quatro artigos.",
+        "Definir transicao explicita da fonte canonica.",
+        "Implementar persistencia sem dupla escrita permanente.",
+        "Preservar o blog durante a transicao."
       ],
-      "supersedes": [
-        "DEC-2026-IA-PAUSE-CMS"
-      ],
+      "supersedes": [],
       "affectedAreas": [
-        "IA integrada",
-        "Harness",
-        "Context Engine",
-        "RAG integrado",
+        "EPIC-004",
         "CMS",
-        "Plataforma Editorial",
-        "Decision Memory"
+        "Autenticacao administrativa",
+        "Conteudo editorial",
+        "Next.js",
+        "OpenNext",
+        "Cloudflare Workers",
+        "D1",
+        "R2",
+        "Decision Memory",
+        "Planning Registry"
       ]
     }
   ]

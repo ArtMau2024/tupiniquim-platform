@@ -43,7 +43,8 @@
     "DEC-2026-EPIC-TRANSITION-HARNESS",
     "DEC-2026-ANCHOR-HARNESS-FIRST",
     "DEC-2026-IA-OPERATIONAL-CMS",
-    "DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY"
+    "DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY",
+    "DEC-2026-EDITORIAL-CMS-READONLY-FIRST-SLICE"
   ],
   "phases": [
     {
@@ -69,13 +70,35 @@
         {
           "id": "TASK-EDITORIAL-CMS-01-FIRST-SLICE",
           "title": "Implementar o primeiro corte funcional do CMS",
-          "status": "in_progress",
-          "objective": "Entregar administracao autenticada e fluxo minimo de rascunho, edicao, validacao e publicacao.",
+          "status": "completed",
+          "objective": "Entregar autenticacao administrativa, sessao segura, logout, listagem dos artigos reais e abertura por slug em modo somente leitura, preservando o blog e a compatibilidade com OpenNext.",
           "acceptanceCriteria": [
-            "Fluxo funcional demonstravel.",
-            "Testes essenciais verdes.",
-            "IA integrada disponivel para apoio contextual."
+            "Login administrativo funcional.",
+            "Sessao assinada e validada no servidor.",
+            "Acesso sem sessao bloqueado e credenciais invalidas rejeitadas.",
+            "Logout bloqueia acesso subsequente.",
+            "Quatro artigos reais listados e abertos por slug.",
+            "Campos somente leitura e ausencia de salvamento.",
+            "CMS sem fs editorial ou dependencia de Ollama.",
+            "19 autotestes, lint restrito, build Next.js, OpenNext e fluxo manual concluidos."
           ]
+        },
+        {
+          "id": "TASK-EDITORIAL-CMS-01-GOVERNANCE-CLOSEOUT",
+          "title": "Materializar e validar a governanca do primeiro corte do CMS",
+          "status": "in_progress",
+          "objective": "Persistir a decisao arquitetural, atualizar registries, regenerar o contexto oficial, validar a Ancora e preparar a separacao controlada dos commits.",
+          "acceptanceCriteria": [
+            "Decision Memory valida.",
+            "Project Registry coerente.",
+            "Planning Registry valido.",
+            "Fontes dinamicas corretas na Ancora.",
+            "Ancora preserva cinco blocos e historico encadeado.",
+            "Limitacoes do Corte 1 preservadas.",
+            "Diff inspecionado e escopos separaveis.",
+            "Nenhum segredo, script temporario, push ou deploy."
+          ],
+          "nextCommand": "npm run context:bootstrap"
         }
       ]
     },

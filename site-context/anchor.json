@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-02T00:51:25.821Z",
+  "generatedAt": "2026-08-03T04:41:46.304Z",
   "blocks": [
     {
       "id": "architecture",
@@ -18,8 +18,8 @@
         },
         "currentTasks": [
           {
-            "id": "TASK-EDITORIAL-CMS-01-FIRST-SLICE",
-            "title": "Implementar o primeiro corte funcional do CMS",
+            "id": "TASK-EDITORIAL-CMS-01-GOVERNANCE-CLOSEOUT",
+            "title": "Materializar e validar a governanca do primeiro corte do CMS",
             "status": "in_progress"
           }
         ],
@@ -35,7 +35,7 @@
             "status": "paused"
           }
         ],
-        "activeDecisions": 7,
+        "activeDecisions": 8,
         "activeRules": 16,
         "openConflicts": 0
       },
@@ -67,7 +67,7 @@
         ]
       },
       "sources": [
-        "site-context/registry/plans/PLAN-ANCHOR-MVP.json"
+        "site-context/registry/plans/PLAN-EDITORIAL-CMS-MVP.json"
       ]
     },
     {
@@ -77,13 +77,13 @@
         "sequence": [
           "EPIC-004",
           "PHASE-EDITORIAL-CMS-01-FOUNDATION",
-          "TASK-EDITORIAL-CMS-01-FIRST-SLICE",
+          "TASK-EDITORIAL-CMS-01-GOVERNANCE-CLOSEOUT",
           "PHASE-EDITORIAL-CMS-02-HARDENING"
         ]
       },
       "sources": [
         "site-context/registry/projects/PROJECT-REGISTRY-TUPINIQUIM.json",
-        "site-context/registry/plans/PLAN-ANCHOR-MVP.json"
+        "site-context/registry/plans/PLAN-EDITORIAL-CMS-MVP.json"
       ]
     },
     {
@@ -111,11 +111,12 @@
         "activeDecisionIds": [
           "DEC-2026-EPIC-TRANSITION-HARNESS",
           "DEC-2026-HARNESS-AGENT-PROTOCOL",
+          "DEC-2026-IA-OPERATIONAL-CMS",
           "DEC-2026-ANCHOR-HARNESS-FIRST",
           "DEC-2026-CONTEXT-CONTINUITY",
           "DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY",
           "DEC-2026-MIGRATION-AUDIT-CONTRACT",
-          "DEC-2026-IA-OPERATIONAL-CMS"
+          "DEC-2026-EDITORIAL-CMS-READONLY-FIRST-SLICE"
         ],
         "openConflicts": 0
       },
@@ -129,11 +130,11 @@
       "id": "nextStep",
       "title": "Sugestao Fixa de Proxima Etapa",
       "content": {
-        "task": "TASK-EDITORIAL-CMS-01-FIRST-SLICE",
+        "task": "TASK-EDITORIAL-CMS-01-GOVERNANCE-CLOSEOUT",
         "command": "npm run context:bootstrap"
       },
       "sources": [
-        "site-context/registry/plans/PLAN-ANCHOR-MVP.json"
+        "site-context/registry/plans/PLAN-EDITORIAL-CMS-MVP.json"
       ]
     }
   ],

@@ -45,16 +45,29 @@
         "Conteudo MDX",
         "Geracao de posts",
         "Paginas por slug",
-        "Estrutura editorial inicial"
+        "Estrutura editorial inicial",
+        "Administracao autenticada do CMS",
+        "Sessao administrativa assinada",
+        "Logout administrativo",
+        "Listagem administrativa dos artigos reais",
+        "Abertura de artigo por slug",
+        "Interface editorial somente leitura",
+        "Compatibilidade do Corte 1 com OpenNext e Cloudflare"
       ],
       "pendingWork": [
-        "CMS",
         "Gestao editorial",
         "Rascunho e edicao",
         "Validacao e publicacao",
-        "Administracao",
-        "Autorizacao",
-        "Media Center"
+        "Media Center",
+        "Persistencia editorial em D1",
+        "Criacao de rascunhos",
+        "Edicao persistente",
+        "Validacao de metadados para gravacao",
+        "Publicacao controlada",
+        "Migracao idempotente dos artigos atuais",
+        "Transicao da fonte publica para D1",
+        "Media Center com R2",
+        "Validacao em ambiente publicado"
       ],
       "resumeConditions": [
         "Harness MVP validado",
@@ -64,7 +77,7 @@
       "nextPhase": "PHASE-EDITORIAL-CMS-02-HARDENING",
       "activePlan": "PLAN-EDITORIAL-CMS-MVP",
       "aiIntegration": "operational-active",
-      "nextStep": "TASK-EDITORIAL-CMS-01-FIRST-SLICE"
+      "nextStep": "TASK-EDITORIAL-CMS-01-GOVERNANCE-CLOSEOUT"
     },
     {
       "id": "EPIC-HARNESS-001",
