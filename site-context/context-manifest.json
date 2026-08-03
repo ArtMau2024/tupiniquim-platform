@@ -1,27 +1,27 @@
 {
-  "generationId": "35cd646b51d8f68c5bd529633b1dd6d6b9b1981a9c9039fb3e8e1bd422cd64e8",
-  "generatedAt": "2026-08-03T04:42:14.290Z",
+  "generationId": "b11f4a5be660563a9cd2fefc6dd3d1f8ea46689a74cf1abf8d63e43850ee184c",
+  "generatedAt": "2026-08-03T08:41:37.656Z",
   "schemaVersion": "3.1.0",
   "inputs": {
     "decisionMemory": {
       "path": "site-context/decision-memory.json",
-      "sha256": "058a7ef95e37e67a88f51fee7f5e02ba31e555af140ef3cedec0862ecd0f256c",
+      "sha256": "d953d0f61b13adacfc870bc670c4df39721eb48b6c3bbf6dd12f195f63848c9b",
       "status": "valid"
     }
   },
   "artifacts": {
     "projectMap": {
       "path": "site-context/project-map.json",
-      "sha256": "06fc9e3d16676cb66cce2125d447a657ab3c35c9032dbd699ec5b6c1292d6f83"
+      "sha256": "793154352fbea694753ac91a649d700b0880913db734e58de4b79dbad7f13b94"
     },
     "contextIndex": {
       "path": "site-context/context-index.json",
-      "sha256": "574e6197122675551a6cc437606930cb77b34a42df42ce559ef69dd6ca3b1da4"
+      "sha256": "d6bdd0545f9359497ee553c5395489563e9e959769fb9072694596132a685df6"
     }
   },
   "promotion": {
-    "promotedAt": "2026-08-03T04:42:19.689Z",
-    "sourceGenerationId": "35cd646b51d8f68c5bd529633b1dd6d6b9b1981a9c9039fb3e8e1bd422cd64e8",
+    "promotedAt": "2026-08-03T08:41:46.000Z",
+    "sourceGenerationId": "b11f4a5be660563a9cd2fefc6dd3d1f8ea46689a74cf1abf8d63e43850ee184c",
     "status": "promoted"
   }
 }

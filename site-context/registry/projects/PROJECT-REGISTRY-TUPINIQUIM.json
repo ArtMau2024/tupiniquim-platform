@@ -77,7 +77,7 @@
       "nextPhase": "PHASE-EDITORIAL-CMS-02-HARDENING",
       "activePlan": "PLAN-EDITORIAL-CMS-MVP",
       "aiIntegration": "operational-active",
-      "nextStep": "TASK-EDITORIAL-CMS-01-GOVERNANCE-CLOSEOUT"
+      "nextStep": "TASK-EDITORIAL-CMS-01-D1-DRAFT-PERSISTENCE"
     },
     {
       "id": "EPIC-HARNESS-001",

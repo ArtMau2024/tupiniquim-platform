@@ -1,0 +1,1 @@
+"use strict";const test=require("node:test"),assert=require("node:assert/strict"),cp=require("node:child_process");test("master protocol contract",()=>{const r=cp.spawnSync(process.execPath,["scripts/context-engine/validate-master-protocol.js"],{encoding:"utf8"});assert.equal(r.status,0,r.stderr||r.stdout);});

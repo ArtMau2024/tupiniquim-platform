@@ -86,7 +86,7 @@
         {
           "id": "TASK-EDITORIAL-CMS-01-GOVERNANCE-CLOSEOUT",
           "title": "Materializar e validar a governanca do primeiro corte do CMS",
-          "status": "in_progress",
+          "status": "completed",
           "objective": "Persistir a decisao arquitetural, atualizar registries, regenerar o contexto oficial, validar a Ancora e preparar a separacao controlada dos commits.",
           "acceptanceCriteria": [
             "Decision Memory valida.",
@@ -99,6 +99,18 @@
             "Nenhum segredo, script temporario, push ou deploy."
           ],
           "nextCommand": "npm run context:bootstrap"
+        },
+        {
+          "id": "TASK-EDITORIAL-CMS-01-D1-DRAFT-PERSISTENCE",
+          "title": "Implementar persistencia editorial D1 e rascunhos reais",
+          "status": "in_progress",
+          "objective": "Implementar schema D1, criacao de rascunho, salvamento real e recuperacao para continuidade da edicao.",
+          "acceptanceCriteria": [
+            "Schema D1 para o primeiro corte definido e validado por Arthur antes da materializacao estrutural.",
+            "Rascunho real pode ser criado e salvo em D1.",
+            "Rascunho salvo pode ser recuperado para continuidade da edicao.",
+            "Publicacao, R2, Media Center, migracao completa e transicao definitiva da fonte publica permanecem fora do escopo."
+          ]
         }
       ]
     },

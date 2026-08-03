@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-03T04:41:46.304Z",
+  "generatedAt": "2026-08-03T08:41:46.942Z",
   "blocks": [
     {
       "id": "architecture",
@@ -18,8 +18,8 @@
         },
         "currentTasks": [
           {
-            "id": "TASK-EDITORIAL-CMS-01-GOVERNANCE-CLOSEOUT",
-            "title": "Materializar e validar a governanca do primeiro corte do CMS",
+            "id": "TASK-EDITORIAL-CMS-01-D1-DRAFT-PERSISTENCE",
+            "title": "Implementar persistencia editorial D1 e rascunhos reais",
             "status": "in_progress"
           }
         ],
@@ -36,7 +36,7 @@
           }
         ],
         "activeDecisions": 8,
-        "activeRules": 16,
+        "activeRules": 24,
         "openConflicts": 0
       },
       "sources": [
@@ -77,7 +77,7 @@
         "sequence": [
           "EPIC-004",
           "PHASE-EDITORIAL-CMS-01-FOUNDATION",
-          "TASK-EDITORIAL-CMS-01-GOVERNANCE-CLOSEOUT",
+          "TASK-EDITORIAL-CMS-01-D1-DRAFT-PERSISTENCE",
           "PHASE-EDITORIAL-CMS-02-HARDENING"
         ]
       },
@@ -106,7 +106,15 @@
           "RULE-RAG-004",
           "RULE-SOURCE-001",
           "RULE-CMD-003",
-          "RULE-040"
+          "RULE-040",
+          "RULE-AGENT-001",
+          "RULE-AGENT-002",
+          "RULE-SOURCE-002",
+          "RULE-CONTINUITY-002",
+          "RULE-DELIVERY-001",
+          "RULE-PROTOCOL-001",
+          "RULE-STATUS-001",
+          "RULE-PRODUCT-001"
         ],
         "activeDecisionIds": [
           "DEC-2026-EPIC-TRANSITION-HARNESS",
@@ -130,8 +138,8 @@
       "id": "nextStep",
       "title": "Sugestao Fixa de Proxima Etapa",
       "content": {
-        "task": "TASK-EDITORIAL-CMS-01-GOVERNANCE-CLOSEOUT",
-        "command": "npm run context:bootstrap"
+        "task": "TASK-EDITORIAL-CMS-01-D1-DRAFT-PERSISTENCE",
+        "command": null
       },
       "sources": [
         "site-context/registry/plans/PLAN-EDITORIAL-CMS-MVP.json"

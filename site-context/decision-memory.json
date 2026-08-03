@@ -54,7 +54,8 @@
         "Criacao do Method of Operation.",
         "Atualizacao da governanca documental.",
         "Regras aprovadas deixam de aguardar um inventario futuro para serem persistidas.",
-        "Consultas estruturais passam a declarar documentacao, registries, busca contextual, RAG e evidencia fisica utilizados ou omitidos."
+        "Consultas estruturais passam a declarar documentacao, registries, busca contextual, RAG e evidencia fisica utilizados ou omitidos.",
+        "Protocolo Mestre materializado por regras normativas, procedimentos, contrato de agentes, handoff e validadores objetivos."
       ],
       "rules": [
         "Blocos copiaveis ficam restritos a comandos CMD, codigo solicitado ou pedido explicito.",
@@ -66,7 +67,10 @@
         "A omissao de context:ask deve ser justificada quando pertinente.",
         "Documentacao aplicavel deve ser consultada antes de mudancas estruturais.",
         "Os componentes do Harness utilizados devem ser declarados.",
-        "Uma regra identificada nao pode ficar acumulada no chat: deve ser proposta para oficializacao imediatamente."
+        "Uma regra identificada nao pode ficar acumulada no chat: deve ser proposta para oficializacao imediatamente.",
+        "Fontes fisicas canonicas prevalecem sobre memoria e derivados.",
+        "Cada resposta possui exatamente um agente canonico e segue o fluxo operacional completo.",
+        "Entregas, mudancas de protocolo e status bloqueadores seguem contratos verificaveis."
       ],
       "resumeCriteria": [],
       "supersedes": [],

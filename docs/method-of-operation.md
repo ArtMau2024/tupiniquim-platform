@@ -80,3 +80,7 @@ Comandos inline extensos nao devem concentrar multiplas responsabilidades. Quand
 
 ## Isolamento de Agente por Resposta
 Cada resposta possui exatamente um agente ativo. Consultor, QA, Programador, Arquiteto ou qualquer outra persona nao podem atuar conjuntamente na mesma resposta. A troca de responsabilidade ocorre somente entre respostas, preservando o filtro de contexto e impedindo que um agente execute funcao alheia.
+
+### Protocolo Mestre Materializado
+
+As regras normativas pertencem ao Rules Registry. Este metodo aplica o fluxo completo Arquiteto -> Consultor -> QA -> Consultor -> Programador -> QA -> Consultor; consulta fontes fisicas antes de mudancas estruturais; usa modo GPS; trata ponto isolado como autorizacao da proxima etapa fixa; exige entrega verificavel de arquivos; corrige postura na resposta atual; e alinha mudancas de protocolo antes da aplicacao. Falhas de download exigem republicacao e nova URL real. Comandos CMD interativos comecam com cls, sao independentes e nao usam rotulos ou goto.

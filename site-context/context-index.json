@@ -1,18 +1,18 @@
 {
   "schemaVersion": "1.0.0",
-  "sourceProjectMapHash": "06fc9e3d16676cb66cce2125d447a657ab3c35c9032dbd699ec5b6c1292d6f83",
+  "sourceProjectMapHash": "793154352fbea694753ac91a649d700b0880913db734e58de4b79dbad7f13b94",
   "chunkingVersion": "1.0.0",
   "chunks": [
     {
-      "id": "fb969dcb88ec7e9861f4cad7afba4a834bf9e5b7c038295472d59b704441c38c",
+      "id": "201386052b17c88414a05a6e130c39f082da6ce5b89e5cb2c18d1743dfee574d",
       "sourcePath": "AGENTS.md",
-      "sourceHash": "ceaa13d29db2c2ce408ba5d00fb6c5cccc0eadeb336cf076cfea699f985b9fd8",
+      "sourceHash": "1527dbcc422c6a5a8ae10c5ca41463f4c0b8d528faeebf307d19275c256ce4d8",
       "startLine": 1,
-      "endLine": 5,
+      "endLine": 9,
       "language": "markdown",
       "category": "operational-documentation",
       "redacted": false,
-      "content": "<!-- BEGIN:nextjs-agent-rules -->\n# This is NOT the Next.js you know\n\nThis version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.\n<!-- END:nextjs-agent-rules -->\n"
+      "content": "<!-- BEGIN:nextjs-agent-rules -->\n# This is NOT the Next.js you know\n\nThis version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.\n<!-- END:nextjs-agent-rules -->\n\n## Canonical Tupiniquim agents\n\nAllowed agents: Professor (Nie Li), Gerente de Projetos (Shikamaru), Arquiteto (Edward Elric), Consultor (Zhao Feng), QA (L), and Programador (Rock Lee). Exactly one agent acts per response. There is no Juiz agent. Flow: Arquiteto -> Consultor -> QA -> Consultor -> Programador -> QA -> Consultor. Arquiteto owns structural decisions; Consultor plans and orders after QA; QA validates and never implements; Programador implements only the authorized scope and stops; Professor explains; Gerente de Projetos organizes dependencies. Physical canonical sources prevail over chat memory. GPS mode never grants autonomous advancement.\n"
     },
     {
       "id": "dd7e02611c168763688208528b78373688118e5af4042a0e742b466ec8e86112",
@@ -1742,9 +1742,9 @@
       "content": "t-map_v2.js: proposta absorvida e superada.\n- diff-project-map.txt: diff derivado entre o gerador antigo e a proposta V2.\n\n## Decisao de preservacao\n\nO valor historico foi consolidado neste documento. Os artefatos brutos foram removidos para evitar ambiguidade operacional e contaminacao da busca contextual. A implementacao vigente permanece no Context Engine V3 e em seus testes.\n"
     },
     {
-      "id": "5594cbaeb0d127cda64f549dbcff75d421093080ac383f56b8192d764959b032",
+      "id": "76b67b13e334e5f8bd61c8e76eff53be94793b0ce46ce1e0e2e85bcdb75b4f82",
       "sourcePath": "docs/method-of-operation.md",
-      "sourceHash": "d8614ba2726254c47ebaaa9747d74a4185076d24923c866bcc317ac1aff83dc9",
+      "sourceHash": "74b1407df5c97e97331991d6fd0f3b5b64e57cd127150f39cf63c3aeb1ae7cac",
       "startLine": 1,
       "endLine": 22,
       "language": "markdown",
@@ -1753,9 +1753,9 @@
       "content": "# Metodo de Atuacao do Harness\n\n## Objetivo\nGarantir que qualquer agente trabalhe com continuidade, clareza decisoria e evidencias persistidas fora do chat.\n\n## Patrimonio Metodologico M-001 a M-012\n\n### M-001 - Framework de Agentes\nPatrimonio permanente e ativo: Consultor (Zhao Feng), Arquiteto (Edward Elric), QA (L), Programador (Rock Lee), Professor (Nie Li) e Gerente de Projetos (Shikamaru).\n\n### M-002 - Metodo GPS\nUsar navegacao orientada, sequencia clara e proxima etapa explicita. Evitar saltos e multiplas acoes simultaneas sem necessidade.\n\n### M-003 - Fluxo Principal de Execucao\nConsultor -> QA -> Programador, para reduzir erros antes da implementacao.\n\n### M-004 - Mudancas Estruturais\nNova arquitetura, novo motor, alteracao de fluxo, nova estrutura fisica ou mudanca de governanca exigem avaliacao do Arquiteto.\n\n### M-005 - Autoridade do QA\nQA pode reprovar por regressao, inconsistencia, falta de cobertura, risco nao mitigado ou nao conformidade.\n\n"
     },
     {
-      "id": "71965ff5bb7cbfdb2b3afaa008c6c38da27ccd3e3c538b47b9c112e239947dbd",
+      "id": "43b3ef32c2ed4bc98270cc8649c29a0d6e31c1da8347e26f2999d0f93541edef",
       "sourcePath": "docs/method-of-operation.md",
-      "sourceHash": "d8614ba2726254c47ebaaa9747d74a4185076d24923c866bcc317ac1aff83dc9",
+      "sourceHash": "74b1407df5c97e97331991d6fd0f3b5b64e57cd127150f39cf63c3aeb1ae7cac",
       "startLine": 18,
       "endLine": 38,
       "language": "markdown",
@@ -1764,9 +1764,9 @@
       "content": "Arquiteto.\n\n### M-005 - Autoridade do QA\nQA pode reprovar por regressao, inconsistencia, falta de cobertura, risco nao mitigado ou nao conformidade.\n\n### M-006 - Escopo do Programador\nProgramador entrega exclusivamente codigo e nao responde por planejamento, estrategia, governanca ou priorizacao.\n\n### M-007 - Consolidacao Obrigatoria\nDescoberta validada deve ser consolidada como patrimonio para evitar reaprendizado.\n\n### M-008 - Atualizacao dos Ativos de Governanca\nMelhoria consolidada exige atualizar os artefatos aplicaveis: Ancora, Metodo, Catalogo e Baseline.\n\n### M-009 - Tres Camadas de Continuidade\nConversa, Metodo de Atuacao e Persistencia Fisica protegem o patrimonio intelectual.\n\n### M-010 - Persistencia Fisica Obrigatoria\nAtivo intelectual consolidado nao deve existir apenas na conversa; deve ser persistido em destino canonico aplicavel.\n\n### M-011 - Regra de Resposta Estrategica\n"
     },
     {
-      "id": "016c55dc732f3b2ffa42ede5f2788a92ef278953561fd40c81e9de96515fdda0",
+      "id": "5e2f96611b59b560e8cdaf3fadb1e88cf8383c2612672a8907f062b89206a2f6",
       "sourcePath": "docs/method-of-operation.md",
-      "sourceHash": "d8614ba2726254c47ebaaa9747d74a4185076d24923c866bcc317ac1aff83dc9",
+      "sourceHash": "74b1407df5c97e97331991d6fd0f3b5b64e57cd127150f39cf63c3aeb1ae7cac",
       "startLine": 36,
       "endLine": 54,
       "language": "markdown",
@@ -1775,9 +1775,9 @@
       "content": "ectual consolidado nao deve existir apenas na conversa; deve ser persistido em destino canonico aplicavel.\n\n### M-011 - Regra de Resposta Estrategica\nTemas de governanca, Baseline, Metodo, Catalogo, Anchor Engine, Catalog Engine ou Ancora exigem conteudo solicitado e Ancora completa atualizada.\n\n### M-012 - Nao Regressao Operacional\nPatrimonio recuperado nao pode desaparecer em evolucoes posteriores. Objetivo: evitar reconstrucoes recorrentes.\n\n## Protocolo\n- D0 — consultar documentacao aplicavel.\n- R0 — consultar registries canonicos.\n- R1 — usar `context:query` como busca contextual.\n- R2 — usar `context:ask` como RAG integrado quando houver consolidacao interpretativa.\n- R3 — comprovar fisicamente com codigo, Git, hashes e testes.\n\nQuando uma camada pertinente for omitida, declarar antes da execucao: motivo, impacto, risco e alternativa.\n\n## Materializacao imediata de regras\nQuando uma tratativa indicar uma regra potencial:\n"
     },
     {
-      "id": "cad14d895247d299c485da4af155e3a34fa9438e1b3bbfbefe1d364f43380d3c",
+      "id": "e40c43e8787195d85c6f7dbbc8a0ca57a01b7562099ff793b7df1f9d09a7718a",
       "sourcePath": "docs/method-of-operation.md",
-      "sourceHash": "d8614ba2726254c47ebaaa9747d74a4185076d24923c866bcc317ac1aff83dc9",
+      "sourceHash": "74b1407df5c97e97331991d6fd0f3b5b64e57cd127150f39cf63c3aeb1ae7cac",
       "startLine": 51,
       "endLine": 68,
       "language": "markdown",
@@ -1786,9 +1786,9 @@
       "content": "arar antes da execucao: motivo, impacto, risco e alternativa.\n\n## Materializacao imediata de regras\nQuando uma tratativa indicar uma regra potencial:\n1. O Copilot identifica que a tratativa pode constituir regra.\n2. O Copilot apresenta formulacao, escopo e criterio verificavel.\n3. O Copilot pergunta se Arthur aprova a oficializacao.\n4. Aprovada a regra, o Copilot a integra imediatamente ao Rules Registry, atualiza a documentacao aplicavel e valida o artefato.\n5. A regra nao fica acumulada apenas no chat.\n\n## Apresentacao\nBlocos copiaveis sao usados somente para comandos CMD, codigo solicitado ou pedido explicito. Toda sequencia CMD comeca com `cls` no mesmo bloco e cada comando recebe explicacao curta.\n\n## Clareza decisoria\nDecisoes relevantes devem explicitar: decisao, motivo, impacto, risco, alternativas, evidencias, limitacoes, recomendacao e o que depende da aprovacao de Arthur.\n\n## Governanca do timeout do RAG\n\n"
     },
     {
-      "id": "07f7c47fd991e6ad8aaaf3c8f0be042458068eb1539a7645d700d0567da376a5",
+      "id": "be797830cf7fb6d4b268926b74cc8a2330d70e507fdde711216efc7761c49dc9",
       "sourcePath": "docs/method-of-operation.md",
-      "sourceHash": "d8614ba2726254c47ebaaa9747d74a4185076d24923c866bcc317ac1aff83dc9",
+      "sourceHash": "74b1407df5c97e97331991d6fd0f3b5b64e57cd127150f39cf63c3aeb1ae7cac",
       "startLine": 65,
       "endLine": 78,
       "language": "markdown",
@@ -1797,15 +1797,26 @@
       "content": " motivo, impacto, risco, alternativas, evidencias, limitacoes, recomendacao e o que depende da aprovacao de Arthur.\n\n## Governanca do timeout do RAG\n\nO timeout deve ser medido no ambiente real antes de ser alterado permanentemente. O diagnostico deve separar chamada direta ao modelo, resposta estruturada e context:ask, registrando limite, duracao, modo final e motivo do fallback. Um limite que impeca sistematicamente a resposta do modelo nao pode ser apresentado como uso efetivo do RAG.\n\nTimeout padrao validado para o ambiente atual: 180 segundos. O valor continua substituivel temporariamente por OLLAMA_TIMEOUT_MS durante diagnosticos documentados.\n\n## Validacao semantica e cobertura de fontes\n\nMode ollama nao comprova sozinho a correcao semantica. Respostas operacionais devem ser comparadas com registries canonicos. Antes de regenerar o Source Registry, novos artefatos canonicos devem ser auditados contra as definicoes do gerador.\n\n## Complexidade dos comandos orientados\n\n"
     },
     {
-      "id": "94cdf084049e1d55282e250af4245ba4f08ea0f770d7eea2adc74d5936338946",
+      "id": "5171f442a657c4528de6d7217da222719d05d1b1947ebb23ed2bbb7c59db3301",
       "sourcePath": "docs/method-of-operation.md",
-      "sourceHash": "d8614ba2726254c47ebaaa9747d74a4185076d24923c866bcc317ac1aff83dc9",
+      "sourceHash": "74b1407df5c97e97331991d6fd0f3b5b64e57cd127150f39cf63c3aeb1ae7cac",
       "startLine": 75,
-      "endLine": 82,
+      "endLine": 85,
       "language": "markdown",
       "category": "documentation",
       "redacted": false,
-      "content": "regenerar o Source Registry, novos artefatos canonicos devem ser auditados contra as definicoes do gerador.\n\n## Complexidade dos comandos orientados\n\nComandos inline extensos nao devem concentrar multiplas responsabilidades. Quando houver risco de truncamento, a execucao deve ser decomposta ou materializada em script fisico validavel. Alteracoes estruturais complexas nao devem depender de `node -e` longo.\n\n## Isolamento de Agente por Resposta\nCada resposta possui exatamente um agente ativo. Consultor, QA, Programador, Arquiteto ou qualquer outra persona nao podem atuar conjuntamente na mesma resposta. A troca de responsabilidade ocorre somente entre respostas, preservando o filtro de contexto e impedindo que um agente execute funcao alheia.\n"
+      "content": "regenerar o Source Registry, novos artefatos canonicos devem ser auditados contra as definicoes do gerador.\n\n## Complexidade dos comandos orientados\n\nComandos inline extensos nao devem concentrar multiplas responsabilidades. Quando houver risco de truncamento, a execucao deve ser decomposta ou materializada em script fisico validavel. Alteracoes estruturais complexas nao devem depender de `node -e` longo.\n\n## Isolamento de Agente por Resposta\nCada resposta possui exatamente um agente ativo. Consultor, QA, Programador, Arquiteto ou qualquer outra persona nao podem atuar conjuntamente na mesma resposta. A troca de responsabilidade ocorre somente entre respostas, preservando o filtro de contexto e impedindo que um agente execute funcao alheia.\n\n### Protocolo Mestre Materializado\n\n"
+    },
+    {
+      "id": "a5db9592c35f0e651a5fa50a2c6e994d3e84230c1b6e450ac5d10cb2887ce836",
+      "sourcePath": "docs/method-of-operation.md",
+      "sourceHash": "74b1407df5c97e97331991d6fd0f3b5b64e57cd127150f39cf63c3aeb1ae7cac",
+      "startLine": 82,
+      "endLine": 86,
+      "language": "markdown",
+      "category": "documentation",
+      "redacted": false,
+      "content": "corre somente entre respostas, preservando o filtro de contexto e impedindo que um agente execute funcao alheia.\n\n### Protocolo Mestre Materializado\n\nAs regras normativas pertencem ao Rules Registry. Este metodo aplica o fluxo completo Arquiteto -> Consultor -> QA -> Consultor -> Programador -> QA -> Consultor; consulta fontes fisicas antes de mudancas estruturais; usa modo GPS; trata ponto isolado como autorizacao da proxima etapa fixa; exige entrega verificavel de arquivos; corrige postura na resposta atual; e alinha mudancas de protocolo antes da aplicacao. Falhas de download exigem republicacao e nova URL real. Comandos CMD interativos comecam com cls, sao independentes e nao usam rotulos ou goto.\n"
     },
     {
       "id": "f8fce5a6409ed146798e97d7016f5b68f4817b858b7030544de3c7534f2da2c2",
@@ -3975,6 +3986,28 @@
       "content": ":open.filter(d=>d.severity===\"high\").length,mediumDebts:open.filter(d=>d.severity===\"medium\").length,lowDebts:open.filter(d=>d.severity===\"low\").length,calculationVersion:\"1.0.0\"};}\nmodule.exports={detectTechnicalDebt,architectureHealth};\n"
     },
     {
+      "id": "5a484c84e77782c786edadc46252f297b3f1016664eeeafb9c16426973d9eedf",
+      "sourcePath": "scripts/context-engine/validate-master-protocol.js",
+      "sourceHash": "c1e2362e51cf4a6dd973587d6f9493e63f3ded451be5d8c15431dc89501b61a3",
+      "startLine": 1,
+      "endLine": 1,
+      "language": "javascript",
+      "category": "source-code",
+      "redacted": false,
+      "content": "\"use strict\";const fs=require(\"fs\");const read=p=>JSON.parse(fs.readFileSync(p,\"utf8\"));const r=read(\"site-context/registry/rules/RULESET-HARNESS-QUALITY.json\");const ids=r.rules.map(x=>x.id);if(new Set(ids).size!==ids.length)throw Error(\"Duplicate rule id\");const h=read(\"site-context/registry/handoff-contract.json\");const allowed=[\"Professor\",\"Gerente de Projetos\",\"Arquiteto\",\"Consultor\",\"QA\",\"Programador\"];if(h.allowedAgents.length!==6||allowed.some(x=>!h.allowedAgents.includes(x)))throw Error(\"Invalid agents\");if(JSON.stringify(h).includes('\"Juiz\"'))throw Error(\"Juiz forbidden\");if(h.flow.join(\" > \")!==\"Arquiteto > Consultor > QA > Consultor > Programador > QA > Consultor\")throw Error(\"Invalid flow\");for(const f of h.requiredFields)if(!f)throw Error(\"Invalid handoff field\");const a=read(\"site-context/anchor.json\");const order=[\"architecture\",\"roadmap\",\"flow\",\"rules\",\"nextStep\"];if(a.blocks.map(x=>x.id).join()!==order.join())throw Error(\"Invalid anchor order\");if(a.blocks.some(x=>!Ar"
+    },
+    {
+      "id": "f4dd8e1f6e9d7dc8f74c7ebaae7c3beabd2949298fe882ee23824942cacbd4dd",
+      "sourcePath": "scripts/context-engine/validate-master-protocol.js",
+      "sourceHash": "c1e2362e51cf4a6dd973587d6f9493e63f3ded451be5d8c15431dc89501b61a3",
+      "startLine": 1,
+      "endLine": 1,
+      "language": "javascript",
+      "category": "source-code",
+      "redacted": false,
+      "content": "cture\",\"roadmap\",\"flow\",\"rules\",\"nextStep\"];if(a.blocks.map(x=>x.id).join()!==order.join())throw Error(\"Invalid anchor order\");if(a.blocks.some(x=>!Array.isArray(x.sources)||!x.sources.length))throw Error(\"Anchor source missing\");console.log(\"Master protocol contract is valid.\");\n"
+    },
+    {
       "id": "a24b768a85d41a44d94cc91a3f017ad59b1bcd274c371fb581e7ebc1392d193b",
       "sourcePath": "scripts/context-engine/validate-official-v3.js",
       "sourceHash": "074d321fcc2ff48a9f63e10d54c508b0a5f2dea167b25327d0b07c75b640763a",
@@ -5020,6 +5053,17 @@
       "content": "{\n  \"schemaVersion\": \"1.0.0\",\n  \"id\": \"CONFLICT-REGISTER-ANCHOR-001\",\n  \"status\": \"open\",\n  \"conflicts\": [\n    {\n      \"id\": \"CONFLICT-EPIC-003-STATUS\",\n      \"itemRef\": \"MIG-EPIC-003\",\n      \"title\": \"Status atual do Site Institucional Profissional\",\n      \"sources\": [\n        \"SRC-BASELINE-HISTORICAL-DOCX\",\n        \"SRC-BASELINE-MARKDOWN\",\n        \"SRC-PROJECT-MAP\"\n      ],\n      \"positions\": [\n        \"Documento histórico indica conclusão parcial ou conclusão com pendências.\",\n        \"Project Map atual registra in_progress.\"\n      ],\n      \"recommendedOperationalPosition\": \"Manter in_progress como estado atual e preservar versões antigas como histórico.\",\n      \"resolution\": \"resolved\",\n      \"resolvedStatus\": \"paused\",\n      \"decisionRef\": \"DEC-2026-EPIC-TRANSITION-HARNESS\",\n      \"resolutionNote\": \"EPIC-003 foi pausado porque nao e o trabalho atualmente executado; entregas e pendencias permanecem preservadas.\"\n    }\n  ],\n  \"summary\": {\n    \"open\": 0\n  }\n}\n"
     },
     {
+      "id": "cd4f8eaa12f8f72ed0038ab517b2eaa43554d420d85a665026af16bdcd8449d8",
+      "sourcePath": "site-context/registry/handoff-contract.json",
+      "sourceHash": "47f67cbfe42912a28e420d3b56b52a9b75d0a2287237a2fddbe9452f3b4a5d3d",
+      "startLine": 1,
+      "endLine": 39,
+      "language": "json",
+      "category": "source-code",
+      "redacted": false,
+      "content": "{\n  \"schemaVersion\": \"1.0.0\",\n  \"id\": \"HANDOFF-CONTRACT-TUPINIQUIM\",\n  \"status\": \"active\",\n  \"allowedAgents\": [\n    \"Professor\",\n    \"Gerente de Projetos\",\n    \"Arquiteto\",\n    \"Consultor\",\n    \"QA\",\n    \"Programador\"\n  ],\n  \"flow\": [\n    \"Arquiteto\",\n    \"Consultor\",\n    \"QA\",\n    \"Consultor\",\n    \"Programador\",\n    \"QA\",\n    \"Consultor\"\n  ],\n  \"requiredFields\": [\n    \"project\",\n    \"plan\",\n    \"phase\",\n    \"task\",\n    \"currentAgent\",\n    \"nextAgent\",\n    \"authorizedAction\",\n    \"blockers\",\n    \"prohibitedActions\",\n    \"sources\",\n    \"gitState\",\n    \"validations\",\n    \"currentReality\",\n    \"futureStructure\",\n    \"fixedNextStep\"\n  ]\n}\n"
+    },
+    {
       "id": "b9ef05b9b091df120c39f3fb0f7bec59e581069249141cae0ad9f17cd861d931",
       "sourcePath": "site-context/registry/migration-matrix.json",
       "sourceHash": "cc352ce6f6297655ad663a6f2a9dac8b62622ccf0f07233e1d277ed933d355e2",
@@ -5779,9 +5823,9 @@
       "content": "TY\",\n    \"DEC-2026-IA-PAUSE-CMS\",\n    \"DEC-2026-ANCHOR-HARNESS-FIRST\",\n    \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n    \"DEC-2026-EPIC-TRANSITION-HARNESS\",\n    \"DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY\"\n  ]\n}\n"
     },
     {
-      "id": "02e077243f7cf0657ca90310c5bd65c53e56439b0e6b83697d0c7348c1591f4c",
+      "id": "16cba8d856d2179704dc291a05a96876568c5c55135cfb0b401ab81c08dc9d18",
       "sourcePath": "site-context/registry/plans/PLAN-EDITORIAL-CMS-MVP.json",
-      "sourceHash": "3d27b5bd8edf6df54265df3dec565f4918ef9f147cdbd0edb6bb07f2edfb2a41",
+      "sourceHash": "ccccc9358da53d776d2f3758b39c4aadff09e822294e24588b8090e736dec031",
       "startLine": 1,
       "endLine": 29,
       "language": "json",
@@ -5790,9 +5834,9 @@
       "content": "{\n  \"id\": \"PLAN-EDITORIAL-CMS-MVP\",\n  \"projectId\": \"EPIC-004\",\n  \"title\": \"CMS MVP da Plataforma Editorial\",\n  \"status\": \"in_progress\",\n  \"objective\": \"Entregar o primeiro corte funcional e rentavel do CMS com apoio operacional da IA integrada e do Harness.\",\n  \"motivation\": [\n    \"Retomar o projeto rentavel apos validacao do Harness.\",\n    \"Criar fluxo editorial administravel e compativel com o Blog atual.\",\n    \"Usar a IA integrada para continuidade e apoio ao trabalho real no site.\"\n  ],\n  \"scope\": [\n    \"administracao autenticada\",\n    \"listagem de posts\",\n    \"criacao de rascunho\",\n    \"edicao de conteudo\",\n    \"validacao de metadados\",\n    \"publicacao\",\n    \"compatibilidade com MDX e Blog atual\",\n    \"apoio operacional da IA integrada\"\n  ],\n  \"nonGoals\": [\n    \"nova evolucao estrutural da IA integrada\",\n    \"nova evolucao estrutural do Harness\",\n    \"Media Center completo\",\n    \"automacoes editoriais avancadas\",\n    \"publicacao autonoma pela IA\"\n  ],\n  \"sources\": [\n"
     },
     {
-      "id": "10fe40c8c4a5c6f2ce70e0f96052c3affeea02c2222ac394205344ccff086489",
+      "id": "0b13a5f5c85d631c02dcd8bed3686330700d8f02b481f483ccf4b4a5c6f8a626",
       "sourcePath": "site-context/registry/plans/PLAN-EDITORIAL-CMS-MVP.json",
-      "sourceHash": "3d27b5bd8edf6df54265df3dec565f4918ef9f147cdbd0edb6bb07f2edfb2a41",
+      "sourceHash": "ccccc9358da53d776d2f3758b39c4aadff09e822294e24588b8090e736dec031",
       "startLine": 24,
       "endLine": 50,
       "language": "json",
@@ -5801,9 +5845,9 @@
       "content": "cao estrutural do Harness\",\n    \"Media Center completo\",\n    \"automacoes editoriais avancadas\",\n    \"publicacao autonoma pela IA\"\n  ],\n  \"sources\": [\n    \"site-context/registry/projects/PROJECT-REGISTRY-TUPINIQUIM.json\",\n    \"site-context/decision-memory.json\",\n    \"site-context/registry/rules/RULESET-HARNESS-QUALITY.json\",\n    \"docs/method-of-operation.md\",\n    \"docs/project-history.md\"\n  ],\n  \"globalAcceptanceCriteria\": [\n    \"Fluxo de rascunho ate publicacao funciona.\",\n    \"Projeto, plano, fase e tarefa atuais sao recuperados deterministicamente.\",\n    \"IA integrada permanece operacional sem substituir fontes canonicas.\",\n    \"Suite e validacoes do projeto permanecem verdes.\"\n  ],\n  \"relatedDecisions\": [\n    \"DEC-2026-EPIC-TRANSITION-HARNESS\",\n    \"DEC-2026-ANCHOR-HARNESS-FIRST\",\n    \"DEC-2026-IA-OPERATIONAL-CMS\",\n    \"DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY\",\n    \"DEC-2026-EDITORIAL-CMS-READONLY-FIRST-SLICE\"\n  ],\n  \"phases\": [\n    {\n"
     },
     {
-      "id": "2ffc49cc8676b149a952a8db317c6ac8c4c8622e3b25ddaa79d32a5a2bc8d2e3",
+      "id": "9f9abef2be1438556225ea1599b827ea1b310153074fa13b53e20902995287f5",
       "sourcePath": "site-context/registry/plans/PLAN-EDITORIAL-CMS-MVP.json",
-      "sourceHash": "3d27b5bd8edf6df54265df3dec565f4918ef9f147cdbd0edb6bb07f2edfb2a41",
+      "sourceHash": "ccccc9358da53d776d2f3758b39c4aadff09e822294e24588b8090e736dec031",
       "startLine": 45,
       "endLine": 70,
       "language": "json",
@@ -5812,9 +5856,9 @@
       "content": "2026-IA-OPERATIONAL-CMS\",\n    \"DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY\",\n    \"DEC-2026-EDITORIAL-CMS-READONLY-FIRST-SLICE\"\n  ],\n  \"phases\": [\n    {\n      \"id\": \"PHASE-EDITORIAL-CMS-01-FOUNDATION\",\n      \"name\": \"Fundacao Administrativa do CMS\",\n      \"status\": \"in_progress\",\n      \"objective\": \"Implementar o primeiro fluxo editorial administravel sobre a estrutura atual.\",\n      \"deliverables\": [\n        \"area administrativa autenticada\",\n        \"listagem de posts\",\n        \"formulario de rascunho e edicao\",\n        \"validacao de metadados\",\n        \"acao controlada de publicacao\"\n      ],\n      \"acceptanceCriteria\": [\n        \"Acesso administrativo exige autenticacao.\",\n        \"Posts atuais sao listados sem regressao do Blog.\",\n        \"Rascunhos podem ser criados e editados.\",\n        \"Metadados obrigatorios sao validados.\",\n        \"Publicacao exige acao explicita e preserva compatibilidade MDX.\"\n      ],\n      \"tasks\": [\n        {\n"
     },
     {
-      "id": "b601ad39f8949095023e909d49d97d09261f07b7f10a78fd0bcc19ab529e22ae",
+      "id": "957825fc7e4cdee852d81bdf4a47d72141a561810a2926926c6af1572240776b",
       "sourcePath": "site-context/registry/plans/PLAN-EDITORIAL-CMS-MVP.json",
-      "sourceHash": "3d27b5bd8edf6df54265df3dec565f4918ef9f147cdbd0edb6bb07f2edfb2a41",
+      "sourceHash": "ccccc9358da53d776d2f3758b39c4aadff09e822294e24588b8090e736dec031",
       "startLine": 66,
       "endLine": 82,
       "language": "json",
@@ -5823,31 +5867,42 @@
       "content": "Metadados obrigatorios sao validados.\",\n        \"Publicacao exige acao explicita e preserva compatibilidade MDX.\"\n      ],\n      \"tasks\": [\n        {\n          \"id\": \"TASK-EDITORIAL-CMS-01-FIRST-SLICE\",\n          \"title\": \"Implementar o primeiro corte funcional do CMS\",\n          \"status\": \"completed\",\n          \"objective\": \"Entregar autenticacao administrativa, sessao segura, logout, listagem dos artigos reais e abertura por slug em modo somente leitura, preservando o blog e a compatibilidade com OpenNext.\",\n          \"acceptanceCriteria\": [\n            \"Login administrativo funcional.\",\n            \"Sessao assinada e validada no servidor.\",\n            \"Acesso sem sessao bloqueado e credenciais invalidas rejeitadas.\",\n            \"Logout bloqueia acesso subsequente.\",\n            \"Quatro artigos reais listados e abertos por slug.\",\n            \"Campos somente leitura e ausencia de salvamento.\",\n            \"CMS sem fs editorial ou dependencia de Ollama.\",\n"
     },
     {
-      "id": "6496eac71c5a3085668ce6860a2f3a61fe592ef301843dea22d7e4330b53931a",
+      "id": "b674295db72f5250ac7be95f92f463941a7d9804efabdbc6be31af4d7acdb7f3",
       "sourcePath": "site-context/registry/plans/PLAN-EDITORIAL-CMS-MVP.json",
-      "sourceHash": "3d27b5bd8edf6df54265df3dec565f4918ef9f147cdbd0edb6bb07f2edfb2a41",
+      "sourceHash": "ccccc9358da53d776d2f3758b39c4aadff09e822294e24588b8090e736dec031",
       "startLine": 80,
       "endLine": 97,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "s e abertos por slug.\",\n            \"Campos somente leitura e ausencia de salvamento.\",\n            \"CMS sem fs editorial ou dependencia de Ollama.\",\n            \"19 autotestes, lint restrito, build Next.js, OpenNext e fluxo manual concluidos.\"\n          ]\n        },\n        {\n          \"id\": \"TASK-EDITORIAL-CMS-01-GOVERNANCE-CLOSEOUT\",\n          \"title\": \"Materializar e validar a governanca do primeiro corte do CMS\",\n          \"status\": \"in_progress\",\n          \"objective\": \"Persistir a decisao arquitetural, atualizar registries, regenerar o contexto oficial, validar a Ancora e preparar a separacao controlada dos commits.\",\n          \"acceptanceCriteria\": [\n            \"Decision Memory valida.\",\n            \"Project Registry coerente.\",\n            \"Planning Registry valido.\",\n            \"Fontes dinamicas corretas na Ancora.\",\n            \"Ancora preserva cinco blocos e historico encadeado.\",\n            \"Limitacoes do Corte 1 preservadas.\",\n"
+      "content": "s e abertos por slug.\",\n            \"Campos somente leitura e ausencia de salvamento.\",\n            \"CMS sem fs editorial ou dependencia de Ollama.\",\n            \"19 autotestes, lint restrito, build Next.js, OpenNext e fluxo manual concluidos.\"\n          ]\n        },\n        {\n          \"id\": \"TASK-EDITORIAL-CMS-01-GOVERNANCE-CLOSEOUT\",\n          \"title\": \"Materializar e validar a governanca do primeiro corte do CMS\",\n          \"status\": \"completed\",\n          \"objective\": \"Persistir a decisao arquitetural, atualizar registries, regenerar o contexto oficial, validar a Ancora e preparar a separacao controlada dos commits.\",\n          \"acceptanceCriteria\": [\n            \"Decision Memory valida.\",\n            \"Project Registry coerente.\",\n            \"Planning Registry valido.\",\n            \"Fontes dinamicas corretas na Ancora.\",\n            \"Ancora preserva cinco blocos e historico encadeado.\",\n            \"Limitacoes do Corte 1 preservadas.\",\n"
     },
     {
-      "id": "32ee3c06c2035ede4754818f01aa1837f1f3556a94ef8bcd4fb4647a17727c44",
+      "id": "e1a8d41a9551af44d57f2e793436c2596ea862d8eaa49b1b492adde1ff1291d2",
       "sourcePath": "site-context/registry/plans/PLAN-EDITORIAL-CMS-MVP.json",
-      "sourceHash": "3d27b5bd8edf6df54265df3dec565f4918ef9f147cdbd0edb6bb07f2edfb2a41",
+      "sourceHash": "ccccc9358da53d776d2f3758b39c4aadff09e822294e24588b8090e736dec031",
       "startLine": 95,
-      "endLine": 124,
+      "endLine": 111,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": " dinamicas corretas na Ancora.\",\n            \"Ancora preserva cinco blocos e historico encadeado.\",\n            \"Limitacoes do Corte 1 preservadas.\",\n            \"Diff inspecionado e escopos separaveis.\",\n            \"Nenhum segredo, script temporario, push ou deploy.\"\n          ],\n          \"nextCommand\": \"npm run context:bootstrap\"\n        }\n      ]\n    },\n    {\n      \"id\": \"PHASE-EDITORIAL-CMS-02-HARDENING\",\n      \"name\": \"Validacao e Endurecimento\",\n      \"status\": \"planned\",\n      \"objective\": \"Validar seguranca, regressao e operacao editorial do primeiro corte.\",\n      \"deliverables\": [\n        \"testes de autorizacao\",\n        \"testes editoriais\",\n        \"validacao de producao\"\n      ],\n      \"acceptanceCriteria\": [\n        \"Acesso nao autorizado e bloqueado.\",\n        \"Fluxo editorial permanece integro.\",\n        \"Blog publico nao sofre regressao.\"\n      ]\n    }\n  ],\n  \"currentPhase\": \"PHASE-EDITORIAL-CMS-01-FOUNDATION\",\n  \"nextPhase\": \"PHASE-EDITORIAL-CMS-02-HARDENING\"\n}\n"
+      "content": " dinamicas corretas na Ancora.\",\n            \"Ancora preserva cinco blocos e historico encadeado.\",\n            \"Limitacoes do Corte 1 preservadas.\",\n            \"Diff inspecionado e escopos separaveis.\",\n            \"Nenhum segredo, script temporario, push ou deploy.\"\n          ],\n          \"nextCommand\": \"npm run context:bootstrap\"\n        },\n        {\n          \"id\": \"TASK-EDITORIAL-CMS-01-D1-DRAFT-PERSISTENCE\",\n          \"title\": \"Implementar persistencia editorial D1 e rascunhos reais\",\n          \"status\": \"in_progress\",\n          \"objective\": \"Implementar schema D1, criacao de rascunho, salvamento real e recuperacao para continuidade da edicao.\",\n          \"acceptanceCriteria\": [\n            \"Schema D1 para o primeiro corte definido e validado por Arthur antes da materializacao estrutural.\",\n            \"Rascunho real pode ser criado e salvo em D1.\",\n            \"Rascunho salvo pode ser recuperado para continuidade da edicao.\",\n"
     },
     {
-      "id": "4ee2e54b3f27a6ba1de4767b15cf160953ff91db054607a892357ce712b656b4",
+      "id": "f84b40909d377e34efb6523db6100bc4e04a0845e1ddf09a07b054d2f0b5be5f",
+      "sourcePath": "site-context/registry/plans/PLAN-EDITORIAL-CMS-MVP.json",
+      "sourceHash": "ccccc9358da53d776d2f3758b39c4aadff09e822294e24588b8090e736dec031",
+      "startLine": 109,
+      "endLine": 136,
+      "language": "json",
+      "category": "source-code",
+      "redacted": false,
+      "content": "rutural.\",\n            \"Rascunho real pode ser criado e salvo em D1.\",\n            \"Rascunho salvo pode ser recuperado para continuidade da edicao.\",\n            \"Publicacao, R2, Media Center, migracao completa e transicao definitiva da fonte publica permanecem fora do escopo.\"\n          ]\n        }\n      ]\n    },\n    {\n      \"id\": \"PHASE-EDITORIAL-CMS-02-HARDENING\",\n      \"name\": \"Validacao e Endurecimento\",\n      \"status\": \"planned\",\n      \"objective\": \"Validar seguranca, regressao e operacao editorial do primeiro corte.\",\n      \"deliverables\": [\n        \"testes de autorizacao\",\n        \"testes editoriais\",\n        \"validacao de producao\"\n      ],\n      \"acceptanceCriteria\": [\n        \"Acesso nao autorizado e bloqueado.\",\n        \"Fluxo editorial permanece integro.\",\n        \"Blog publico nao sofre regressao.\"\n      ]\n    }\n  ],\n  \"currentPhase\": \"PHASE-EDITORIAL-CMS-01-FOUNDATION\",\n  \"nextPhase\": \"PHASE-EDITORIAL-CMS-02-HARDENING\"\n}\n"
+    },
+    {
+      "id": "ddbbea9d6fee7fb76ec1181840d2a680ef42c204a0d5a18449975672c96ddca0",
       "sourcePath": "site-context/registry/projects/PROJECT-REGISTRY-TUPINIQUIM.json",
-      "sourceHash": "5ad6b103fad93976feaa32115699e620b8c01fbaa25dead801d6ff9e8328fc7e",
+      "sourceHash": "c415455c1cf81ce5aad7ebfc61926c2d49680bb35661381883e3a65b9997264b",
       "startLine": 1,
       "endLine": 37,
       "language": "json",
@@ -5856,9 +5911,9 @@
       "content": "{\n  \"schemaVersion\": \"1.0.0\",\n  \"id\": \"PROJECT-REGISTRY-TUPINIQUIM\",\n  \"status\": \"active\",\n  \"projects\": [\n    {\n      \"id\": \"EPIC-003\",\n      \"name\": \"Site Institucional Profissional\",\n      \"status\": \"paused\",\n      \"currentPhase\": null,\n      \"ownerType\": \"product\",\n      \"completedDeliveries\": [\n        \"Estrutura institucional\",\n        \"Home\",\n        \"Quem Somos\",\n        \"Contato\",\n        \"Header responsivo\",\n        \"Footer responsivo\",\n        \"Correcoes semanticas confirmadas\"\n      ],\n      \"pendingWork\": [\n        \"Servicos\",\n        \"SEO institucional\",\n        \"Google AdSense\",\n        \"Componentes reutilizaveis\",\n        \"Validacao de producao\",\n        \"Pendencias adicionais a confirmar na retomada\"\n      ],\n      \"resumeConditions\": [\n        \"Harness MVP validado\",\n        \"Bootstrap operacional\",\n        \"Pendencias reavaliadas contra o codigo vigente\"\n      ],\n      \"decisionRef\": \"DEC-2026-EPIC-TRANSITION-HARNESS\"\n    },\n    {\n      \"id\": \"EPIC-004\",\n"
     },
     {
-      "id": "718aec93203d1c77fdc04f862bd723e645279ab5d86bc2fc6f052b8d510ca0e9",
+      "id": "cbc1e340cfc5c7bb8b438644b48526c6996d67724202dfc54431dbfd7f346cd0",
       "sourcePath": "site-context/registry/projects/PROJECT-REGISTRY-TUPINIQUIM.json",
-      "sourceHash": "5ad6b103fad93976feaa32115699e620b8c01fbaa25dead801d6ff9e8328fc7e",
+      "sourceHash": "c415455c1cf81ce5aad7ebfc61926c2d49680bb35661381883e3a65b9997264b",
       "startLine": 32,
       "endLine": 61,
       "language": "json",
@@ -5867,202 +5922,213 @@
       "content": "Pendencias reavaliadas contra o codigo vigente\"\n      ],\n      \"decisionRef\": \"DEC-2026-EPIC-TRANSITION-HARNESS\"\n    },\n    {\n      \"id\": \"EPIC-004\",\n      \"name\": \"Plataforma Editorial\",\n      \"status\": \"in_progress\",\n      \"currentPhase\": \"PHASE-EDITORIAL-CMS-01-FOUNDATION\",\n      \"ownerType\": \"product\",\n      \"completedDeliveries\": [\n        \"Blog\",\n        \"Categorias permanentes\",\n        \"Conteudo MDX\",\n        \"Geracao de posts\",\n        \"Paginas por slug\",\n        \"Estrutura editorial inicial\",\n        \"Administracao autenticada do CMS\",\n        \"Sessao administrativa assinada\",\n        \"Logout administrativo\",\n        \"Listagem administrativa dos artigos reais\",\n        \"Abertura de artigo por slug\",\n        \"Interface editorial somente leitura\",\n        \"Compatibilidade do Corte 1 com OpenNext e Cloudflare\"\n      ],\n      \"pendingWork\": [\n        \"Gestao editorial\",\n        \"Rascunho e edicao\",\n        \"Validacao e publicacao\",\n        \"Media Center\",\n"
     },
     {
-      "id": "83e6c7ea18dd25b0965ae6df993a837a5596abc40e5d7a5460e750be5ca6dfaa",
+      "id": "f941926d8021b5b6471a5abc12a4ce49b7b03780f5508cba3d32b1605aaf82ab",
       "sourcePath": "site-context/registry/projects/PROJECT-REGISTRY-TUPINIQUIM.json",
-      "sourceHash": "5ad6b103fad93976feaa32115699e620b8c01fbaa25dead801d6ff9e8328fc7e",
+      "sourceHash": "c415455c1cf81ce5aad7ebfc61926c2d49680bb35661381883e3a65b9997264b",
       "startLine": 55,
       "endLine": 84,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "e\"\n      ],\n      \"pendingWork\": [\n        \"Gestao editorial\",\n        \"Rascunho e edicao\",\n        \"Validacao e publicacao\",\n        \"Media Center\",\n        \"Persistencia editorial em D1\",\n        \"Criacao de rascunhos\",\n        \"Edicao persistente\",\n        \"Validacao de metadados para gravacao\",\n        \"Publicacao controlada\",\n        \"Migracao idempotente dos artigos atuais\",\n        \"Transicao da fonte publica para D1\",\n        \"Media Center com R2\",\n        \"Validacao em ambiente publicado\"\n      ],\n      \"resumeConditions\": [\n        \"Harness MVP validado\",\n        \"EPIC-003 organizado para retomada\"\n      ],\n      \"decisionRef\": \"DEC-2026-EPIC-TRANSITION-HARNESS\",\n      \"nextPhase\": \"PHASE-EDITORIAL-CMS-02-HARDENING\",\n      \"activePlan\": \"PLAN-EDITORIAL-CMS-MVP\",\n      \"aiIntegration\": \"operational-active\",\n      \"nextStep\": \"TASK-EDITORIAL-CMS-01-GOVERNANCE-CLOSEOUT\"\n    },\n    {\n      \"id\": \"EPIC-HARNESS-001\",\n      \"name\": \"Harness de Continuidade e Anchor Engine\",\n"
+      "content": "e\"\n      ],\n      \"pendingWork\": [\n        \"Gestao editorial\",\n        \"Rascunho e edicao\",\n        \"Validacao e publicacao\",\n        \"Media Center\",\n        \"Persistencia editorial em D1\",\n        \"Criacao de rascunhos\",\n        \"Edicao persistente\",\n        \"Validacao de metadados para gravacao\",\n        \"Publicacao controlada\",\n        \"Migracao idempotente dos artigos atuais\",\n        \"Transicao da fonte publica para D1\",\n        \"Media Center com R2\",\n        \"Validacao em ambiente publicado\"\n      ],\n      \"resumeConditions\": [\n        \"Harness MVP validado\",\n        \"EPIC-003 organizado para retomada\"\n      ],\n      \"decisionRef\": \"DEC-2026-EPIC-TRANSITION-HARNESS\",\n      \"nextPhase\": \"PHASE-EDITORIAL-CMS-02-HARDENING\",\n      \"activePlan\": \"PLAN-EDITORIAL-CMS-MVP\",\n      \"aiIntegration\": \"operational-active\",\n      \"nextStep\": \"TASK-EDITORIAL-CMS-01-D1-DRAFT-PERSISTENCE\"\n    },\n    {\n      \"id\": \"EPIC-HARNESS-001\",\n      \"name\": \"Harness de Continuidade e Anchor Engine\",\n"
     },
     {
-      "id": "e2f7388911b385366d81042c5b21e63e090f24fc048186aca09e01bef099dc0d",
+      "id": "18e0c5d3e4d391bce3a3cec6991edf35277b8d33d52590872f3fc9bf9a29507f",
       "sourcePath": "site-context/registry/projects/PROJECT-REGISTRY-TUPINIQUIM.json",
-      "sourceHash": "5ad6b103fad93976feaa32115699e620b8c01fbaa25dead801d6ff9e8328fc7e",
+      "sourceHash": "c415455c1cf81ce5aad7ebfc61926c2d49680bb35661381883e3a65b9997264b",
       "startLine": 80,
       "endLine": 106,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "p\": \"TASK-EDITORIAL-CMS-01-GOVERNANCE-CLOSEOUT\"\n    },\n    {\n      \"id\": \"EPIC-HARNESS-001\",\n      \"name\": \"Harness de Continuidade e Anchor Engine\",\n      \"status\": \"paused\",\n      \"currentPhase\": null,\n      \"ownerType\": \"infrastructure-governance\",\n      \"ownedCapabilities\": [\n        \"Context Engine\",\n        \"Decision Memory\",\n        \"Planning Registry\",\n        \"Rules Registry\",\n        \"Source Registry\",\n        \"Migration Matrix\",\n        \"Conflict Register\",\n        \"Context Resolver\",\n        \"RAG integrado\",\n        \"Method of Operation\",\n        \"Anchor Engine\"\n      ],\n      \"decisionRef\": \"DEC-2026-EPIC-TRANSITION-HARNESS\",\n      \"operatingMode\": \"operational-infrastructure-maintenance\",\n      \"maintenancePolicy\": \"Operational for CMS context, continuity and governance; structural evolution paused unless blocked by a proven product need.\"\n    }\n  ]\n}\n"
+      "content": "\": \"TASK-EDITORIAL-CMS-01-D1-DRAFT-PERSISTENCE\"\n    },\n    {\n      \"id\": \"EPIC-HARNESS-001\",\n      \"name\": \"Harness de Continuidade e Anchor Engine\",\n      \"status\": \"paused\",\n      \"currentPhase\": null,\n      \"ownerType\": \"infrastructure-governance\",\n      \"ownedCapabilities\": [\n        \"Context Engine\",\n        \"Decision Memory\",\n        \"Planning Registry\",\n        \"Rules Registry\",\n        \"Source Registry\",\n        \"Migration Matrix\",\n        \"Conflict Register\",\n        \"Context Resolver\",\n        \"RAG integrado\",\n        \"Method of Operation\",\n        \"Anchor Engine\"\n      ],\n      \"decisionRef\": \"DEC-2026-EPIC-TRANSITION-HARNESS\",\n      \"operatingMode\": \"operational-infrastructure-maintenance\",\n      \"maintenancePolicy\": \"Operational for CMS context, continuity and governance; structural evolution paused unless blocked by a proven product need.\"\n    }\n  ]\n}\n"
     },
     {
-      "id": "99f3b7f74f456c5e3e9a187121a05513d552eac6e21a246221f7b8f7af75a3df",
+      "id": "abfe30456c09db9887b25328e410022a9440e75e5171b218f28be853cf92ba56",
       "sourcePath": "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
-      "sourceHash": "485796bb00a2bcb621aacd6bdb55a792df495b24c60f35b30173eb8623baf9b2",
+      "sourceHash": "d16b428af17918e850f7bd3059ded881cfa79a5022a2b79aa789e69d7f747e96",
       "startLine": 1,
-      "endLine": 21,
+      "endLine": 24,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "{\n    \"schemaVersion\":  \"1.0.0\",\n    \"id\":  \"RULESET-HARNESS-QUALITY\",\n    \"status\":  \"active\",\n    \"decisionRef\":  \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n    \"rules\":  [\n                  {\n                      \"id\":  \"RULE-CMD-001\",\n                      \"title\":  \"Sequencias CMD com cls integrado\",\n                      \"status\":  \"active\",\n                      \"scope\":  \"command-sequence\",\n                      \"statement\":  \"Toda sequencia de comandos orientada para CMD deve iniciar com cls no mesmo bloco da acao principal.\",\n                      \"verification\":  \"O primeiro comando do bloco deve ser cls; nao criar checkpoint exclusivo.\",\n                      \"origin\":  \"Arthur alignment\",\n                      \"decisionRef\":  \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n                      \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n                      \"id\":  \"RULE-CMD-002\",\n"
+      "content": "{\n  \"schemaVersion\": \"1.0.0\",\n  \"id\": \"RULESET-HARNESS-QUALITY\",\n  \"status\": \"active\",\n  \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n  \"rules\": [\n    {\n      \"id\": \"RULE-CMD-001\",\n      \"title\": \"Sequencias CMD com cls integrado\",\n      \"status\": \"active\",\n      \"scope\": \"command-sequence\",\n      \"statement\": \"Toda sequencia de comandos orientada para CMD deve iniciar com cls no mesmo bloco da acao principal.\",\n      \"verification\": \"O primeiro comando do bloco deve ser cls; nao criar checkpoint exclusivo.\",\n      \"origin\": \"Arthur alignment\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-CMD-002\",\n      \"title\": \"Explicacao imediata dos comandos\",\n      \"status\": \"active\",\n      \"scope\": \"command-guidance\",\n      \"statement\": \"Todo comando orientado deve receber explicacao simples e direta, com no maximo duas linhas.\",\n      \"verification\": \"Reprovar orientacao de comando sem descricao de efeito.\",\n"
     },
     {
-      "id": "1520b53b48c4d36667a986921ceaf78ddbe6cac8c859bda32dd3a4e177c7a6ed",
+      "id": "427be6e8284f0623f03fb0b4a1bac70251983e8071ab666543ba3c2e408033a2",
       "sourcePath": "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
-      "sourceHash": "485796bb00a2bcb621aacd6bdb55a792df495b24c60f35b30173eb8623baf9b2",
-      "startLine": 16,
-      "endLine": 37,
+      "sourceHash": "d16b428af17918e850f7bd3059ded881cfa79a5022a2b79aa789e69d7f747e96",
+      "startLine": 23,
+      "endLine": 44,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "       \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n                      \"id\":  \"RULE-CMD-002\",\n                      \"title\":  \"Explicacao imediata dos comandos\",\n                      \"status\":  \"active\",\n                      \"scope\":  \"command-guidance\",\n                      \"statement\":  \"Todo comando orientado deve receber explicacao simples e direta, com no maximo duas linhas.\",\n                      \"verification\":  \"Reprovar orientacao de comando sem descricao de efeito.\",\n                      \"origin\":  \"Arthur alignment\",\n                      \"decisionRef\":  \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n                      \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n                      \"id\":  \"RULE-DECISION-001\",\n                      \"title\":  \"Clareza decisoria obrigatoria\",\n                      \"status\":  \"active\",\n                      \"scope\":  \"decision-governance\","
+      "content": "ve receber explicacao simples e direta, com no maximo duas linhas.\",\n      \"verification\": \"Reprovar orientacao de comando sem descricao de efeito.\",\n      \"origin\": \"Arthur alignment\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-DECISION-001\",\n      \"title\": \"Clareza decisoria obrigatoria\",\n      \"status\": \"active\",\n      \"scope\": \"decision-governance\",\n      \"statement\": \"Decisoes relevantes devem informar decisao, motivo, impacto, risco, alternativas, evidencias, limitacoes, recomendacao e dependencia de aprovacao.\",\n      \"verification\": \"Bloquear avancos estruturais sem os elementos obrigatorios.\",\n      \"origin\": \"Arthur alignment\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-DECISION-002\",\n      \"title\": \"Inferencia nao equivale a aprovacao\",\n      \"status\": \"active\",\n      \"scope\": \"decision-governance\",\n"
     },
     {
-      "id": "662cc9a6bed8d0debbfc3cf8ea0d7bf7bd0c786c85f203add8bf7803f7368ab7",
+      "id": "83c4fbedab899c8afb6bcbf8d41f12f3c94f67967032c7b59e12043a52fa05f5",
       "sourcePath": "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
-      "sourceHash": "485796bb00a2bcb621aacd6bdb55a792df495b24c60f35b30173eb8623baf9b2",
-      "startLine": 35,
-      "endLine": 50,
+      "sourceHash": "d16b428af17918e850f7bd3059ded881cfa79a5022a2b79aa789e69d7f747e96",
+      "startLine": 41,
+      "endLine": 63,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "          \"title\":  \"Clareza decisoria obrigatoria\",\n                      \"status\":  \"active\",\n                      \"scope\":  \"decision-governance\",\n                      \"statement\":  \"Decisoes relevantes devem informar decisao, motivo, impacto, risco, alternativas, evidencias, limitacoes, recomendacao e dependencia de aprovacao.\",\n                      \"verification\":  \"Bloquear avancos estruturais sem os elementos obrigatorios.\",\n                      \"origin\":  \"Arthur alignment\",\n                      \"decisionRef\":  \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n                      \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n                      \"id\":  \"RULE-DECISION-002\",\n                      \"title\":  \"Inferencia nao equivale a aprovacao\",\n                      \"status\":  \"active\",\n                      \"scope\":  \"decision-governance\",\n"
+      "content": "     \"id\": \"RULE-DECISION-002\",\n      \"title\": \"Inferencia nao equivale a aprovacao\",\n      \"status\": \"active\",\n      \"scope\": \"decision-governance\",\n      \"statement\": \"Criticas, duvidas e inferencias de Arthur nao podem ser convertidas silenciosamente em decisao aprovada.\",\n      \"verification\": \"Exigir aprovacao explicita quando houver mudanca estrutural ou de prioridade.\",\n      \"origin\": \"Arthur alignment\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-RAG-001\",\n      \"title\": \"Definicao oficial do RAG\",\n      \"status\": \"active\",\n      \"scope\": \"rag\",\n      \"statement\": \"context:ask e o RAG integrado; context:query e busca contextual isolada.\",\n      \"verification\": \"Toda alegacao de uso do RAG deve informar comando, intencao e modo final.\",\n      \"origin\": \"Arthur alignment\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-RAG-002\",\n"
     },
     {
-      "id": "1a9c05c91b36b03ae7f55bea94baa1a1edd1da8fdcb0e900eb86084be79a501c",
+      "id": "cb38244265da461d5d5995d9aaffeaf36a1b605ad07eab000d985b93f8985958",
       "sourcePath": "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
-      "sourceHash": "485796bb00a2bcb621aacd6bdb55a792df495b24c60f35b30173eb8623baf9b2",
-      "startLine": 48,
-      "endLine": 64,
+      "sourceHash": "d16b428af17918e850f7bd3059ded881cfa79a5022a2b79aa789e69d7f747e96",
+      "startLine": 58,
+      "endLine": 79,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "   \"title\":  \"Inferencia nao equivale a aprovacao\",\n                      \"status\":  \"active\",\n                      \"scope\":  \"decision-governance\",\n                      \"statement\":  \"Criticas, duvidas e inferencias de Arthur nao podem ser convertidas silenciosamente em decisao aprovada.\",\n                      \"verification\":  \"Exigir aprovacao explicita quando houver mudanca estrutural ou de prioridade.\",\n                      \"origin\":  \"Arthur alignment\",\n                      \"decisionRef\":  \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n                      \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n                      \"id\":  \"RULE-RAG-001\",\n                      \"title\":  \"Definicao oficial do RAG\",\n                      \"status\":  \"active\",\n                      \"scope\":  \"rag\",\n                      \"statement\":  \"context:ask e o RAG integrado; context:query e busca contextual isolada.\",\n"
+      "content": "\"origin\": \"Arthur alignment\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-RAG-002\",\n      \"title\": \"Justificativa de omissao do RAG\",\n      \"status\": \"active\",\n      \"scope\": \"rag\",\n      \"statement\": \"Quando context:ask for pertinente e nao for usado, declarar motivo, impacto, risco e alternativa antes da execucao.\",\n      \"verification\": \"Ausencia de justificativa bloqueia conclusao interpretativa relevante.\",\n      \"origin\": \"Arthur alignment\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-DOC-001\",\n      \"title\": \"Consulta documental obrigatoria\",\n      \"status\": \"active\",\n      \"scope\": \"documentation\",\n      \"statement\": \"Antes de mudancas estruturais, governanca ou roadmap, consultar a documentacao aplicavel e declarar o que foi consultado.\",\n      \"verification\": \"A resposta deve listar documentos consultados e ausencias relevantes.\",\n"
     },
     {
-      "id": "6e819a810d02c8e905e760582756149df66ad418327b7f2354dd19ac61282a10",
+      "id": "2fcb2e878e62b788f0f7fd3458df4dc4704e6bf41ecc1793b1d6e4f60d2ce449",
       "sourcePath": "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
-      "sourceHash": "485796bb00a2bcb621aacd6bdb55a792df495b24c60f35b30173eb8623baf9b2",
-      "startLine": 63,
-      "endLine": 78,
+      "sourceHash": "d16b428af17918e850f7bd3059ded881cfa79a5022a2b79aa789e69d7f747e96",
+      "startLine": 78,
+      "endLine": 99,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "                     \"scope\":  \"rag\",\n                      \"statement\":  \"context:ask e o RAG integrado; context:query e busca contextual isolada.\",\n                      \"verification\":  \"Toda alegacao de uso do RAG deve informar comando, intencao e modo final.\",\n                      \"origin\":  \"Arthur alignment\",\n                      \"decisionRef\":  \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n                      \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n                      \"id\":  \"RULE-RAG-002\",\n                      \"title\":  \"Justificativa de omissao do RAG\",\n                      \"status\":  \"active\",\n                      \"scope\":  \"rag\",\n                      \"statement\":  \"Quando context:ask for pertinente e nao for usado, declarar motivo, impacto, risco e alternativa antes da execucao.\",\n                      \"verification\":  \"Ausencia de justificativa bloqueia conclusao interpretativa relevante.\",\n"
+      "content": "umentacao aplicavel e declarar o que foi consultado.\",\n      \"verification\": \"A resposta deve listar documentos consultados e ausencias relevantes.\",\n      \"origin\": \"Arthur alignment\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-HARNESS-001\",\n      \"title\": \"Declaracao dos componentes do Harness\",\n      \"status\": \"active\",\n      \"scope\": \"harness\",\n      \"statement\": \"Investigacoes relevantes devem declarar quais componentes do Harness sustentaram a conclusao.\",\n      \"verification\": \"Informar registries, RAG, busca, documentos, testes e evidencia fisica usados ou omitidos.\",\n      \"origin\": \"Arthur alignment\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-FORMAT-001\",\n      \"title\": \"Blocos copiaveis restritos\",\n      \"status\": \"active\",\n      \"scope\": \"response-format\",\n"
     },
     {
-      "id": "93c92c870272f683ee487b963598edc1186f16ffee6d67572a302ec3c348746f",
+      "id": "f9801ac8b3388994129ea0f348588a6e102ac9605c3c799315b1af964ca0e9ca",
       "sourcePath": "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
-      "sourceHash": "485796bb00a2bcb621aacd6bdb55a792df495b24c60f35b30173eb8623baf9b2",
-      "startLine": 77,
-      "endLine": 93,
+      "sourceHash": "d16b428af17918e850f7bd3059ded881cfa79a5022a2b79aa789e69d7f747e96",
+      "startLine": 93,
+      "endLine": 116,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "o e alternativa antes da execucao.\",\n                      \"verification\":  \"Ausencia de justificativa bloqueia conclusao interpretativa relevante.\",\n                      \"origin\":  \"Arthur alignment\",\n                      \"decisionRef\":  \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n                      \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n                      \"id\":  \"RULE-DOC-001\",\n                      \"title\":  \"Consulta documental obrigatoria\",\n                      \"status\":  \"active\",\n                      \"scope\":  \"documentation\",\n                      \"statement\":  \"Antes de mudancas estruturais, governanca ou roadmap, consultar a documentacao aplicavel e declarar o que foi consultado.\",\n                      \"verification\":  \"A resposta deve listar documentos consultados e ausencias relevantes.\",\n                      \"origin\":  \"Arthur alignment\",\n                      \"decisionRef\":  \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n"
+      "content": "\n    },\n    {\n      \"id\": \"RULE-FORMAT-001\",\n      \"title\": \"Blocos copiaveis restritos\",\n      \"status\": \"active\",\n      \"scope\": \"response-format\",\n      \"statement\": \"Blocos copiaveis sao reservados a comandos CMD, codigo solicitado ou pedido explicito; explicacoes, listas e Ancora usam texto normal.\",\n      \"verification\": \"Reformatar resposta que use blocos copiaveis para conteudo explicativo.\",\n      \"origin\": \"Arthur alignment\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-FORMAT-002\",\n      \"title\": \"Comando repetido na proxima etapa\",\n      \"status\": \"active\",\n      \"scope\": \"response-format\",\n      \"statement\": \"Quando houver comando, repetir integralmente o mesmo comando na Sugestao Fixa de Proxima Etapa.\",\n      \"verification\": \"O bloco 5 deve conter o comando completo, sem abreviacao.\",\n      \"origin\": \"Arthur alignment\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n"
     },
     {
-      "id": "c77259de4be7a21efb54dd1e7cf9924a870a8e52078f43fedae4acfa5dd64d0d",
+      "id": "4226ddb22b9db996a530096d5243bf85cbe1470528870f96c8547796a5130e97",
       "sourcePath": "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
-      "sourceHash": "485796bb00a2bcb621aacd6bdb55a792df495b24c60f35b30173eb8623baf9b2",
-      "startLine": 91,
-      "endLine": 111,
+      "sourceHash": "d16b428af17918e850f7bd3059ded881cfa79a5022a2b79aa789e69d7f747e96",
+      "startLine": 112,
+      "endLine": 132,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "ausencias relevantes.\",\n                      \"origin\":  \"Arthur alignment\",\n                      \"decisionRef\":  \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n                      \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n                      \"id\":  \"RULE-HARNESS-001\",\n                      \"title\":  \"Declaracao dos componentes do Harness\",\n                      \"status\":  \"active\",\n                      \"scope\":  \"harness\",\n                      \"statement\":  \"Investigacoes relevantes devem declarar quais componentes do Harness sustentaram a conclusao.\",\n                      \"verification\":  \"Informar registries, RAG, busca, documentos, testes e evidencia fisica usados ou omitidos.\",\n                      \"origin\":  \"Arthur alignment\",\n                      \"decisionRef\":  \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n                      \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n"
+      "content": "completo, sem abreviacao.\",\n      \"origin\": \"Arthur alignment\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-CONTINUITY-001\",\n      \"title\": \"Nao acumular regras no chat\",\n      \"status\": \"active\",\n      \"scope\": \"continuity\",\n      \"statement\": \"Quando uma tratativa indicar uma regra materializavel, confirmar imediatamente com Arthur se ela deve ser oficializada; apos aprovacao, integrar ao projeto fisico sem acumulo para etapa futura.\",\n      \"verification\": \"Registrar estado proposed, approved ou rejected; regra aprovada deve ser persistida e validada na mesma tratativa antes de prosseguir.\",\n      \"origin\": \"Arthur alignment\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-RAG-003\",\n      \"title\": \"Governanca e medicao do timeout do RAG\",\n      \"status\": \"active\",\n      \"scope\": \"rag\",\n"
     },
     {
-      "id": "c3cb2748bde946f5d98754d91b2773b0a854d4927c7836e4479aa56530cd72b7",
+      "id": "77adcffd308d366db90738907d37410221729d5928af0bacce991ba704624e9b",
       "sourcePath": "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
-      "sourceHash": "485796bb00a2bcb621aacd6bdb55a792df495b24c60f35b30173eb8623baf9b2",
-      "startLine": 106,
-      "endLine": 125,
+      "sourceHash": "d16b428af17918e850f7bd3059ded881cfa79a5022a2b79aa789e69d7f747e96",
+      "startLine": 126,
+      "endLine": 143,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "2026-HARNESS-AGENT-PROTOCOL\",\n                      \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n                      \"id\":  \"RULE-FORMAT-001\",\n                      \"title\":  \"Blocos copiaveis restritos\",\n                      \"status\":  \"active\",\n                      \"scope\":  \"response-format\",\n                      \"statement\":  \"Blocos copiaveis sao reservados a comandos CMD, codigo solicitado ou pedido explicito; explicacoes, listas e Ancora usam texto normal.\",\n                      \"verification\":  \"Reformatar resposta que use blocos copiaveis para conteudo explicativo.\",\n                      \"origin\":  \"Arthur alignment\",\n                      \"decisionRef\":  \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n                      \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n                      \"id\":  \"RULE-FORMAT-002\",\n"
+      "content": " []\n    },\n    {\n      \"id\": \"RULE-RAG-003\",\n      \"title\": \"Governanca e medicao do timeout do RAG\",\n      \"status\": \"active\",\n      \"scope\": \"rag\",\n      \"statement\": \"O timeout do RAG deve ser compativel com o ambiente e medido antes de qualquer alteracao permanente. O limite nao pode tornar inviavel a resposta do modelo local.\",\n      \"verification\": \"Mudancas permanentes de timeout exigem medicao separada da chamada direta, resposta estruturada e context:ask; o diagnostico deve registrar limite usado, duracao, modo final e motivo do fallback.\",\n      \"origin\": \"Aprovacao explicita de Arthur durante PHASE-HARNESS-00-TRANSITION\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-RAG-004\",\n      \"title\": \"Validacao semantica do RAG\",\n      \"status\": \"active\",\n      \"scope\": \"rag\",\n"
     },
     {
-      "id": "6610db957942f54349f058ad5e899b2a76af7624b5442d51620489ce4e3a9675",
+      "id": "590a1a3400d40760d020805691f3f2d664ece3c17b5d11d6a412ef3fc21f086f",
       "sourcePath": "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
-      "sourceHash": "485796bb00a2bcb621aacd6bdb55a792df495b24c60f35b30173eb8623baf9b2",
-      "startLine": 120,
-      "endLine": 141,
+      "sourceHash": "d16b428af17918e850f7bd3059ded881cfa79a5022a2b79aa789e69d7f747e96",
+      "startLine": 137,
+      "endLine": 155,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "    \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n                      \"id\":  \"RULE-FORMAT-002\",\n                      \"title\":  \"Comando repetido na proxima etapa\",\n                      \"status\":  \"active\",\n                      \"scope\":  \"response-format\",\n                      \"statement\":  \"Quando houver comando, repetir integralmente o mesmo comando na Sugestao Fixa de Proxima Etapa.\",\n                      \"verification\":  \"O bloco 5 deve conter o comando completo, sem abreviacao.\",\n                      \"origin\":  \"Arthur alignment\",\n                      \"decisionRef\":  \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n                      \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n                      \"id\":  \"RULE-CONTINUITY-001\",\n                      \"title\":  \"Nao acumular regras no chat\",\n                      \"status\":  \"active\",\n                      \"scope\":  \"continuity\",\n"
+      "content": "supersedes\": []\n    },\n    {\n      \"id\": \"RULE-RAG-004\",\n      \"title\": \"Validacao semantica do RAG\",\n      \"status\": \"active\",\n      \"scope\": \"rag\",\n      \"statement\": \"Mode ollama comprova geracao validada, nao correcao semantica; respostas sobre estado, fase, tarefa, decisao ou regra devem ser comparadas com registries canonicos.\",\n      \"verification\": \"Divergencia com registries bloqueia a aceitacao da resposta e exige localizar a causa entre roteamento, pacote, indice e modelo.\",\n      \"origin\": \"Aprovacao explicita de Arthur\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-SOURCE-001\",\n      \"title\": \"Auditoria de cobertura antes da regeneracao\",\n      \"status\": \"active\",\n      \"scope\": \"source-registry\",\n      \"statement\": \"Antes de regenerar o Source Registry, verificar se existem novos artefatos canonicos ausentes nas definicoes do gerador.\",\n"
     },
     {
-      "id": "eb6f566a36d3aa1034727f576f4a18e291703f53e264cdb8cd757829772e0b70",
+      "id": "d12fa212fb8103992e31ab611ab1dd101330f025f05bc0101b9a7af50fd0c3e8",
       "sourcePath": "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
-      "sourceHash": "485796bb00a2bcb621aacd6bdb55a792df495b24c60f35b30173eb8623baf9b2",
-      "startLine": 139,
-      "endLine": 153,
+      "sourceHash": "d16b428af17918e850f7bd3059ded881cfa79a5022a2b79aa789e69d7f747e96",
+      "startLine": 154,
+      "endLine": 168,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "                    \"title\":  \"Nao acumular regras no chat\",\n                      \"status\":  \"active\",\n                      \"scope\":  \"continuity\",\n                      \"statement\":  \"Quando uma tratativa indicar uma regra materializavel, confirmar imediatamente com Arthur se ela deve ser oficializada; apos aprovacao, integrar ao projeto fisico sem acumulo para etapa futura.\",\n                      \"verification\":  \"Registrar estado proposed, approved ou rejected; regra aprovada deve ser persistida e validada na mesma tratativa antes de prosseguir.\",\n                      \"origin\":  \"Arthur alignment\",\n                      \"decisionRef\":  \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n                      \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n                      \"id\":  \"RULE-RAG-003\",\n                      \"title\":  \"Governanca e medicao do timeout do RAG\",\n                      \"status\":  \"active\",\n"
+      "content": "stry\",\n      \"statement\": \"Antes de regenerar o Source Registry, verificar se existem novos artefatos canonicos ausentes nas definicoes do gerador.\",\n      \"verification\": \"Comparar os caminhos canonicos existentes com as definicoes antes de context:source:generate.\",\n      \"origin\": \"Aprovacao explicita de Arthur\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-CMD-003\",\n      \"title\": \"Limite de complexidade dos comandos orientados\",\n      \"status\": \"active\",\n      \"scope\": \"command-guidance\",\n      \"statement\": \"Comandos inline extensos nao devem concentrar multiplas responsabilidades. Quando houver risco de truncamento, a orientacao deve usar comandos menores ou script fisico validavel.\",\n      \"verification\": \"Alteracoes estruturais complexas devem usar script fisico; node -e longo deve ser decomposto quando comprometer legibilidade, copia ou auditoria.\",\n      \"origin\": \"Aprovacao explicita de Arthur\",\n"
     },
     {
-      "id": "05d75819756f475b09a7119fe73231379d779f1bfbcd668d86e06135365ecbd5",
+      "id": "d2cd59abd508d9f8265890218f31b2bb94ac65917a24f044e574e92042afc862",
       "sourcePath": "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
-      "sourceHash": "485796bb00a2bcb621aacd6bdb55a792df495b24c60f35b30173eb8623baf9b2",
-      "startLine": 151,
-      "endLine": 164,
+      "sourceHash": "d16b428af17918e850f7bd3059ded881cfa79a5022a2b79aa789e69d7f747e96",
+      "startLine": 167,
+      "endLine": 182,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "          \"id\":  \"RULE-RAG-003\",\n                      \"title\":  \"Governanca e medicao do timeout do RAG\",\n                      \"status\":  \"active\",\n                      \"scope\":  \"rag\",\n                      \"statement\":  \"O timeout do RAG deve ser compativel com o ambiente e medido antes de qualquer alteracao permanente. O limite nao pode tornar inviavel a resposta do modelo local.\",\n                      \"verification\":  \"Mudancas permanentes de timeout exigem medicao separada da chamada direta, resposta estruturada e context:ask; o diagnostico deve registrar limite usado, duracao, modo final e motivo do fallback.\",\n                      \"origin\":  \"Aprovacao explicita de Arthur durante PHASE-HARNESS-00-TRANSITION\",\n                      \"decisionRef\":  \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n                      \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n                      \"id\":  \"RULE-RAG-004\",\n"
+      "content": "ipt fisico; node -e longo deve ser decomposto quando comprometer legibilidade, copia ou auditoria.\",\n      \"origin\": \"Aprovacao explicita de Arthur\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-040\",\n      \"title\": \"Isolar exatamente um agente por resposta\",\n      \"status\": \"active\",\n      \"category\": \"agent-governance\",\n      \"statement\": \"Cada resposta deve ser atribuida a exatamente um agente. Consultor, QA, Programador, Arquiteto ou outro agente nao podem atuar conjuntamente na mesma resposta.\",\n      \"rationale\": \"Evitar mistura de contexto, comprometimento do filtro de persona e execucao de funcoes alheias.\",\n      \"verification\": \"A resposta deve possuir exatamente um cabecalho de agente, todo o conteudo deve pertencer ao agente ativo e qualquer troca de responsabilidade deve ocorrer somente entre respostas.\",\n      \"sourceRefs\": [\n        \"DEC-2026-HARNESS-AGENT-PROTOCOL\"\n      ],\n"
     },
     {
-      "id": "ceae8c8ea59ac8d18b9624ab284ef9d7e9c964ce62088110fa72de912aa6009a",
+      "id": "8ce5d833004d6688f1a627a65a98c65361dffbd7caa2306a2d2d9f044a5888b8",
       "sourcePath": "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
-      "sourceHash": "485796bb00a2bcb621aacd6bdb55a792df495b24c60f35b30173eb8623baf9b2",
-      "startLine": 159,
-      "endLine": 177,
+      "sourceHash": "d16b428af17918e850f7bd3059ded881cfa79a5022a2b79aa789e69d7f747e96",
+      "startLine": 179,
+      "endLine": 200,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "       \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n                      \"id\":  \"RULE-RAG-004\",\n                      \"title\":  \"Validacao semantica do RAG\",\n                      \"status\":  \"active\",\n                      \"scope\":  \"rag\",\n                      \"statement\":  \"Mode ollama comprova geracao validada, nao correcao semantica; respostas sobre estado, fase, tarefa, decisao ou regra devem ser comparadas com registries canonicos.\",\n                      \"verification\":  \"Divergencia com registries bloqueia a aceitacao da resposta e exige localizar a causa entre roteamento, pacote, indice e modelo.\",\n                      \"origin\":  \"Aprovacao explicita de Arthur\",\n                      \"decisionRef\":  \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n                      \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n                      \"id\":  \"RULE-SOURCE-001\",\n"
+      "content": "e qualquer troca de responsabilidade deve ocorrer somente entre respostas.\",\n      \"sourceRefs\": [\n        \"DEC-2026-HARNESS-AGENT-PROTOCOL\"\n      ],\n      \"scope\": \"agent-governance\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\"\n    },\n    {\n      \"id\": \"RULE-AGENT-001\",\n      \"title\": \"Agente canonico unico por resposta\",\n      \"status\": \"active\",\n      \"scope\": \"agent-contract\",\n      \"statement\": \"Cada resposta deve possuir exatamente um agente canonico ativo entre Professor, Gerente de Projetos, Arquiteto, Consultor, QA e Programador; o agente Juiz nao existe.\",\n      \"verification\": \"Validar conjunto fechado de seis agentes, cardinalidade de um agente ativo e ausencia de Juiz em contratos ativos.\",\n      \"origin\": \"Arthur approved Master Protocol extension\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-AGENT-002\",\n      \"title\": \"Fluxo canonico entre agentes\",\n      \"status\": \"active\",\n"
     },
     {
-      "id": "7d9a77fa55cde17aaa482200ab0f4624af07b9dba982bbde17035ecb0a99cf73",
+      "id": "5b4524c6ade19ad0d0b7c05ef42eb260e60a00bc5411edf10283d7c65f2ed3ee",
       "sourcePath": "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
-      "sourceHash": "485796bb00a2bcb621aacd6bdb55a792df495b24c60f35b30173eb8623baf9b2",
-      "startLine": 172,
-      "endLine": 190,
+      "sourceHash": "d16b428af17918e850f7bd3059ded881cfa79a5022a2b79aa789e69d7f747e96",
+      "startLine": 194,
+      "endLine": 213,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "    \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n                      \"id\":  \"RULE-SOURCE-001\",\n                      \"title\":  \"Auditoria de cobertura antes da regeneracao\",\n                      \"status\":  \"active\",\n                      \"scope\":  \"source-registry\",\n                      \"statement\":  \"Antes de regenerar o Source Registry, verificar se existem novos artefatos canonicos ausentes nas definicoes do gerador.\",\n                      \"verification\":  \"Comparar os caminhos canonicos existentes com as definicoes antes de context:source:generate.\",\n                      \"origin\":  \"Aprovacao explicita de Arthur\",\n                      \"decisionRef\":  \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n                      \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n                      \"id\":  \"RULE-CMD-003\",\n"
+      "content": "PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-AGENT-002\",\n      \"title\": \"Fluxo canonico entre agentes\",\n      \"status\": \"active\",\n      \"scope\": \"agent-handoff\",\n      \"statement\": \"O fluxo obrigatorio e Arquiteto, Consultor, QA, Consultor, Programador, QA e Consultor, respeitando as responsabilidades exclusivas.\",\n      \"verification\": \"Validar cada transicao contra a sequencia canonica e bloquear salto de responsabilidade.\",\n      \"origin\": \"Arthur approved Master Protocol extension\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-SOURCE-002\",\n      \"title\": \"Precedencia das fontes fisicas canonicas\",\n      \"status\": \"active\",\n      \"scope\": \"source-governance\",\n      \"statement\": \"Fontes fisicas canonicas prevalecem sobre memoria conversacional, resumos e artefatos derivados.\",\n"
     },
     {
-      "id": "00dc44cdf4b22fabd11be6553198b94833e9ccf9b147454f7dde9f0f8d2f2b92",
+      "id": "225c099ef0f12ebdf05601dc3022f6d16a127b137ca56de85aba29702e86a9ea",
       "sourcePath": "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
-      "sourceHash": "485796bb00a2bcb621aacd6bdb55a792df495b24c60f35b30173eb8623baf9b2",
-      "startLine": 185,
-      "endLine": 202,
+      "sourceHash": "d16b428af17918e850f7bd3059ded881cfa79a5022a2b79aa789e69d7f747e96",
+      "startLine": 212,
+      "endLine": 229,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "       \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n                      \"id\":  \"RULE-CMD-003\",\n                      \"title\":  \"Limite de complexidade dos comandos orientados\",\n                      \"status\":  \"active\",\n                      \"scope\":  \"command-guidance\",\n                      \"statement\":  \"Comandos inline extensos nao devem concentrar multiplas responsabilidades. Quando houver risco de truncamento, a orientacao deve usar comandos menores ou script fisico validavel.\",\n                      \"verification\":  \"Alteracoes estruturais complexas devem usar script fisico; node -e longo deve ser decomposto quando comprometer legibilidade, copia ou auditoria.\",\n                      \"origin\":  \"Aprovacao explicita de Arthur\",\n                      \"decisionRef\":  \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n                      \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n"
+      "content": " \"scope\": \"source-governance\",\n      \"statement\": \"Fontes fisicas canonicas prevalecem sobre memoria conversacional, resumos e artefatos derivados.\",\n      \"verification\": \"Exigir fontes consultadas em mudancas estruturais e impedir derivado como substituto da fonte canonica.\",\n      \"origin\": \"Arthur approved Master Protocol extension\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-CONTINUITY-002\",\n      \"title\": \"Ponto isolado autoriza proxima etapa fixa\",\n      \"status\": \"active\",\n      \"scope\": \"continuity\",\n      \"statement\": \"Quando Arthur enviar apenas um ponto, fica autorizada a Sugestao Fixa de Proxima Etapa anterior, desde que exista handoff valido para o agente correto.\",\n      \"verification\": \"Exigir proxima etapa fixa e agente seguinte no contrato de handoff.\",\n      \"origin\": \"Arthur approved Master Protocol extension\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n"
     },
     {
-      "id": "a7694cd71401a9f6be27ca839c97a305fed7f4beba8717a485febd2de564f9ad",
+      "id": "45c5f785474c6795489e01dd7973fb4071d440e907ddbbcba3924f6394f8d017",
       "sourcePath": "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
-      "sourceHash": "485796bb00a2bcb621aacd6bdb55a792df495b24c60f35b30173eb8623baf9b2",
-      "startLine": 197,
-      "endLine": 210,
+      "sourceHash": "d16b428af17918e850f7bd3059ded881cfa79a5022a2b79aa789e69d7f747e96",
+      "startLine": 225,
+      "endLine": 245,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "2026-HARNESS-AGENT-PROTOCOL\",\n                      \"supersedes\":  [\n\n                                     ]\n                  },\n                  {\n                      \"id\":  \"RULE-040\",\n                      \"title\":  \"Isolar exatamente um agente por resposta\",\n                      \"status\":  \"active\",\n                      \"category\":  \"agent-governance\",\n                      \"statement\":  \"Cada resposta deve ser atribuida a exatamente um agente. Consultor, QA, Programador, Arquiteto ou outro agente nao podem atuar conjuntamente na mesma resposta.\",\n                      \"rationale\":  \"Evitar mistura de contexto, comprometimento do filtro de persona e execucao de funcoes alheias.\",\n                      \"verification\":  \"A resposta deve possuir exatamente um cabecalho de agente, todo o conteudo deve pertencer ao agente ativo e qualquer troca de responsabilidade deve ocorrer somente entre respostas.\",\n                      \"sourceRefs\":  [\n"
+      "content": "\",\n      \"origin\": \"Arthur approved Master Protocol extension\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-DELIVERY-001\",\n      \"title\": \"Entrega fisica verificavel de arquivos\",\n      \"status\": \"active\",\n      \"scope\": \"file-delivery\",\n      \"statement\": \"Arquivo solicitado deve ser criado fisicamente, validado e entregue com URL real da ferramenta, nome, formato, tamanho em bytes, SHA-256 e CMD completo iniciado por cls.\",\n      \"verification\": \"Validar manifesto de entrega; funcionamento do hyperlink permanece confirmacao operacional humana.\",\n      \"origin\": \"Arthur approved Master Protocol extension\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-PROTOCOL-001\",\n      \"title\": \"Mudanca de protocolo exige alinhamento previo\",\n      \"status\": \"active\",\n      \"scope\": \"protocol-change\",\n"
     },
     {
-      "id": "d6fd15d2ad668d364bd57c8ac82909d8c90fb7b6710c3c32dd114f0d8b6c72f4",
+      "id": "34cab004fd66b77aaf0238e5cef78b970a84def75406fdc7036275aabe47e26e",
       "sourcePath": "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
-      "sourceHash": "485796bb00a2bcb621aacd6bdb55a792df495b24c60f35b30173eb8623baf9b2",
-      "startLine": 209,
-      "endLine": 217,
+      "sourceHash": "d16b428af17918e850f7bd3059ded881cfa79a5022a2b79aa789e69d7f747e96",
+      "startLine": 242,
+      "endLine": 258,
       "language": "json",
       "category": "source-code",
       "redacted": false,
-      "content": "do deve pertencer ao agente ativo e qualquer troca de responsabilidade deve ocorrer somente entre respostas.\",\n                      \"sourceRefs\":  [\n                                         \"DEC-2026-HARNESS-AGENT-PROTOCOL\"\n                                     ],\n                      \"scope\":  \"agent-governance\",\n                      \"decisionRef\":  \"DEC-2026-HARNESS-AGENT-PROTOCOL\"\n                  }\n              ]\n}\n"
+      "content": "id\": \"RULE-PROTOCOL-001\",\n      \"title\": \"Mudanca de protocolo exige alinhamento previo\",\n      \"status\": \"active\",\n      \"scope\": \"protocol-change\",\n      \"statement\": \"Mudanca de nome, formato, pasta, download, sequencia, responsabilidade, commit ou validacao exige protocolo anterior, novo, motivo, impacto e acao esperada.\",\n      \"verification\": \"Bloquear aplicacao quando qualquer um dos cinco elementos estiver ausente.\",\n      \"origin\": \"Arthur approved Master Protocol extension\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-STATUS-001\",\n      \"title\": \"Status bloqueador sem aprovacao\",\n      \"status\": \"active\",\n      \"scope\": \"quality-status\",\n      \"statement\": \"Ressalva bloqueadora exige status pendente de correcao ou reprovado; aprovado e aprovado com ressalvas nao sao permitidos.\",\n      \"verification\": \"Validar vocabulario do parecer quando houver bloqueio.\",\n"
+    },
+    {
+      "id": "0eabc8a51a24cc113335e1818d4a13e7d7c0541732f5bebd88897f2ef39e01c1",
+      "sourcePath": "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
+      "sourceHash": "d16b428af17918e850f7bd3059ded881cfa79a5022a2b79aa789e69d7f747e96",
+      "startLine": 257,
+      "endLine": 275,
+      "language": "json",
+      "category": "source-code",
+      "redacted": false,
+      "content": "ou reprovado; aprovado e aprovado com ressalvas nao sao permitidos.\",\n      \"verification\": \"Validar vocabulario do parecer quando houver bloqueio.\",\n      \"origin\": \"Arthur approved Master Protocol extension\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    },\n    {\n      \"id\": \"RULE-PRODUCT-001\",\n      \"title\": \"Prioridade comercial do CMS\",\n      \"status\": \"active\",\n      \"scope\": \"product-priority\",\n      \"statement\": \"O CMS de artigos permanece prioridade comercial; correcoes pequenas integram o corte atual e o Harness nao abre nova frente sem bloqueio estrutural comprovado.\",\n      \"verification\": \"Projeto ativo deve permanecer EPIC-004 e evolucao do Harness deve estar limitada ao bloqueio comprovado.\",\n      \"origin\": \"Arthur approved Master Protocol extension\",\n      \"decisionRef\": \"DEC-2026-HARNESS-AGENT-PROTOCOL\",\n      \"supersedes\": []\n    }\n  ]\n}\n"
     },
     {
       "id": "0660da5a82a5a68d1323a8b106f0c4feed0fba1b7469c2a24647307f823cea54",

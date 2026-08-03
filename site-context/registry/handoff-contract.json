@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "HANDOFF-CONTRACT-TUPINIQUIM",
+  "status": "active",
+  "allowedAgents": [
+    "Professor",
+    "Gerente de Projetos",
+    "Arquiteto",
+    "Consultor",
+    "QA",
+    "Programador"
+  ],
+  "flow": [
+    "Arquiteto",
+    "Consultor",
+    "QA",
+    "Consultor",
+    "Programador",
+    "QA",
+    "Consultor"
+  ],
+  "requiredFields": [
+    "project",
+    "plan",
+    "phase",
+    "task",
+    "currentAgent",
+    "nextAgent",
+    "authorizedAction",
+    "blockers",
+    "prohibitedActions",
+    "sources",
+    "gitState",
+    "validations",
+    "currentReality",
+    "futureStructure",
+    "fixedNextStep"
+  ]
+}

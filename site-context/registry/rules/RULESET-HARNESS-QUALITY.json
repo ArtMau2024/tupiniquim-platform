@@ -1,217 +1,275 @@
 {
-    "schemaVersion":  "1.0.0",
-    "id":  "RULESET-HARNESS-QUALITY",
-    "status":  "active",
-    "decisionRef":  "DEC-2026-HARNESS-AGENT-PROTOCOL",
-    "rules":  [
-                  {
-                      "id":  "RULE-CMD-001",
-                      "title":  "Sequencias CMD com cls integrado",
-                      "status":  "active",
-                      "scope":  "command-sequence",
-                      "statement":  "Toda sequencia de comandos orientada para CMD deve iniciar com cls no mesmo bloco da acao principal.",
-                      "verification":  "O primeiro comando do bloco deve ser cls; nao criar checkpoint exclusivo.",
-                      "origin":  "Arthur alignment",
-                      "decisionRef":  "DEC-2026-HARNESS-AGENT-PROTOCOL",
-                      "supersedes":  [
-
-                                     ]
-                  },
-                  {
-                      "id":  "RULE-CMD-002",
-                      "title":  "Explicacao imediata dos comandos",
-                      "status":  "active",
-                      "scope":  "command-guidance",
-                      "statement":  "Todo comando orientado deve receber explicacao simples e direta, com no maximo duas linhas.",
-                      "verification":  "Reprovar orientacao de comando sem descricao de efeito.",
-                      "origin":  "Arthur alignment",
-                      "decisionRef":  "DEC-2026-HARNESS-AGENT-PROTOCOL",
-                      "supersedes":  [
-
-                                     ]
-                  },
-                  {
-                      "id":  "RULE-DECISION-001",
-                      "title":  "Clareza decisoria obrigatoria",
-                      "status":  "active",
-                      "scope":  "decision-governance",
-                      "statement":  "Decisoes relevantes devem informar decisao, motivo, impacto, risco, alternativas, evidencias, limitacoes, recomendacao e dependencia de aprovacao.",
-                      "verification":  "Bloquear avancos estruturais sem os elementos obrigatorios.",
-                      "origin":  "Arthur alignment",
-                      "decisionRef":  "DEC-2026-HARNESS-AGENT-PROTOCOL",
-                      "supersedes":  [
-
-                                     ]
-                  },
-                  {
-                      "id":  "RULE-DECISION-002",
-                      "title":  "Inferencia nao equivale a aprovacao",
-                      "status":  "active",
-                      "scope":  "decision-governance",
-                      "statement":  "Criticas, duvidas e inferencias de Arthur nao podem ser convertidas silenciosamente em decisao aprovada.",
-                      "verification":  "Exigir aprovacao explicita quando houver mudanca estrutural ou de prioridade.",
-                      "origin":  "Arthur alignment",
-                      "decisionRef":  "DEC-2026-HARNESS-AGENT-PROTOCOL",
-                      "supersedes":  [
-
-                                     ]
-                  },
-                  {
-                      "id":  "RULE-RAG-001",
-                      "title":  "Definicao oficial do RAG",
-                      "status":  "active",
-                      "scope":  "rag",
-                      "statement":  "context:ask e o RAG integrado; context:query e busca contextual isolada.",
-                      "verification":  "Toda alegacao de uso do RAG deve informar comando, intencao e modo final.",
-                      "origin":  "Arthur alignment",
-                      "decisionRef":  "DEC-2026-HARNESS-AGENT-PROTOCOL",
-                      "supersedes":  [
-
-                                     ]
-                  },
-                  {
-                      "id":  "RULE-RAG-002",
-                      "title":  "Justificativa de omissao do RAG",
-                      "status":  "active",
-                      "scope":  "rag",
-                      "statement":  "Quando context:ask for pertinente e nao for usado, declarar motivo, impacto, risco e alternativa antes da execucao.",
-                      "verification":  "Ausencia de justificativa bloqueia conclusao interpretativa relevante.",
-                      "origin":  "Arthur alignment",
-                      "decisionRef":  "DEC-2026-HARNESS-AGENT-PROTOCOL",
-                      "supersedes":  [
-
-                                     ]
-                  },
-                  {
-                      "id":  "RULE-DOC-001",
-                      "title":  "Consulta documental obrigatoria",
-                      "status":  "active",
-                      "scope":  "documentation",
-                      "statement":  "Antes de mudancas estruturais, governanca ou roadmap, consultar a documentacao aplicavel e declarar o que foi consultado.",
-                      "verification":  "A resposta deve listar documentos consultados e ausencias relevantes.",
-                      "origin":  "Arthur alignment",
-                      "decisionRef":  "DEC-2026-HARNESS-AGENT-PROTOCOL",
-                      "supersedes":  [
-
-                                     ]
-                  },
-                  {
-                      "id":  "RULE-HARNESS-001",
-                      "title":  "Declaracao dos componentes do Harness",
-                      "status":  "active",
-                      "scope":  "harness",
-                      "statement":  "Investigacoes relevantes devem declarar quais componentes do Harness sustentaram a conclusao.",
-                      "verification":  "Informar registries, RAG, busca, documentos, testes e evidencia fisica usados ou omitidos.",
-                      "origin":  "Arthur alignment",
-                      "decisionRef":  "DEC-2026-HARNESS-AGENT-PROTOCOL",
-                      "supersedes":  [
-
-                                     ]
-                  },
-                  {
-                      "id":  "RULE-FORMAT-001",
-                      "title":  "Blocos copiaveis restritos",
-                      "status":  "active",
-                      "scope":  "response-format",
-                      "statement":  "Blocos copiaveis sao reservados a comandos CMD, codigo solicitado ou pedido explicito; explicacoes, listas e Ancora usam texto normal.",
-                      "verification":  "Reformatar resposta que use blocos copiaveis para conteudo explicativo.",
-                      "origin":  "Arthur alignment",
-                      "decisionRef":  "DEC-2026-HARNESS-AGENT-PROTOCOL",
-                      "supersedes":  [
-
-                                     ]
-                  },
-                  {
-                      "id":  "RULE-FORMAT-002",
-                      "title":  "Comando repetido na proxima etapa",
-                      "status":  "active",
-                      "scope":  "response-format",
-                      "statement":  "Quando houver comando, repetir integralmente o mesmo comando na Sugestao Fixa de Proxima Etapa.",
-                      "verification":  "O bloco 5 deve conter o comando completo, sem abreviacao.",
-                      "origin":  "Arthur alignment",
-                      "decisionRef":  "DEC-2026-HARNESS-AGENT-PROTOCOL",
-                      "supersedes":  [
-
-                                     ]
-                  },
-                  {
-                      "id":  "RULE-CONTINUITY-001",
-                      "title":  "Nao acumular regras no chat",
-                      "status":  "active",
-                      "scope":  "continuity",
-                      "statement":  "Quando uma tratativa indicar uma regra materializavel, confirmar imediatamente com Arthur se ela deve ser oficializada; apos aprovacao, integrar ao projeto fisico sem acumulo para etapa futura.",
-                      "verification":  "Registrar estado proposed, approved ou rejected; regra aprovada deve ser persistida e validada na mesma tratativa antes de prosseguir.",
-                      "origin":  "Arthur alignment",
-                      "decisionRef":  "DEC-2026-HARNESS-AGENT-PROTOCOL",
-                      "supersedes":  [
-
-                                     ]
-                  },
-                  {
-                      "id":  "RULE-RAG-003",
-                      "title":  "Governanca e medicao do timeout do RAG",
-                      "status":  "active",
-                      "scope":  "rag",
-                      "statement":  "O timeout do RAG deve ser compativel com o ambiente e medido antes de qualquer alteracao permanente. O limite nao pode tornar inviavel a resposta do modelo local.",
-                      "verification":  "Mudancas permanentes de timeout exigem medicao separada da chamada direta, resposta estruturada e context:ask; o diagnostico deve registrar limite usado, duracao, modo final e motivo do fallback.",
-                      "origin":  "Aprovacao explicita de Arthur durante PHASE-HARNESS-00-TRANSITION",
-                      "decisionRef":  "DEC-2026-HARNESS-AGENT-PROTOCOL",
-                      "supersedes":  [
-
-                                     ]
-                  },
-                  {
-                      "id":  "RULE-RAG-004",
-                      "title":  "Validacao semantica do RAG",
-                      "status":  "active",
-                      "scope":  "rag",
-                      "statement":  "Mode ollama comprova geracao validada, nao correcao semantica; respostas sobre estado, fase, tarefa, decisao ou regra devem ser comparadas com registries canonicos.",
-                      "verification":  "Divergencia com registries bloqueia a aceitacao da resposta e exige localizar a causa entre roteamento, pacote, indice e modelo.",
-                      "origin":  "Aprovacao explicita de Arthur",
-                      "decisionRef":  "DEC-2026-HARNESS-AGENT-PROTOCOL",
-                      "supersedes":  [
-
-                                     ]
-                  },
-                  {
-                      "id":  "RULE-SOURCE-001",
-                      "title":  "Auditoria de cobertura antes da regeneracao",
-                      "status":  "active",
-                      "scope":  "source-registry",
-                      "statement":  "Antes de regenerar o Source Registry, verificar se existem novos artefatos canonicos ausentes nas definicoes do gerador.",
-                      "verification":  "Comparar os caminhos canonicos existentes com as definicoes antes de context:source:generate.",
-                      "origin":  "Aprovacao explicita de Arthur",
-                      "decisionRef":  "DEC-2026-HARNESS-AGENT-PROTOCOL",
-                      "supersedes":  [
-
-                                     ]
-                  },
-                  {
-                      "id":  "RULE-CMD-003",
-                      "title":  "Limite de complexidade dos comandos orientados",
-                      "status":  "active",
-                      "scope":  "command-guidance",
-                      "statement":  "Comandos inline extensos nao devem concentrar multiplas responsabilidades. Quando houver risco de truncamento, a orientacao deve usar comandos menores ou script fisico validavel.",
-                      "verification":  "Alteracoes estruturais complexas devem usar script fisico; node -e longo deve ser decomposto quando comprometer legibilidade, copia ou auditoria.",
-                      "origin":  "Aprovacao explicita de Arthur",
-                      "decisionRef":  "DEC-2026-HARNESS-AGENT-PROTOCOL",
-                      "supersedes":  [
-
-                                     ]
-                  },
-                  {
-                      "id":  "RULE-040",
-                      "title":  "Isolar exatamente um agente por resposta",
-                      "status":  "active",
-                      "category":  "agent-governance",
-                      "statement":  "Cada resposta deve ser atribuida a exatamente um agente. Consultor, QA, Programador, Arquiteto ou outro agente nao podem atuar conjuntamente na mesma resposta.",
-                      "rationale":  "Evitar mistura de contexto, comprometimento do filtro de persona e execucao de funcoes alheias.",
-                      "verification":  "A resposta deve possuir exatamente um cabecalho de agente, todo o conteudo deve pertencer ao agente ativo e qualquer troca de responsabilidade deve ocorrer somente entre respostas.",
-                      "sourceRefs":  [
-                                         "DEC-2026-HARNESS-AGENT-PROTOCOL"
-                                     ],
-                      "scope":  "agent-governance",
-                      "decisionRef":  "DEC-2026-HARNESS-AGENT-PROTOCOL"
-                  }
-              ]
+  "schemaVersion": "1.0.0",
+  "id": "RULESET-HARNESS-QUALITY",
+  "status": "active",
+  "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+  "rules": [
+    {
+      "id": "RULE-CMD-001",
+      "title": "Sequencias CMD com cls integrado",
+      "status": "active",
+      "scope": "command-sequence",
+      "statement": "Toda sequencia de comandos orientada para CMD deve iniciar com cls no mesmo bloco da acao principal.",
+      "verification": "O primeiro comando do bloco deve ser cls; nao criar checkpoint exclusivo.",
+      "origin": "Arthur alignment",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-CMD-002",
+      "title": "Explicacao imediata dos comandos",
+      "status": "active",
+      "scope": "command-guidance",
+      "statement": "Todo comando orientado deve receber explicacao simples e direta, com no maximo duas linhas.",
+      "verification": "Reprovar orientacao de comando sem descricao de efeito.",
+      "origin": "Arthur alignment",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-DECISION-001",
+      "title": "Clareza decisoria obrigatoria",
+      "status": "active",
+      "scope": "decision-governance",
+      "statement": "Decisoes relevantes devem informar decisao, motivo, impacto, risco, alternativas, evidencias, limitacoes, recomendacao e dependencia de aprovacao.",
+      "verification": "Bloquear avancos estruturais sem os elementos obrigatorios.",
+      "origin": "Arthur alignment",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-DECISION-002",
+      "title": "Inferencia nao equivale a aprovacao",
+      "status": "active",
+      "scope": "decision-governance",
+      "statement": "Criticas, duvidas e inferencias de Arthur nao podem ser convertidas silenciosamente em decisao aprovada.",
+      "verification": "Exigir aprovacao explicita quando houver mudanca estrutural ou de prioridade.",
+      "origin": "Arthur alignment",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-RAG-001",
+      "title": "Definicao oficial do RAG",
+      "status": "active",
+      "scope": "rag",
+      "statement": "context:ask e o RAG integrado; context:query e busca contextual isolada.",
+      "verification": "Toda alegacao de uso do RAG deve informar comando, intencao e modo final.",
+      "origin": "Arthur alignment",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-RAG-002",
+      "title": "Justificativa de omissao do RAG",
+      "status": "active",
+      "scope": "rag",
+      "statement": "Quando context:ask for pertinente e nao for usado, declarar motivo, impacto, risco e alternativa antes da execucao.",
+      "verification": "Ausencia de justificativa bloqueia conclusao interpretativa relevante.",
+      "origin": "Arthur alignment",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-DOC-001",
+      "title": "Consulta documental obrigatoria",
+      "status": "active",
+      "scope": "documentation",
+      "statement": "Antes de mudancas estruturais, governanca ou roadmap, consultar a documentacao aplicavel e declarar o que foi consultado.",
+      "verification": "A resposta deve listar documentos consultados e ausencias relevantes.",
+      "origin": "Arthur alignment",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-HARNESS-001",
+      "title": "Declaracao dos componentes do Harness",
+      "status": "active",
+      "scope": "harness",
+      "statement": "Investigacoes relevantes devem declarar quais componentes do Harness sustentaram a conclusao.",
+      "verification": "Informar registries, RAG, busca, documentos, testes e evidencia fisica usados ou omitidos.",
+      "origin": "Arthur alignment",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-FORMAT-001",
+      "title": "Blocos copiaveis restritos",
+      "status": "active",
+      "scope": "response-format",
+      "statement": "Blocos copiaveis sao reservados a comandos CMD, codigo solicitado ou pedido explicito; explicacoes, listas e Ancora usam texto normal.",
+      "verification": "Reformatar resposta que use blocos copiaveis para conteudo explicativo.",
+      "origin": "Arthur alignment",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-FORMAT-002",
+      "title": "Comando repetido na proxima etapa",
+      "status": "active",
+      "scope": "response-format",
+      "statement": "Quando houver comando, repetir integralmente o mesmo comando na Sugestao Fixa de Proxima Etapa.",
+      "verification": "O bloco 5 deve conter o comando completo, sem abreviacao.",
+      "origin": "Arthur alignment",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-CONTINUITY-001",
+      "title": "Nao acumular regras no chat",
+      "status": "active",
+      "scope": "continuity",
+      "statement": "Quando uma tratativa indicar uma regra materializavel, confirmar imediatamente com Arthur se ela deve ser oficializada; apos aprovacao, integrar ao projeto fisico sem acumulo para etapa futura.",
+      "verification": "Registrar estado proposed, approved ou rejected; regra aprovada deve ser persistida e validada na mesma tratativa antes de prosseguir.",
+      "origin": "Arthur alignment",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-RAG-003",
+      "title": "Governanca e medicao do timeout do RAG",
+      "status": "active",
+      "scope": "rag",
+      "statement": "O timeout do RAG deve ser compativel com o ambiente e medido antes de qualquer alteracao permanente. O limite nao pode tornar inviavel a resposta do modelo local.",
+      "verification": "Mudancas permanentes de timeout exigem medicao separada da chamada direta, resposta estruturada e context:ask; o diagnostico deve registrar limite usado, duracao, modo final e motivo do fallback.",
+      "origin": "Aprovacao explicita de Arthur durante PHASE-HARNESS-00-TRANSITION",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-RAG-004",
+      "title": "Validacao semantica do RAG",
+      "status": "active",
+      "scope": "rag",
+      "statement": "Mode ollama comprova geracao validada, nao correcao semantica; respostas sobre estado, fase, tarefa, decisao ou regra devem ser comparadas com registries canonicos.",
+      "verification": "Divergencia com registries bloqueia a aceitacao da resposta e exige localizar a causa entre roteamento, pacote, indice e modelo.",
+      "origin": "Aprovacao explicita de Arthur",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-SOURCE-001",
+      "title": "Auditoria de cobertura antes da regeneracao",
+      "status": "active",
+      "scope": "source-registry",
+      "statement": "Antes de regenerar o Source Registry, verificar se existem novos artefatos canonicos ausentes nas definicoes do gerador.",
+      "verification": "Comparar os caminhos canonicos existentes com as definicoes antes de context:source:generate.",
+      "origin": "Aprovacao explicita de Arthur",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-CMD-003",
+      "title": "Limite de complexidade dos comandos orientados",
+      "status": "active",
+      "scope": "command-guidance",
+      "statement": "Comandos inline extensos nao devem concentrar multiplas responsabilidades. Quando houver risco de truncamento, a orientacao deve usar comandos menores ou script fisico validavel.",
+      "verification": "Alteracoes estruturais complexas devem usar script fisico; node -e longo deve ser decomposto quando comprometer legibilidade, copia ou auditoria.",
+      "origin": "Aprovacao explicita de Arthur",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-040",
+      "title": "Isolar exatamente um agente por resposta",
+      "status": "active",
+      "category": "agent-governance",
+      "statement": "Cada resposta deve ser atribuida a exatamente um agente. Consultor, QA, Programador, Arquiteto ou outro agente nao podem atuar conjuntamente na mesma resposta.",
+      "rationale": "Evitar mistura de contexto, comprometimento do filtro de persona e execucao de funcoes alheias.",
+      "verification": "A resposta deve possuir exatamente um cabecalho de agente, todo o conteudo deve pertencer ao agente ativo e qualquer troca de responsabilidade deve ocorrer somente entre respostas.",
+      "sourceRefs": [
+        "DEC-2026-HARNESS-AGENT-PROTOCOL"
+      ],
+      "scope": "agent-governance",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL"
+    },
+    {
+      "id": "RULE-AGENT-001",
+      "title": "Agente canonico unico por resposta",
+      "status": "active",
+      "scope": "agent-contract",
+      "statement": "Cada resposta deve possuir exatamente um agente canonico ativo entre Professor, Gerente de Projetos, Arquiteto, Consultor, QA e Programador; o agente Juiz nao existe.",
+      "verification": "Validar conjunto fechado de seis agentes, cardinalidade de um agente ativo e ausencia de Juiz em contratos ativos.",
+      "origin": "Arthur approved Master Protocol extension",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-AGENT-002",
+      "title": "Fluxo canonico entre agentes",
+      "status": "active",
+      "scope": "agent-handoff",
+      "statement": "O fluxo obrigatorio e Arquiteto, Consultor, QA, Consultor, Programador, QA e Consultor, respeitando as responsabilidades exclusivas.",
+      "verification": "Validar cada transicao contra a sequencia canonica e bloquear salto de responsabilidade.",
+      "origin": "Arthur approved Master Protocol extension",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-SOURCE-002",
+      "title": "Precedencia das fontes fisicas canonicas",
+      "status": "active",
+      "scope": "source-governance",
+      "statement": "Fontes fisicas canonicas prevalecem sobre memoria conversacional, resumos e artefatos derivados.",
+      "verification": "Exigir fontes consultadas em mudancas estruturais e impedir derivado como substituto da fonte canonica.",
+      "origin": "Arthur approved Master Protocol extension",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-CONTINUITY-002",
+      "title": "Ponto isolado autoriza proxima etapa fixa",
+      "status": "active",
+      "scope": "continuity",
+      "statement": "Quando Arthur enviar apenas um ponto, fica autorizada a Sugestao Fixa de Proxima Etapa anterior, desde que exista handoff valido para o agente correto.",
+      "verification": "Exigir proxima etapa fixa e agente seguinte no contrato de handoff.",
+      "origin": "Arthur approved Master Protocol extension",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-DELIVERY-001",
+      "title": "Entrega fisica verificavel de arquivos",
+      "status": "active",
+      "scope": "file-delivery",
+      "statement": "Arquivo solicitado deve ser criado fisicamente, validado e entregue com URL real da ferramenta, nome, formato, tamanho em bytes, SHA-256 e CMD completo iniciado por cls.",
+      "verification": "Validar manifesto de entrega; funcionamento do hyperlink permanece confirmacao operacional humana.",
+      "origin": "Arthur approved Master Protocol extension",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-PROTOCOL-001",
+      "title": "Mudanca de protocolo exige alinhamento previo",
+      "status": "active",
+      "scope": "protocol-change",
+      "statement": "Mudanca de nome, formato, pasta, download, sequencia, responsabilidade, commit ou validacao exige protocolo anterior, novo, motivo, impacto e acao esperada.",
+      "verification": "Bloquear aplicacao quando qualquer um dos cinco elementos estiver ausente.",
+      "origin": "Arthur approved Master Protocol extension",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-STATUS-001",
+      "title": "Status bloqueador sem aprovacao",
+      "status": "active",
+      "scope": "quality-status",
+      "statement": "Ressalva bloqueadora exige status pendente de correcao ou reprovado; aprovado e aprovado com ressalvas nao sao permitidos.",
+      "verification": "Validar vocabulario do parecer quando houver bloqueio.",
+      "origin": "Arthur approved Master Protocol extension",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-PRODUCT-001",
+      "title": "Prioridade comercial do CMS",
+      "status": "active",
+      "scope": "product-priority",
+      "statement": "O CMS de artigos permanece prioridade comercial; correcoes pequenas integram o corte atual e o Harness nao abre nova frente sem bloqueio estrutural comprovado.",
+      "verification": "Projeto ativo deve permanecer EPIC-004 e evolucao do Harness deve estar limitada ao bloqueio comprovado.",
+      "origin": "Arthur approved Master Protocol extension",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    }
+  ]
 }
