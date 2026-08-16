@@ -52,22 +52,36 @@
         "Listagem administrativa dos artigos reais",
         "Abertura de artigo por slug",
         "Interface editorial somente leitura",
-        "Compatibilidade do Corte 1 com OpenNext e Cloudflare"
+        "Compatibilidade do Corte 1 com OpenNext e Cloudflare",
+        "MVP de Ingestao Editorial Local",
+        "Entrada editorial TXT preservada em content/inbox",
+        "Importador multipadrao TXT para MDX",
+        "Normalizacao automatica de titulos e marcadores editoriais",
+        "Backup de MDX antes da substituicao do corpo",
+        "Geracao controlada do catalogo estatico",
+        "Catalogo local validado com 12 artigos",
+        "Persistencia D1 de rascunhos",
+        "Criacao real de rascunhos",
+        "Recuperacao e edicao persistente",
+        "Validacao de metadados para gravacao",
+        "Geracao local de MDX pelo painel",
+        "Protecao contra sobrescrita de MDX",
+        "Geracao local controlada do catalogo",
+        "Validacoes locais Next.js e OpenNext",
+        "Retirada do piloto da projecao publica"
       ],
       "pendingWork": [
         "Gestao editorial",
         "Rascunho e edicao",
         "Validacao e publicacao",
         "Media Center",
-        "Persistencia editorial em D1",
-        "Criacao de rascunhos",
-        "Edicao persistente",
-        "Validacao de metadados para gravacao",
         "Publicacao controlada",
         "Migracao idempotente dos artigos atuais",
         "Transicao da fonte publica para D1",
         "Media Center com R2",
-        "Validacao em ambiente publicado"
+        "Validacao em ambiente publicado",
+        "Fechamento operacional Aguardando Git",
+        "Decisao administrativa sobre o rascunho piloto"
       ],
       "resumeConditions": [
         "Harness MVP validado",
@@ -77,7 +91,7 @@
       "nextPhase": "PHASE-EDITORIAL-CMS-02-HARDENING",
       "activePlan": "PLAN-EDITORIAL-CMS-MVP",
       "aiIntegration": "operational-active",
-      "nextStep": "TASK-EDITORIAL-CMS-01-D1-DRAFT-PERSISTENCE"
+      "nextStep": "TASK-EDITORIAL-CMS-01-D1-LOCAL-FLOW-CLOSEOUT"
     },
     {
       "id": "EPIC-HARNESS-001",

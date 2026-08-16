@@ -365,6 +365,103 @@
         "Decision Memory",
         "Planning Registry"
       ]
+    },
+    {
+      "id": "DEC-2026-EDITORIAL-CMS-LOCAL-INGESTION-MVP",
+      "title": "Adotar o pipeline local TXT para MDX como MVP operacional de ingestao editorial do CMS",
+      "status": "active",
+      "decidedAt": "2026-08-15",
+      "category": "architecture",
+      "context": "O CMS administrativo permanece somente leitura e a persistencia D1 ainda nao foi implementada. Durante a operacao local foi materializado e validado um pipeline reutilizavel para receber textos editoriais, normalizar estruturas heterogeneas, gerar MDX e atualizar o catalogo estatico do Blog sem simular persistencia no runtime.",
+      "decision": "Adotar content/inbox/*.txt, public/images/*, scripts/import-article.js, content/posts/*.mdx e scripts/generate-posts.js como MVP operacional local de ingestao editorial. TXT permanece como fonte bruta recebida, MDX como projecao normalizada atualmente consumida pelo site e lib/generated-posts.ts como artefato derivado. O fluxo local depende de versionamento Git e publicacao Cloudflare para chegar a producao, nao substitui D1 e nao estabelece dupla escrita permanente entre MDX e D1. O CMS futuro deve reutilizar as regras de normalizacao ja materializadas. A autoria padrao dos artigos atuais e Greyce, salvo instrucao explicita diferente de Arthur.",
+      "reason": "Preservar um ativo funcional comprovado, reduzir retrabalho editorial, orientar modelos futuros pelo estado fisico real e permitir evolucao incremental do CMS sem descartar o pipeline atual.",
+      "impacts": [
+        "Pipeline local TXT para MDX passa a integrar formalmente o MVP do CMS.",
+        "Textos editoriais brutos sao preservados em content/inbox.",
+        "MDX permanece como fonte normalizada do Blog no corte atual.",
+        "generated-posts.ts permanece derivado e nao gravavel manualmente.",
+        "Importacao, geracao de catalogo, Git e producao permanecem etapas distintas.",
+        "Persistencia D1 continua como proxima evolucao estrutural.",
+        "Doze artigos foram validados no catalogo local durante a materializacao do ativo."
+      ],
+      "rules": [
+        "Preservar o TXT editorial recebido.",
+        "Criar novos MDXs em UTF-8 sem BOM.",
+        "Criar backup antes de substituir o corpo de um MDX.",
+        "Validar a importacao antes de gerar o catalogo.",
+        "Nao editar lib/generated-posts.ts manualmente.",
+        "Separar operacao local, versionamento Git e publicacao em producao.",
+        "O pipeline local nao substitui D1.",
+        "Nao manter dupla escrita permanente entre MDX e D1.",
+        "Reutilizar o pipeline existente antes de propor substituicao.",
+        "Usar Greyce como autoria padrao dos artigos atuais salvo instrucao explicita diferente."
+      ],
+      "resumeCriteria": [
+        "Usar o pipeline local para novas postagens enquanto D1 nao estiver operacional.",
+        "Projetar a ingestao do CMS futuro reutilizando as normalizacoes existentes.",
+        "Definir migracao idempotente e transicao explicita da fonte publica para D1.",
+        "Preservar o Blog durante a evolucao para persistencia real."
+      ],
+      "supersedes": [],
+      "affectedAreas": [
+        "EPIC-004",
+        "CMS",
+        "Conteudo editorial",
+        "Blog",
+        "MDX",
+        "Context Engine",
+        "Decision Memory",
+        "Planning Registry",
+        "Rules Registry",
+        "D1",
+        "Cloudflare"
+      ]
+    },
+    {
+      "id": "DEC-2026-EDITORIAL-CMS-D1-LOCAL-PUBLISHING-FLOW",
+      "title": "Adotar rascunhos D1 e publicacao local controlada como fluxo operacional do CMS",
+      "status": "active",
+      "decidedAt": "2026-08-15",
+      "category": "architecture",
+      "context": "O CMS passou a persistir rascunhos reais no D1 e validou a geracao local controlada de MDX e catalogo sem transformar o runtime publicado em armazenamento gravavel.",
+      "decision": "Adotar D1 como persistencia real dos rascunhos administrativos e o painel como interface de criacao, salvamento, recuperacao e edicao. A geracao de MDX exige acao administrativa local explicita, recusa sobrescrita e permanece separada da geracao transacional do catalogo. MDX continua como projecao publica atual e lib/generated-posts.ts como artefato derivado. Build, Git, push e Cloudflare permanecem etapas distintas e manuais. Nao havera dupla escrita permanente entre D1 e MDX. Conteudo piloto nao segue para producao; o rascunho piloto permanece no D1 ate decisao administrativa separada.",
+      "reason": "Registrar a capacidade fisica comprovada sem reescrever os marcos historicos do CMS e manter limites verificaveis entre persistencia, projecao publica e publicacao.",
+      "impacts": [
+        "Rascunhos administrativos possuem persistencia e continuidade reais no D1.",
+        "Geracao local de MDX e catalogo passa a integrar formalmente o fluxo operacional do painel.",
+        "MDX permanece como projecao publica do corte atual e o catalogo permanece derivado.",
+        "Git, push e Cloudflare continuam manuais.",
+        "O piloto tecnico permanece fora da projecao publica e recuperavel por evidencias externas."
+      ],
+      "rules": [
+        "A autoria padrao e Greyce salvo instrucao explicita diferente de Arthur.",
+        "Gerar MDX exige acao administrativa local explicita e e bloqueado em producao.",
+        "MDX existente nao pode ser sobrescrito.",
+        "Gerar catalogo e uma acao separada com lock, timeout, backup transacional e rollback.",
+        "Geracao local, build, Git, push e Cloudflare sao etapas distintas.",
+        "Nao manter dupla escrita permanente entre D1 e MDX.",
+        "Conteudo piloto nao segue para producao.",
+        "O rascunho piloto D1 exige decisao administrativa separada."
+      ],
+      "resumeCriteria": [
+        "Concluir a governanca e regenerar os derivados oficiais.",
+        "Validar o Harness e separar os commits de CMS, editorial e governanca.",
+        "Manter publicacao em producao sob acao manual."
+      ],
+      "supersedes": [],
+      "affectedAreas": [
+        "EPIC-004",
+        "CMS",
+        "D1",
+        "MDX",
+        "Blog",
+        "Context Engine",
+        "Decision Memory",
+        "Planning Registry",
+        "Rules Registry",
+        "Git",
+        "Cloudflare"
+      ]
     }
   ]
 }

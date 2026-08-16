@@ -1,0 +1,46 @@
+{
+  "id": "DEC-2026-EDITORIAL-CMS-D1-LOCAL-PUBLISHING-FLOW",
+  "title": "Adotar rascunhos D1 e publicacao local controlada como fluxo operacional do CMS",
+  "status": "active",
+  "decidedAt": "2026-08-15",
+  "category": "architecture",
+  "context": "O CMS passou a persistir rascunhos reais no D1 e validou a geracao local controlada de MDX e catalogo sem transformar o runtime publicado em armazenamento gravavel.",
+  "decision": "Adotar D1 como persistencia real dos rascunhos administrativos e o painel como interface de criacao, salvamento, recuperacao e edicao. A geracao de MDX exige acao administrativa local explicita, recusa sobrescrita e permanece separada da geracao transacional do catalogo. MDX continua como projecao publica atual e lib/generated-posts.ts como artefato derivado. Build, Git, push e Cloudflare permanecem etapas distintas e manuais. Nao havera dupla escrita permanente entre D1 e MDX. Conteudo piloto nao segue para producao; o rascunho piloto permanece no D1 ate decisao administrativa separada.",
+  "reason": "Registrar a capacidade fisica comprovada sem reescrever os marcos historicos do CMS e manter limites verificaveis entre persistencia, projecao publica e publicacao.",
+  "impacts": [
+    "Rascunhos administrativos possuem persistencia e continuidade reais no D1.",
+    "Geracao local de MDX e catalogo passa a integrar formalmente o fluxo operacional do painel.",
+    "MDX permanece como projecao publica do corte atual e o catalogo permanece derivado.",
+    "Git, push e Cloudflare continuam manuais.",
+    "O piloto tecnico permanece fora da projecao publica e recuperavel por evidencias externas."
+  ],
+  "rules": [
+    "A autoria padrao e Greyce salvo instrucao explicita diferente de Arthur.",
+    "Gerar MDX exige acao administrativa local explicita e e bloqueado em producao.",
+    "MDX existente nao pode ser sobrescrito.",
+    "Gerar catalogo e uma acao separada com lock, timeout, backup transacional e rollback.",
+    "Geracao local, build, Git, push e Cloudflare sao etapas distintas.",
+    "Nao manter dupla escrita permanente entre D1 e MDX.",
+    "Conteudo piloto nao segue para producao.",
+    "O rascunho piloto D1 exige decisao administrativa separada."
+  ],
+  "resumeCriteria": [
+    "Concluir a governanca e regenerar os derivados oficiais.",
+    "Validar o Harness e separar os commits de CMS, editorial e governanca.",
+    "Manter publicacao em producao sob acao manual."
+  ],
+  "supersedes": [],
+  "affectedAreas": [
+    "EPIC-004",
+    "CMS",
+    "D1",
+    "MDX",
+    "Blog",
+    "Context Engine",
+    "Decision Memory",
+    "Planning Registry",
+    "Rules Registry",
+    "Git",
+    "Cloudflare"
+  ]
+}

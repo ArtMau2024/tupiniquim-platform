@@ -270,6 +270,160 @@
       "origin": "Arthur approved Master Protocol extension",
       "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
       "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-INGESTION-001",
+      "title": "Preservar a fonte editorial TXT",
+      "status": "active",
+      "scope": "editorial-source",
+      "statement": "O TXT recebido do editor deve ser preservado em content/inbox como evidencia bruta do corte local.",
+      "verification": "Verificar existencia e integridade do TXT antes e depois da importacao.",
+      "origin": "MVP de Ingestao Editorial Local validado por Arthur",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-LOCAL-INGESTION-MVP",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-INGESTION-002",
+      "title": "Tratar MDX como projecao normalizada atual",
+      "status": "active",
+      "scope": "editorial-projection",
+      "statement": "O MDX em content/posts e a projecao normalizada atualmente consumida pelo Blog, sem substituir a futura persistencia D1.",
+      "verification": "Confirmar frontmatter e corpo normalizado no MDX gerado.",
+      "origin": "MVP de Ingestao Editorial Local validado por Arthur",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-LOCAL-INGESTION-MVP",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-INGESTION-003",
+      "title": "Proibir edicao manual do catalogo derivado",
+      "status": "active",
+      "scope": "generated-artifact",
+      "statement": "lib/generated-posts.ts deve ser produzido por scripts/generate-posts.js e nao editado manualmente.",
+      "verification": "Comparar origem do arquivo e executar o gerador oficial.",
+      "origin": "MVP de Ingestao Editorial Local validado por Arthur",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-LOCAL-INGESTION-MVP",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-INGESTION-004",
+      "title": "Usar UTF-8 sem BOM nos novos MDXs",
+      "status": "active",
+      "scope": "file-encoding",
+      "statement": "Novos arquivos MDX devem ser gravados em UTF-8 sem BOM.",
+      "verification": "Inspecionar os tres primeiros bytes e o delimitador inicial.",
+      "origin": "MVP de Ingestao Editorial Local validado por Arthur",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-LOCAL-INGESTION-MVP",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-INGESTION-005",
+      "title": "Criar backup antes de substituir MDX",
+      "status": "active",
+      "scope": "editorial-safety",
+      "statement": "Toda importacao que substitui o corpo de um MDX deve criar backup local previamente; o backup nao e fonte canonica, nao entra no Git, fica fora do indice semantico e pode ser quarentenado externamente apos validacao.",
+      "verification": "Exigir backup antes da substituicao e, quando quarentenado, preservar caminho, tamanho e SHA-256; reprovar backup preparado para Git ou indexado semanticamente.",
+      "origin": "MVP de Ingestao Editorial Local validado por Arthur",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-LOCAL-INGESTION-MVP",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-INGESTION-006",
+      "title": "Validar importacao antes do catalogo",
+      "status": "active",
+      "scope": "editorial-validation",
+      "statement": "A importacao deve ser validada antes da execucao de scripts/generate-posts.js.",
+      "verification": "Exigir codigo zero, frontmatter preservado e ausencia de marcadores editoriais remanescentes.",
+      "origin": "MVP de Ingestao Editorial Local validado por Arthur",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-LOCAL-INGESTION-MVP",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-INGESTION-007",
+      "title": "Separar local Git e producao",
+      "status": "active",
+      "scope": "deployment-boundary",
+      "statement": "Postagem local, versionamento Git e publicacao Cloudflare sao etapas distintas.",
+      "verification": "Nao declarar producao atualizada apenas com validacao em localhost.",
+      "origin": "MVP de Ingestao Editorial Local validado por Arthur",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-LOCAL-INGESTION-MVP",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-INGESTION-008",
+      "title": "Manter D1 como evolucao futura",
+      "status": "active",
+      "scope": "architecture-boundary",
+      "statement": "O MVP local de ingestao nao substitui D1 nem autoriza dupla escrita permanente entre MDX e D1.",
+      "verification": "Planning Registry deve manter a tarefa D1 in_progress.",
+      "origin": "MVP de Ingestao Editorial Local validado por Arthur",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-LOCAL-INGESTION-MVP",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-INGESTION-009",
+      "title": "Aplicar autoria padrao Greyce",
+      "status": "active",
+      "scope": "editorial-metadata",
+      "statement": "Nos artigos atuais a autoria padrao e Greyce, salvo instrucao explicita diferente de Arthur.",
+      "verification": "Validar o campo author do frontmatter contra a orientacao editorial vigente.",
+      "origin": "MVP de Ingestao Editorial Local validado por Arthur",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-LOCAL-INGESTION-MVP",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-INGESTION-010",
+      "title": "Reutilizar o pipeline existente",
+      "status": "active",
+      "scope": "model-guidance",
+      "statement": "Modelos futuros devem orientar o uso do pipeline editorial existente antes de propor substituicao estrutural.",
+      "verification": "Consulta do Context Engine deve recuperar o fluxo TXT, imagem, MDX, importador, gerador e navegador.",
+      "origin": "MVP de Ingestao Editorial Local validado por Arthur",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-LOCAL-INGESTION-MVP",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-D1-LOCAL-001",
+      "title": "Geracao explicita e local de MDX",
+      "status": "active",
+      "scope": "editorial-d1-local-flow",
+      "statement": "Gerar MDX exige acao administrativa local explicita, e bloqueado em producao e nao sobrescreve arquivo existente.",
+      "verification": "Validar sessao, ambiente local, acao explicita e recusa de sobrescrita.",
+      "origin": "Fluxo D1 local validado por Arthur",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-D1-LOCAL-PUBLISHING-FLOW",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-D1-LOCAL-002",
+      "title": "Geracao separada e transacional do catalogo",
+      "status": "active",
+      "scope": "editorial-d1-local-flow",
+      "statement": "Gerar catalogo e acao independente, reutiliza o gerador oficial, exige lock, timeout e rollback e nao executa build, Git ou deploy.",
+      "verification": "Validar separacao das acoes, gerador oficial, limpeza transacional e ausencia de build, Git e deploy.",
+      "origin": "Fluxo D1 local validado por Arthur",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-D1-LOCAL-PUBLISHING-FLOW",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-D1-LOCAL-003",
+      "title": "Estado Aguardando Git",
+      "status": "active",
+      "scope": "editorial-d1-local-flow",
+      "statement": "Validacao e builds locais nao equivalem a publicacao; Git, push e Cloudflare permanecem manuais.",
+      "verification": "Nao declarar producao atualizada sem Git, push e Cloudflare concluidos por acao manual.",
+      "origin": "Fluxo D1 local validado por Arthur",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-D1-LOCAL-PUBLISHING-FLOW",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-D1-LOCAL-004",
+      "title": "Tratamento do conteudo piloto",
+      "status": "active",
+      "scope": "editorial-d1-local-flow",
+      "statement": "Conteudo tecnico de validacao nao segue para producao; evidencias podem permanecer em quarentena e o rascunho D1 exige decisao administrativa separada.",
+      "verification": "Confirmar piloto ausente da projecao publica e preservar evidencias sem excluir o rascunho D1 automaticamente.",
+      "origin": "Fluxo D1 local validado por Arthur",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-D1-LOCAL-PUBLISHING-FLOW",
+      "supersedes": []
     }
   ]
 }

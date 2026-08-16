@@ -1,0 +1,51 @@
+{
+  "id": "DEC-2026-EDITORIAL-CMS-LOCAL-INGESTION-MVP",
+  "title": "Adotar o pipeline local TXT para MDX como MVP operacional de ingestao editorial do CMS",
+  "status": "active",
+  "decidedAt": "2026-08-15",
+  "category": "architecture",
+  "context": "O CMS administrativo permanece somente leitura e a persistencia D1 ainda nao foi implementada. Durante a operacao local foi materializado e validado um pipeline reutilizavel para receber textos editoriais, normalizar estruturas heterogeneas, gerar MDX e atualizar o catalogo estatico do Blog sem simular persistencia no runtime.",
+  "decision": "Adotar content/inbox/*.txt, public/images/*, scripts/import-article.js, content/posts/*.mdx e scripts/generate-posts.js como MVP operacional local de ingestao editorial. TXT permanece como fonte bruta recebida, MDX como projecao normalizada atualmente consumida pelo site e lib/generated-posts.ts como artefato derivado. O fluxo local depende de versionamento Git e publicacao Cloudflare para chegar a producao, nao substitui D1 e nao estabelece dupla escrita permanente entre MDX e D1. O CMS futuro deve reutilizar as regras de normalizacao ja materializadas. A autoria padrao dos artigos atuais e Greyce, salvo instrucao explicita diferente de Arthur.",
+  "reason": "Preservar um ativo funcional comprovado, reduzir retrabalho editorial, orientar modelos futuros pelo estado fisico real e permitir evolucao incremental do CMS sem descartar o pipeline atual.",
+  "impacts": [
+    "Pipeline local TXT para MDX passa a integrar formalmente o MVP do CMS.",
+    "Textos editoriais brutos sao preservados em content/inbox.",
+    "MDX permanece como fonte normalizada do Blog no corte atual.",
+    "generated-posts.ts permanece derivado e nao gravavel manualmente.",
+    "Importacao, geracao de catalogo, Git e producao permanecem etapas distintas.",
+    "Persistencia D1 continua como proxima evolucao estrutural.",
+    "Doze artigos foram validados no catalogo local durante a materializacao do ativo."
+  ],
+  "rules": [
+    "Preservar o TXT editorial recebido.",
+    "Criar novos MDXs em UTF-8 sem BOM.",
+    "Criar backup antes de substituir o corpo de um MDX.",
+    "Validar a importacao antes de gerar o catalogo.",
+    "Nao editar lib/generated-posts.ts manualmente.",
+    "Separar operacao local, versionamento Git e publicacao em producao.",
+    "O pipeline local nao substitui D1.",
+    "Nao manter dupla escrita permanente entre MDX e D1.",
+    "Reutilizar o pipeline existente antes de propor substituicao.",
+    "Usar Greyce como autoria padrao dos artigos atuais salvo instrucao explicita diferente."
+  ],
+  "resumeCriteria": [
+    "Usar o pipeline local para novas postagens enquanto D1 nao estiver operacional.",
+    "Projetar a ingestao do CMS futuro reutilizando as normalizacoes existentes.",
+    "Definir migracao idempotente e transicao explicita da fonte publica para D1.",
+    "Preservar o Blog durante a evolucao para persistencia real."
+  ],
+  "supersedes": [],
+  "affectedAreas": [
+    "EPIC-004",
+    "CMS",
+    "Conteudo editorial",
+    "Blog",
+    "MDX",
+    "Context Engine",
+    "Decision Memory",
+    "Planning Registry",
+    "Rules Registry",
+    "D1",
+    "Cloudflare"
+  ]
+}

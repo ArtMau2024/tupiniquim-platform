@@ -45,3 +45,21 @@ yarn-error.log*
 next-env.d.ts
 .aider*
 !.env.example
+
+# local recovery files
+*.backup
+*.backup.*
+*.pre-*.backup
+*.pre-*.backup.*
+
+# transactional Context Engine artifacts
+/site-context/.generation-tmp/
+
+# Arquivos locais, fontes brutas e verificacoes sensiveis
+/CODIGO_PROJETO_TUPINIQUIM.txt
+/MAPA_INICIAL_PROJETO.txt
+/ROADMAP_ESTUDO_AUTONOMO.txt
+/VERIFICACAO_CREDENCIAIS.txt
+/content/inbox/
+/scripts/governance/materialize-editorial-mvp-governance.js
+/scripts/governance/materialize-editorial-mvp-governance.test.js

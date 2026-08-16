@@ -103,13 +103,46 @@
         {
           "id": "TASK-EDITORIAL-CMS-01-D1-DRAFT-PERSISTENCE",
           "title": "Implementar persistencia editorial D1 e rascunhos reais",
-          "status": "in_progress",
+          "status": "completed",
           "objective": "Implementar schema D1, criacao de rascunho, salvamento real e recuperacao para continuidade da edicao.",
           "acceptanceCriteria": [
-            "Schema D1 para o primeiro corte definido e validado por Arthur antes da materializacao estrutural.",
-            "Rascunho real pode ser criado e salvo em D1.",
-            "Rascunho salvo pode ser recuperado para continuidade da edicao.",
-            "Publicacao, R2, Media Center, migracao completa e transicao definitiva da fonte publica permanecem fora do escopo."
+            "Schema D1 implementado e validado.",
+            "Rascunho real criado e salvo em D1.",
+            "Rascunho recuperado e editado para continuidade.",
+            "Metadados validados antes da gravacao.",
+            "Geracao local de MDX validada com recusa de sobrescrita.",
+            "Geracao local do catalogo validada como acao independente.",
+            "CMS 33/33 e Context Engine 98/98.",
+            "Builds Next.js e OpenNext validados."
+          ]
+        },
+        {
+          "id": "TASK-EDITORIAL-CMS-01-LOCAL-INGESTION-MVP",
+          "title": "Materializar o MVP de Ingestao Editorial Local",
+          "status": "completed",
+          "objective": "Formalizar e preservar o pipeline local TXT para MDX como corte funcional do CMS, mantendo D1 como evolucao estrutural futura.",
+          "acceptanceCriteria": [
+            "TXT editorial permanece preservado em content/inbox.",
+            "Importador multipadrao normaliza o conteudo e cria backup antes de substituir MDX.",
+            "Novos MDXs usam UTF-8 sem BOM e frontmatter obrigatorio.",
+            "Catalogo derivado e gerado por scripts/generate-posts.js sem edicao manual.",
+            "Doze artigos estao presentes e navegaveis no ambiente local.",
+            "Testes do importador permanecem verdes.",
+            "Persistencia D1 continua in_progress e fora deste corte funcional."
+          ]
+        },
+        {
+          "id": "TASK-EDITORIAL-CMS-01-D1-LOCAL-FLOW-CLOSEOUT",
+          "title": "Fechar governanca e preparar o fluxo local para Git",
+          "status": "in_progress",
+          "objective": "Materializar a decisao do fluxo D1 local, regenerar derivados, validar o Harness, classificar arquivos sensiveis e separar commits auditaveis.",
+          "acceptanceCriteria": [
+            "Nova decisao persistida e validada.",
+            "Registries e documentacao coerentes.",
+            "Derivados regenerados pelos mecanismos oficiais.",
+            "Harness e suites permanecem verdes.",
+            "Arquivos potencialmente sensiveis classificados.",
+            "Escopos de commit separados sem push ou deploy."
           ]
         }
       ]
