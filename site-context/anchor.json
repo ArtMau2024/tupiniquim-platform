@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-16T03:12:45.637Z",
+  "generatedAt": "2026-08-16T04:24:02.126Z",
   "blocks": [
     {
       "id": "architecture",
@@ -36,7 +36,7 @@
           }
         ],
         "activeDecisions": 10,
-        "activeRules": 38,
+        "activeRules": 45,
         "openConflicts": 0
       },
       "sources": [
@@ -128,7 +128,14 @@
           "RULE-EDITORIAL-D1-LOCAL-001",
           "RULE-EDITORIAL-D1-LOCAL-002",
           "RULE-EDITORIAL-D1-LOCAL-003",
-          "RULE-EDITORIAL-D1-LOCAL-004"
+          "RULE-EDITORIAL-D1-LOCAL-004",
+          "RULE-HARNESS-EFFICIENCY-001",
+          "RULE-HARNESS-EFFICIENCY-002",
+          "RULE-HARNESS-EFFICIENCY-003",
+          "RULE-HARNESS-EFFICIENCY-004",
+          "RULE-HARNESS-EFFICIENCY-005",
+          "RULE-HARNESS-EFFICIENCY-006",
+          "RULE-HARNESS-EFFICIENCY-007"
         ],
         "activeDecisionIds": [
           "DEC-2026-EPIC-TRANSITION-HARNESS",

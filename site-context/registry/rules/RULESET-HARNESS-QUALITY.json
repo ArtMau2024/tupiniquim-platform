@@ -424,6 +424,83 @@
       "origin": "Fluxo D1 local validado por Arthur",
       "decisionRef": "DEC-2026-EDITORIAL-CMS-D1-LOCAL-PUBLISHING-FLOW",
       "supersedes": []
+    },
+    {
+      "id": "RULE-HARNESS-EFFICIENCY-001",
+      "title": "Definicao de pronto antes da implementacao",
+      "status": "active",
+      "scope": "harness-operational-efficiency",
+      "statement": "Toda entrega deve definir antes da implementacao o resultado funcional esperado, os testes obrigatorios, as evidencias finais, o limite de tentativas e as operacoes excluidas do escopo.",
+      "verification": "Confirmar que o plano anterior a implementacao registra resultado, testes, evidencias, limite de tentativas e exclusoes.",
+      "origin": "Retrospectiva operacional aprovada por Arthur em 2026-08-15",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-HARNESS-EFFICIENCY-002",
+      "title": "Orcamento de validacao apos a prova funcional",
+      "status": "active",
+      "scope": "harness-operational-efficiency",
+      "statement": "Depois da prova funcional, a validacao normal fica limitada a um teste direcionado, uma regressao consolidada e uma revisao curta.",
+      "verification": "Confirmar que validacoes adicionais apos essa sequencia possuem falha concreta nova declarada como justificativa.",
+      "origin": "Retrospectiva operacional aprovada por Arthur em 2026-08-15",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-HARNESS-EFFICIENCY-003",
+      "title": "Criterio objetivo de parada",
+      "status": "active",
+      "scope": "harness-operational-efficiency",
+      "statement": "A entrega deve ser encerrada quando a funcao estiver comprovada, os testes obrigatorios estiverem verdes, o rollback existir quando necessario, nenhum segredo tiver sido detectado e o diff estiver sem erro.",
+      "verification": "Verificar as cinco condicoes de encerramento e impedir novas revisoes baseadas apenas em risco abstrato.",
+      "origin": "Retrospectiva operacional aprovada por Arthur em 2026-08-15",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-HARNESS-EFFICIENCY-004",
+      "title": "Nao repeticao de evidencia valida",
+      "status": "active",
+      "scope": "harness-operational-efficiency",
+      "statement": "Uma evidencia valida nao deve ser coletada novamente enquanto o arquivo, artefato ou comportamento correspondente nao tiver sido alterado.",
+      "verification": "Antes de repetir hash, sintaxe, teste ou prova, exigir evidencia de alteracao posterior no objeto validado.",
+      "origin": "Retrospectiva operacional aprovada por Arthur em 2026-08-15",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-HARNESS-EFFICIENCY-005",
+      "title": "Artefato testado identico ao aplicado",
+      "status": "active",
+      "scope": "harness-operational-efficiency",
+      "statement": "O artefato testado deve ser exatamente o mesmo artefato entregue e aplicado, sem transformacao intermediaria diferente entre validacao e uso real.",
+      "verification": "Comparar identidade, conteudo ou SHA-256 do artefato testado, entregue e aplicado.",
+      "origin": "Retrospectiva operacional aprovada por Arthur em 2026-08-15",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-HARNESS-EFFICIENCY-006",
+      "title": "Governanca nao bloqueadora direcionada ao backlog",
+      "status": "active",
+      "scope": "harness-operational-efficiency",
+      "statement": "Melhorias de governanca sem falha concreta devem ser registradas no backlog e nao podem impedir fechamento funcional, commit ou avanco comercial.",
+      "verification": "Para cada bloqueio de governanca, exigir falha concreta; na ausencia dela, registrar a melhoria como pendencia nao bloqueadora.",
+      "origin": "Retrospectiva operacional aprovada por Arthur em 2026-08-15",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-HARNESS-EFFICIENCY-007",
+      "title": "Limite de tempo do fechamento apos prova funcional",
+      "status": "active",
+      "scope": "harness-operational-efficiency",
+      "statement": "O fechamento apos a prova funcional deve durar no maximo 30 minutos normalmente ou 60 minutos somente quando houver rollback, possivel segredo ou regressao real.",
+      "verification": "Ao exceder o limite, o Consultor deve interromper o processo e separar bloqueios concretos, pendencias nao bloqueadoras, decisao minima necessaria e acao autorizada para encerramento.",
+      "origin": "Retrospectiva operacional aprovada por Arthur em 2026-08-15",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
     }
   ]
 }
