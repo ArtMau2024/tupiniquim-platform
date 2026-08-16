@@ -1,10 +1,22 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { generatedPosts } from "@/lib/generated-posts";
+import { findEditorialPostBySlug } from "@/lib/cms/editorial-catalog";
+import { getBlogCategoryByValue } from "@/lib/blog-categories";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
+
+function formatDate(date: string) {
+  const parsedDate = new Date(`${date}T12:00:00`);
+  if (Number.isNaN(parsedDate.getTime())) return date;
+  return new Intl.DateTimeFormat("pt-BR", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  }).format(parsedDate);
+}
 
 export async function generateStaticParams() {
   return generatedPosts.map((post) => ({
@@ -15,7 +27,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
 
-  const post = generatedPosts.find((item) => item.slug === slug);
+  const post = findEditorialPostBySlug(slug);
 
   if (!post) {
     return {
@@ -107,7 +119,7 @@ function markdownToHtml(markdown: string): string {
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
 
-  const post = generatedPosts.find((item) => item.slug === slug);
+  const post = findEditorialPostBySlug(slug);
 
   if (!post) {
     notFound();
@@ -116,40 +128,90 @@ export default async function PostPage({ params }: Props) {
   const htmlContent = markdownToHtml(post.content);
 
   return (
-    <article style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
-      {post.image && (
-        <Image
-          src={post.image}
-          alt={post.title}
-          width={800}
-          height={400}
-          style={{
-            borderRadius: "10px",
-            marginBottom: "20px",
-            width: "100%",
-            height: "auto",
-          }}
-        />
-      )}
-
-      <h1 style={{ fontSize: "28px", marginBottom: "10px" }}>{post.title}</h1>
-
-      {post.author && (
-        <p style={{ color: "#444", marginBottom: "4px", fontWeight: "bold" }}>
-          Por {post.author}
+    <article className="post-page">
+      <header className="post-header">
+        <p className="post-category">
+          {getBlogCategoryByValue(post.category)?.label ?? post.category}
         </p>
+        <h1>{post.title}</h1>
+        <p className="post-description">{post.description}</p>
+        <p className="post-meta">
+          {post.author ? <span>Por {post.author}</span> : null}
+          {post.author ? <span aria-hidden="true">•</span> : null}
+          <time dateTime={post.date}>{formatDate(post.date)}</time>
+        </p>
+      </header>
+      {post.image && (
+        <div className="post-image-wrapper">
+          <Image
+            src={post.image}
+            alt={post.title}
+            width={1200}
+            height={675}
+            className="post-image"
+            priority
+          />
+        </div>
       )}
-
-      <p style={{ color: "#666", marginBottom: "20px" }}>{post.date}</p>
-
-      <hr />
-
       <div
         className="post-content"
         dangerouslySetInnerHTML={{ __html: htmlContent }}
       />
 
       <style>{`
+        .post-page {
+          max-width: 1000px;
+          margin: 0 auto;
+          padding: 28px 20px 52px;
+        }
+        .post-header {
+          max-width: 900px;
+          margin-bottom: 28px;
+        }
+        .post-category {
+          margin: 0 0 10px;
+          color: #2e7d32;
+          font-size: 0.78rem;
+          font-weight: 800;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+        }
+        .post-header h1 {
+          margin: 0;
+          color: #111;
+          font-size: clamp(2.35rem, 6vw, 4.8rem);
+          line-height: 0.98;
+          letter-spacing: -0.045em;
+        }
+        .post-description {
+          max-width: 820px;
+          margin: 20px 0 14px;
+          color: #444;
+          font-size: clamp(1.05rem, 2vw, 1.3rem);
+          line-height: 1.55;
+        }
+        .post-meta {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin: 0;
+          color: #666;
+          font-size: 0.9rem;
+        }
+        .post-image-wrapper {
+          overflow: hidden;
+          margin-bottom: 32px;
+          border-radius: 10px;
+          background: #ececec;
+          aspect-ratio: 16 / 9;
+        }
+        .post-image {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
         .post-content p {
           line-height: 1.8;
           margin-bottom: 16px;
@@ -204,6 +266,17 @@ export default async function PostPage({ params }: Props) {
         .post-content a {
           color: #2E7D32;
           text-decoration: underline;
+        }
+        @media (max-width: 640px) {
+          .post-page {
+            padding: 22px 0 42px;
+          }
+          .post-header h1 {
+            line-height: 1.04;
+          }
+          .post-image-wrapper {
+            border-radius: 0;
+          }
         }
       `}</style>
     </article>

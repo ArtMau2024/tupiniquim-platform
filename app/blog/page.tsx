@@ -1,4 +1,4 @@
-import { generatedPosts } from "@/lib/generated-posts";
+import { listEditorialPosts } from "@/lib/cms/editorial-catalog";
 import {
   getBlogCategories,
   getBlogCategoryByValue,
@@ -27,12 +27,9 @@ function formatDate(date: string) {
 }
 
 export default function BlogPage() {
-  const posts = generatedPosts;
-  const featuredPost =
-    posts.find((post) => post.slug === "construindo-um-blog") ?? posts[0];
-  const secondaryPosts = posts
-    .filter((post) => post.slug !== featuredPost?.slug)
-    .slice(0, 2);
+  const posts = listEditorialPosts();
+  const featuredPost = posts[0];
+  const secondaryPosts = posts.slice(1, 3);
   const categories = getBlogCategories();
 
   return (
@@ -79,6 +76,22 @@ export default function BlogPage() {
               href={`/blog/${featuredPost.slug}`}
               className="story-link lead-story-link"
             >
+              <div className="lead-content">
+                <p className="story-category">
+                  {getBlogCategoryByValue(featuredPost.category)?.label ??
+                    featuredPost.category}
+                </p>
+                <h2>{featuredPost.title}</h2>
+                <p className="story-description">
+                  {featuredPost.description}
+                </p>
+                <p className="story-meta">
+                  {featuredPost.author ? <span>Por {featuredPost.author}</span> : null}
+                  {featuredPost.author ? <span aria-hidden="true">•</span> : null}
+                  <time dateTime={featuredPost.date}>{formatDate(featuredPost.date)}</time>
+                </p>
+              </div>
+
               {featuredPost.image && (
                 <div className="lead-image-wrapper">
                   <Image
@@ -91,20 +104,6 @@ export default function BlogPage() {
                   />
                 </div>
               )}
-
-              <div className="lead-content">
-                <p className="story-category">
-                  {getBlogCategoryByValue(featuredPost.category)?.label ??
-                    featuredPost.category}
-                </p>
-                <h2>{featuredPost.title}</h2>
-                <p className="story-description">
-                  {featuredPost.description}
-                </p>
-                <time dateTime={featuredPost.date}>
-                  {formatDate(featuredPost.date)}
-                </time>
-              </div>
             </Link>
           </article>
 
@@ -136,7 +135,11 @@ export default function BlogPage() {
                     <p className="secondary-description">
                       {post.description}
                     </p>
-                    <time dateTime={post.date}>{formatDate(post.date)}</time>
+                    <p className="story-meta">
+                      {post.author ? <span>Por {post.author}</span> : null}
+                      {post.author ? <span aria-hidden="true">•</span> : null}
+                      <time dateTime={post.date}>{formatDate(post.date)}</time>
+                    </p>
                   </div>
                 </Link>
               </article>
@@ -178,7 +181,11 @@ export default function BlogPage() {
                   </p>
                   <h3>{post.title}</h3>
                   <p>{post.description}</p>
-                  <time dateTime={post.date}>{formatDate(post.date)}</time>
+                  <p className="story-meta">
+                    {post.author ? <span>Por {post.author}</span> : null}
+                    {post.author ? <span aria-hidden="true">•</span> : null}
+                    <time dateTime={post.date}>{formatDate(post.date)}</time>
+                  </p>
                 </div>
               </Link>
             </article>
@@ -306,7 +313,7 @@ export default function BlogPage() {
         }
 
         .lead-content {
-          padding-top: 18px;
+          padding-bottom: 18px;
         }
 
         .lead-content h2 {
@@ -329,6 +336,19 @@ export default function BlogPage() {
         time {
           color: #666;
           font-size: 0.82rem;
+        }
+        .story-meta {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 7px;
+          margin: 0;
+          color: #666;
+          font-size: 0.82rem;
+        }
+        .story-meta time {
+          color: inherit;
+          font-size: inherit;
         }
 
         .secondary-stories {
