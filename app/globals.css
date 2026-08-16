@@ -2,9 +2,52 @@
   --background: #ffffff;
   --foreground: #171717;
 }
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+.cms-admin-shell { margin: 0; min-height: 70vh; overflow: hidden; border-radius: 14px; background: #eef1ed; }
+.cms-admin-frame { display: grid; grid-template-columns: 220px minmax(0, 1fr); max-width: 1400px; margin: 0 auto; }
+.cms-admin-sidebar { padding: 34px 24px; background: #111; color: #fff; }
+.cms-admin-eyebrow { display: block; color: #2e7d32; font-size: .74rem; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+.cms-admin-sidebar .cms-admin-eyebrow { color: #ffb300; }
+.cms-admin-sidebar-title { display: block; margin-top: 8px; font-size: 1.3rem; }
+.cms-admin-nav { display: grid; gap: 8px; margin-top: 30px; }
+.cms-admin-nav a { padding: 11px 12px; border-radius: 8px; color: #e7e7e7; font-weight: 700; text-decoration: none; }
+.cms-admin-nav a:hover { background: rgba(255,179,0,.14); color: #ffb300; }
+.cms-admin-content { min-width: 0; padding: 38px; }
+.cms-admin-page { max-width: 1100px; margin: 0 auto; }
+.cms-admin-page-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
+.cms-admin-page-header h1 { margin: 6px 0 8px; font-size: clamp(2rem,4vw,3rem); letter-spacing: -.04em; }
+.cms-admin-page-header p, .cms-admin-section-heading p, .cms-admin-empty p { color: #5e665f; line-height: 1.6; }
+.cms-admin-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.cms-admin-actions form { margin: 0; }
+.cms-admin-button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; border: 1px solid transparent; border-radius: 8px; box-sizing: border-box; cursor: pointer; font: inherit; font-weight: 800; text-decoration: none; }
+.cms-admin-button-primary { background: #ffb300; color: #111; }
+.cms-admin-button-primary:hover { background: #2e7d32; color: #fff; }
+.cms-admin-button-secondary { border-color: #c9cec9; background: #fff; color: #111; }
+.cms-admin-summary { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin: 30px 0; }
+.cms-admin-summary-card, .cms-admin-card, .cms-admin-empty, .cms-admin-alert { border: 1px solid #dfe4df; border-radius: 14px; background: #fff; box-shadow: 0 8px 26px rgba(17,17,17,.05); }
+.cms-admin-summary-card { padding: 20px; }
+.cms-admin-summary-card span { display: block; color: #687068; font-size: .82rem; font-weight: 700; text-transform: uppercase; }
+.cms-admin-summary-card strong { display: block; margin-top: 8px; font-size: 1.8rem; }
+.cms-admin-summary-card .cms-admin-status-ok { color: #2e7d32; font-size: 1.1rem; }
+.cms-admin-section { margin-top: 36px; }
+.cms-admin-section-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 16px; }
+.cms-admin-section-heading h2 { margin: 5px 0 0; font-size: 1.55rem; }
+.cms-admin-section-heading p { margin: 0; }
+.cms-admin-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.cms-admin-card { display: flex; flex-direction: column; align-items: flex-start; padding: 22px; }
+.cms-admin-card h3 { margin: 12px 0 16px; font-size: 1.08rem; line-height: 1.4; }
+.cms-admin-badge { display: inline-flex; padding: 6px 9px; border-radius: 999px; font-size: .72rem; font-weight: 800; text-transform: uppercase; }
+.cms-admin-badge-draft { background: #fff3d2; color: #765200; }
+.cms-admin-badge-published { background: #e4f3e6; color: #1e6325; }
+.cms-admin-meta { display: grid; grid-template-columns: 78px minmax(0,1fr); gap: 10px; width: 100%; margin: 4px 0; color: #5e665f; font-size: .88rem; }
+.cms-admin-meta span { overflow-wrap: anywhere; }
+.cms-admin-card-link { margin-top: auto; padding-top: 18px; color: #1e6325; font-weight: 800; }
+.cms-admin-alert, .cms-admin-empty { padding: 22px; }
+.cms-admin-alert { border-left: 5px solid #b42318; color: #7a271a; }
+.cms-admin-nav a:focus-visible, .cms-admin-button:focus-visible, .cms-admin-card-link:focus-visible { outline: 3px solid #ffb300; outline-offset: 3px; }
+@media (max-width: 860px) { .cms-admin-frame { grid-template-columns: 1fr; } .cms-admin-sidebar { padding: 22px; } .cms-admin-nav { grid-template-columns: repeat(3,minmax(0,1fr)); margin-top: 18px; } .cms-admin-content { padding: 28px 20px; } }
+@media (max-width: 640px) { .cms-admin-shell { margin-right: -16px; margin-left: -16px; } .cms-admin-page-header, .cms-admin-section-heading { align-items: stretch; flex-direction: column; } .cms-admin-actions, .cms-admin-actions form, .cms-admin-button { width: 100%; } .cms-admin-summary, .cms-admin-grid { grid-template-columns: 1fr; } .cms-admin-nav { grid-template-columns: 1fr; } }
