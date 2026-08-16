@@ -1,0 +1,2 @@
+import Link from "next/link";import { redirect } from "next/navigation";import { hasValidAdminSession } from "@/lib/cms/admin-session";import { DraftForm } from "../draft-form";import { saveNewDraft } from "../draft-actions";
+export default async function NewDraftPage(){if(!(await hasValidAdminSession()))redirect("/admin/login");return <section style={{maxWidth:900,margin:"48px auto",padding:24}}><Link href="/admin/posts">Voltar</Link><h1>Novo artigo</h1><p>O artigo será salvo somente como rascunho.</p><DraftForm action={saveNewDraft}/></section>}

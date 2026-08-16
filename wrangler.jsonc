@@ -9,5 +9,12 @@
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
-  }
+  },
+  "d1_databases": [
+    {
+      "binding": "CMS_DB",
+      "database_name": "tupiniquim-cms-drafts",
+      "database_id": "29919be9-f82c-44c5-907f-8f8c76c2409d"
+    }
+  ]
 }

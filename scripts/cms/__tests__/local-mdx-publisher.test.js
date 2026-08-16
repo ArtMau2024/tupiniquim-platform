@@ -1,0 +1,15 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import crypto from "node:crypto";
+import matter from "gray-matter";
+import { generateLocalMdx, serializeDraftToMdx } from "../../../lib/cms/local-mdx-publisher.ts";
+const input={title:'Título: "seguro"',slug:"piloto-geracao-mdx",description:"Linha 1\nLinha 2",category:"saude",content:"## Corpo\nConteúdo",author:null,image:"images/piloto.jpg"};
+const setup=()=>{const root=fs.mkdtempSync(path.join(os.tmpdir(),"tupiniquim-mdx-"));fs.mkdirSync(path.join(root,"content","posts"),{recursive:true});fs.writeFileSync(path.join(root,"package.json"),"{}","utf8");return root;};
+test("serializa frontmatter seguro e contrato editorial",()=>{const text=serializeDraftToMdx(input,"2026-08-15");const parsed=matter(text);assert.equal(parsed.data.title,'Título: "seguro"');assert.equal(parsed.data.date,"2026-08-15");assert.equal(parsed.data.category,"Saúde");assert.equal(parsed.data.author,"Greyce");assert.equal(parsed.data.image,"/images/piloto.jpg");assert.equal(parsed.data.description,"Linha 1 Linha 2");assert.match(parsed.content,/## Corpo/);assert.equal(text.endsWith("\n"),true);assert.equal((text.match(/^---$/gm)||[]).length,2);});
+test("preserva URL e remove frontmatter recebido do corpo",()=>{const text=serializeDraftToMdx({...input,image:"https://example.com/a.jpg",content:"---\ntitle: antigo\n---\nCorpo"},"2026-08-15");assert.match(text,/https:\/\/example.com\/a.jpg/);assert.equal((text.match(/^---$/gm)||[]).length,2);assert.match(text,/\nCorpo\n$/);});
+test("gera arquivo UTF-8 sem BOM, atomico e sem temporario",()=>{const root=setup();try{const result=generateLocalMdx(input,{root,now:new Date(2026,7,15),environment:"development"});const file=path.join(root,result.relativePath);const data=fs.readFileSync(file);assert.equal(data.subarray(0,3).equals(Buffer.from([0xef,0xbb,0xbf])),false);assert.equal(result.state,"awaiting_catalog");assert.equal(fs.readdirSync(path.dirname(file)).some(x=>x.endsWith(".tmp")),false);}finally{fs.rmSync(root,{recursive:true,force:true});}});
+test("recusa sobrescrita e preserva hash",()=>{const root=setup();try{const file=path.join(root,"content","posts",`${input.slug}.mdx`);fs.writeFileSync(file,"original\n");const before=crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");assert.throws(()=>generateLocalMdx(input,{root,environment:"development"}),/Já existe/);const after=crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");assert.equal(after,before);}finally{fs.rmSync(root,{recursive:true,force:true});}});
+test("rejeita slug inseguro e producao",()=>{const root=setup();try{for(const slug of ["../x","Com Maiuscula","a/b","a\\b"])assert.throws(()=>generateLocalMdx({...input,slug},{root,environment:"development"}));assert.throws(()=>generateLocalMdx(input,{root,environment:"production"}),/somente no ambiente editorial local/);}finally{fs.rmSync(root,{recursive:true,force:true});}});

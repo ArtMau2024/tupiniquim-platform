@@ -1,0 +1,7 @@
+"use client";
+import { useActionState } from "react";
+import { BLOG_CATEGORIES } from "@/lib/blog-categories";
+import type { DraftActionState } from "./draft-actions";
+import type { DraftInput } from "@/lib/cms/draft";
+type Action=(state:DraftActionState,data:FormData)=>Promise<DraftActionState>;
+export function DraftForm({action,initial}:{action:Action;initial?:Partial<DraftInput>}){const[state,formAction,pending]=useActionState(action,{});const field=(name:keyof DraftInput,label:string,type="text")=><label>{label}<input name={name} type={type} defaultValue={(initial?.[name] as string)??""}/>{state.errors?.[name]?<span role="alert">{state.errors[name]}</span>:null}</label>;return <form action={formAction} style={{display:"grid",gap:16}}>{state.formError?<p role="alert">{state.formError}</p>:null}{field("title","Título")}{field("slug","Slug")}{field("description","Descrição")}<label>Categoria<select name="category" defaultValue={initial?.category??""}><option value="">Selecione</option>{BLOG_CATEGORIES.map(c=><option key={c.slug} value={c.slug}>{c.label}</option>)}</select>{state.errors?.category?<span role="alert">{state.errors.category}</span>:null}</label>{field("author","Autor")}{field("image","Imagem")}<label>Conteúdo<textarea name="content" rows={20} defaultValue={initial?.content??""}/>{state.errors?.content?<span role="alert">{state.errors.content}</span>:null}</label><button type="submit" disabled={pending}>{pending?"Salvando...":"Salvar rascunho"}</button></form>}
