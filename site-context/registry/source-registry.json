@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-03T04:41:48.861Z",
+  "generatedAt": "2026-08-16T03:11:21.621Z",
   "sources": [
     {
       "id": "SRC-ANCHOR-HISTORICAL-DOCX",
@@ -74,7 +74,7 @@
         "Derived and regenerable.",
         "Does not replace persistent decision or historical sources."
       ],
-      "sha256": "4e211b0a84b68d6cfdea7eb5bafa4394bacd0bdaf758c34831f6f20145092ba1"
+      "sha256": "bcfefde07424bb208a56d3f275f0cb0ab57577b8721d1990ce2eb237e87be729"
     },
     {
       "id": "SRC-DECISION-MEMORY",
@@ -92,7 +92,7 @@
       "limitations": [
         "Stores decisions, not complete execution plans."
       ],
-      "sha256": "058a7ef95e37e67a88f51fee7f5e02ba31e555af140ef3cedec0862ecd0f256c"
+      "sha256": "c1238bd5a3d210af3cc6b7f99049491d46808693dd7cc7ee0e921502ed83425c"
     },
     {
       "id": "SRC-CONTEXT-GOVERNANCE",
@@ -162,7 +162,7 @@
       "limitations": [
         "Stores operational rules, not decision rationale."
       ],
-      "sha256": "485796bb00a2bcb621aacd6bdb55a792df495b24c60f35b30173eb8623baf9b2"
+      "sha256": "479a2653963ad321a0f046e72b3d5fd912b397b99f0e979c37be21fecbbc83d2"
     },
     {
       "id": "SRC-METHOD-OF-OPERATION",
@@ -180,7 +180,7 @@
       "limitations": [
         "Organizes the method; individual rules remain authoritative in the Rules Registry."
       ],
-      "sha256": "d8614ba2726254c47ebaaa9747d74a4185076d24923c866bcc317ac1aff83dc9"
+      "sha256": "74b1407df5c97e97331991d6fd0f3b5b64e57cd127150f39cf63c3aeb1ae7cac"
     },
     {
       "id": "SRC-PROJECT-REGISTRY",
@@ -198,7 +198,7 @@
       "limitations": [
         "Technical filesystem state remains derived from the Project Map."
       ],
-      "sha256": "5ad6b103fad93976feaa32115699e620b8c01fbaa25dead801d6ff9e8328fc7e"
+      "sha256": "2944223b416bc47b7180cfe97e96901cde2d1ef4b6307ec653c120c2a4058c51"
     },
     {
       "id": "SRC-MIGRATION-MATRIX",
@@ -321,7 +321,7 @@
       "limitations": [
         "Active selection depends on Project and Planning Registries; technical state remains verified by code and tests."
       ],
-      "sha256": "3d27b5bd8edf6df54265df3dec565f4918ef9f147cdbd0edb6bb07f2edfb2a41"
+      "sha256": "5fc3efff9b01f1a5835cf154ba1f3798846f6e905f261522383f48b6de123a0a"
     }
   ]
 }

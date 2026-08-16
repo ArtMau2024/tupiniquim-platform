@@ -207,6 +207,7 @@ function isLocalArtifact(relativePath) {
     baseName.endsWith(".tmp") ||
     baseName.endsWith(".bak") ||
     baseName.endsWith(".backup") ||
+    /(^|[.-])backup([.-]|$)/.test(baseName) ||
     baseName.endsWith(".cache")
   );
 }

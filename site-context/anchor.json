@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-03T08:41:46.942Z",
+  "generatedAt": "2026-08-16T03:12:45.637Z",
   "blocks": [
     {
       "id": "architecture",
@@ -18,8 +18,8 @@
         },
         "currentTasks": [
           {
-            "id": "TASK-EDITORIAL-CMS-01-D1-DRAFT-PERSISTENCE",
-            "title": "Implementar persistencia editorial D1 e rascunhos reais",
+            "id": "TASK-EDITORIAL-CMS-01-D1-LOCAL-FLOW-CLOSEOUT",
+            "title": "Fechar governanca e preparar o fluxo local para Git",
             "status": "in_progress"
           }
         ],
@@ -35,8 +35,8 @@
             "status": "paused"
           }
         ],
-        "activeDecisions": 8,
-        "activeRules": 24,
+        "activeDecisions": 10,
+        "activeRules": 38,
         "openConflicts": 0
       },
       "sources": [
@@ -77,7 +77,7 @@
         "sequence": [
           "EPIC-004",
           "PHASE-EDITORIAL-CMS-01-FOUNDATION",
-          "TASK-EDITORIAL-CMS-01-D1-DRAFT-PERSISTENCE",
+          "TASK-EDITORIAL-CMS-01-D1-LOCAL-FLOW-CLOSEOUT",
           "PHASE-EDITORIAL-CMS-02-HARDENING"
         ]
       },
@@ -114,7 +114,21 @@
           "RULE-DELIVERY-001",
           "RULE-PROTOCOL-001",
           "RULE-STATUS-001",
-          "RULE-PRODUCT-001"
+          "RULE-PRODUCT-001",
+          "RULE-EDITORIAL-INGESTION-001",
+          "RULE-EDITORIAL-INGESTION-002",
+          "RULE-EDITORIAL-INGESTION-003",
+          "RULE-EDITORIAL-INGESTION-004",
+          "RULE-EDITORIAL-INGESTION-005",
+          "RULE-EDITORIAL-INGESTION-006",
+          "RULE-EDITORIAL-INGESTION-007",
+          "RULE-EDITORIAL-INGESTION-008",
+          "RULE-EDITORIAL-INGESTION-009",
+          "RULE-EDITORIAL-INGESTION-010",
+          "RULE-EDITORIAL-D1-LOCAL-001",
+          "RULE-EDITORIAL-D1-LOCAL-002",
+          "RULE-EDITORIAL-D1-LOCAL-003",
+          "RULE-EDITORIAL-D1-LOCAL-004"
         ],
         "activeDecisionIds": [
           "DEC-2026-EPIC-TRANSITION-HARNESS",
@@ -124,7 +138,9 @@
           "DEC-2026-CONTEXT-CONTINUITY",
           "DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY",
           "DEC-2026-MIGRATION-AUDIT-CONTRACT",
-          "DEC-2026-EDITORIAL-CMS-READONLY-FIRST-SLICE"
+          "DEC-2026-EDITORIAL-CMS-READONLY-FIRST-SLICE",
+          "DEC-2026-EDITORIAL-CMS-LOCAL-INGESTION-MVP",
+          "DEC-2026-EDITORIAL-CMS-D1-LOCAL-PUBLISHING-FLOW"
         ],
         "openConflicts": 0
       },
@@ -138,7 +154,7 @@
       "id": "nextStep",
       "title": "Sugestao Fixa de Proxima Etapa",
       "content": {
-        "task": "TASK-EDITORIAL-CMS-01-D1-DRAFT-PERSISTENCE",
+        "task": "TASK-EDITORIAL-CMS-01-D1-LOCAL-FLOW-CLOSEOUT",
         "command": null
       },
       "sources": [
