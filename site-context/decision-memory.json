@@ -367,6 +367,52 @@
       ]
     },
     {
+      "id": "DEC-2026-EDITORIAL-CMS-D1-LOCAL-PUBLISHING-FLOW",
+      "title": "Adotar rascunhos D1 e publicacao local controlada como fluxo operacional do CMS",
+      "status": "active",
+      "decidedAt": "2026-08-15",
+      "category": "architecture",
+      "context": "O CMS passou a persistir rascunhos reais no D1 e validou a geracao local controlada de MDX e catalogo sem transformar o runtime publicado em armazenamento gravavel.",
+      "decision": "Adotar D1 como persistencia real dos rascunhos administrativos e o painel como interface de criacao, salvamento, recuperacao e edicao. A geracao de MDX exige acao administrativa local explicita, recusa sobrescrita e permanece separada da geracao transacional do catalogo. MDX continua como projecao publica atual e lib/generated-posts.ts como artefato derivado. Build, Git, push e Cloudflare permanecem etapas distintas e manuais. Nao havera dupla escrita permanente entre D1 e MDX. Conteudo piloto nao segue para producao; o rascunho piloto permanece no D1 ate decisao administrativa separada.",
+      "reason": "Registrar a capacidade fisica comprovada sem reescrever os marcos historicos do CMS e manter limites verificaveis entre persistencia, projecao publica e publicacao.",
+      "impacts": [
+        "Rascunhos administrativos possuem persistencia e continuidade reais no D1.",
+        "Geracao local de MDX e catalogo passa a integrar formalmente o fluxo operacional do painel.",
+        "MDX permanece como projecao publica do corte atual e o catalogo permanece derivado.",
+        "Git, push e Cloudflare continuam manuais.",
+        "O piloto tecnico permanece fora da projecao publica e recuperavel por evidencias externas."
+      ],
+      "rules": [
+        "A autoria padrao e Greyce salvo instrucao explicita diferente de Arthur.",
+        "Gerar MDX exige acao administrativa local explicita e e bloqueado em producao.",
+        "MDX existente nao pode ser sobrescrito.",
+        "Gerar catalogo e uma acao separada com lock, timeout, backup transacional e rollback.",
+        "Geracao local, build, Git, push e Cloudflare sao etapas distintas.",
+        "Nao manter dupla escrita permanente entre D1 e MDX.",
+        "Conteudo piloto nao segue para producao.",
+        "O rascunho piloto D1 exige decisao administrativa separada."
+      ],
+      "resumeCriteria": [
+        "Concluir a governanca e regenerar os derivados oficiais.",
+        "Validar o Harness e separar os commits de CMS, editorial e governanca.",
+        "Manter publicacao em producao sob acao manual."
+      ],
+      "supersedes": [],
+      "affectedAreas": [
+        "EPIC-004",
+        "CMS",
+        "D1",
+        "MDX",
+        "Blog",
+        "Context Engine",
+        "Decision Memory",
+        "Planning Registry",
+        "Rules Registry",
+        "Git",
+        "Cloudflare"
+      ]
+    },
+    {
       "id": "DEC-2026-EDITORIAL-CMS-LOCAL-INGESTION-MVP",
       "title": "Adotar o pipeline local TXT para MDX como MVP operacional de ingestao editorial do CMS",
       "status": "active",
@@ -418,49 +464,174 @@
       ]
     },
     {
-      "id": "DEC-2026-EDITORIAL-CMS-D1-LOCAL-PUBLISHING-FLOW",
-      "title": "Adotar rascunhos D1 e publicacao local controlada como fluxo operacional do CMS",
+      "id": "DEC-2026-BLOG-ARTICLE-HEADER-BEFORE-IMAGE",
+      "title": "Posicionar o cabecalho editorial antes da imagem na pagina do artigo",
       "status": "active",
-      "decidedAt": "2026-08-15",
-      "category": "architecture",
-      "context": "O CMS passou a persistir rascunhos reais no D1 e validou a geracao local controlada de MDX e catalogo sem transformar o runtime publicado em armazenamento gravavel.",
-      "decision": "Adotar D1 como persistencia real dos rascunhos administrativos e o painel como interface de criacao, salvamento, recuperacao e edicao. A geracao de MDX exige acao administrativa local explicita, recusa sobrescrita e permanece separada da geracao transacional do catalogo. MDX continua como projecao publica atual e lib/generated-posts.ts como artefato derivado. Build, Git, push e Cloudflare permanecem etapas distintas e manuais. Nao havera dupla escrita permanente entre D1 e MDX. Conteudo piloto nao segue para producao; o rascunho piloto permanece no D1 ate decisao administrativa separada.",
-      "reason": "Registrar a capacidade fisica comprovada sem reescrever os marcos historicos do CMS e manter limites verificaveis entre persistencia, projecao publica e publicacao.",
+      "decidedAt": "2026-08-16",
+      "category": "user-experience",
+      "context": "A pagina individual mostrava a imagem antes do titulo e nao apresentava categoria e descricao no cabecalho.",
+      "decision": "Apresentar categoria, titulo, descricao, autoria condicional e data antes da imagem; manter a imagem antes do corpo do artigo.",
+      "reason": "Entregar ao leitor identidade, contexto e metadados antes do elemento visual e do conteudo longo.",
       "impacts": [
-        "Rascunhos administrativos possuem persistencia e continuidade reais no D1.",
-        "Geracao local de MDX e catalogo passa a integrar formalmente o fluxo operacional do painel.",
-        "MDX permanece como projecao publica do corte atual e o catalogo permanece derivado.",
-        "Git, push e Cloudflare continuam manuais.",
-        "O piloto tecnico permanece fora da projecao publica e recuperavel por evidencias externas."
+        "O cabecalho editorial antecede a imagem.",
+        "A imagem antecede o corpo do artigo.",
+        "O renderer seguro de Markdown permanece preservado."
       ],
       "rules": [
-        "A autoria padrao e Greyce salvo instrucao explicita diferente de Arthur.",
-        "Gerar MDX exige acao administrativa local explicita e e bloqueado em producao.",
-        "MDX existente nao pode ser sobrescrito.",
-        "Gerar catalogo e uma acao separada com lock, timeout, backup transacional e rollback.",
-        "Geracao local, build, Git, push e Cloudflare sao etapas distintas.",
-        "Nao manter dupla escrita permanente entre D1 e MDX.",
-        "Conteudo piloto nao segue para producao.",
-        "O rascunho piloto D1 exige decisao administrativa separada."
+        "Dados editoriais antecedem a imagem na pagina individual.",
+        "A imagem antecede o corpo do artigo.",
+        "safeHtml, inlineMd e markdownToHtml permanecem contratos obrigatorios."
+      ],
+      "resumeCriteria": [],
+      "supersedes": [],
+      "affectedAreas": [
+        "Blog",
+        "Pagina individual",
+        "Renderer Markdown",
+        "SEO"
+      ]
+    },
+    {
+      "id": "DEC-2026-BLOG-CARDS-IMAGE-FIRST",
+      "title": "Manter imagem antes dos dados nos cartoes editoriais menores",
+      "status": "active",
+      "decidedAt": "2026-08-16",
+      "category": "user-experience",
+      "context": "Destaques secundarios e cartoes de ultimas publicacoes possuem menor area e usam a imagem como identificacao inicial da noticia.",
+      "decision": "Manter a imagem antes de categoria, titulo, descricao, autoria e data nos destaques secundarios e nas ultimas publicacoes.",
+      "reason": "Preservar uma hierarquia adequada ao tamanho e ao papel dos cartoes menores.",
+      "impacts": [
+        "Secundarios continuam com imagem no topo.",
+        "Ultimas publicacoes continuam com imagem no topo.",
+        "Os metadados permanecem agrupados abaixo da descricao."
+      ],
+      "rules": [
+        "Cartoes menores usam imagem antes dos dados.",
+        "Principal e cartoes menores podem usar hierarquias distintas conforme o nivel de destaque."
+      ],
+      "resumeCriteria": [],
+      "supersedes": [],
+      "affectedAreas": [
+        "Blog",
+        "Destaques secundarios",
+        "Ultimas publicacoes",
+        "UX editorial"
+      ]
+    },
+    {
+      "id": "DEC-2026-BLOG-FEATURED-DATE-ORDER",
+      "title": "Ordenar os destaques do Blog pela data editorial canonica",
+      "status": "active",
+      "decidedAt": "2026-08-16",
+      "category": "architecture",
+      "context": "A pagina inicial fixava o destaque principal pelo slug construindo-um-blog, impedindo que publicacoes mais recentes assumissem a posicao principal.",
+      "decision": "Selecionar o destaque principal a partir de listEditorialPosts(), usando date em ordem decrescente e slug em ordem crescente como desempate deterministico.",
+      "reason": "Garantir que novas publicacoes assumam automaticamente o destaque sem criar uma segunda regra de ordenacao.",
+      "impacts": [
+        "O artigo de maior data ocupa o destaque principal.",
+        "Os dois artigos seguintes ocupam os destaques secundarios.",
+        "O principal nao se repete entre os secundarios."
+      ],
+      "rules": [
+        "Nao fixar destaque por slug.",
+        "Reutilizar a ordenacao canonica do catalogo editorial.",
+        "Empates de date usam slug crescente enquanto nao existir horario canonico."
       ],
       "resumeCriteria": [
-        "Concluir a governanca e regenerar os derivados oficiais.",
-        "Validar o Harness e separar os commits de CMS, editorial e governanca.",
-        "Manter publicacao em producao sob acao manual."
+        "Reavaliar o desempate somente quando o modelo possuir publishedAt ou updatedAt com horario."
       ],
       "supersedes": [],
       "affectedAreas": [
-        "EPIC-004",
-        "CMS",
-        "D1",
-        "MDX",
         "Blog",
-        "Context Engine",
-        "Decision Memory",
-        "Planning Registry",
-        "Rules Registry",
-        "Git",
-        "Cloudflare"
+        "Catalogo editorial",
+        "Pagina inicial",
+        "Testes CMS"
+      ]
+    },
+    {
+      "id": "DEC-2026-BLOG-LEAD-METADATA-BEFORE-IMAGE",
+      "title": "Exibir dados editoriais antes da imagem no destaque principal",
+      "status": "active",
+      "decidedAt": "2026-08-16",
+      "category": "user-experience",
+      "context": "O destaque principal apresentava a imagem antes do contexto editorial, reduzindo a prioridade visual do titulo e da descricao.",
+      "decision": "Apresentar categoria, titulo, descricao, autoria condicional e data antes da imagem no destaque principal do Blog.",
+      "reason": "Priorizar a compreensao editorial quando a imagem ocupa grande area visual.",
+      "impacts": [
+        "O titulo e a descricao antecedem a imagem principal.",
+        "A imagem permanece grande e responsiva.",
+        "A ordenacao cronologica permanece inalterada."
+      ],
+      "rules": [
+        "Dados editoriais antecedem a imagem no destaque principal.",
+        "A mudanca de hierarquia nao altera a selecao cronologica."
+      ],
+      "resumeCriteria": [],
+      "supersedes": [],
+      "affectedAreas": [
+        "Blog",
+        "Pagina inicial",
+        "Destaque principal",
+        "UX editorial"
+      ]
+    },
+    {
+      "id": "DEC-2026-BLOG-OPTIONAL-AUTHOR-NO-UPDATED-LABEL",
+      "title": "Exibir autoria condicional e nao afirmar atualizacao sem campo canonico",
+      "status": "active",
+      "decidedAt": "2026-08-16",
+      "category": "governance",
+      "context": "O catalogo normaliza autoria vazia para null e o modelo editorial possui date, mas nao possui updatedAt.",
+      "decision": "Exibir autoria somente quando existir e apresentar a data formatada sem usar o rotulo Atualizado em enquanto updatedAt nao existir fisicamente.",
+      "reason": "Evitar autoria inventada, separadores isolados e afirmacoes temporais sem suporte no modelo.",
+      "impacts": [
+        "Artigos com autoria mostram Por seguido do nome.",
+        "Artigos sem autoria mostram somente a data.",
+        "A interface nao confunde data editorial com data de atualizacao."
+      ],
+      "rules": [
+        "Nao renderizar Por vazio.",
+        "Nao renderizar separador isolado.",
+        "Atualizado em exige campo updatedAt canonico."
+      ],
+      "resumeCriteria": [
+        "Reavaliar quando o modelo editorial possuir updatedAt persistido e validado."
+      ],
+      "supersedes": [],
+      "affectedAreas": [
+        "Blog",
+        "Autoria",
+        "Metadados temporais",
+        "Catalogo editorial"
+      ]
+    },
+    {
+      "id": "DEC-2026-CMS-SHARED-DRAFT-FORM-UX",
+      "title": "Compartilhar o padrao visual entre Novo artigo e Editar rascunho",
+      "status": "active",
+      "decidedAt": "2026-08-16",
+      "category": "user-experience",
+      "context": "Novo artigo e Editar rascunho utilizam o mesmo DraftForm, mas o formulario anterior empilhava todos os campos e desperdicava a largura disponivel.",
+      "decision": "Centralizar no DraftForm compartilhado o card, o grid responsivo, a area dominante de conteudo e a barra de acoes dos dois fluxos editoriais.",
+      "reason": "Manter consistencia visual e corrigir simultaneamente os dois formularios sem duplicar implementacao.",
+      "impacts": [
+        "Novo artigo e Editar rascunho usam a mesma organizacao.",
+        "Metadados usam duas colunas no desktop e uma no mobile.",
+        "Voltar e Salvar rascunho permanecem localizaveis."
+      ],
+      "rules": [
+        "Novo e Editar compartilham o mesmo DraftForm.",
+        "Mudancas visuais nao alteram actions, D1, autenticacao ou validacao de dominio.",
+        "O layout deve permanecer responsivo."
+      ],
+      "resumeCriteria": [],
+      "supersedes": [],
+      "affectedAreas": [
+        "CMS",
+        "DraftForm",
+        "Novo artigo",
+        "Editar rascunho",
+        "UX administrativa"
       ]
     }
   ]
