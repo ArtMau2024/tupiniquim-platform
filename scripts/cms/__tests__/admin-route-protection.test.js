@@ -15,21 +15,29 @@ const routes = [
 
 const removedSlugRoute = "app/admin/posts/[slug]/editar/page.tsx";
 
-test("proxy incompatível está ausente", async () => {
+test("proxy incompativel esta ausente", async () => {
   await assert.rejects(access("proxy.ts", constants.F_OK));
 });
 
-test("páginas administrativas validam criptograficamente a sessão", async () => {
+test("paginas administrativas validam criptograficamente a sessao", async () => {
   for (const route of routes) {
     const source = await readFile(route, "utf8");
-    assert.match(source, /hasValidAdminSession/, `Sessão não validada em ${route}`);
+    assert.match(source, /hasValidAdminSession/, `Sessao nao validada em ${route}`);
     assert.match(source, /redirect\(["']\/admin\/login["']\)/, `Redirecionamento ausente em ${route}`);
   }
 
   await assert.rejects(access(removedSlugRoute, constants.F_OK));
 });
 
-test("login valida sessão e redireciona usuário autenticado", async () => {
+test("raiz administrativa permanece dinamica e preserva os dois destinos", async () => {
+  const source = await readFile("app/admin/page.tsx", "utf8");
+  assert.match(source, /export const dynamic = ["']force-dynamic["']/);
+  assert.match(source, /hasValidAdminSession/);
+  assert.match(source, /redirect\(["']\/admin\/login["']\)/);
+  assert.match(source, /redirect\(["']\/admin\/posts["']\)/);
+});
+
+test("login valida sessao e redireciona usuario autenticado", async () => {
   const source = await readFile("app/admin/login/page.tsx", "utf8");
   assert.match(source, /hasValidAdminSession/);
   assert.match(source, /redirect\(["']\/admin(?:\/posts)?["']\)/);
