@@ -2,74 +2,25 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { logoutAdmin } from "../actions";
 import { hasValidAdminSession } from "@/lib/cms/admin-session";
+import { getPostService } from "@/lib/cms/cloudflare-context";
 import { listEditorialPosts } from "@/lib/cms/editorial-catalog";
-import { getCmsDatabase } from "@/lib/cms/cloudflare-context";
-import { listDrafts } from "@/lib/cms/draft-repository";
-import type { DraftRecord } from "@/lib/cms/draft";
+import type { Post } from "@/lib/cms/post";
 
-export default async function AdminPostsPage() {
-  if (!(await hasValidAdminSession())) redirect("/admin/login");
-  const posts = listEditorialPosts();
-  let drafts: DraftRecord[] = [];
-  let draftError = "";
-  try {
-    drafts = await listDrafts(getCmsDatabase());
-  } catch (error) {
-    draftError = error instanceof Error ? error.message : "Rascunhos indisponiveis.";
-  }
+export const dynamic = "force-dynamic";
 
-  return (
-    <section aria-labelledby="cms-posts-title" className="cms-admin-page">
-      <header className="cms-admin-page-header">
-        <div>
-          <span className="cms-admin-eyebrow">Gestao de conteudo</span>
-          <h1 id="cms-posts-title">Artigos</h1>
-          <p>Crie rascunhos no D1 e acompanhe o conteudo publicado no Blog.</p>
-        </div>
-        <div className="cms-admin-actions">
-          <Link className="cms-admin-button cms-admin-button-primary" href="/admin/posts/novo">Novo artigo</Link>
-          <form action={logoutAdmin}>
-            <button className="cms-admin-button cms-admin-button-secondary" type="submit">Sair</button>
-          </form>
-        </div>
-      </header>
+type SafeError={name:string;message:string};
+function safeError(error:unknown):SafeError{return error instanceof Error?{name:error.name,message:error.message}:{name:"UnknownError",message:String(error)}}
+function logAdminPosts(event:string,details:Record<string,unknown>={}){console.info(JSON.stringify({scope:"admin.posts",event,...details}))}
+function logAdminPostsError(event:string,error:unknown,details:Record<string,unknown>={}){console.error(JSON.stringify({scope:"admin.posts",event,error:safeError(error),...details}))}
 
-      <div className="cms-admin-summary" aria-label="Resumo editorial">
-        <article className="cms-admin-summary-card"><span>Rascunhos</span><strong>{drafts.length}</strong></article>
-        <article className="cms-admin-summary-card"><span>Publicados</span><strong>{posts.length}</strong></article>
-        <article className="cms-admin-summary-card"><span>Operacao</span><strong className="cms-admin-status-ok">CMS local</strong></article>
-      </div>
-
-      <section className="cms-admin-section" aria-labelledby="cms-drafts-title">
-        <div className="cms-admin-section-heading"><div><span className="cms-admin-eyebrow">Em producao</span><h2 id="cms-drafts-title">Rascunhos</h2></div></div>
-        {draftError ? <p className="cms-admin-alert" role="status">{draftError}</p> : drafts.length ? (
-          <div className="cms-admin-grid">
-            {drafts.map((draft) => (
-              <article className="cms-admin-card" key={draft.id}>
-                <span className="cms-admin-badge cms-admin-badge-draft">Rascunho</span>
-                <h3>{draft.title}</h3>
-                <p className="cms-admin-meta"><strong>Slug</strong><span>{draft.slug}</span></p>
-                <Link className="cms-admin-card-link" href={`/admin/rascunhos/${draft.id}/editar`}>Continuar edicao</Link>
-              </article>
-            ))}
-          </div>
-        ) : <div className="cms-admin-empty"><strong>Nenhum rascunho.</strong><p>Crie um novo artigo para iniciar o fluxo editorial.</p></div>}
-      </section>
-
-      <section className="cms-admin-section" aria-labelledby="cms-published-title">
-        <div className="cms-admin-section-heading"><div><span className="cms-admin-eyebrow">Somente leitura</span><h2 id="cms-published-title">Artigos publicados</h2></div><p>Conteudo publico atual.</p></div>
-        <div className="cms-admin-grid">
-          {posts.map((post) => (
-            <article className="cms-admin-card" key={post.slug}>
-              <span className="cms-admin-badge cms-admin-badge-published">Publicado</span>
-              <h3>{post.title}</h3>
-              <p className="cms-admin-meta"><strong>Categoria</strong><span>{post.category}</span></p>
-              <p className="cms-admin-meta"><strong>Slug</strong><span>{post.slug}</span></p>
-              <Link className="cms-admin-card-link" href={`/admin/posts/${post.slug}/editar`}>Abrir em modo somente leitura</Link>
-            </article>
-          ))}
-        </div>
-      </section>
-    </section>
-  );
+export default async function AdminPostsPage(){
+  if(!(await hasValidAdminSession()))redirect("/admin/login");
+  logAdminPosts("admin.posts.session.ok");
+  let legacy:ReturnType<typeof listEditorialPosts>=[];
+  try{legacy=listEditorialPosts();logAdminPosts("admin.posts.legacy.loaded",{count:legacy.length})}catch(error){logAdminPostsError("admin.posts.legacy.error",error);throw error}
+  let drafts:Post[]=[];let published:Post[]=[];let databaseError="";
+  try{const service=getPostService();logAdminPosts("admin.posts.database.available");[drafts,published]=await Promise.all([service.drafts(),service.published()]);logAdminPosts("admin.posts.drafts.loaded",{count:drafts.length});logAdminPosts("admin.posts.published.loaded",{count:published.length})}catch(error){databaseError=error instanceof Error?error.message:"Banco editorial indisponivel.";logAdminPostsError("admin.posts.database.unavailable",error)}
+  logAdminPosts("admin.posts.render.ready",{draftCount:drafts.length,publishedCount:published.length,legacyCount:legacy.length,databaseAvailable:!databaseError});
+  const cards=(items:Post[],state:"draft"|"published")=><div className="cms-admin-grid">{items.map(post=><article className="cms-admin-card" key={post.id}><span className={`cms-admin-badge cms-admin-badge-${state}`}>{state==="draft"?"Rascunho":"Publicado"}</span><h3>{post.title}</h3><p className="cms-admin-meta"><strong>Slug</strong><span>{post.slug}</span></p><p className="cms-admin-meta"><strong>Categoria</strong><span>{post.category}</span></p><Link className="cms-admin-card-link" href={`/admin/posts/${post.id}/editar`}>{state==="draft"?"Continuar edicao":"Editar publicado"}</Link></article>)}</div>;
+  return <section className="cms-admin-page"><header className="cms-admin-page-header"><div><span className="cms-admin-eyebrow">Gestao de conteudo</span><h1>Artigos</h1><p>Gerencie rascunhos e publicacoes diretamente no CMS.</p></div><div className="cms-admin-actions"><Link className="cms-admin-button cms-admin-button-primary" href="/admin/posts/novo">Novo artigo</Link><form action={logoutAdmin}><button className="cms-admin-button cms-admin-button-secondary" type="submit">Sair</button></form></div></header><section className="cms-admin-summary" aria-label="Resumo editorial"><article><strong>{drafts.length}</strong><span>Rascunhos</span></article><article><strong>{published.length}</strong><span>Publicados pelo CMS</span></article><article><strong>{legacy.length}</strong><span>MDX legados</span></article><article><strong>{databaseError?"Indisponivel":"Disponivel"}</strong><span>Banco editorial</span></article></section>{databaseError?<p className="cms-admin-alert" role="status">{databaseError}</p>:null}<section className="cms-admin-section"><h2>Rascunhos</h2>{drafts.length?cards(drafts,"draft"):<p className="cms-admin-empty">Nenhum rascunho.</p>}</section><section className="cms-admin-section"><h2>Publicados pelo CMS</h2>{published.length?cards(published,"published"):<p className="cms-admin-empty">Nenhum artigo publicado pelo CMS.</p>}</section><section className="cms-admin-section"><h2>MDX legados</h2><div className="cms-admin-grid">{legacy.map(post=><article className="cms-admin-card" key={post.slug}><span className="cms-admin-badge cms-admin-badge-published">Legado somente leitura</span><h3>{post.title}</h3><p className="cms-admin-meta"><strong>Slug</strong><span>{post.slug}</span></p><Link className="cms-admin-card-link" href={`/blog/${post.slug}`}>Ver no Blog</Link></article>)}</div></section></section>
 }

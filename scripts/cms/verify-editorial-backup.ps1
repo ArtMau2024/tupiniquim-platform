@@ -1,0 +1,1 @@
+param([Parameter(Mandatory=$true)][string]$Path)$ErrorActionPreference='Stop';if(!(Test-Path $Path)-or(Get-Item $Path).Length-le 0){throw 'Backup ausente ou vazio.'};$s=Get-Content $Path -Raw;if(!$s.Contains('cms_posts')){throw 'Schema cms_posts ausente.'};Get-FileHash $Path -Algorithm SHA256|Format-List

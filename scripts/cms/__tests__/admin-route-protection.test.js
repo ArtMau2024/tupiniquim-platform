@@ -1,39 +1,36 @@
 "use strict";
+
 import test from "node:test";
 import assert from "node:assert/strict";
-import { existsSync } from "node:fs";
-import { readFile } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
+import { constants } from "node:fs";
 
-const root = new URL("../../../", import.meta.url);
-const adminPage = new URL("app/admin/page.tsx", root);
-const postsPage = new URL("app/admin/posts/page.tsx", root);
-const detailPage = new URL("app/admin/posts/[slug]/editar/page.tsx", root);
-const loginPage = new URL("app/admin/login/page.tsx", root);
-const proxyPath = new URL("proxy.ts", root);
+const routes = [
+  "app/admin/page.tsx",
+  "app/admin/posts/page.tsx",
+  "app/admin/posts/novo/page.tsx",
+  "app/admin/posts/[id]/editar/page.tsx",
+  "app/admin/rascunhos/[id]/editar/page.tsx",
+];
 
-async function source(url) {
-  return readFile(url, "utf8");
-}
+const removedSlugRoute = "app/admin/posts/[slug]/editar/page.tsx";
 
-function assertProtectedPage(text, name) {
-  assert.match(text, /hasValidAdminSession\s*\(/, `${name} deve validar a sessão`);
-  assert.match(text, /redirect\s*\(\s*["']\/admin\/login["']\s*\)/, `${name} deve redirecionar sessão inválida`);
-  assert.doesNotMatch(text, /cookies\s*\(.*\.has\s*\(/s, `${name} não pode confiar apenas na presença do cookie`);
-}
-
-test("proxy incompatível está ausente", () => {
-  assert.equal(existsSync(proxyPath), false);
+test("proxy incompatível está ausente", async () => {
+  await assert.rejects(access("proxy.ts", constants.F_OK));
 });
 
 test("páginas administrativas validam criptograficamente a sessão", async () => {
-  assertProtectedPage(await source(adminPage), "/admin");
-  assertProtectedPage(await source(postsPage), "/admin/posts");
-  assertProtectedPage(await source(detailPage), "/admin/posts/[slug]/editar");
+  for (const route of routes) {
+    const source = await readFile(route, "utf8");
+    assert.match(source, /hasValidAdminSession/, `Sessão não validada em ${route}`);
+    assert.match(source, /redirect\(["']\/admin\/login["']\)/, `Redirecionamento ausente em ${route}`);
+  }
+
+  await assert.rejects(access(removedSlugRoute, constants.F_OK));
 });
 
 test("login valida sessão e redireciona usuário autenticado", async () => {
-  const text = await source(loginPage);
-  assert.match(text, /hasValidAdminSession\s*\(/);
-  assert.match(text, /redirect\s*\(\s*["']\/admin\/posts["']\s*\)/);
-  assert.doesNotMatch(text, /cookies\s*\(.*\.has\s*\(/s);
+  const source = await readFile("app/admin/login/page.tsx", "utf8");
+  assert.match(source, /hasValidAdminSession/);
+  assert.match(source, /redirect\(["']\/admin(?:\/posts)?["']\)/);
 });

@@ -1,0 +1,1 @@
+import type{Post,PostInput}from"./post";export interface PostRepository{create(input:PostInput):Promise<Post>;update(id:string,input:PostInput):Promise<Post>;find(id:string):Promise<Post|null>;drafts():Promise<Post[]>;published():Promise<Post[]>;publishedBySlug(slug:string):Promise<Post|null>;publish(id:string):Promise<Post>;unpublish(id:string):Promise<Post>}

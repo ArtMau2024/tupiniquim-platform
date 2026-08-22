@@ -1,4 +1,4 @@
-import { listEditorialPosts } from "@/lib/cms/editorial-catalog";
+import { listPublicEditorialPosts } from "@/lib/cms/public-editorial-catalog";
 import {
   getBlogCategories,
   getBlogCategoryByValue,
@@ -26,8 +26,10 @@ function formatDate(date: string) {
   }).format(parsedDate);
 }
 
-export default function BlogPage() {
-  const posts = listEditorialPosts();
+export const dynamic = "force-dynamic";
+
+export default async function BlogPage() {
+  const posts = await listPublicEditorialPosts();
   const featuredPost = posts[0];
   const secondaryPosts = posts.slice(1, 3);
   const categories = getBlogCategories();

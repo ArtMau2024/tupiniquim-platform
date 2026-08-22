@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { generatedPosts } from "@/lib/generated-posts";
-import { findEditorialPostBySlug } from "@/lib/cms/editorial-catalog";
+import { findPublicEditorialPostBySlug } from "@/lib/cms/public-editorial-catalog";
 import { getBlogCategoryByValue } from "@/lib/blog-categories";
 
 type Props = {
@@ -27,7 +27,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
 
-  const post = findEditorialPostBySlug(slug);
+  const post = await findPublicEditorialPostBySlug(slug);
 
   if (!post) {
     return {
@@ -116,10 +116,12 @@ function markdownToHtml(markdown: string): string {
   return html.join("\n");
 }
 
+export const dynamic = "force-dynamic";
+
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
 
-  const post = findEditorialPostBySlug(slug);
+  const post = await findPublicEditorialPostBySlug(slug);
 
   if (!post) {
     notFound();
