@@ -1,169 +1,207 @@
 {
-  "id": "PLAN-EDITORIAL-CMS-MVP",
-  "projectId": "EPIC-004",
-  "title": "CMS MVP da Plataforma Editorial",
-  "status": "in_progress",
-  "objective": "Entregar o primeiro corte funcional e rentavel do CMS com apoio operacional da IA integrada e do Harness.",
-  "motivation": [
-    "Retomar o projeto rentavel apos validacao do Harness.",
-    "Criar fluxo editorial administravel e compativel com o Blog atual.",
-    "Usar a IA integrada para continuidade e apoio ao trabalho real no site."
-  ],
-  "scope": [
-    "administracao autenticada",
-    "listagem de posts",
-    "criacao de rascunho",
-    "edicao de conteudo",
-    "validacao de metadados",
-    "publicacao",
-    "compatibilidade com MDX e Blog atual",
-    "apoio operacional da IA integrada"
-  ],
-  "nonGoals": [
-    "nova evolucao estrutural da IA integrada",
-    "nova evolucao estrutural do Harness",
-    "Media Center completo",
-    "automacoes editoriais avancadas",
-    "publicacao autonoma pela IA"
-  ],
-  "sources": [
-    "site-context/registry/projects/PROJECT-REGISTRY-TUPINIQUIM.json",
-    "site-context/decision-memory.json",
-    "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
-    "docs/method-of-operation.md",
-    "docs/project-history.md"
-  ],
-  "globalAcceptanceCriteria": [
-    "Fluxo de rascunho ate publicacao funciona.",
-    "Projeto, plano, fase e tarefa atuais sao recuperados deterministicamente.",
-    "IA integrada permanece operacional sem substituir fontes canonicas.",
-    "Suite e validacoes do projeto permanecem verdes."
-  ],
-  "relatedDecisions": [
-    "DEC-2026-EPIC-TRANSITION-HARNESS",
-    "DEC-2026-ANCHOR-HARNESS-FIRST",
-    "DEC-2026-IA-OPERATIONAL-CMS",
-    "DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY",
-    "DEC-2026-EDITORIAL-CMS-READONLY-FIRST-SLICE"
-  ],
-  "phases": [
-    {
-      "id": "PHASE-EDITORIAL-CMS-01-FOUNDATION",
-      "name": "Fundacao Administrativa do CMS",
-      "status": "in_progress",
-      "objective": "Implementar o primeiro fluxo editorial administravel sobre a estrutura atual.",
-      "deliverables": [
-        "area administrativa autenticada",
-        "listagem de posts",
-        "formulario de rascunho e edicao",
-        "validacao de metadados",
-        "acao controlada de publicacao"
-      ],
-      "acceptanceCriteria": [
-        "Acesso administrativo exige autenticacao.",
-        "Posts atuais sao listados sem regressao do Blog.",
-        "Rascunhos podem ser criados e editados.",
-        "Metadados obrigatorios sao validados.",
-        "Publicacao exige acao explicita e preserva compatibilidade MDX."
-      ],
-      "tasks": [
-        {
-          "id": "TASK-EDITORIAL-CMS-01-FIRST-SLICE",
-          "title": "Implementar o primeiro corte funcional do CMS",
-          "status": "completed",
-          "objective": "Entregar autenticacao administrativa, sessao segura, logout, listagem dos artigos reais e abertura por slug em modo somente leitura, preservando o blog e a compatibilidade com OpenNext.",
-          "acceptanceCriteria": [
-            "Login administrativo funcional.",
-            "Sessao assinada e validada no servidor.",
-            "Acesso sem sessao bloqueado e credenciais invalidas rejeitadas.",
-            "Logout bloqueia acesso subsequente.",
-            "Quatro artigos reais listados e abertos por slug.",
-            "Campos somente leitura e ausencia de salvamento.",
-            "CMS sem fs editorial ou dependencia de Ollama.",
-            "19 autotestes, lint restrito, build Next.js, OpenNext e fluxo manual concluidos."
-          ]
-        },
-        {
-          "id": "TASK-EDITORIAL-CMS-01-GOVERNANCE-CLOSEOUT",
-          "title": "Materializar e validar a governanca do primeiro corte do CMS",
-          "status": "completed",
-          "objective": "Persistir a decisao arquitetural, atualizar registries, regenerar o contexto oficial, validar a Ancora e preparar a separacao controlada dos commits.",
-          "acceptanceCriteria": [
-            "Decision Memory valida.",
-            "Project Registry coerente.",
-            "Planning Registry valido.",
-            "Fontes dinamicas corretas na Ancora.",
-            "Ancora preserva cinco blocos e historico encadeado.",
-            "Limitacoes do Corte 1 preservadas.",
-            "Diff inspecionado e escopos separaveis.",
-            "Nenhum segredo, script temporario, push ou deploy."
-          ],
-          "nextCommand": "npm run context:bootstrap"
-        },
-        {
-          "id": "TASK-EDITORIAL-CMS-01-D1-DRAFT-PERSISTENCE",
-          "title": "Implementar persistencia editorial D1 e rascunhos reais",
-          "status": "completed",
-          "objective": "Implementar schema D1, criacao de rascunho, salvamento real e recuperacao para continuidade da edicao.",
-          "acceptanceCriteria": [
-            "Schema D1 implementado e validado.",
-            "Rascunho real criado e salvo em D1.",
-            "Rascunho recuperado e editado para continuidade.",
-            "Metadados validados antes da gravacao.",
-            "Geracao local de MDX validada com recusa de sobrescrita.",
-            "Geracao local do catalogo validada como acao independente.",
-            "CMS 33/33 e Context Engine 98/98.",
-            "Builds Next.js e OpenNext validados."
-          ]
-        },
-        {
-          "id": "TASK-EDITORIAL-CMS-01-LOCAL-INGESTION-MVP",
-          "title": "Materializar o MVP de Ingestao Editorial Local",
-          "status": "completed",
-          "objective": "Formalizar e preservar o pipeline local TXT para MDX como corte funcional do CMS, mantendo D1 como evolucao estrutural futura.",
-          "acceptanceCriteria": [
-            "TXT editorial permanece preservado em content/inbox.",
-            "Importador multipadrao normaliza o conteudo e cria backup antes de substituir MDX.",
-            "Novos MDXs usam UTF-8 sem BOM e frontmatter obrigatorio.",
-            "Catalogo derivado e gerado por scripts/generate-posts.js sem edicao manual.",
-            "Doze artigos estao presentes e navegaveis no ambiente local.",
-            "Testes do importador permanecem verdes.",
-            "Persistencia D1 continua in_progress e fora deste corte funcional."
-          ]
-        },
-        {
-          "id": "TASK-EDITORIAL-CMS-01-D1-LOCAL-FLOW-CLOSEOUT",
-          "title": "Fechar governanca e preparar o fluxo local para Git",
-          "status": "in_progress",
-          "objective": "Materializar a decisao do fluxo D1 local, regenerar derivados, validar o Harness, classificar arquivos sensiveis e separar commits auditaveis.",
-          "acceptanceCriteria": [
-            "Nova decisao persistida e validada.",
-            "Registries e documentacao coerentes.",
-            "Derivados regenerados pelos mecanismos oficiais.",
-            "Harness e suites permanecem verdes.",
-            "Arquivos potencialmente sensiveis classificados.",
-            "Escopos de commit separados sem push ou deploy."
-          ]
-        }
-      ]
-    },
-    {
-      "id": "PHASE-EDITORIAL-CMS-02-HARDENING",
-      "name": "Validacao e Endurecimento",
-      "status": "planned",
-      "objective": "Validar seguranca, regressao e operacao editorial do primeiro corte.",
-      "deliverables": [
-        "testes de autorizacao",
-        "testes editoriais",
-        "validacao de producao"
-      ],
-      "acceptanceCriteria": [
-        "Acesso nao autorizado e bloqueado.",
-        "Fluxo editorial permanece integro.",
-        "Blog publico nao sofre regressao."
-      ]
-    }
-  ],
-  "currentPhase": "PHASE-EDITORIAL-CMS-01-FOUNDATION",
-  "nextPhase": "PHASE-EDITORIAL-CMS-02-HARDENING"
+    "id":  "PLAN-EDITORIAL-CMS-MVP",
+    "projectId":  "EPIC-004",
+    "title":  "CMS MVP da Plataforma Editorial",
+    "status":  "in_progress",
+    "objective":  "Entregar o primeiro corte funcional e rentavel do CMS com apoio operacional da IA integrada e do Harness.",
+    "motivation":  [
+                       "Retomar o projeto rentavel apos validacao do Harness.",
+                       "Criar fluxo editorial administravel e compativel com o Blog atual.",
+                       "Usar a IA integrada para continuidade e apoio ao trabalho real no site."
+                   ],
+    "scope":  [
+                  "administracao autenticada",
+                  "listagem de posts",
+                  "criacao de rascunho",
+                  "edicao de conteudo",
+                  "validacao de metadados",
+                  "publicacao",
+                  "compatibilidade com MDX e Blog atual",
+                  "apoio operacional da IA integrada"
+              ],
+    "nonGoals":  [
+                     "nova evolucao estrutural da IA integrada",
+                     "nova evolucao estrutural do Harness",
+                     "Media Center completo",
+                     "automacoes editoriais avancadas",
+                     "publicacao autonoma pela IA"
+                 ],
+    "sources":  [
+                    "site-context/registry/projects/PROJECT-REGISTRY-TUPINIQUIM.json",
+                    "site-context/decision-memory.json",
+                    "site-context/registry/rules/RULESET-HARNESS-QUALITY.json",
+                    "docs/method-of-operation.md",
+                    "docs/project-history.md"
+                ],
+    "globalAcceptanceCriteria":  [
+                                     "Fluxo de rascunho ate publicacao funciona.",
+                                     "Projeto, plano, fase e tarefa atuais sao recuperados deterministicamente.",
+                                     "IA integrada permanece operacional sem substituir fontes canonicas.",
+                                     "Suite e validacoes do projeto permanecem verdes."
+                                 ],
+    "relatedDecisions":  [
+                             "DEC-2026-EPIC-TRANSITION-HARNESS",
+                             "DEC-2026-ANCHOR-HARNESS-FIRST",
+                             "DEC-2026-IA-OPERATIONAL-CMS",
+                             "DEC-2026-DETERMINISTIC-PROJECT-CONTINUITY",
+                             "DEC-2026-EDITORIAL-CMS-READONLY-FIRST-SLICE",
+                             "DEC-2026-EDITORIAL-CMS-DIRECT-PUBLISHING",
+                             "DEC-2026-EDITORIAL-CMS-P1-CLOSEOUT"
+                         ],
+    "phases":  [
+                   {
+                       "id":  "PHASE-EDITORIAL-CMS-01-FOUNDATION",
+                       "name":  "Fundacao Administrativa do CMS",
+                       "status":  "completed",
+                       "objective":  "Implementar o primeiro fluxo editorial administravel sobre a estrutura atual.",
+                       "deliverables":  [
+                                            "area administrativa autenticada",
+                                            "listagem de posts",
+                                            "formulario de rascunho e edicao",
+                                            "validacao de metadados",
+                                            "acao controlada de publicacao"
+                                        ],
+                       "acceptanceCriteria":  [
+                                                  "Acesso administrativo exige autenticacao.",
+                                                  "Posts atuais sao listados sem regressao do Blog.",
+                                                  "Rascunhos podem ser criados e editados.",
+                                                  "Metadados obrigatorios sao validados.",
+                                                  "Publicacao exige acao explicita e preserva compatibilidade MDX."
+                                              ],
+                       "tasks":  [
+                                     {
+                                         "id":  "TASK-EDITORIAL-CMS-01-FIRST-SLICE",
+                                         "title":  "Implementar o primeiro corte funcional do CMS",
+                                         "status":  "completed",
+                                         "objective":  "Entregar autenticacao administrativa, sessao segura, logout, listagem dos artigos reais e abertura por slug em modo somente leitura, preservando o blog e a compatibilidade com OpenNext.",
+                                         "acceptanceCriteria":  [
+                                                                    "Login administrativo funcional.",
+                                                                    "Sessao assinada e validada no servidor.",
+                                                                    "Acesso sem sessao bloqueado e credenciais invalidas rejeitadas.",
+                                                                    "Logout bloqueia acesso subsequente.",
+                                                                    "Quatro artigos reais listados e abertos por slug.",
+                                                                    "Campos somente leitura e ausencia de salvamento.",
+                                                                    "CMS sem fs editorial ou dependencia de Ollama.",
+                                                                    "19 autotestes, lint restrito, build Next.js, OpenNext e fluxo manual concluidos."
+                                                                ]
+                                     },
+                                     {
+                                         "id":  "TASK-EDITORIAL-CMS-01-GOVERNANCE-CLOSEOUT",
+                                         "title":  "Materializar e validar a governanca do primeiro corte do CMS",
+                                         "status":  "completed",
+                                         "objective":  "Persistir a decisao arquitetural, atualizar registries, regenerar o contexto oficial, validar a Ancora e preparar a separacao controlada dos commits.",
+                                         "acceptanceCriteria":  [
+                                                                    "Decision Memory valida.",
+                                                                    "Project Registry coerente.",
+                                                                    "Planning Registry valido.",
+                                                                    "Fontes dinamicas corretas na Ancora.",
+                                                                    "Ancora preserva cinco blocos e historico encadeado.",
+                                                                    "Limitacoes do Corte 1 preservadas.",
+                                                                    "Diff inspecionado e escopos separaveis.",
+                                                                    "Nenhum segredo, script temporario, push ou deploy."
+                                                                ]
+                                     },
+                                     {
+                                         "id":  "TASK-EDITORIAL-CMS-01-D1-DRAFT-PERSISTENCE",
+                                         "title":  "Implementar persistencia editorial D1 e rascunhos reais",
+                                         "status":  "completed",
+                                         "objective":  "Implementar schema D1, criacao de rascunho, salvamento real e recuperacao para continuidade da edicao.",
+                                         "acceptanceCriteria":  [
+                                                                    "Schema D1 implementado e validado.",
+                                                                    "Rascunho real criado e salvo em D1.",
+                                                                    "Rascunho recuperado e editado para continuidade.",
+                                                                    "Metadados validados antes da gravacao.",
+                                                                    "Geracao local de MDX validada com recusa de sobrescrita.",
+                                                                    "Geracao local do catalogo validada como acao independente.",
+                                                                    "CMS 33/33 e Context Engine 98/98.",
+                                                                    "Builds Next.js e OpenNext validados."
+                                                                ]
+                                     },
+                                     {
+                                         "id":  "TASK-EDITORIAL-CMS-01-LOCAL-INGESTION-MVP",
+                                         "title":  "Materializar o MVP de Ingestao Editorial Local",
+                                         "status":  "completed",
+                                         "objective":  "Formalizar e preservar o pipeline local TXT para MDX como corte funcional do CMS, mantendo D1 como evolucao estrutural futura.",
+                                         "acceptanceCriteria":  [
+                                                                    "TXT editorial permanece preservado em content/inbox.",
+                                                                    "Importador multipadrao normaliza o conteudo e cria backup antes de substituir MDX.",
+                                                                    "Novos MDXs usam UTF-8 sem BOM e frontmatter obrigatorio.",
+                                                                    "Catalogo derivado e gerado por scripts/generate-posts.js sem edicao manual.",
+                                                                    "Doze artigos estao presentes e navegaveis no ambiente local.",
+                                                                    "Testes do importador permanecem verdes.",
+                                                                    "Persistencia D1 continua in_progress e fora deste corte funcional."
+                                                                ]
+                                     },
+                                     {
+                                         "id":  "TASK-EDITORIAL-CMS-01-D1-LOCAL-FLOW-CLOSEOUT",
+                                         "title":  "Fechar governanca e preparar o fluxo local para Git",
+                                         "status":  "paused",
+                                         "objective":  "Materializar a decisao do fluxo D1 local, regenerar derivados, validar o Harness, classificar arquivos sensiveis e separar commits auditaveis. Interrompida por decisao arquitetural: o fluxo foi comprovado e preservado como legado, mas deixou de ser o destino por nao entregar autonomia editorial. Interrompida por decisao arquitetural: o fluxo foi comprovado e preservado como legado, mas deixou de ser o destino por nao entregar autonomia editorial.",
+                                         "acceptanceCriteria":  [
+                                                                    "Nova decisao persistida e validada.",
+                                                                    "Registries e documentacao coerentes.",
+                                                                    "Derivados regenerados pelos mecanismos oficiais.",
+                                                                    "Harness e suites permanecem verdes.",
+                                                                    "Arquivos potencialmente sensiveis classificados.",
+                                                                    "Escopos de commit separados sem push ou deploy."
+                                                                ]
+                                     },
+                                     {
+                                         "id":  "TASK-EDITORIAL-CMS-01-DIRECT-PUBLISHING-CUT-1",
+                                         "title":  "Implementar publicacao direta pelo CMS - Corte 1",
+                                         "status":  "completed",
+                                         "objective":  "Concluir a P1 funcional com criacao, atualizacao, publicacao, retirada e republicacao pelo CMS sem build ou deploy por postagem.",
+                                         "acceptanceCriteria":  [
+                                                                    "Migration cms_posts aplicada e preservando cms_drafts.",
+                                                                    "Criacao e atualizacao de rascunho comprovadas no D1.",
+                                                                    "Publicacao, retirada e republicacao comprovadas na pagina publicada.",
+                                                                    "Postagem pelo CMS sem alteracao de arquivos, Git, build ou deploy.",
+                                                                    "Autenticacao e redirecionamentos administrativos estabilizados.",
+                                                                    "Backup e restauracao local comprovados sem escrita em producao.",
+                                                                    "Artigo de prova preservado como rascunho ao final.",
+                                                                    "Pendencias posteriores registradas no backlog sem reabrir a P1."
+                                                                ]
+                                     }
+                                 ]
+                   },
+                   {
+                       "id":  "PHASE-EDITORIAL-CMS-02-HARDENING",
+                       "name":  "Validacao e Endurecimento",
+                       "status":  "planned",
+                       "objective":  "Validar seguranca, regressao e operacao editorial do primeiro corte.",
+                       "deliverables":  [
+                                            "testes de autorizacao",
+                                            "testes editoriais",
+                                            "validacao de producao"
+                                        ],
+                       "acceptanceCriteria":  [
+                                                  "Acesso nao autorizado e bloqueado.",
+                                                  "Fluxo editorial permanece integro.",
+                                                  "Blog publico nao sofre regressao."
+                                              ]
+                   }
+               ],
+    "currentPhase":  "PHASE-EDITORIAL-CMS-01-FOUNDATION",
+    "nextPhase":  "PHASE-EDITORIAL-CMS-02-HARDENING",
+    "executionState":  "awaiting_next_authorization",
+    "closeout":  {
+                     "status":  "completed",
+                     "completedAt":  "2026-08-22",
+                     "decisionRef":  "DEC-2026-EDITORIAL-CMS-P1-CLOSEOUT",
+                     "summary":  "P1 funcional concluida em producao; EPIC-004 aguarda autorizacao explicita para a proxima atuacao.",
+                     "evidence":  [
+                                      "Create, Update, Publish, Unpublish e Republicacao comprovados.",
+                                      "Teste focal da rota admin 4/4, regressao CMS 55/55 e build validados.",
+                                      "/admin validado com e sem sessao.",
+                                      "Restauracao local validada sem escrita remota."
+                                  ],
+                     "backlog":  [
+                                     "Revisar ou remover o artigo de prova.",
+                                     "Analisar o fluxo local legado antes de qualquer remocao.",
+                                     "Corrigir o espacamento visual do resumo administrativo.",
+                                     "Melhorar a apresentacao de artigos sem imagem.",
+                                     "Estruturar dados CMS no ambiente local.",
+                                     "Planejar a evolucao futura dos artigos MDX."
+                                 ]
+                 }
 }

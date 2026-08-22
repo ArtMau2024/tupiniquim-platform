@@ -369,7 +369,7 @@
     {
       "id": "DEC-2026-EDITORIAL-CMS-D1-LOCAL-PUBLISHING-FLOW",
       "title": "Adotar rascunhos D1 e publicacao local controlada como fluxo operacional do CMS",
-      "status": "active",
+      "status": "superseded",
       "decidedAt": "2026-08-15",
       "category": "architecture",
       "context": "O CMS passou a persistir rascunhos reais no D1 e validou a geracao local controlada de MDX e catalogo sem transformar o runtime publicado em armazenamento gravavel.",
@@ -632,6 +632,89 @@
         "Novo artigo",
         "Editar rascunho",
         "UX administrativa"
+      ]
+    },
+    {
+      "id": "DEC-2026-EDITORIAL-CMS-DIRECT-PUBLISHING",
+      "title": "Adotar D1 como fonte publica final e publicacao direta pelo CMS",
+      "status": "active",
+      "decidedAt": "2026-08-16",
+      "category": "architecture",
+      "context": "O CMS publicado administra rascunhos no D1, enquanto o Blog publico ainda le artigos MDX incorporados ao bundle. O fluxo local tecnicamente comprovado exige MDX, catalogo, Git, build e deploy por postagem e nao entrega a autonomia editorial definida para o produto.",
+      "decision": "Adotar D1 como fonte editorial e publica final, com fluxo alvo CMS -> D1 -> Blog. Executar transicao temporaria MDX + D1: Corte 1 publica diretamente e preserva os 12 artigos legados; Corte 2 adiciona atualizacao e retirada do ar; Corte 3 migra os legados e retira MDX do caminho publico principal.",
+      "reason": "Permitir criar, editar e publicar pelo CMS sem terminal, IA, MDX, catalogo local, Git, build ou deploy por postagem, preservando seguranca, rollback e continuidade do Blog.",
+      "impacts": [
+        "Publicacao passa a ser explicita, autenticada, validada no servidor e atomica.",
+        "Rascunhos nunca sao publicos e status permanece consistente com published_at.",
+        "Slug deve ser unico entre D1 e MDX legado.",
+        "Autoria vazia e normalizada para Greyce e imagem e opcional/local no Corte 1.",
+        "Falha do D1 nao derruba o conteudo MDX legado durante a transicao.",
+        "cms_drafts e preservada no Corte 1 e o piloto possui rollback.",
+        "Postagem nao modifica arquivos nem executa Git, build ou deploy."
+      ],
+      "rules": [
+        "D1 e a fonte editorial e publica final.",
+        "MDX e transitorio, nao uma segunda fonte permanente.",
+        "Corte 1 nao implica que cms_posts ou a migration ja existam.",
+        "Build e deploy evoluem o sistema, nao publicam cada artigo."
+      ],
+      "resumeCriteria": [
+        "Harness sincronizado e validado sem memoria do chat.",
+        "Ordem A validada e autorizada.",
+        "Migration local, dominio e repositorio comprovados antes do D1 remoto."
+      ],
+      "supersedes": [
+        "DEC-2026-EDITORIAL-CMS-D1-LOCAL-PUBLISHING-FLOW"
+      ],
+      "affectedAreas": [
+        "EPIC-004",
+        "CMS",
+        "D1",
+        "MDX",
+        "Blog",
+        "Decision Memory",
+        "Planning Registry",
+        "Rules Registry",
+        "Cloudflare"
+      ]
+    },
+    {
+      "id": "DEC-2026-EDITORIAL-CMS-P1-CLOSEOUT",
+      "title": "Encerrar a P1 funcional do CMS e aguardar autorizacao para a proxima atuacao",
+      "status": "active",
+      "decidedAt": "2026-08-22",
+      "category": "governance",
+      "context": "A P1 comprovou em producao o ciclo editorial do CMS, incluindo criacao, atualizacao, publicacao, retirada, republicacao, autenticacao, redirecionamentos administrativos e restauracao local sem escrita na producao. Nenhuma atuacao funcional posterior foi autorizada.",
+      "decision": "Encerrar a P1 funcional, manter EPIC-004 e o plano editorial ativos no estado awaiting_next_authorization, preservar o artigo de prova como rascunho, manter o fluxo local legado para analise posterior e direcionar pendencias visuais e editoriais ao backlog sem reabrir a P1.",
+      "reason": "Representar a conclusao real sem encerrar todo o EPIC-004, criar tarefa ficticia ou promover silenciosamente o backlog.",
+      "impacts": [
+        "P1 funcional fica concluida e suas evidencias validas nao serao repetidas sem alteracao posterior.",
+        "EPIC-004 e PLAN-EDITORIAL-CMS-MVP permanecem ativos sem tarefa in_progress.",
+        "A proxima atuacao depende de selecao e autorizacao explicitas de Arthur.",
+        "O artigo de prova permanece como rascunho; revisao ou remocao ficam no backlog.",
+        "O fluxo local legado permanece fisicamente preservado para analise posterior.",
+        "Pendencias visuais e editoriais nao bloqueiam nem reabrem a P1."
+      ],
+      "rules": [
+        "awaiting_next_authorization exige zero tarefas in_progress e proibe nextCommand operacional.",
+        "Antes de alterar arquivo fisico, declarar responsabilidade, mudanca, preservacoes, limites, dependencias, definicao de pronto, evidencias e criterio de parada.",
+        "Descoberta que amplie o escopo exige parada, evidencia, impacto, redefinicao e nova autorizacao.",
+        "Provas validas nao sao repetidas sem alteracao posterior no objeto validado."
+      ],
+      "resumeCriteria": [
+        "Arthur seleciona e autoriza explicitamente a proxima atuacao do EPIC-004.",
+        "A atuacao autorizada recebe definicao de pronto antes da implementacao."
+      ],
+      "supersedes": [],
+      "affectedAreas": [
+        "EPIC-004",
+        "CMS",
+        "Decision Memory",
+        "Planning Registry",
+        "Project Registry",
+        "Rules Registry",
+        "Method of Operation",
+        "Context Engine"
       ]
     }
   ]

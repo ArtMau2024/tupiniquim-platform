@@ -68,30 +68,37 @@
         "Protecao contra sobrescrita de MDX",
         "Geracao local controlada do catalogo",
         "Validacoes locais Next.js e OpenNext",
-        "Retirada do piloto da projecao publica"
+        "Retirada do piloto da projecao publica",
+        "CRUD editorial CMS publicado",
+        "Publicacao e retirada direta pelo D1",
+        "Republicacao na mesma URL publica",
+        "Postagem sem Git, build ou deploy",
+        "Backup e restauracao local sem escrita em producao",
+        "Rota /admin estabilizada com e sem sessao"
       ],
       "pendingWork": [
-        "Gestao editorial",
-        "Rascunho e edicao",
-        "Validacao e publicacao",
-        "Media Center",
-        "Publicacao controlada",
-        "Migracao idempotente dos artigos atuais",
-        "Transicao da fonte publica para D1",
-        "Media Center com R2",
-        "Validacao em ambiente publicado",
-        "Fechamento operacional Aguardando Git",
-        "Decisao administrativa sobre o rascunho piloto"
+        "Revisar ou remover o artigo de prova.",
+        "Analisar o fluxo local legado antes de qualquer remocao.",
+        "Corrigir o espacamento visual do resumo administrativo.",
+        "Melhorar a apresentacao de artigos sem imagem.",
+        "Estruturar dados CMS no ambiente local.",
+        "Planejar a evolucao futura dos artigos MDX."
       ],
       "resumeConditions": [
         "Harness MVP validado",
         "EPIC-003 organizado para retomada"
       ],
-      "decisionRef": "DEC-2026-EPIC-TRANSITION-HARNESS",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-DIRECT-PUBLISHING",
       "nextPhase": "PHASE-EDITORIAL-CMS-02-HARDENING",
       "activePlan": "PLAN-EDITORIAL-CMS-MVP",
       "aiIntegration": "operational-active",
-      "nextStep": "TASK-EDITORIAL-CMS-01-D1-LOCAL-FLOW-CLOSEOUT"
+      "nextStep": null,
+      "currentPublishingModel": "hybrid-mdx-d1",
+      "targetPublishingModel": "direct-d1",
+      "transitionModel": "hybrid-mdx-d1",
+      "executionState": "awaiting_next_authorization",
+      "p1Status": "completed",
+      "p1DecisionRef": "DEC-2026-EDITORIAL-CMS-P1-CLOSEOUT"
     },
     {
       "id": "EPIC-HARNESS-001",

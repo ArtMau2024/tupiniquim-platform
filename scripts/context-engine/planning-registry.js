@@ -5,6 +5,7 @@ const ROOT = process.cwd();
 const plansDir = path.join(ROOT, "site-context", "registry", "plans");
 const memoryFile = path.join(ROOT, "site-context", "decision-memory.json");
 const statuses = new Set(["planned", "in_progress", "blocked", "completed", "cancelled", "paused"]);
+const executionStates = new Set(["executing", "awaiting_next_authorization"]);
 function readJson(file) { return JSON.parse(fs.readFileSync(file, "utf8")); }
 function planFiles() { return fs.existsSync(plansDir) ? fs.readdirSync(plansDir).filter(name => /^PLAN-[A-Z0-9-]+\.json$/.test(name)).sort() : []; }
 function requiredText(value, label) { if (typeof value !== "string" || !value.trim()) throw new Error(`${label} is required.`); }
@@ -46,13 +47,21 @@ function validatePlan(plan, fileName, decisionIds) {
     if (phase.status === "completed" && (phase.tasks || []).some(task => task.status === "in_progress")) throw new Error(`${fileName}: completed phase ${phase.id} cannot contain an in_progress task.`);
   }
   if (plan.status === "in_progress") {
+    const executionState = plan.executionState || "executing";
+    if (!executionStates.has(executionState)) throw new Error(`${fileName}: invalid executionState ${executionState}.`);
     requiredText(plan.currentPhase, `${fileName}: currentPhase`);
     if (!phaseIds.has(plan.currentPhase)) throw new Error(`${fileName}: current phase does not exist.`);
     const current = plan.phases.find(phase => phase.id === plan.currentPhase);
-    if (current.status !== "in_progress") throw new Error(`${fileName}: current phase is not in_progress.`);
     const currentActive = activeTasks.filter(item => item.phaseId === plan.currentPhase);
-    if (currentActive.length !== 1) throw new Error(`${fileName}: active phase must contain exactly one in_progress task.`);
-    if (activeTasks.some(item => item.phaseId !== plan.currentPhase)) throw new Error(`${fileName}: in_progress task exists outside current phase.`);
+    if (executionState === "executing") {
+      if (current.status !== "in_progress") throw new Error(`${fileName}: executing current phase is not in_progress.`);
+      if (currentActive.length !== 1) throw new Error(`${fileName}: executing active phase must contain exactly one in_progress task.`);
+      if (activeTasks.some(item => item.phaseId !== plan.currentPhase)) throw new Error(`${fileName}: in_progress task exists outside current phase.`);
+    } else {
+      if (activeTasks.length !== 0) throw new Error(`${fileName}: awaiting_next_authorization requires zero in_progress tasks.`);
+      if (current.status !== "completed" && current.status !== "in_progress") throw new Error(`${fileName}: awaiting current phase must be completed or in_progress.`);
+      for (const phase of plan.phases) for (const task of phase.tasks || []) if (Object.prototype.hasOwnProperty.call(task,"nextCommand")) throw new Error(`${fileName}: awaiting_next_authorization forbids nextCommand.`);
+    }
   } else if (activeTasks.length) throw new Error(`${fileName}: non-active plan cannot contain in_progress tasks.`);
   if (plan.nextPhase && !phaseIds.has(plan.nextPhase)) throw new Error(`${fileName}: next phase does not exist.`);
   return plan;

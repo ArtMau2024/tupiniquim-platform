@@ -230,7 +230,7 @@
     {
       "id": "RULE-DELIVERY-001",
       "title": "Entrega fisica verificavel de arquivos",
-      "status": "active",
+      "status": "superseded",
       "scope": "file-delivery",
       "statement": "Arquivo solicitado deve ser criado fisicamente, validado e entregue com URL real da ferramenta, nome, formato, tamanho em bytes, SHA-256 e CMD completo iniciado por cls.",
       "verification": "Validar manifesto de entrega; funcionamento do hyperlink permanece confirmacao operacional humana.",
@@ -384,7 +384,7 @@
     {
       "id": "RULE-EDITORIAL-D1-LOCAL-001",
       "title": "Geracao explicita e local de MDX",
-      "status": "active",
+      "status": "superseded",
       "scope": "editorial-d1-local-flow",
       "statement": "Gerar MDX exige acao administrativa local explicita, e bloqueado em producao e nao sobrescreve arquivo existente.",
       "verification": "Validar sessao, ambiente local, acao explicita e recusa de sobrescrita.",
@@ -395,7 +395,7 @@
     {
       "id": "RULE-EDITORIAL-D1-LOCAL-002",
       "title": "Geracao separada e transacional do catalogo",
-      "status": "active",
+      "status": "superseded",
       "scope": "editorial-d1-local-flow",
       "statement": "Gerar catalogo e acao independente, reutiliza o gerador oficial, exige lock, timeout e rollback e nao executa build, Git ou deploy.",
       "verification": "Validar separacao das acoes, gerador oficial, limpeza transacional e ausencia de build, Git e deploy.",
@@ -406,7 +406,7 @@
     {
       "id": "RULE-EDITORIAL-D1-LOCAL-003",
       "title": "Estado Aguardando Git",
-      "status": "active",
+      "status": "superseded",
       "scope": "editorial-d1-local-flow",
       "statement": "Validacao e builds locais nao equivalem a publicacao; Git, push e Cloudflare permanecem manuais.",
       "verification": "Nao declarar producao atualizada sem Git, push e Cloudflare concluidos por acao manual.",
@@ -417,7 +417,7 @@
     {
       "id": "RULE-EDITORIAL-D1-LOCAL-004",
       "title": "Tratamento do conteudo piloto",
-      "status": "active",
+      "status": "superseded",
       "scope": "editorial-d1-local-flow",
       "statement": "Conteudo tecnico de validacao nao segue para producao; evidencias podem permanecer em quarentena e o rascunho D1 exige decisao administrativa separada.",
       "verification": "Confirmar piloto ausente da projecao publica e preservar evidencias sem excluir o rascunho D1 automaticamente.",
@@ -500,6 +500,107 @@
       "verification": "Ao exceder o limite, o Consultor deve interromper o processo e separar bloqueios concretos, pendencias nao bloqueadoras, decisao minima necessaria e acao autorizada para encerramento.",
       "origin": "Retrospectiva operacional aprovada por Arthur em 2026-08-15",
       "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-DIRECT-001",
+      "title": "Fonte publica final no D1",
+      "status": "active",
+      "scope": "architecture-boundary",
+      "statement": "D1 e a fonte editorial e publica final; MDX existe somente durante a transicao.",
+      "verification": "Verificar modelos current local-mdx-deploy, target direct-d1 e transition hybrid-mdx-d1.",
+      "origin": "Publicacao direta validada por Arthur em 2026-08-16",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-DIRECT-PUBLISHING",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-DIRECT-002",
+      "title": "Rascunho invisivel e publicacao atomica",
+      "status": "active",
+      "scope": "editorial-security",
+      "statement": "Rascunho nunca e publico; publicacao e explicita, autenticada, validada no servidor e atomica; draft exige published_at nulo e published exige data valida.",
+      "verification": "Consultas publicas exigem status published e segunda publicacao deve falhar de forma controlada.",
+      "origin": "Publicacao direta validada por Arthur em 2026-08-16",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-DIRECT-PUBLISHING",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-DIRECT-003",
+      "title": "Slug, autoria e imagem do Corte 1",
+      "status": "active",
+      "scope": "editorial-domain",
+      "statement": "Slug e unico entre D1 e MDX; autoria vazia vira Greyce no servidor; imagem e opcional e, quando presente, usa caminho publico local seguro.",
+      "verification": "Testar conflito de slug, normalizacao de autoria e imagem nula/local.",
+      "origin": "Publicacao direta validada por Arthur em 2026-08-16",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-DIRECT-PUBLISHING",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-DIRECT-004",
+      "title": "Degradacao segura durante transicao",
+      "status": "active",
+      "scope": "availability",
+      "statement": "Falha do D1 nao derruba o Blog legado MDX e nunca usa rascunho como fallback.",
+      "verification": "Simular D1 ausente e comprovar home, categorias e artigos MDX disponiveis.",
+      "origin": "Publicacao direta validada por Arthur em 2026-08-16",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-DIRECT-PUBLISHING",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-DIRECT-005",
+      "title": "Preservacao e rollback do Corte 1",
+      "status": "active",
+      "scope": "editorial-safety",
+      "statement": "cms_drafts e preservada no Corte 1 e o rollback do piloto deve existir antes da publicacao remota.",
+      "verification": "Verificar tabela antiga preservada e reversao por ID validada localmente.",
+      "origin": "Publicacao direta validada por Arthur em 2026-08-16",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-DIRECT-PUBLISHING",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-DIRECT-006",
+      "title": "Postagem sem pipeline de sistema",
+      "status": "active",
+      "scope": "deployment-boundary",
+      "statement": "Publicar conteudo pelo CMS nao modifica arquivos e nao executa MDX, catalogo local, Git, build ou deploy.",
+      "verification": "Prova comercial registra zero arquivos, Git, builds e deploys durante a postagem.",
+      "origin": "Publicacao direta validada por Arthur em 2026-08-16",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-DIRECT-PUBLISHING",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-EDITORIAL-DIRECT-007",
+      "title": "Interface sem acoes locais legadas",
+      "status": "active",
+      "scope": "editorial-interface",
+      "statement": "Gerar artigo local e Gerar catalogo local nao aparecem no fluxo administrativo do Corte 1.",
+      "verification": "Tela de edicao nao contem acoes ou imports fs/path do fluxo local.",
+      "origin": "Publicacao direta validada por Arthur em 2026-08-16",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-DIRECT-PUBLISHING",
+      "supersedes": []
+    },
+    {
+      "id": "RULE-DELIVERY-002",
+      "title": "Entrega exige elemento clicavel real e observavel",
+      "status": "active",
+      "scope": "file-delivery",
+      "statement": "Entrega valida exige arquivo fisico validado e elemento clicavel real e observavel na propria interface. Texto sandbox, /mnt/data, caminho local ou URL nao equivale a link entregue.",
+      "verification": "Sem elemento clicavel confirmado, declarar FALHA DE ENTREGA - Link nao confirmado pela interface; nao afirmar disponibilidade, pedir download, apresentar caminho como prova ou avancar.",
+      "origin": "Protocolo obrigatorio aprovado por Arthur em 2026-08-16",
+      "decisionRef": "DEC-2026-HARNESS-AGENT-PROTOCOL",
+      "supersedes": [
+        "RULE-DELIVERY-001"
+      ]
+    },
+    {
+      "id": "RULE-FILE-CHANGE-CONTRACT-001",
+      "title": "Definicao de atuacao antes de alterar arquivo fisico",
+      "status": "active",
+      "scope": "file-change-governance",
+      "statement": "Nenhum arquivo fisico pode ser modificado antes de declarar responsabilidade, mudanca, preservacoes, limites, dependencias, definicao de pronto, evidencias previstas e criterio de parada.",
+      "verification": "Reprovar alteracao sem contrato previo, perda de preservacao, arquivo fora do escopo, ampliacao silenciosa, mudanca da definicao de pronto ou repeticao de prova valida sem alteracao posterior. Descoberta nova exige parada, evidencia, impacto, redefinicao e autorizacao.",
+      "origin": "Alinhamento explicito de Arthur em 2026-08-22",
+      "decisionRef": "DEC-2026-EDITORIAL-CMS-P1-CLOSEOUT",
       "supersedes": []
     }
   ]
