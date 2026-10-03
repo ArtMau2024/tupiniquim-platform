@@ -3,41 +3,41 @@ import Link from "next/link";
 export const metadata = {
   title: "Tupiniquim",
   description:
-    "Tecnologia, estratégia e identidade brasileira para transformar ideias em soluções digitais que evoluem por etapas.",
+    "Marketing digital e soluções tecnológicas para fortalecer marcas, ampliar a presença online e gerar oportunidades de negócio.",
 };
 
 const solutions = [
   {
-    title: "Desenvolvimento Web",
+    title: "Marketing Digital",
     description:
-      "Sites, aplicações e experiências digitais construídas com uma base organizada, responsiva e preparada para evolução.",
+      "Estratégias para fortalecer a presença online, aproximar a marca do público e gerar oportunidades de negócio.",
   },
   {
-    title: "Conteúdo Estratégico",
+    title: "Conteúdo e Presença Digital",
     description:
-      "Conteúdo voltado para presença digital, autoridade, aprendizado e relacionamento com o público.",
+      "Conteúdo estratégico e experiências digitais para comunicar valor, construir autoridade e manter relacionamento com o público.",
   },
   {
-    title: "Plataformas Digitais",
+    title: "Tecnologia para Marketing",
     description:
-      "Estruturas preparadas para integrar usuários, serviços, produtos e novas oportunidades digitais.",
+      "Sites, automações e soluções tecnológicas desenvolvidas para apoiar campanhas, atendimento e crescimento digital.",
   },
 ];
 
 const currentPlatform = [
-  "Site institucional",
-  "Blog",
-  "Páginas institucionais",
-  "Navegação global responsiva",
+  "Presença digital alinhada à marca",
+  "Conteúdo para atrair e informar o público",
+  "Páginas para apresentar serviços e soluções",
+  "Experiência responsiva em diferentes dispositivos",
 ];
 
 const futurePlatform = [
-  "Plataforma Editorial",
-  "Área do Usuário",
-  "Produtos Digitais",
-  "Loja Virtual",
-  "Criador de Sites",
-  "SaaS Tupiniquim",
+  "Automação e gestão de conteúdo",
+  "Experiências digitais personalizadas",
+  "Produtos digitais para novas oportunidades",
+  "Canais digitais de venda e relacionamento",
+  "Ferramentas para presença digital",
+  "Soluções de marketing como serviço",
 ];
 
 export default function Home() {
@@ -45,19 +45,19 @@ export default function Home() {
     <div className="home-page">
       <section className="home-hero">
         <div className="home-hero-content">
-          <p className="home-eyebrow">Tecnologia com identidade brasileira</p>
-          <h1>Tecnologia e conteúdo para construir no digital</h1>
+          <p className="home-eyebrow">Marketing digital e tecnologia</p>
+          <h1>Marketing digital e tecnologia para impulsionar o seu negócio</h1>
           <p className="home-hero-description">
-            A Tupiniquim combina tecnologia, estratégia e identidade brasileira
-            para transformar ideias em soluções digitais que evoluem por etapas.
+            Estratégia, conteúdo, presença digital e soluções tecnológicas para
+            fortalecer marcas, ampliar oportunidades e apoiar o crescimento de empresas.
           </p>
 
           <div className="home-actions">
-            <Link className="home-action home-action-primary" href="/#solucoes">
-              Conhecer soluções
+            <Link className="home-action home-action-primary" href="/contato">
+              Solicitar uma conversa
             </Link>
-            <Link className="home-action home-action-secondary" href="/blog">
-              Acessar o Blog
+            <Link className="home-action home-action-secondary" href="/#solucoes">
+              Conhecer soluções
             </Link>
           </div>
         </div>
@@ -65,11 +65,11 @@ export default function Home() {
 
       <section className="home-solutions" id="solucoes">
         <div className="home-section-heading">
-          <p className="home-section-kicker">Soluções digitais</p>
-          <h2>Estruturas preparadas para evoluir com o negócio</h2>
+          <p className="home-section-kicker">Soluções para crescer no digital</p>
+          <h2>Estratégia, conteúdo e tecnologia conectados ao seu negócio</h2>
           <p>
-            Transformamos ideias em experiências, conteúdo e plataformas com
-            uma base clara, responsiva e preparada para novos passos.
+            Unimos marketing digital e tecnologia para fortalecer marcas,
+            ampliar a presença online e transformar objetivos em ações práticas.
           </p>
         </div>
 
@@ -89,7 +89,7 @@ export default function Home() {
       <section className="home-differentials">
         <div className="home-section-heading home-section-heading-light">
           <p className="home-section-kicker">Como construímos</p>
-          <h2>Clareza em cada decisão e evolução em cada entrega</h2>
+          <h2>Marketing conectado aos objetivos do seu negócio</h2>
           <p>
             Tecnologia aplicada a necessidades reais, com processos verificáveis
             e foco no valor construído ao longo do caminho.
@@ -99,7 +99,7 @@ export default function Home() {
         <div className="home-differentials-grid">
           <article className="home-differential-card">
             <span className="home-card-number" aria-hidden="true">01</span>
-            <h3>Identidade brasileira</h3>
+            <h3>Estratégia orientada ao negócio</h3>
             <p>
               Soluções conectadas à realidade, à linguagem e às oportunidades
               locais.
@@ -108,7 +108,7 @@ export default function Home() {
 
           <article className="home-differential-card">
             <span className="home-card-number" aria-hidden="true">02</span>
-            <h3>Tecnologia com propósito</h3>
+            <h3>Conteúdo que comunica valor</h3>
             <p>
               Ferramentas escolhidas para resolver problemas e sustentar o
               crescimento.
@@ -117,7 +117,7 @@ export default function Home() {
 
           <article className="home-differential-card">
             <span className="home-card-number" aria-hidden="true">03</span>
-            <h3>Evolução verificável</h3>
+            <h3>Tecnologia aplicada ao marketing</h3>
             <p>
               Cada entrega é testada antes de se tornar a base da próxima etapa.
             </p>
@@ -125,7 +125,7 @@ export default function Home() {
 
           <article className="home-differential-card">
             <span className="home-card-number" aria-hidden="true">04</span>
-            <h3>Foco em resultado</h3>
+            <h3>Evolução orientada por resultados</h3>
             <p>
               Experiências digitais orientadas por utilidade, clareza e valor.
             </p>
@@ -136,7 +136,7 @@ export default function Home() {
       <section className="home-platform">
         <div className="home-section-heading">
           <p className="home-section-kicker">Uma plataforma em evolução</p>
-          <h2>Crescimento por etapas, com uma base que permanece coerente</h2>
+          <h2>Uma presença digital preparada para crescer com consistência</h2>
           <p>
             A Tupiniquim preserva o que já funciona enquanto prepara novas
             capacidades para ampliar conteúdo, serviços e experiências digitais.
@@ -146,7 +146,7 @@ export default function Home() {
         <div className="home-platform-grid">
           <div className="home-platform-panel home-platform-current">
             <p className="home-platform-label">Realidade atual</p>
-            <h3>Estrutura já construída</h3>
+            <h3>Base digital organizada</h3>
             <ul>
               {currentPlatform.map((item) => (
                 <li key={item}>{item}</li>
@@ -156,7 +156,7 @@ export default function Home() {
 
           <div className="home-platform-panel home-platform-future">
             <p className="home-platform-label">Próximas evoluções</p>
-            <h3>Visão de futuro</h3>
+            <h3>Evolução contínua</h3>
             <ul>
               {futurePlatform.map((item) => (
                 <li key={item}>{item}</li>
@@ -169,7 +169,7 @@ export default function Home() {
       <section className="home-content">
         <div className="home-content-copy">
           <p className="home-section-kicker">Conteúdo e aprendizado</p>
-          <h2>Conteúdo para aprender e evoluir</h2>
+          <h2>Conteúdo estratégico para fortalecer sua presença digital</h2>
           <p>
             Acompanhe publicações sobre tecnologia, negócios, inovação e
             experiências práticas na construção de soluções digitais.
@@ -177,14 +177,14 @@ export default function Home() {
         </div>
 
         <Link className="home-action home-action-outline" href="/blog">
-          Explorar o Blog
-        </Link>
+              Explorar conteúdos
+            </Link>
       </section>
 
       <section className="home-cta">
         <div className="home-cta-copy">
           <p className="home-section-kicker">Próximo passo</p>
-          <h2>Vamos construir uma presença digital preparada para evoluir?</h2>
+          <h2>Pronto para fortalecer sua presença digital?</h2>
           <p>
             Conheça a Tupiniquim, acompanhe nossos conteúdos e utilize o canal
             institucional conforme a plataforma avança.
@@ -192,8 +192,8 @@ export default function Home() {
         </div>
 
         <Link className="home-action home-action-accent" href="/contato">
-          Fale com a Tupiniquim
-        </Link>
+              Falar sobre seu projeto
+            </Link>
       </section>
 
       <style>{`

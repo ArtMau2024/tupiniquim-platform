@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="site-footer-inner">
         <div className="site-footer-content">
           <div className="site-footer-institutional">
-            <p className="site-footer-brand">Tupiniquim</p>
+            <p className="site-footer-brand">Tupiniquim Conexões</p>
             <p className="site-footer-description">
               Tecnologia, conteúdo e estratégia para construir soluções digitais
               com identidade brasileira e evolução consistente.
@@ -57,7 +57,7 @@ export default function Footer() {
         </div>
 
         <div className="site-footer-bottom">
-          <p>© {new Date().getFullYear()} Tupiniquim</p>
+          <p>© {new Date().getFullYear()} Tupiniquim Conexões</p>
         </div>
       </div>
 

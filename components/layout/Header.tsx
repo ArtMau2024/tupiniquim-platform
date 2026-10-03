@@ -5,7 +5,7 @@ export default function Header() {
     <header className="site-header-root">
       <nav className="site-header-inner" aria-label="Navegação principal">
         <Link className="site-header-brand" href="/">
-          Tupiniquim
+          Tupiniquim Conexões
         </Link>
 
         <ul className="site-header-list">
