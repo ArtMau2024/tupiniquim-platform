@@ -36,7 +36,11 @@ export async function POST(request: NextRequest) {
     const id = crypto.randomUUID();
     const text = [`Novo contato comercial | Tupiniquim Conexões`,`Identificador: ${id}`,`Nome: ${data.name}`,`Empresa/projeto: ${data.company}`,`E-mail: ${data.email}`,`Telefone: ${data.phone}`,`Interesse: ${data.interest}`,`Assunto: ${data.subject}`,`Consentimento futuro: ${body.marketingConsent === "yes" ? "Sim" : "Não"}`,"",data.message].join("\n");
     const sent = await fetch("https://api.resend.com/emails", { method: "POST", headers: { Authorization: `Bearer ${bindings.RESEND_API_KEY}`, "Content-Type": "application/json" }, body: JSON.stringify({ from: "Tupiniquim Conexões <onboarding@resend.dev>", to: [bindings.CONTACT_RECIPIENT_PRIMARY], reply_to: data.email, subject: `Novo contato | ${data.interest}`, text }) });
-    if (!sent.ok) throw new Error("Falha no serviço de e-mail");
+    if (!sent.ok) {
+      const resendBody = await sent.text();
+      console.error("contact-form-resend-error", JSON.stringify({ status: sent.status, body: resendBody.slice(0, 1200) }));
+      throw new Error(`Falha no serviço de e-mail (HTTP ${sent.status})`);
+    }
     return NextResponse.json({ message: "Mensagem recebida com sucesso. A equipe da Tupiniquim Conexões retornará em breve pelos dados informados.", id });
   } catch (error) {
     console.error("contact-form-error", error instanceof Error ? error.message : "unknown");
