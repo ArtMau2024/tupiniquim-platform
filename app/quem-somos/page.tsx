@@ -3,55 +3,55 @@ import Link from "next/link";
 export const metadata = {
   title: "Quem Somos",
   description:
-    "Conheça a Tupiniquim, uma plataforma brasileira que combina tecnologia, conteúdo e estratégia para construir soluções digitais.",
+    "Conheça a Tupiniquim Conexões, que integra marketing digital, conteúdo e tecnologia para fortalecer marcas e gerar oportunidades.",
 };
 
 const principles = [
   {
-    title: "Identidade brasileira",
+    title: "Estratégia conectada ao negócio",
     description:
-      "Criamos soluções conectadas à realidade local, com linguagem próxima, autonomia e valorização de ideias brasileiras.",
+      "Partimos dos objetivos, do público e do momento de cada empresa para definir ações digitais com direção e utilidade.",
   },
   {
-    title: "Tecnologia com propósito",
+    title: "Comunicação clara e relevante",
     description:
-      "Escolhemos tecnologias que resolvem problemas reais, sustentam o crescimento e tornam a experiência digital mais útil.",
+      "Transformamos ideias em conteúdo e experiências digitais que comunicam valor e aproximam marcas de seus públicos.",
   },
   {
-    title: "Evolução consistente",
+    title: "Tecnologia para gerar oportunidades",
     description:
-      "Construímos em etapas verificáveis, aprendendo com cada entrega e preservando uma base sólida para o próximo avanço.",
+      "Aplicamos sites, automações e soluções digitais para apoiar marketing, relacionamento e crescimento com consistência.",
   },
 ];
 
 const processSteps = [
   {
-    title: "Entender",
-    description: "Compreender o contexto, as necessidades e o resultado esperado.",
+    title: "Conhecer o cenário",
+    description: "Entendemos o negócio, o público, os desafios e as oportunidades presentes no ambiente digital.",
   },
   {
-    title: "Planejar",
-    description: "Transformar objetivos em uma sequência clara e verificável de trabalho.",
+    title: "Definir a direção",
+    description: "Organizamos prioridades e conectamos marketing, conteúdo e tecnologia aos objetivos da empresa.",
   },
   {
-    title: "Construir",
-    description: "Executar cada etapa com foco em qualidade, simplicidade e utilidade.",
+    title: "Colocar em prática",
+    description: "Desenvolvemos ações e soluções digitais com clareza, qualidade e acompanhamento do que foi combinado.",
   },
   {
-    title: "Evoluir",
-    description: "Validar o que foi entregue e avançar sem perder a coerência do projeto.",
+    title: "Analisar e evoluir",
+    description: "Observamos os resultados, identificamos aprendizados e orientamos os próximos avanços.",
   },
 ];
 
 const roadmap = [
-  "Site institucional",
-  "Blog",
-  "Plataforma Editorial",
-  "Área do Usuário",
-  "Produtos Digitais",
-  "Loja Virtual",
-  "Criador de Sites",
-  "SaaS Tupiniquim",
+  "Diagnóstico de presença digital",
+  "Posicionamento e comunicação",
+  "Conteúdo estratégico",
+  "Sites e páginas de campanha",
+  "Automação de marketing",
+  "Canais de relacionamento",
+  "Análise de oportunidades",
+  "Evolução contínua",
 ];
 
 export default function QuemSomosPage() {
@@ -60,30 +60,30 @@ export default function QuemSomosPage() {
       <section className="about-hero">
         <header className="about-hero-content">
           <p className="about-eyebrow">Quem Somos</p>
-          <h1>Tecnologia brasileira para transformar ideias em soluções digitais</h1>
+          <h1>Conexões entre estratégia, conteúdo e tecnologia para fortalecer marcas</h1>
           <p className="about-hero-description">
-            A Tupiniquim reúne tecnologia, conteúdo e estratégia para construir
-            soluções digitais com identidade brasileira e evolução sustentável.
+            A Tupiniquim Conexões ajuda empresas a comunicar melhor seu valor,
+            ampliar sua presença digital e transformar objetivos em ações práticas.
           </p>
         </header>
       </section>
 
       <section className="about-introduction">
         <div className="about-section-heading">
-          <p className="about-section-kicker">Nossa essência</p>
-          <h2>Aprender, experimentar e construir na prática</h2>
+          <p className="about-section-kicker">Nossa atuação</p>
+          <h2>Marketing e tecnologia trabalhando na mesma direção</h2>
         </div>
 
         <div className="about-introduction-content">
           <p>
-            A Tupiniquim nasce da combinação entre aprendizado, experimentação
-            e construção prática. Cada etapa transforma conhecimento em uma
-            solução útil, verificável e preparada para continuar evoluindo.
+            A Tupiniquim Conexões integra estratégia, conteúdo, presença digital
+            e tecnologia para apoiar empresas que precisam se posicionar, comunicar
+            seus diferenciais e criar novas oportunidades de relacionamento.
           </p>
           <p>
-            O projeto não se limita a um site institucional. A visão é evoluir
-            do Blog para uma plataforma completa, com publicação de conteúdo,
-            área do usuário, produtos digitais, loja virtual e criação de sites.
+            Cada trabalho parte da realidade do cliente. Organizamos prioridades,
+            desenvolvemos soluções adequadas ao momento do negócio e construímos
+            uma base digital que pode evoluir sem perder clareza ou consistência.
           </p>
         </div>
       </section>
@@ -91,7 +91,7 @@ export default function QuemSomosPage() {
       <section className="about-principles">
         <div className="about-section-heading">
           <p className="about-section-kicker">Nossos princípios</p>
-          <h2>Uma base clara para cada decisão</h2>
+          <h2>Princípios que orientam cada parceria</h2>
         </div>
 
         <div className="about-principles-grid">
@@ -109,8 +109,8 @@ export default function QuemSomosPage() {
 
       <section className="about-process">
         <div className="about-section-heading about-section-heading-light">
-          <p className="about-section-kicker">Como construímos</p>
-          <h2>Do entendimento à evolução</h2>
+          <p className="about-section-kicker">Como trabalhamos</p>
+          <h2>Da compreensão do negócio à evolução dos resultados</h2>
         </div>
 
         <ol className="about-process-list">
@@ -125,11 +125,11 @@ export default function QuemSomosPage() {
 
       <section className="about-roadmap">
         <div className="about-section-heading">
-          <p className="about-section-kicker">Visão de futuro</p>
-          <h2>Uma plataforma que cresce por etapas</h2>
+          <p className="about-section-kicker">Como podemos apoiar</p>
+          <h2>Soluções conectadas à jornada digital da sua empresa</h2>
         </div>
 
-        <div className="about-roadmap-list" aria-label="Evolução da plataforma">
+        <div className="about-roadmap-list" aria-label="Soluções para a jornada digital">
           {roadmap.map((item, index) => (
             <div className="about-roadmap-step" key={item}>
               <span>{item}</span>
@@ -145,16 +145,16 @@ export default function QuemSomosPage() {
 
       <section className="about-cta">
         <div>
-          <p className="about-section-kicker">Conteúdo e aprendizado</p>
-          <h2>Acompanhe a construção da Tupiniquim</h2>
+          <p className="about-section-kicker">Vamos conversar</p>
+          <h2>Vamos conectar sua empresa a novas oportunidades?</h2>
           <p>
-            Explore artigos sobre tecnologia, negócios, inovação e experiências
-            que fazem parte da evolução da plataforma.
+            Conte para a Tupiniquim Conexões quais são os desafios e objetivos
+            da sua empresa. Vamos identificar um próximo passo possível e coerente.
           </p>
         </div>
 
-        <Link className="about-cta-link" href="/blog">
-          Conheça o Blog Tupiniquim
+        <Link className="about-cta-link" href="/contato">
+          Falar sobre seu projeto
         </Link>
       </section>
 
