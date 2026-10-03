@@ -1,7 +1,7 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { NextRequest, NextResponse } from "next/server";
 
-type Env = { RESEND_API_KEY: string; CONTACT_RECIPIENT_PRIMARY: string; TURNSTILE_SECRET_KEY: string };
+type Env = { FORMSPREE_ENDPOINT: string; TURNSTILE_SECRET_KEY: string };
 const limits = { name: 100, company: 120, email: 254, phone: 30, interest: 80, subject: 120, message: 3000 } as const;
 const allowedInterests = new Set(["Estratégia e presença digital","Conteúdo e comunicação","Site ou página de campanha","Automação de marketing","Análise e evolução digital","Outro"]);
 const clean = (value: unknown) => typeof value === "string" ? value.trim() : "";
@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     if (!token) return NextResponse.json({ message: "Conclua a verificação de segurança." }, { status: 400 });
     const { env } = await getCloudflareContext({ async: true });
     const bindings = env as unknown as Env;
-    if (!bindings.RESEND_API_KEY || !bindings.CONTACT_RECIPIENT_PRIMARY || !bindings.TURNSTILE_SECRET_KEY) throw new Error("Configuração do serviço indisponível");
+    if (!bindings.FORMSPREE_ENDPOINT || !bindings.TURNSTILE_SECRET_KEY) throw new Error("Configuração do serviço indisponível");
 
     const verification = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams({ secret: bindings.TURNSTILE_SECRET_KEY, response: token, remoteip: request.headers.get("CF-Connecting-IP") || "" }) });
     const turnstile = await verification.json() as { success?: boolean };
@@ -35,11 +35,26 @@ export async function POST(request: NextRequest) {
 
     const id = crypto.randomUUID();
     const text = [`Novo contato comercial | Tupiniquim Conexões`,`Identificador: ${id}`,`Nome: ${data.name}`,`Empresa/projeto: ${data.company}`,`E-mail: ${data.email}`,`Telefone: ${data.phone}`,`Interesse: ${data.interest}`,`Assunto: ${data.subject}`,`Consentimento futuro: ${body.marketingConsent === "yes" ? "Sim" : "Não"}`,"",data.message].join("\n");
-    const sent = await fetch("https://api.resend.com/emails", { method: "POST", headers: { Authorization: `Bearer ${bindings.RESEND_API_KEY}`, "Content-Type": "application/json" }, body: JSON.stringify({ from: "Tupiniquim Conexões <onboarding@resend.dev>", to: [bindings.CONTACT_RECIPIENT_PRIMARY], reply_to: data.email, subject: `Novo contato | ${data.interest}`, text }) });
-    if (!sent.ok) {
-      const resendBody = await sent.text();
-      console.error("contact-form-resend-error", JSON.stringify({ status: sent.status, body: resendBody.slice(0, 1200) }));
-      throw new Error(`Falha no serviço de e-mail (HTTP ${sent.status})`);
+    const formspree = await fetch(bindings.FORMSPREE_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        name: data.name,
+        company: data.company,
+        email: data.email,
+        phone: data.phone,
+        interest: data.interest,
+        subject: data.subject,
+        message: data.message,
+        marketingConsent: body.marketingConsent === "yes" ? "Sim" : "Não",
+        requestId: id,
+        _replyto: data.email,
+      }),
+    });
+    if (!formspree.ok) {
+      const formspreeBody = await formspree.text();
+      console.error("contact-form-formspree-error", JSON.stringify({ status: formspree.status, body: formspreeBody.slice(0, 1200) }));
+      throw new Error(`Falha no serviço de formulário (HTTP ${formspree.status})`);
     }
     return NextResponse.json({ message: "Mensagem recebida com sucesso. A equipe da Tupiniquim Conexões retornará em breve pelos dados informados.", id });
   } catch (error) {
