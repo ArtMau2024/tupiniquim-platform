@@ -45,7 +45,10 @@ export default async function BlogPage() {
 
       {/* CATEGORIAS */}
       <nav className="category-nav" aria-label="Categorias do blog">
-        <span className="category-nav-title">Editorias</span>
+        <div className="category-nav-intro">
+          <span className="category-nav-title">Explore por editoria</span>
+          <p>Encontre conteúdos alinhados aos desafios e interesses do seu negócio.</p>
+        </div>
         <div className="category-list">
           <Link
             href="/blog"
@@ -249,13 +252,23 @@ export default async function BlogPage() {
         }
 
         .category-nav {
-          display: flex;
+          display: grid;
+          grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
           align-items: center;
-          gap: 24px;
-          padding: 15px 0;
-          border-bottom: 1px solid #cfcfcf;
-          overflow-x: auto;
-          white-space: nowrap;
+          gap: 28px;
+          margin: 24px 0 38px;
+          padding: 24px;
+          border: 1px solid #d9e2da;
+          border-left: 5px solid #2e7d32;
+          border-radius: 10px;
+          background: linear-gradient(135deg, #ffffff 0%, #f1f7f2 100%);
+          box-shadow: 0 12px 28px rgba(17, 58, 25, 0.08);
+        }
+        .category-nav-intro p {
+          margin: 7px 0 0;
+          color: #4d5a50;
+          font-size: 0.92rem;
+          line-height: 1.5;
         }
 
         .category-nav-title {
@@ -266,6 +279,7 @@ export default async function BlogPage() {
 
         .category-list {
           display: flex;
+          justify-content: flex-end;
           align-items: center;
         }
 
@@ -489,6 +503,11 @@ export default async function BlogPage() {
           }
         }
 
+        @media (max-width: 760px) {
+          .category-nav { grid-template-columns: 1fr; gap: 18px; }
+          .category-list { justify-content: flex-start; overflow-x: auto; padding-bottom: 4px; }
+          .category-item { flex: 0 0 auto; }
+        }
         @media (max-width: 640px) {
           .blog-commercial-cta { align-items:flex-start; flex-direction:column; }
           .blog-commercial-link { width:100%; box-sizing:border-box; text-align:center; }
