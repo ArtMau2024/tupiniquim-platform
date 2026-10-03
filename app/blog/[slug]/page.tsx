@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { generatedPosts } from "@/lib/generated-posts";
 import { findPublicEditorialPostBySlug } from "@/lib/cms/public-editorial-catalog";
@@ -160,7 +161,24 @@ export default async function PostPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: htmlContent }}
       />
 
+      <section className="post-commercial-cta">
+        <div>
+          <p className="post-category">Próximo passo</p>
+          <h2>Quer transformar este aprendizado em ação?</h2>
+          <p>Converse com a Tupiniquim Conexões sobre os objetivos, desafios e oportunidades da sua empresa.</p>
+        </div>
+        <div className="post-commercial-actions">
+          <Link href="/blog">Voltar ao Blog</Link>
+          <Link className="post-commercial-primary" href="/contato">Falar sobre seu projeto</Link>
+        </div>
+      </section>
       <style>{`
+        .post-commercial-cta { display:flex; align-items:center; justify-content:space-between; gap:28px; margin-top:48px; padding:clamp(28px,5vw,48px); background:#1b5e20; color:#fff; }
+        .post-commercial-cta h2 { margin:8px 0; font-size:clamp(1.7rem,4vw,2.7rem); }
+        .post-commercial-cta p:not(.post-category) { max-width:620px; margin:0; color:#e7e7e7; line-height:1.6; }
+        .post-commercial-actions { display:flex; flex:0 0 auto; align-items:center; gap:16px; }
+        .post-commercial-actions a { color:#fff; font-weight:800; }
+        .post-commercial-actions .post-commercial-primary { padding:13px 18px; border-radius:6px; background:#ffb300; color:#111; text-decoration:none; }
         .post-page {
           max-width: 1000px;
           margin: 0 auto;
@@ -270,6 +288,9 @@ export default async function PostPage({ params }: Props) {
           text-decoration: underline;
         }
         @media (max-width: 640px) {
+          .post-commercial-cta { align-items:flex-start; flex-direction:column; }
+          .post-commercial-actions { width:100%; align-items:flex-start; flex-direction:column; }
+          .post-commercial-primary { width:100%; box-sizing:border-box; text-align:center; }
           .post-page {
             padding: 22px 0 42px;
           }

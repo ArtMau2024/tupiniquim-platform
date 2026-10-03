@@ -7,9 +7,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Blog | Tupiniquim",
+  title: "Blog | Tupiniquim Conexões",
   description:
-    "Conteúdos sobre tecnologia, negócios e inovação da Tupiniquim.",
+    "Estratégias, ideias e experiências sobre marketing, conteúdo e tecnologia para fortalecer a presença digital das empresas.",
 };
 
 function formatDate(date: string) {
@@ -38,9 +38,9 @@ export default async function BlogPage() {
     <div className="blog-page">
       {/* HERO */}
       <section className="hero-blog">
-        <p className="hero-eyebrow">Conteúdo e informação</p>
-        <h1>Blog Tupiniquim</h1>
-        <p>Conteúdos sobre tecnologia e crescimento digital.</p>
+        <p className="hero-eyebrow">Conhecimento para transformar presença em oportunidade</p>
+        <h1>Ideias para fortalecer marcas e negócios no digital</h1>
+        <p>Estratégias, conteúdos e aprendizados práticos para empresas que desejam comunicar valor, ampliar sua presença e evoluir com tecnologia.</p>
       </section>
 
       {/* CATEGORIAS */}
@@ -195,10 +195,24 @@ export default async function BlogPage() {
         </div>
       </section>
 
+      <section className="blog-commercial-cta">
+        <div>
+          <p className="section-kicker">Transforme conhecimento em próximo passo</p>
+          <h2>Quer aplicar essas ideias na presença digital da sua empresa?</h2>
+          <p>Conte os objetivos e desafios do negócio. A Tupiniquim Conexões analisará o cenário e retornará em breve.</p>
+        </div>
+        <Link className="blog-commercial-link" href="/contato">Falar sobre seu projeto</Link>
+      </section>
       <style>{`
         .blog-page {
           width: 100%;
         }
+        .blog-commercial-cta { display:flex; align-items:center; justify-content:space-between; gap:32px; margin-top:48px; padding:clamp(32px,5vw,56px); background:#1b5e20; color:#fff; }
+        .blog-commercial-cta > div { max-width:760px; }
+        .blog-commercial-cta h2 { margin:0; font-size:clamp(1.8rem,4vw,3rem); line-height:1.05; }
+        .blog-commercial-cta p:not(.section-kicker) { margin:16px 0 0; color:#e7e7e7; line-height:1.7; }
+        .blog-commercial-link { flex:0 0 auto; padding:14px 20px; border-radius:6px; background:#ffb300; color:#111; font-weight:800; text-decoration:none; }
+
 
         .hero-blog {
           background: linear-gradient(120deg, #111, #1b5e20);
@@ -476,6 +490,8 @@ export default async function BlogPage() {
         }
 
         @media (max-width: 640px) {
+          .blog-commercial-cta { align-items:flex-start; flex-direction:column; }
+          .blog-commercial-link { width:100%; box-sizing:border-box; text-align:center; }
           .hero-blog {
             padding: 32px 22px;
           }
